@@ -225,6 +225,12 @@ function ImportTabClass:ImportTab(build)
 			urlText = UrlDecode(nested_url)
 		end
 
+		if new("MobalyticsImport"):MobalyticsImport():Matches(urlText) then
+			self.importCodeValid = true
+			self.importCodeDetail = colorCodes.POSITIVE.."URL is valid (Mobalytics)"
+			return
+		end
+
 		for j=1,#buildSites.websiteList do
 			if urlText:match(buildSites.websiteList[j].matchURL) then
 				self.controls.importCodeIn.text = urlText
@@ -314,6 +320,11 @@ function ImportTabClass:ImportTab(build)
 		return (self.build.dbFileName or self.controls.importCodeMode.selIndex == 3) and self.importCodeValid
 	end
 	self.controls.importCodeGo = new("ButtonControl"):ButtonControl({ "LEFT", self.controls.importCodeMode, "RIGHT" }, { 8, 0, 160, 20 }, "Import", function()
+		local mobalytics = new("MobalyticsImport"):MobalyticsImport()
+		if mobalytics:Matches(self.controls.importCodeIn.buf) then
+			return mobalytics:Import(self)
+		end
+
 		if self.importCodeSite and not self.importCodeXML then
 			self.importCodeFetching = true
 			local selectedWebsite = buildSites.websiteList[self.importCodeSite]
