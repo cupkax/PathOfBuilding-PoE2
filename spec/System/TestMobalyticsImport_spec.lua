@@ -111,6 +111,17 @@ describe("TestMobalyticsImport", function()
 		assert.is_true(lightningArrow.gemList[2].support)
 	end)
 
+	it("leaves the build alone when there is no usable PoB code", function()
+		local doc = assert(importer:ExtractDocument(fixtureHtml()))
+		-- This build's pobCode is null, as most are. A stub or an undecodable code must not get
+		-- as far as build:Init, which would replace the build with nothing.
+		assert.is_false(importer:ImportOfficialCode(build, doc))
+
+		doc.data.pobCode = string.rep("x", 500)
+		assert.is_false(importer:ImportOfficialCode(build, doc))
+		assert.is_not_nil(build.treeTab)
+	end)
+
 	it("sets character level from the variant's level band", function()
 		local doc = assert(importer:ExtractDocument(fixtureHtml()))
 		importer:ImportDocument(build, doc)
