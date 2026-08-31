@@ -36,12 +36,21 @@ local weaponSlotMap = {
 -- ("RuneLightning" is the Storm Rune), so it cannot be derived -- it has to be mapped by hand.
 -- Only add entries confirmed against a real page; anything missing is counted by the unresolved
 -- report rather than guessed at, so a wrong rune never lands silently.
+-- The "soulcore-" namespace also covers soul cores, abyssal eyes, idols and talismans, whose PoB
+-- names ("Xopec's Soul Core of Power") share nothing with their slugs. Those stay unmapped and
+-- get reported; the entries below are the plain runes, matched by their granted stat.
 local runeStemMap = {
 	runelightning = "Storm Rune",
 	runecold = "Glacial Rune",
 	runefire = "Desert Rune",
+	runestrength = "Robust Rune",
+	runedexterity = "Adept Rune",
+	runeintelligence = "Resolve Rune",
 }
 local runeTierMap = { lesser = "Lesser ", greater = "Greater ", perfect = "Perfect " }
+
+-- Attribute index as PassiveSpec:SwitchAttributeNode expects it.
+local attributeIndexMap = { str = 1, dex = 2, int = 3 }
 
 ---@class MobalyticsImport
 local MobalyticsImportClass = newClass("MobalyticsImport")
@@ -142,10 +151,16 @@ local function variantTitles(doc)
 end
 
 --- Mobalytics names leveling variants by level band, which is exactly the character level the
---- loadout should be costed at. "lvl 42-59" -> 59.
+--- loadout should be costed at. "lvl 42-59" -> 59. Most variants are named things like
+--- "Uber Endgame" or "100 Div Budget Setup" instead, so only trust titles that actually say
+--- "lvl"/"level" -- reading a level out of anything else sets it from a currency budget.
 local function levelFromTitle(title)
-	local _, hi = title:match("(%d+)%s*%-%s*(%d+)")
-	return tonumber(hi) or tonumber(title:match("(%d+)"))
+	local lower = title:lower()
+	if not lower:find("lvl", 1, true) and not lower:find("level", 1, true) then
+		return nil
+	end
+	local _, hi = lower:match("(%d+)%s*%-%s*(%d+)")
+	return tonumber(hi) or tonumber(lower:match("(%d+)"))
 end
 
 --- gemId keyed by lowercased grantedEffectId, which is exactly what a Mobalytics gemSlug is.
@@ -160,6 +175,22 @@ function MobalyticsImportClass:GemIndex()
 		end
 	end
 	return self.gemIndex
+end
+
+--- PoB keys its unique DB by "Title, Base Name" while Mobalytics gives just the title, sometimes
+--- with a slot qualifier ("Darkness Enthroned (gloves)"), so match on the normalised title.
+local function uniqueKey(name)
+	return (name:gsub("%s*%b()", ""):gsub("^%s+", ""):gsub("%s+$", "")):lower()
+end
+
+function MobalyticsImportClass:UniqueIndex()
+	if not self.uniqueIndex then
+		self.uniqueIndex = { }
+		for name, item in pairs(main and main.uniqueDB and main.uniqueDB.list or { }) do
+			self.uniqueIndex[uniqueKey(name:match("^(.-),") or name)] = item
+		end
+	end
+	return self.uniqueIndex
 end
 
 function MobalyticsImportClass:RuneName(slug)
@@ -199,10 +230,41 @@ function MobalyticsImportClass:ImportTree(build, variant)
 
 	build.spec:ImportFromNodeList(self.className, nil, nil, 0, hashes, weaponSets, { }, { }, latestTreeVersion)
 
-	-- ImportFromNodeList parks ids it does not recognise in allocSubgraphNodes and carries on, so
-	-- without this a tree-version bump would produce a silently half-allocated tree.
-	for _, id in ipairs(build.spec.allocSubgraphNodes or { }) do
-		self:Note("node", id)
+	-- PoE2's generic "Attribute" nodes have to be switched to the specific attribute the build
+	-- takes, the same way the character importer applies the API's skill_overrides. Skipping this
+	-- leaves them generic, which breaks pathing through them and silently strips every node beyond.
+	for _, attribute in ipairs(tree.attributeNodes or { }) do
+		local id = attribute.nodeSlug and tonumber(attribute.nodeSlug:match("^node%-(%d+)$"))
+		local attributeIndex = id and attributeIndexMap[attribute.attribute]
+		if attributeIndex then
+			build.spec:SwitchAttributeNode(id, attributeIndex)
+			local node = build.spec.nodes[id]
+			if node and build.spec.hashOverrides[id] then
+				build.spec:ReplaceNode(node, build.spec.hashOverrides[id])
+			end
+		end
+		-- "any" means the author left the node unpinned, which needs no override.
+	end
+
+	-- Mobalytics stores the nodes the author picked, not the travel nodes between them -- their
+	-- planner paths automatically. PoB drops anything it cannot reach from the class start, which
+	-- on some builds throws away all but a handful of nodes, so re-allocate the survivors through
+	-- PoB's own pathfinding, exactly as clicking a distant node in the tree would.
+	-- Weapon-set nodes are excluded: ImportFromNodeList already gave them their alloc mode, and
+	-- pathing to them would re-allocate them as permanent nodes in the main tree.
+	for _, id in ipairs(hashes) do
+		local node = build.spec.nodes[id]
+		if node and not node.alloc and not weaponSets[id] then
+			build.spec:AllocNode(node)
+		end
+	end
+
+	-- Anything we asked for that still is not allocated is a genuine miss -- a tree-version bump,
+	-- say -- and would otherwise be a silently incomplete tree.
+	for _, id in ipairs(hashes) do
+		if not build.spec.allocNodes[id] and not weaponSets[id] then
+			self:Note("node", id)
+		end
 	end
 	build.spec:AddUndoState()
 end
@@ -230,7 +292,7 @@ function MobalyticsImportClass:ImportItem(build, entry, slotName)
 	if source.isUnique then
 		-- PoB's own unique DB already holds the full item, which beats anything we could rebuild
 		-- from a mod list, so use it verbatim when the name resolves.
-		local known = main and main.uniqueDB and main.uniqueDB.list[source.name]
+		local known = self:UniqueIndex()[uniqueKey(source.name)]
 		if not known then
 			self:Note("item", source.name)
 			return
@@ -308,6 +370,12 @@ function MobalyticsImportClass:ImportSkills(build, variant)
 			t_insert(build.skillsTab.socketGroupList, group)
 			build.skillsTab:ProcessSocketGroup(group)
 		end
+	end
+	-- Without a main socket group the whole loadout reports zero DPS.
+	if #build.skillsTab.socketGroupList > 0 then
+		local guess = build.importTab and build.importTab.GuessMainSocketGroup
+			and build.importTab:GuessMainSocketGroup()
+		build.mainSocketGroup = guess or 1
 	end
 	build.skillsTab:AddUndoState()
 end
