@@ -76,12 +76,10 @@ end
 
 function MobalyticsImportClass:Report()
 	local parts = { }
-	for _, kind in ipairs({ "node", "gem", "item", "rune", "slot" }) do
-		local list = self.unresolved[kind]
-		if list then
-			t_insert(parts, #list .. " " .. kind .. (#list > 1 and "s" or ""))
-		end
+	for kind, list in pairs(self.unresolved) do
+		t_insert(parts, #list .. " " .. kind .. (#list > 1 and "s" or ""))
 	end
+	table.sort(parts)
 	return #parts > 0 and (", " .. table.concat(parts, ", ") .. " unresolved") or ""
 end
 
@@ -429,20 +427,50 @@ function MobalyticsImportClass:Import(importTab)
 	end)
 end
 
+--- Mobalytics' widget payload stores only the nodes the author picked, so a tree rebuilt from it
+--- runs about 60-100% complete. Many pages also carry a real PoB build code, which is exact --
+--- prefer it, and keep the per-variant widget loadouts alongside it as clearly-marked extras.
+function MobalyticsImportClass:ImportOfficialCode(build, doc)
+	local code = doc.data.pobCode
+	-- Some pages carry a stub rather than a real code.
+	if type(code) ~= "string" or #code < 100 then
+		return false
+	end
+	-- Check the payload before touching the build: Init on an empty string would leave the user
+	-- with nothing. Inflate is host-provided and returns "" when it is unavailable.
+	local xml = Inflate(common.base64.decode(code:gsub("-", "+"):gsub("_", "/")))
+	if not xml or not xml:match("<PathOfBuilding2") then
+		self:Note("pobCode", "could not be decoded")
+		return false
+	end
+	build:Shutdown()
+	build:Init(false, doc.data.name or "Mobalytics build", xml)
+	return true
+end
+
 function MobalyticsImportClass:Finish(importTab, html, source)
 	local doc, err = self:ExtractDocument(html)
 	if not doc then
 		importTab.importCodeDetail = colorCodes.NEGATIVE .. err
 		return
 	end
-	local count = self:ImportDocument(importTab.build, doc)
-	importTab.importCodeDetail = colorCodes.POSITIVE .. string.format("Imported %d loadout%s from %s%s",
-		count, count == 1 and "" or "s", source, self:Report())
-	importTab.build.viewMode = "TREE"
+	local build = importTab.build
+	local exact = self:ImportOfficialCode(build, doc)
+	local count = self:ImportDocument(build, doc, exact)
+
+	-- build:Init replaces the import tab, so report against whichever one is live now.
+	local tab = build.importTab or importTab
+	tab.importCodeDetail = colorCodes.POSITIVE .. string.format(
+		"Imported %s%d variant loadout%s from %s%s",
+		exact and "the Mobalytics PoB export plus " or "", count, count == 1 and "" or "s",
+		source, self:Report())
+	build.viewMode = "TREE"
 end
 
---- Translate a whole document into loadouts, one per Mobalytics build variant.
-function MobalyticsImportClass:ImportDocument(build, doc)
+--- Translate a whole document into loadouts, one per Mobalytics build variant. When `exact` is
+--- set, an authoritative PoB export is already loaded, so these reconstructed loadouts are
+--- labelled to keep the two apart.
+function MobalyticsImportClass:ImportDocument(build, doc, exact)
 	assertApi(build)
 	self.className = classNameFromTags(doc)
 	assert(self.className, "MobalyticsImport: page has no class or ascendancy tag")
@@ -451,6 +479,9 @@ function MobalyticsImportClass:ImportDocument(build, doc)
 	local titles = variantTitles(doc)
 	for index, variant in ipairs(doc.data.buildVariants.values) do
 		local title = titles[variant.id] or ("Variant " .. index)
+		if exact then
+			title = title .. " (approx)"
+		end
 		-- ponytail: always makes a fresh loadout, so a new build keeps its original empty one.
 		-- Reuse that first loadout instead if it ever gets annoying enough to be worth the API.
 		build:NewLoadout(title)
