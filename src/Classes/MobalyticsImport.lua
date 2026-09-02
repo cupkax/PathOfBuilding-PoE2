@@ -13,7 +13,13 @@
 local t_insert = table.insert
 local dkjson = require "dkjson"
 
-local MATCH_URL = "^https?://mobalytics%.gg/poe%-2/builds/[%w%-_]+"
+-- Builds live on two routes: the featured pages under /poe-2/builds/, and user pages under
+-- /poe-2/profile/<user>/builds/. Matched explicitly rather than with a looser pattern so that
+-- listing pages like /poe-2/ranger-builds are not mistaken for a build.
+local MATCH_URLS = {
+	"^https?://mobalytics%.gg/poe%-2/builds/[%w%-_]+",
+	"^https?://mobalytics%.gg/poe%-2/profile/[%w%-_]+/builds/[%w%-_]+",
+}
 
 -- Mobalytics equipment key -> PoB slot name.
 local slotMap = {
@@ -60,9 +66,17 @@ function MobalyticsImportClass:MobalyticsImport()
 	return self
 end
 
---- True if the given text is a Mobalytics PoE2 build URL.
+--- True if the given text is a Mobalytics PoE2 build URL, on either route.
 function MobalyticsImportClass:Matches(url)
-	return url ~= nil and url:match(MATCH_URL) ~= nil
+	if not url then
+		return false
+	end
+	for _, pattern in ipairs(MATCH_URLS) do
+		if url:match(pattern) then
+			return true
+		end
+	end
+	return false
 end
 
 --- Record something we could not translate. These are surfaced as a count after the import, so
@@ -115,10 +129,14 @@ function MobalyticsImportClass:ExtractDocument(html)
 	for _, query in ipairs(apollo and apollo.queries or { }) do
 		local entry = query.state and query.state.data and query.state.data[1]
 		local documents = entry and entry.game and entry.game.documents
-		local doc = documents and documents.userGeneratedDocumentBySlug
-			and documents.userGeneratedDocumentBySlug.data
-		if doc and doc.data and doc.data.buildVariants then
-			return doc
+		-- Featured pages return the build under userGeneratedDocumentBySlug, profile pages under
+		-- userGeneratedDocumentBySlugifiedName. Take whichever accessor actually holds a build
+		-- rather than naming them, so a third route does not need another edit here.
+		for _, accessor in pairs(documents or { }) do
+			local doc = type(accessor) == "table" and accessor.data
+			if doc and doc.data and doc.data.buildVariants then
+				return doc
+			end
 		end
 	end
 	return nil, "Page contained no build document"
@@ -381,11 +399,13 @@ end
 -- Cached pages live beside the user's builds, which is outside the repo, so re-importing while
 -- iterating on the mapping code costs Mobalytics nothing. Shift-click Import to force a refetch.
 local function cachePath(url)
-	local slug = url:match("/builds/([%w%-_]+)")
-	if not slug or not main or not main.buildPath then
+	-- Key on the whole path, not just the slug: the same slug can exist both as a featured build
+	-- and under a profile.
+	local path = url:match("mobalytics%.gg/poe%-2/(.+)$")
+	if not path or not main or not main.buildPath then
 		return nil
 	end
-	return main.buildPath .. "mobalytics-" .. slug .. ".html"
+	return main.buildPath .. "mobalytics-" .. path:gsub("[^%w%-_]", "-") .. ".html"
 end
 
 local function readCache(path)
