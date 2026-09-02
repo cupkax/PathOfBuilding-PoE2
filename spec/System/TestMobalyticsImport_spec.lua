@@ -3,10 +3,13 @@
 -- spec exists to tell you which upstream rebase or Mobalytics payload change broke the importer.
 describe("TestMobalyticsImport", function()
 	local FIXTURE = "../spec/System/fixtures/mobalytics_build.html"
+	local PROFILE_FIXTURE = "../spec/System/fixtures/mobalytics_profile_build.html"
 	local BUILD_URL = "https://mobalytics.gg/poe-2/builds/ice-shot-deadeye-leveling-guide"
+	local PROFILE_URL = "https://mobalytics.gg/poe-2/profile/guythatdies/builds/0-5-5-gemling-twisters"
 
-	local function fixtureHtml()
-		local file = assert(io.open(FIXTURE, "r"), "fixture missing: " .. FIXTURE)
+	local function fixtureHtml(path)
+		path = path or FIXTURE
+		local file = assert(io.open(path, "r"), "fixture missing: " .. path)
 		local html = file:read("*a")
 		file:close()
 		return html
@@ -22,9 +25,28 @@ describe("TestMobalyticsImport", function()
 	it("recognises Mobalytics build URLs and nothing else", function()
 		assert.is_true(importer:Matches(BUILD_URL))
 		assert.is_true(importer:Matches("http://mobalytics.gg/poe-2/builds/some_other-build"))
+		-- Builds also live under a user's profile.
+		assert.is_true(importer:Matches(PROFILE_URL))
 		assert.is_false(importer:Matches("https://mobalytics.gg/poe-2/ranger-builds"))
+		assert.is_false(importer:Matches("https://mobalytics.gg/poe-2/profile/guythatdies"))
 		assert.is_false(importer:Matches("https://pobb.in/abcdef"))
 		assert.is_false(importer:Matches(""))
+	end)
+
+	it("reads a build from a profile page, which uses a different accessor", function()
+		local doc = assert(importer:ExtractDocument(fixtureHtml(PROFILE_FIXTURE)))
+		assert.are.equal(2, #doc.data.buildVariants.values)
+
+		assert.are.equal(2, importer:ImportDocument(build, doc))
+		assert.are.equal("Mercenary", build.spec.curClassName)
+		assert.are.equal("Gemling Legionnaire", build.spec.curAscendClassName)
+
+		local titles = { }
+		for _, spec in ipairs(build.treeTab.specList) do
+			titles[spec.title or ""] = true
+		end
+		assert.is_true(titles["Early Endgame"])
+		assert.is_true(titles["Taming Swap"])
 	end)
 
 	it("extracts the build document from the page payload", function()
