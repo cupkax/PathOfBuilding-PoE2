@@ -476,15 +476,37 @@ function MobalyticsImportClass:Import(importTab)
 		return
 	end
 	importTab.importCodeFetching = true
+	-- Mobalytics sits behind Cloudflare, which scores requests partly on how little they look like
+	-- a browser. PoB otherwise sends a bare User-Agent and nothing else; these are the headers any
+	-- normal client would send. It raises the score rather than guaranteeing anything -- the
+	-- blocking is rate-based, so the same request can pass and then fail minutes later.
+	local headers = table.concat({
+		"Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+		"Accept-Language: en-US,en;q=0.9",
+	}, "\r\n")
 	launch:DownloadPage(url, function(response, errMsg)
 		importTab.importCodeFetching = false
 		if errMsg then
 			importTab.importCodeDetail = colorCodes.NEGATIVE .. "Mobalytics fetch failed: " .. errMsg
+				.. (errMsg:match("403") and self:CloudflareHint(path) or "")
 			return
 		end
 		writeCache(path, response.body)
 		self:Finish(importTab, response.body, "page")
-	end)
+	end, { header = headers })
+end
+
+--- A 403 here is Cloudflare rate-limiting rather than anything wrong with the build or the URL,
+--- so say what actually helps: wait, or hand the importer a page saved from the browser. The
+--- cache is read before any fetch, so a file dropped at that path imports without touching
+--- the network at all.
+function MobalyticsImportClass:CloudflareHint(path)
+	if not path then
+		return " (Cloudflare). Wait a minute and press Import again."
+	end
+	ConPrintf("MobalyticsImport: blocked by Cloudflare. Save the page from your browser to:\n%s", path)
+	return " (Cloudflare). Wait a minute and press Import again, or save the page from your browser as "
+		.. (path:match("([^/\\]+)$") or path) .. " in your Builds folder."
 end
 
 --- Mobalytics' widget payload stores only the nodes the author picked, so a tree rebuilt from it
