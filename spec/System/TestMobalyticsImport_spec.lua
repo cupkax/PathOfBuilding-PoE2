@@ -133,6 +133,30 @@ describe("TestMobalyticsImport", function()
 		assert.is_true(lightningArrow.gemList[2].support)
 	end)
 
+	it("takes rune names from the page rather than guessing them", function()
+		-- Mobalytics renders an inline rune mention as a static-data widget carrying both the slug
+		-- and the display name. Quotes arrive backslash-escaped because it sits in a JS string.
+		local page = [[<script>window.__PRELOADED_STATE__={} ;</script>]]
+			.. [[{\"iconStyle\":\"square-rounded\",\"id\":\"soulcore-runeenhance\",]]
+			.. [[\"isShowLabel\":true,\"label\":\"Iron Rune\",\"type\":\"static-data-widget\"}]]
+		importer:HarvestRuneLabels(page)
+
+		assert.are.equal("Iron Rune", importer.runeLabels["soulcore-runeenhance"])
+		-- The stated name wins, and tiers of it are derived from that name.
+		assert.are.equal("Iron Rune", importer:RuneName("soulcore-runeenhance"))
+		assert.are.equal("Greater Iron Rune", importer:RuneName("soulcore-runeenhancegreater"))
+		-- The hand-written stem map still backs up anything the page never mentions.
+		assert.are.equal("Lesser Storm Rune", importer:RuneName("soulcore-runelightninglesser"))
+		-- Unknown slugs stay nil so they get reported rather than silently mis-applied.
+		assert.is_nil(importer:RuneName("soulcore-runespecial9"))
+	end)
+
+	it("never returns a rune name PoB does not know", function()
+		importer:HarvestRuneLabels([[{\"id\":\"soulcore-madeup\",\"label\":\"Not A Real Rune\"}]])
+		assert.are.equal("Not A Real Rune", importer.runeLabels["soulcore-madeup"])
+		assert.is_nil(importer:RuneName("soulcore-madeup"))
+	end)
+
 	it("leaves the build alone when there is no usable PoB code", function()
 		local doc = assert(importer:ExtractDocument(fixtureHtml()))
 		-- This build's pobCode is null, as most are. A stub or an undecodable code must not get

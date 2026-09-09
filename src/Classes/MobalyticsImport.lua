@@ -112,10 +112,30 @@ local function assertApi(build)
 	assert(type(data.gems) == "table", "MobalyticsImport: data.gems is missing (upstream API changed)")
 end
 
+--- Rune slugs are opaque, but where an author mentions a rune in the article body Mobalytics
+--- renders it as a static-data widget carrying both the slug and its display name:
+---   "id":"soulcore-runeenhance","isShowLabel":true,"label":"Iron Rune"
+--- Harvesting those beats hand-maintaining a table: the names come from Mobalytics itself, so
+--- they cannot drift, and nothing has to be guessed from a stem like "runeenhance" (which is the
+--- Iron Rune, not anything the name suggests). It only covers runes the author wrote about, so
+--- the hand-written stem map below still backs it up.
+function MobalyticsImportClass:HarvestRuneLabels(html)
+	self.runeLabels = { }
+	-- The payload is embedded in a JS string, so its quotes arrive backslash-escaped.
+	local plain = html:gsub("\\", "")
+	for slug, between, label in plain:gmatch('"id":"(soulcore%-%w+)"(.-)"label":"([^"]+)"') do
+		-- Reject a match that ran past the next widget, which would pair the wrong two fields.
+		if not between:find('"id":"', 1, true) and not self.runeLabels[slug] then
+			self.runeLabels[slug] = label
+		end
+	end
+end
+
 --- Pull the SSR payload out of the build page and return the user-generated build document.
 --- Mobalytics escapes forward slashes in this blob, so no "</script>" can appear inside a JSON
 --- string and scanning to the closing script tag is safe.
 function MobalyticsImportClass:ExtractDocument(html)
+	self:HarvestRuneLabels(html)
 	local blob = html:match("window%.__PRELOADED_STATE__%s*=%s*(.-)</script>")
 	if not blob then
 		return nil, "No build data in page (Cloudflare challenge, or Mobalytics changed their page)"
@@ -209,15 +229,35 @@ function MobalyticsImportClass:UniqueIndex()
 	return self.uniqueIndex
 end
 
+--- Only ever return a name PoB actually knows, so a stale label or a bad guess is reported as
+--- unresolved instead of being written onto an item as a rune that does not exist.
+local function knownRune(name)
+	return name and data.itemMods and data.itemMods.Runes and data.itemMods.Runes[name] and name or nil
+end
+
 function MobalyticsImportClass:RuneName(slug)
+	local labels = self.runeLabels or { }
+	-- A name the page stated outright beats anything inferred.
+	local named = knownRune(labels[slug])
+	if named then
+		return named
+	end
 	local stem = slug:match("^soulcore%-(.+)$") or slug
 	for tier, prefix in pairs(runeTierMap) do
 		local base = stem:match("^(.-)" .. tier .. "$")
-		if base and runeStemMap[base] then
-			return prefix .. runeStemMap[base]
+		if base then
+			-- A tiered slug whose base tier the page named, e.g. "runeenhancegreater" once
+			-- "runeenhance" is known to be the Iron Rune.
+			local fromLabel = knownRune(labels["soulcore-" .. base] and prefix .. labels["soulcore-" .. base])
+			if fromLabel then
+				return fromLabel
+			end
+			if runeStemMap[base] then
+				return knownRune(prefix .. runeStemMap[base])
+			end
 		end
 	end
-	return runeStemMap[stem]
+	return knownRune(runeStemMap[stem])
 end
 
 function MobalyticsImportClass:ImportTree(build, variant)
