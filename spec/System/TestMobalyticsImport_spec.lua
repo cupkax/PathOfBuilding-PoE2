@@ -62,16 +62,42 @@ describe("TestMobalyticsImport", function()
 		assert.is_not_nil(err)
 	end)
 
-	it("creates one loadout per build variant, named after the variant", function()
+	it("creates one loadout per build variant, in the order the page lists them", function()
 		local doc = assert(importer:ExtractDocument(fixtureHtml()))
 		assert.are.equal(2, importer:ImportDocument(build, doc))
 
-		local titles = { }
-		for _, spec in ipairs(build.treeTab.specList) do
-			titles[spec.title or ""] = true
+		-- Two variants means exactly two loadouts: the empty one the build started with is
+		-- reused, not left behind as an unexplained "Default".
+		assert.are.equal(2, #build.treeTab.specList)
+		-- Order follows the content-variants widget, which is the order the reader sees.
+		assert.are.equal("lvl 1-14", build.treeTab.specList[1].title)
+		assert.are.equal("lvl 15-23", build.treeTab.specList[2].title)
+	end)
+
+	it("names every set of a loadout so it does not show up as Default", function()
+		local doc = assert(importer:ExtractDocument(fixtureHtml()))
+		importer:ImportDocument(build, doc)
+
+		local function titleOf(sets, orderList, index)
+			local id = orderList[index]
+			return id and sets[id] and sets[id].title
 		end
-		assert.is_true(titles["lvl 1-14"])
-		assert.is_true(titles["lvl 15-23"])
+		-- SyncLoadouts only groups the four sets into one loadout when their titles match.
+		assert.are.equal("lvl 1-14", titleOf(build.itemsTab.itemSets, build.itemsTab.itemSetOrderList, 1))
+		assert.are.equal("lvl 1-14", titleOf(build.skillsTab.skillSets, build.skillsTab.skillSetOrderList, 1))
+		assert.are.equal("lvl 1-14", titleOf(build.configTab.configSets, build.configTab.configSetOrderList, 1))
+	end)
+
+	it("keeps braces in a variant title from hijacking the loadout list", function()
+		local doc = assert(importer:ExtractDocument(fixtureHtml()))
+		-- Mobalytics authors decorate variant names like "Act 1 {1}". PoB reads "{n}" in a set
+		-- title as a linked-loadout directive, which pulls those loadouts to the end of the list
+		-- and rebuilds their names, so the braces have to go.
+		doc.content[1].data.childrenVariants[1].title = "Act 1 {1}"
+		importer:ImportDocument(build, doc)
+
+		assert.are.equal("Act 1 (1)", build.treeTab.specList[1].title)
+		assert.is_nil(build.treeTab.specList[1].title:match("%{"))
 	end)
 
 	it("resolves every node, gem and item in the fixture", function()

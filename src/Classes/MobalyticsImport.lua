@@ -175,15 +175,72 @@ local function classNameFromTags(doc)
 	return ascendName or className
 end
 
---- Variant id -> display title ("lvl 15-23"), taken from the content-variants widget.
-local function variantTitles(doc)
-	local titles = { }
+--- PoB reads "{n}" in a set title as a linked-loadout directive: it pulls those loadouts out of
+--- the normal list, appends them at the end, and rebuilds their names from the braces. Mobalytics
+--- authors use the same braces as plain decoration ("Act 1 {1}"), which silently reorders and
+--- renames half the loadouts, so turn them into parentheses.
+local function safeTitle(title)
+	return (title:gsub("%{([%w,]+)%}", "(%1)"))
+end
+
+--- Variants in the order the page shows its tabs. buildVariants.values is storage order, which
+--- does not necessarily match the content-variants widget -- and the widget is what the reader
+--- sees, so it is the order the loadouts should follow.
+local function orderedVariants(doc)
+	local byId = { }
+	for _, variant in ipairs(doc.data.buildVariants.values) do
+		byId[variant.id] = variant
+	end
+	local ordered, seen = { }, { }
 	for _, block in ipairs(doc.content or { }) do
-		for _, variant in ipairs(block.data and block.data.childrenVariants or { }) do
-			titles[variant.id] = variant.title
+		for _, entry in ipairs(block.data and block.data.childrenVariants or { }) do
+			if byId[entry.id] and not seen[entry.id] then
+				seen[entry.id] = true
+				t_insert(ordered, { variant = byId[entry.id], title = entry.title })
+			end
 		end
 	end
-	return titles
+	-- A variant the widget never listed still gets imported, after the ones it did.
+	for _, variant in ipairs(doc.data.buildVariants.values) do
+		if not seen[variant.id] then
+			t_insert(ordered, { variant = variant })
+		end
+	end
+	return ordered
+end
+
+--- Name all four sets of a loadout the same thing. SyncLoadouts only groups them into a single
+--- loadout when the titles match, and an untitled one shows up as a bare "Default".
+local function nameLoadout(build, index, name)
+	local spec = build.treeTab.specList[index]
+	if spec then
+		spec.title = name
+	end
+	local sets = {
+		{ build.itemsTab.itemSets, build.itemsTab.itemSetOrderList },
+		{ build.skillsTab.skillSets, build.skillsTab.skillSetOrderList },
+		{ build.configTab.configSets, build.configTab.configSetOrderList },
+	}
+	for _, entry in ipairs(sets) do
+		local id = entry[2] and entry[2][index]
+		local set = id and entry[1][id]
+		if set then
+			set.title = name
+		end
+	end
+end
+
+--- True when the build is still the empty one a fresh import starts from, so its single loadout
+--- can be reused rather than left behind as an unexplained "Default".
+local function isPristine(build)
+	if #build.treeTab.specList ~= 1 or build.treeTab.specList[1].title then
+		return false
+	end
+	local allocated = 0
+	for _ in pairs(build.treeTab.specList[1].allocNodes or { }) do
+		allocated = allocated + 1
+	end
+	return allocated <= 1 and #build.skillsTab.socketGroupList == 0
 end
 
 --- Mobalytics names leveling variants by level band, which is exactly the character level the
@@ -557,19 +614,33 @@ function MobalyticsImportClass:ImportDocument(build, doc, exact)
 	self.className = classNameFromTags(doc)
 	assert(self.className, "MobalyticsImport: page has no class or ascendancy tag")
 
+	-- An authoritative export arrives with its specs untitled, which reads as a meaningless
+	-- "Default" in the loadout list even though it is the most trustworthy loadout in the build.
+	if exact then
+		for index, spec in ipairs(build.treeTab.specList) do
+			if not spec.title then
+				nameLoadout(build, index, "Mobalytics PoB export"
+					.. (index > 1 and (" " .. index) or ""))
+			end
+		end
+	end
+
 	local count = 0
-	local titles = variantTitles(doc)
-	for index, variant in ipairs(doc.data.buildVariants.values) do
-		local title = titles[variant.id] or ("Variant " .. index)
+	local reuseFirst = not exact and isPristine(build)
+	for index, entry in ipairs(orderedVariants(doc)) do
+		local title = safeTitle(entry.title or ("Variant " .. index))
 		if exact then
 			title = title .. " (approx)"
 		end
-		-- ponytail: always makes a fresh loadout, so a new build keeps its original empty one.
-		-- Reuse that first loadout instead if it ever gets annoying enough to be worth the API.
-		build:NewLoadout(title)
-		self:ImportTree(build, variant)
-		self:ImportItems(build, variant)
-		self:ImportSkills(build, variant)
+		if index == 1 and reuseFirst then
+			-- Import into the empty loadout the build started with rather than stranding it.
+			nameLoadout(build, 1, title)
+		else
+			build:NewLoadout(title)
+		end
+		self:ImportTree(build, entry.variant)
+		self:ImportItems(build, entry.variant)
+		self:ImportSkills(build, entry.variant)
 		local level = levelFromTitle(title)
 		if level then
 			build.characterLevel = level
@@ -578,6 +649,8 @@ function MobalyticsImportClass:ImportDocument(build, doc, exact)
 		end
 		count = count + 1
 	end
+	-- Renaming sets directly bypasses NewLoadout, so refresh the dropdown from the final state.
+	build:SyncLoadouts()
 	build.buildFlag = true
 	return count
 end
