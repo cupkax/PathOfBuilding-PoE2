@@ -182,6 +182,9 @@ return function(mod, flag, skill)
 	mod("LifeReservePercentPerSpirit", "BASE", nil),
 	div = 100,
 },
+["display_skill_reserves_in_all_weapon_sets"] = {
+	skill("reservesInAllWeaponSets", true),
+},
 ["base_skill_cost_life_instead_of_mana"] = {
 	flag("CostLifeInsteadOfMana"),
 },
@@ -654,7 +657,7 @@ return function(mod, flag, skill)
 	mod("AreaOfEffect", "MORE", nil, 0, 0, { type = "Condition", var = "CastOnFrostbolt" }),
 },
 ["active_skill_area_of_effect_radius_+%_final"] = {
-	mod("AreaOfEffect", "MORE", nil),
+	mod("AreaOfEffectRadius", "MORE", nil),
 },
 ["active_skill_area_of_effect_+%_final"] = {
 	mod("AreaOfEffect", "MORE", nil),
@@ -1787,6 +1790,10 @@ return function(mod, flag, skill)
 },
 ["gain_energy_shield_cost_equal_to_intelligence"] = {
 	mod("ESCostNoMult", "BASE", nil, 0, 0, { type = "PercentStat", stat = "Int", percent = 100 }),
+},
+["base_skill_ward_cost_as_%_of_life_and_mana_cost"] = {
+	mod("WardCostAsPercentOfManaCost", "BASE", nil),
+	mod("WardCostAsPercentOfLifeCost", "BASE", nil),
 },
 -- Projectiles
 ["skill_can_fire_arrows"] = {
@@ -2940,6 +2947,7 @@ return function(mod, flag, skill)
 },
 ["gain_x_rage_on_melee_hit"] = {
 	flag("Condition:CanGainRage", { type = "GlobalEffect", effectType = "Buff", effectName = "Rage" } ),
+	mod("MinionModifier", "LIST", { mod = flag("Condition:CanGainRage") }),
 },
 ["gain_x%_of_maximum_rage_on_melee_hit"] = {
 	flag("Condition:CanGainRage", { type = "GlobalEffect", effectType = "Buff", effectName = "Rage" } ),

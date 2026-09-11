@@ -15,6 +15,18 @@ describe("TestItemParse", function()
 		assert.are.equals("UNIQUE", item.rarity)
 	end)
 
+	it("ignores display-only Spear Throw grants without affecting levelled item skills", function()
+		for _, line in ipairs({ "Grants Skill: Spear Throw", "grants skill: spear throw" }) do
+			local mods, extra = modLib.parseMod(line)
+			assert.are.same({ }, mods)
+			assert.is_nil(extra)
+		end
+		local item = new("Item"):Item(raw("Grants Skill: Spear Throw\nGrants Skill: Level 5 Fireball", "Hardwood Spear"))
+		assert.are.equals(1, #item.grantedSkills)
+		assert.are.equals("FireballPlayer", item.grantedSkills[1].skillId)
+		assert.are.equals(5, item.grantedSkills[1].level)
+	end)
+
 	--it("Defence", function()
 	--	local item = new("Item"):Item(raw("Armour: 25"))
 	--	assert.are.equals(25, item.armourData.Armour)
@@ -25,6 +37,13 @@ describe("TestItemParse", function()
 	--	item = new("Item"):Item(raw("Ward: 180", "Runic Crown"))
 	--	assert.are.equals(180, item.armourData.Ward)
 	--end)
+
+	it("Ward defence", function()
+		local item = new("Item"):Item(raw("Ward: 180", "Runic Crown"))
+		assert.are.equals(180, item.armourData.Ward)
+		item = new("Item"):Item(raw("Runic Ward: 180", "Runic Crown"))
+		assert.are.equals(180, item.armourData.Ward)
+	end)
 
 	it("Title", function()
 		local item = new("Item"):Item([[
@@ -213,8 +232,7 @@ describe("TestItemParse", function()
 		assert.are.equals(2, #item.implicitModLines)
 		assert.are.equals("Bleeding you inflict deals Damage 11% faster", item.implicitModLines[1].line)
 		assert.are.equals("Grants Skill: Spear Throw", item.implicitModLines[2].line)
-		assert.are.equals(1, #item.grantedSkills)
-		assert.are.equals("SpearThrowPlayer", item.grantedSkills[1].skillId)
+		assert.are.equals(0, #item.grantedSkills)
 		assert.are.equals("Adds 39 to 62 Fire Damage", item.explicitModLines[1].line)
 
 		assert.are.equals("Grants Skill: Level (1-20) Volatile Dead", data.itemBases["Volatile Wand"].implicit)
@@ -373,6 +391,11 @@ describe("TestItemParse", function()
 	it("Note", function()
 		local item = new("Item"):Item(raw("Note: ~price 1 chaos"))
 		assert.are.equals("~price 1 chaos", item.note)
+	end)
+
+	it("ignores disabled modifiers in item conditions", function()
+		local item = new("Item"):Item(raw("{disabled}+100 to maximum Life"))
+		assert.is_false(item:FindModifierSubstring("life", "body armour"))
 	end)
 
 	it("Rune level requirements", function()
@@ -611,16 +634,16 @@ describe("TestItemParse", function()
 			Rune: Soul Core of Atmohua
 			LevelReq: 79
 			Implicits: 4
-			{enchant}{rune}Convert 20% of Requirements to Dexterity
-			{enchant}{rune}Convert 20% of Requirements to Intelligence
-			{enchant}{rune}Convert 20% of Requirements to Strength
+			{enchant}{rune}Convert 40% of Requirements to Dexterity
+			{enchant}{rune}Convert 40% of Requirements to Intelligence
+			{enchant}{rune}Convert 40% of Requirements to Strength
 			{tags:block}{range:1}+(10-15)% to Block chance
 			Corrupted
 			]])
 		item:BuildAndParseRaw()
-		assert.are.equals(35, item.requirements.strMod)
-		assert.are.equals(86, item.requirements.dexMod)
-		assert.are.equals(55, item.requirements.intMod)	
+		assert.are.equals(70, item.requirements.strMod)
+		assert.are.equals(45, item.requirements.dexMod)
+		assert.are.equals(60, item.requirements.intMod)
 		
 	end)
 
@@ -659,10 +682,15 @@ describe("TestItemParse", function()
 
 		assert.are.equals(3, item.itemSocketCount)
 		assert.are.same({ "Greater Glacial Rune", "Lesser Body Rune" }, item.runes)
-		assert.are.equals(1, item.runeModLines[1].runeCount)
-		assert.are.equals(1, item.runeModLines[2].runeCount)
-		assert.is_nil(item.runeModLines[3].runeCount)
-		assert.is_nil(item.runeModLines[4].runeCount)
+		local runeLines = { }
+		for _, modLine in ipairs(item.runeModLines) do
+			runeLines[modLine.line] = true
+		end
+		assert.are.equals(4, #item.runeModLines)
+		assert.is_true(runeLines["Adds 9 to 15 Cold Damage"])
+		assert.is_true(runeLines["Leeches 3% of Physical Damage as Life"])
+		assert.is_true(runeLines["Bonded: 5% increased maximum Life"])
+		assert.is_true(runeLines["Bonded: 30% increased Freeze Buildup"])
 		for _, rune in ipairs(item.runes) do
 			assert.are_not.equals("Lesser Glacial Rune", rune)
 		end
@@ -682,6 +710,8 @@ describe("TestItemParse", function()
 		assert.are.equals("+30 to maximum Life", item.runeModLines[1].line)
 		assert.are.equals("Bonded: +20 to maximum Life", item.runeModLines[2].line)
 		assert.are.equals("Bonded: +20 to maximum Mana", item.runeModLines[3].line)
+		assert.are.equals("Life", item.runeModLines[2].modList[1].name)
+		assert.are.equals("Mana", item.runeModLines[3].modList[1].name)
 	end)
 
 	it("applies increased effect of socketed runes", function()
@@ -984,7 +1014,7 @@ describe("TestItemParse", function()
 
 	it("parses Atziri's Splendour soul core socket types", function()
 		local item = new("Item"):Item(data.uniques.body[1])
-		item.variant = 1 -- Helmet
+		item.variantGroupSelections[1] = 1 -- Helmet
 		item:BuildModList()
 
 		assert.is_true(item.socketedSoulCoreTypes["helmet"])
@@ -1024,7 +1054,7 @@ describe("TestItemParse", function()
 			--------
 			Item Level: 86
 			--------
-			Hits against you have 40% reduced Critical Damage Bonus (rune)
+			Hits against you have 100% reduced Critical Damage Bonus (rune)
 			--------
 			Only Soul Cores can be Socketed in this item
 			This item gains bonuses from Socketed Soul Cores as though it was also a Shield
@@ -1033,7 +1063,7 @@ describe("TestItemParse", function()
 		assert.are.same({ "Soul Core of Ticaba" }, item.runes)
 		item:BuildAndParseRaw()
 		assert.are.same({ "Soul Core of Ticaba", "None", "None", "None", "None", "None" }, item.runes)
-		assert.are.equals("Hits against you have 40% reduced Critical Damage Bonus", item.runeModLines[1].line)
+		assert.are.equals("Hits against you have 100% reduced Critical Damage Bonus", item.runeModLines[1].line)
 	end)
 
 	it("infers pasted Soul Core lines with socketed Soul Core effect", function()
@@ -1045,7 +1075,7 @@ describe("TestItemParse", function()
 			--------
 			Sockets: S
 			--------
-			Hits against you have 40% reduced Critical Damage Bonus (rune)
+			Hits against you have 100% reduced Critical Damage Bonus (rune)
 			--------
 			100% increased effect of Socketed Soul Cores
 		]])
@@ -1053,7 +1083,7 @@ describe("TestItemParse", function()
 		assert.are.same({ "Soul Core of Ticaba" }, item.runes)
 		item:BuildAndParseRaw()
 		assert.are.same({ "Soul Core of Ticaba" }, item.runes)
-		assert.is_not_nil(item:BuildRaw():match("Hits against you have 40%% reduced Critical Damage Bonus"))
+		assert.is_not_nil(item:BuildRaw():match("Hits against you have 100%% reduced Critical Damage Bonus"))
 	end)
 
 	it("jewel sockets", function()
@@ -1102,7 +1132,7 @@ describe("TestAdvancedItemParse #item", function()
 		]], "Ancestral Tiara"))
 		assert.are.equals("LocalIncreasedEnergyShieldAndLife4", item.prefixes[1].modId)
 		assert.are.equals(0, item.prefixes[1].range)
-		assert.are.equals(0.833, item.explicitModLines[2].range)
+		assert.are.equals(0.833333, item.explicitModLines[2].range)
 	end)
 
 	it("resets linePrefix", function() 
@@ -1257,6 +1287,91 @@ describe("TestAdvancedItemParse #item", function()
 			Note: ~b/o 2 chaos
 		]])
 	end)
+
+	it("preserves independently rolled affix values when crafting", function()
+		local item = new("Item"):Item(raw([[
+			{ Fractured Prefix Modifier "Frigid" (Tier: 4) — Damage, Elemental, Cold, Attack }
+			Adds 7(7-8) to 14(12-14) Cold damage to Attacks
+		]], "Refined Bracers"))
+
+		assert.are.equals("AddedColdDamage4", item.prefixes[1].modId)
+		assert.are.same({ 0, 1 }, item.prefixes[1].range)
+		assert.is_true(item.prefixes[1].fractured)
+		item:Craft()
+		assert.are.equals("Adds 7 to 14 Cold damage to Attacks", item.explicitModLines[1].line)
+		assert.is_true(item.explicitModLines[1].fractured)
+	end)
+
+	it("parses fixed advanced-copy values from a legacy Prism Guardian", function()
+		local item = new("Item"):Item([[
+			Rarity: Unique
+			Prism Guardian
+			Sectarian Crest Shield
+			{ Unique Modifier }
+			+1 to Maximum Spirit per 25(50) Maximum Life
+		]])
+
+		assert.are.equals("+1 to Maximum Spirit per 25 Maximum Life", item.explicitModLines[1].line)
+	end)
+
+	it("preserves a Heroic Tragedy seed and selected commander", function()
+		local item = new("Item"):Item([[
+			Rarity: Unique
+			Heroic Tragedy
+			Timeless Jewel
+			{ Unique Modifier }
+			Remembrancing 7321(100-8000) songworthy deeds by the line of Vorana(Vorana-Olroth)
+		]])
+
+		assert.are.equals("Remembrancing 7321 songworthy deeds by the line of Vorana",
+			itemLib.applyRange(item.explicitModLines[1].line, item.explicitModLines[1].range))
+		item:BuildAndParseRaw()
+		assert.are.equals("Remembrancing 7321 songworthy deeds by the line of Vorana",
+			itemLib.applyRange(item.explicitModLines[1].line, item.explicitModLines[1].range))
+	end)
+
+	it("orders advanced-copy unique modifiers by database stat order", function()
+		local item = new("Item"):Item([[
+			Rarity: Unique
+			Evergrasping Ring
+			Pearl Ring
+			{ Implicit Modifier — Caster, Speed }
+			8(7-10)% increased Cast Speed
+			{ Unique Modifier — Chaos }
+			Enemies in your Presence Gain 8(6-12)% of Damage as Extra Chaos Damage
+			{ Unique Modifier — Chaos }
+			Allies in your Presence Gain 22(15-25)% of Damage as Extra Chaos Damage
+			{ Unique Modifier — Mana }
+			+91(60-100) to maximum Mana
+		]])
+
+		assert.are.same({
+			"+(60-100) to maximum Mana",
+			"Allies in your Presence Gain (15-25)% of Damage as Extra Chaos Damage",
+			"Enemies in your Presence Gain (6-12)% of Damage as Extra Chaos Damage",
+		}, {
+			item.explicitModLines[1].line,
+			item.explicitModLines[2].line,
+			item.explicitModLines[3].line,
+		})
+	end)
+
+	it("filters flask state and base-property lines", function()
+		local item = new("Item"):Item([[
+			Rarity: Unique
+			Opportunity
+			Ultimate Life Flask
+			Recovers 2061 (augmented) Life over 4.20 Seconds
+			Consumes 4 (augmented) of 75 Charges on use
+			Currently has 0 Charges
+			{ Unique Modifier }
+			Cannot be Used manually
+		]])
+
+		assert.are.equals(1, #item.explicitModLines)
+		assert.are.equals("Cannot be Used manually", item.explicitModLines[1].line)
+	end)
+
 	describe("mod magnitude scaling", function()
 		before_each(function()
 			newBuild()
@@ -1294,6 +1409,18 @@ describe("TestAdvancedItemParse #item", function()
 			build.itemsTab:AddDisplayItem()
 			runCallback("OnFrame")
 			assert.are.equals(221, chaosDamageInc())
+		end)
+
+		it("does not apply disabled modifier magnitude", function()
+			local item = new("Item"):Item([[
+			Rarity: UNIQUE
+			Magnitude Test
+			Arcane Raiment
+			Implicits: 1
+			{range:0.5}+(10-20) to maximum Life
+			{disabled}100% increased Implicit Modifier magnitudes
+		]])
+			assert.are.equals(1, item.implicitModLines[1].valueScalar)
 		end)
 
 		it("scales properly using old Eyes of the Greatwolf line", function()

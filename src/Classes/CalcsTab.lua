@@ -39,21 +39,22 @@ function CalcsTabClass:CalcsTab(build)
 	t_insert(self.controls, self.controls.search)
 
 	-- Special section for skill/mode selection
-	self:NewSection(3, "SkillSelect", 1, colorCodes.NORMAL, {{ defaultCollapsed = false, label = "View Skill Details", data = {
-		{ label = "Socket Group", { controlName = "mainSocketGroup", 
-					control = new("DropDownControl"):DropDownControl(nil, { 0, 0, 300, 16 }, nil, function(index, value)
-				self.input.skill_number = index
-				self:AddUndoState()
-				self.build.buildFlag = true
-			end) {
-				tooltipFunc = function(tooltip, mode, index, value)
-					local socketGroup = self.build.skillsTab.socketGroupList[index]
-					if socketGroup and tooltip:CheckForUpdate(socketGroup, self.build.outputRevision) then
-						self.build.skillsTab:AddSocketGroupTooltip(tooltip, socketGroup)
-					end
+	self.socketGroupRow = { label = "Socket Group: Both", { controlName = "mainSocketGroup",
+		control = new("DropDownControl"):DropDownControl(nil, { 0, 0, 300, 16 }, nil, function(index, value)
+			self.input.skill_number = index
+			self:AddUndoState()
+			self.build.buildFlag = true
+		end) {
+			tooltipFunc = function(tooltip, mode, index, value)
+				local socketGroup = self.build.skillsTab.socketGroupList[index]
+				if socketGroup and tooltip:CheckForUpdate(socketGroup, self.build.outputRevision) then
+					self.build.skillsTab:AddSocketGroupTooltip(tooltip, socketGroup)
 				end
-			}
-		}, },
+			end
+		}
+	} }
+	self:NewSection(3, "SkillSelect", 1, colorCodes.NORMAL, {{ defaultCollapsed = false, label = "View Skill Details", data = {
+		self.socketGroupRow,
 		{ label = "Active Skill", { controlName = "mainSkill", 
 					control = new("DropDownControl"):DropDownControl(nil, { 0, 0, 300, 16 }, nil, function(index, value)
 				local mainSocketGroup = self.build.skillsTab.socketGroupList[self.input.skill_number]
@@ -237,7 +238,7 @@ function CalcsTabClass:Load(xml, dbFileName)
 end
 
 function CalcsTabClass:Save(xml)
-	for k, v in pairs(self.input) do
+	for k, v in pairsSortByKey(self.input) do
 		local child = { elem = "Input", attrib = {name = k} }
 		if type(v) == "number" then
 			child.attrib.number = tostring(v)
@@ -274,7 +275,7 @@ function CalcsTabClass:Draw(viewPort, inputEvents)
 	local maxY = 0
 	for _, section in ipairs(self.sectionList) do
 		section:UpdateSize()
-		if section.enabled then
+		if section.enabled and not section.isOverlay then
 			local col
 			if section.group == 1 then
 				-- Group 1: Offense or 3 wide sections
@@ -323,7 +324,7 @@ function CalcsTabClass:Draw(viewPort, inputEvents)
 			colY[c] = m_max(colY[1], colY[2], colY[3])
 		end
 		for _, section in ipairs(self.sectionList) do
-			if section.enabled and (main.portraitMode and section.group == 2 or section.group == 3) then
+			if section.enabled and not section.isOverlay and (main.portraitMode and section.group == 2 or section.group == 3) then
 				local col = 3
 				if colY[col] + section.height + 4 >= m_max(viewPort.y + viewPort.height, maxY) then
 					-- No room in the 4th column, find the highest available location in columns 1-4
@@ -345,9 +346,11 @@ function CalcsTabClass:Draw(viewPort, inputEvents)
 	self.controls.scrollBar.height = viewPort.height
 	self.controls.scrollBar:SetContentDimension(maxY - (baseY - 26), viewPort.height)
 	for _, section in ipairs(self.sectionList) do
-		-- Give sections their actual Y position and let them update
-		section.y = section.y - self.controls.scrollBar.offset
-		section:UpdatePos()
+		if not section.isOverlay then
+			-- Give sections their actual Y position and let them update
+			section.y = section.y - self.controls.scrollBar.offset
+			section:UpdatePos()
+		end
 	end
 	
 	self.controls.search.y = 4 - self.controls.scrollBar.offset
@@ -382,7 +385,15 @@ function CalcsTabClass:Draw(viewPort, inputEvents)
 		self.displayData = nil
 	end
 
+	local breakdown = self.controls.breakdown
+	local overlayBreakdown = breakdown.sourceData and breakdown.sourceData.calcSection and breakdown.sourceData.calcSection.isOverlay
+	if overlayBreakdown then
+		breakdown.shown = false
+	end
 	self:DrawControls(viewPort, self.selControl)
+	if overlayBreakdown then
+		breakdown.shown = true
+	end
 
 	if self.displayData then
 		if self.displayPinned and not self.selControl then
@@ -408,6 +419,10 @@ end
 
 function CalcsTabClass:SetDisplayStat(displayData, pin)
 	if not displayData or (not pin and self.displayPinned) then
+		return
+	end
+	if pin and self.displayPinned and self.displayData == displayData then
+		self:ClearDisplayStat()
 		return
 	end
 	self.displayData = displayData
@@ -469,7 +484,7 @@ function CalcsTabClass:SearchMatch(txt)
 end
 
 -- Build the calculation output tables
-function CalcsTabClass:BuildOutput()
+function CalcsTabClass:BuildOutput(validateWeaponSets)
 	self.powerBuildFlag = true
 
 	--[[
@@ -488,9 +503,18 @@ function CalcsTabClass:BuildOutput()
 	end
 
 	self.mainEnv = self.calcs.buildOutput(self.build, "MAIN")
+	if self.build.skillsTab:ReconcileSocketGroupWeaponSets(self.mainEnv, validateWeaponSets) then
+		wipeGlobalCache()
+		self.mainEnv = self.calcs.buildOutput(self.build, "MAIN")
+		self.build.skillsTab:CacheSocketGroupWeaponSetValidity(self.mainEnv)
+	end
 	self.mainOutput = self.mainEnv.player.output
 	self.calcsEnv = self.calcs.buildOutput(self.build, "CALCS")
 	self.calcsOutput = self.calcsEnv.player.output
+	if self.build.controls.mainSkillLabel then -- Comparison builds have no sidebar.
+		self.build.controls.mainSkillLabel.label = "^7Main Skill: " .. self.build.skillsTab:GetSocketGroupWeaponSetLabel(self.build.skillsTab.socketGroupList[self.build.mainSocketGroup])
+	end
+	self.socketGroupRow.label = "Socket Group: " .. self.build.skillsTab:GetSocketGroupWeaponSetLabel(self.build.skillsTab.socketGroupList[self.input.skill_number])
 
 	if self.displayData then
 		self.controls.breakdown:SetBreakdownData()

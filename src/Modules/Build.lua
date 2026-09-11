@@ -537,6 +537,8 @@ function buildMode:Init(dbFileName, buildName, buildXML, convertBuild, importLin
 	-- ensure that we don't refer to outdated calc tab sections
 	self.breakdownIndex = nil
 	self.compareTab = new("CompareTab"):CompareTab(self)
+	-- Used for pinned calculation panes
+	self.overlayPanes = { }
 
 	-- Load sections from the build file
 	self.savers = {
@@ -1332,6 +1334,46 @@ function buildMode:OnFrame(inputEvents)
 			self.spec.allocMode = (self.spec.allocMode + 1) % 3
 		end
 	end
+
+	-- Consume mouse events for overlay panes before normal input processing
+	local cursorX, cursorY = GetCursorPos()
+	local breakdown = self.calcsTab.controls.breakdown
+	local overlayBreakdown = self.calcsTab.displayPinned and self.calcsTab.displayData
+		and self.calcsTab.displayData.calcSection and self.calcsTab.displayData.calcSection.isOverlay
+	for i = #inputEvents, 1, -1 do
+		local event = inputEvents[i]
+		if event then
+			if event.type == "KeyDown" and event.key:match("BUTTON") then
+				for paneIndex = #self.overlayPanes, 1, -1 do
+					local pane = self.overlayPanes[paneIndex]
+					if pane.isOverlay and pane:IsMouseInOverlay(cursorX, cursorY) then
+						pane:HandleOverlayClick(event.key, cursorX, cursorY)
+						inputEvents[i] = nil
+						break
+					end
+				end
+				if inputEvents[i] and overlayBreakdown and breakdown:IsMouseOver() then
+					self.overlayBreakdownControl = breakdown:OnKeyDown(event.key, event.doubleClick)
+					inputEvents[i] = nil
+				end
+			elseif event.type == "KeyUp" and event.key:match("BUTTON") then
+				for _, pane in ipairs(self.overlayPanes) do
+					if pane.isOverlay then
+						pane:HandleOverlayRelease(event.key)
+					end
+				end
+				if self.overlayBreakdownControl then
+					self.overlayBreakdownControl:OnKeyUp(event.key)
+					self.overlayBreakdownControl = nil
+					inputEvents[i] = nil
+				end
+			elseif event.type == "KeyUp" and overlayBreakdown and breakdown:IsMouseOver()
+				and (breakdown.controls.scrollBar:IsScrollDownKey(event.key) or breakdown.controls.scrollBar:IsScrollUpKey(event.key)) then
+				breakdown:OnKeyUp(event.key)
+				inputEvents[i] = nil
+			end
+		end
+	end
 	self:ProcessControlsInput(inputEvents, main.viewPort)
 
 	self.controls.classDrop:SelByValue(self.spec.curClassId, "classId")
@@ -1399,6 +1441,13 @@ function buildMode:OnFrame(inputEvents)
 		self.calcsTab:Draw(tabViewPort, inputEvents)
 	elseif self.viewMode == "COMPARE" then
 		self.compareTab:Draw(tabViewPort, inputEvents)
+	end
+
+	-- Draw overlay panes on top of all tab content (last = topmost)
+	for _, pane in ipairs(self.overlayPanes) do
+		if pane.isOverlay then
+			pane:DrawOverlay(main.viewPort, inputEvents)
+		end
 	end
 
 	self.unsaved = self.modFlag or self.notesTab.modFlag or self.partyTab.modFlag or self.configTab.modFlag or self.treeTab.modFlag or self.treeTab.searchFlag or self.spec.modFlag or self.skillsTab.modFlag or self.itemsTab.modFlag or self.calcsTab.modFlag
@@ -1771,14 +1820,25 @@ function buildMode:OpenSpectreLibrary(library)
 			assetData.handle = NewImageHandle()
 			assetData.handle:Load("Assets/" .. file, "CLAMP")
 			assetData.width, assetData.height = assetData.handle:ImageSize()
-			for name, position in pairs(fileInfo) do
-				images[name] = {
+			for name, info in pairs(fileInfo) do
+				local image = {
 					found = assetData.width > 0,
 					handle = assetData.handle,
 					width = assetData.width,
 					height = assetData.height,
-					[1] = position,
 				}
+				images[name] = image
+				-- {x, y, w, h}
+				if type(info) == "table" then
+					-- scale pixel values to [0, 1]
+					image[1] = info[1] / assetData.width
+					image[2] = info[2] / assetData.height
+					image[3] = (info[1] + info[3]) / assetData.width
+					image[4] = (info[2] + info[4]) / assetData.height
+					image[5] = info[5]
+				else
+					image[1] = info
+				end
 			end
 		end
 		return images
@@ -2430,7 +2490,7 @@ function buildMode:AddDisplayStatList(statList, actor, actorName)
 			end
 		end
 	end
-	for pool, warningFlag in pairs({["Life"] = "LifeCostWarningList", ["Mana"] = "ManaCostWarningList", ["Rage"] = "RageCostWarningList", ["Energy Shield"] = "ESCostWarningList"}) do
+	for pool, warningFlag in pairs({["Life"] = "LifeCostWarningList", ["Mana"] = "ManaCostWarningList", ["Runic Ward"] = "WardCostWarningList", ["Rage"] = "RageCostWarningList", ["Energy Shield"] = "ESCostWarningList"}) do
 		if actor.output[warningFlag] then
 			local line = "You do not have enough "..(actor.output.EnergyShieldProtectsMana and pool == "Mana" and "Energy Shield and Mana" or pool).." to use: "
 			for _, skill in ipairs(actor.output[warningFlag]) do
@@ -2465,6 +2525,11 @@ function buildMode:InsertItemWarnings()
 	if self.calcsTab.mainEnv.itemWarnings.jewelLimitWarning then
 		for _, warning in ipairs(self.calcsTab.mainEnv.itemWarnings.jewelLimitWarning) do
 			InsertIfNew(self.controls.warnings.lines, "You are exceeding jewel limit with the jewel "..warning)
+		end
+	end
+	if self.calcsTab.mainEnv.itemWarnings.augmentLimitWarning then
+		for _, warning in ipairs(self.calcsTab.mainEnv.itemWarnings.augmentLimitWarning) do
+			InsertIfNew(self.controls.warnings.lines, "You are exceeding augment limit with: "..warning)
 		end
 	end
 	if self.calcsTab.mainEnv.itemWarnings.socketLimitWarning then
@@ -2700,7 +2765,7 @@ function buildMode:SaveDB(fileName)
 	end
 
 	-- Call on all savers to save their data in their respective sections
-	for elem, saver in pairs(self.savers) do
+	for elem, saver in pairsSortByKey(self.savers) do
 		local node = { elem = elem }
 		saver:Save(node)
 		t_insert(dbXML, node)

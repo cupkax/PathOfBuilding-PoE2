@@ -312,7 +312,13 @@ function CalcBreakdownClass:AddModSection(sectionData, modList)
 		rowList = copyTable(modList)
 	else
 		if type(sectionData.modName) == "table" then
-			rowList = modStore:Tabulate(sectionData.modType, cfg, unpack(sectionData.modName))
+			rowList = {}
+			for _, mod in ipairs(sectionData.modName) do
+				local mods = modStore:Tabulate(sectionData.modType, cfg, mod)
+				for _, mod in ipairs(mods) do
+					table.insert(rowList, mod)
+				end
+			end
 		else
 			rowList = modStore:Tabulate(sectionData.modType, cfg, sectionData.modName)
 		end
@@ -458,6 +464,8 @@ function CalcBreakdownClass:AddModSection(sectionData, modList)
 			row.sourceName = row.mod.source:match("Quest:(.+)")
 		elseif sourceType == "Custom" then
 			row.sourceName = row.mod.source:match("Custom:(.+)")
+		elseif sourceType == "Rune" then
+			row.sourceName = row.mod.source:match("Rune:(.+)")
 		end
 
 		if row.mod.flags ~= 0 or row.mod.keywordFlags ~= 0 then

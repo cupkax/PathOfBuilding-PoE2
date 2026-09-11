@@ -74,14 +74,14 @@ local function processMod(grantedEffect, mod, statName)
 	if type(mod.value) == "table" and mod.value.mod then
 		mod.value.mod.source = "Skill:"..grantedEffect.id
 	end
-	
+
 	for _, tag in ipairs(mod) do
 		if tag.type == "GlobalEffect" then
 			grantedEffect.hasGlobalEffect = true
 			break
 		end
 	end
-	
+
 	local notMinionStat = false
 	for _, statStet in ipairs(grantedEffect.statSets) do
 		if statStet.notMinionStat and statName and (grantedEffect.support or grantedEffect.skillTypes and grantedEffect.skillTypes[SkillType.Buff]) then
@@ -153,7 +153,7 @@ data.powerStatList = {
 	{ stat="Mana", label="Mana" },
 	{ stat="ManaRegen", label="Mana regen" },
 	{ stat="ManaLeechRate", label="Mana leech" },
-	{ stat="Ward", label="Ward" },
+	{ stat="Ward", label="Runic Ward" },
 	{ stat="Spirit", label="Spirit" },
 	{ stat="Str", label="Strength" },
 	{ stat="Dex", label="Dexterity" },
@@ -176,6 +176,7 @@ data.powerStatList = {
 	{ stat="IgniteChance", label="Ignite Chance" },
 	{ stat="ShockChance", label="Shock Chance" },
 	{ stat="EffectiveMovementSpeedMod", label="Move speed" },
+	{ stat="LightRadiusMod", label="Light Radius" },
 	{ stat="BlockChance", label="Block Chance" },
 	{ stat="SpellBlockChance", label="Spell Block Chance" },
 	{ stat="SpellSuppressionChance", label="Spell Suppression Chance" },
@@ -222,6 +223,7 @@ local minionNonApplicableStats = {
 	Int = true,
 	Spirit = true,
 	EffectiveLootRarityMod = true,
+	LightRadiusMod = true,
 }
 for i = 1, #data.powerStatList do
 	local statEntry = data.powerStatList[i]
@@ -261,7 +263,6 @@ data.misc = { -- magic numbers
 	ManaRegenBase = data.characterConstants["character_inherent_mana_regeneration_rate_per_minute_%"] / 60 / 100,
 	EnergyShieldRechargeBase = data.characterConstants["energy_shield_recharge_rate_per_minute_%"] / 60 / 100,
 	EnergyShieldRechargeDelay = 4,
-	WardRechargeDelay = 2,
 	Transfiguration = 0.3,
 	EnemyMaxResist = data.monsterConstants["base_maximum_all_resistances_%"],
 	LeechRateBase = 0.02,
@@ -494,6 +495,9 @@ data.highPrecisionMods = {
 	["EnergyShieldRegenPercent"] = {
 		["BASE"] = 2,
 	},
+	["WardRegenPercent"] = {
+		["BASE"] = 2,
+	},
 	["LifeRegen"] = {
 		["BASE"] = 1,
 	},
@@ -501,6 +505,9 @@ data.highPrecisionMods = {
 		["BASE"] = 1,
 	},
 	["EnergyShieldRegen"] = {
+		["BASE"] = 1,
+	},
+	["WardRegen"] = {
 		["BASE"] = 1,
 	},
 	["RageRegen"] = {
@@ -842,10 +849,10 @@ data.itemTagSpecialExclusionPattern = {
 }
 
 -- Load bosses
-do 
+do
 	---@class BossData
 	data.bosses = LoadModule("Data/Bosses")
-	
+
 	local count, uberCount = 0, 0
 	local armourTotal, evasionTotal = 0, 0
 	local uberArmourTotal, uberEvasionTotal = 0, 0
@@ -960,6 +967,7 @@ end
 
 -- Load gems
 data.gems = LoadModule("Data/Gems")
+data.characterMeleeSkills = LoadModule("Data/CharacterMeleeSkills")
 data.assets = LoadModule("Data/Assets")
 data.skillAssets = LoadModule("Data/Skills/SkillAssets")
 data.gemForSkill = { }
@@ -1051,7 +1059,7 @@ for gemId, gem in pairs(data.gems) do
 		data.gemGrantedEffectIdForVaalGemId[gem.secondaryGrantedEffectId] = gemId
 		for otherGemId, otherGem in pairs(data.gems) do
 			if otherGem.grantedEffectId == gem.secondaryGrantedEffectId then
-				data.gemVaalGemIdForBaseGemId[gemId] = otherGemId 
+				data.gemVaalGemIdForBaseGemId[gemId] = otherGemId
 				break
 			end
 		end
@@ -1059,6 +1067,17 @@ for gemId, gem in pairs(data.gems) do
 end
 for id, gem in pairs(toAddGems) do
     data.gems[id] = gem
+end
+
+-- Resolve exported default-attack gem IDs once. Keep missing entries as false so
+-- later entries are still processed when a skill is not implemented yet.
+for _, offHandSkills in pairs(data.characterMeleeSkills) do
+	for _, gems in pairs(offHandSkills) do
+		for index, gameId in ipairs(gems) do
+			local variants = data.gemsByGameId[gameId]
+			gems[index] = variants and variants[next(variants)] or false
+		end
+	end
 end
 
 -- Load minions
@@ -1141,3 +1160,13 @@ data.questRewards = LoadModule("Data/QuestRewards")
 data.flavourText = LoadModule("Data/FlavourText")
 data.worldAreas = {}
 LoadModule("Data/WorldAreas")(data.worldAreas)
+
+-- Maps socketed augment types to the spawn tags granted by their influence runes.
+data.runeInfluences = {
+	boots = { "chronomancy" },
+	gloves = { "marksman", "decay" },
+	helmet = { "berserking" },
+	weapon = { "destruction" },
+	caster = { "destruction" },
+	["body armour"] = { "soul" },
+}

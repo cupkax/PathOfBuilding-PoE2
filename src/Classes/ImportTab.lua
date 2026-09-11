@@ -74,7 +74,7 @@ function ImportTabClass:ImportTab(build)
 			end
 		end)
 		local clickTime = os.time()
-		self.charImportStatus = function() return "Logging in... (" .. m_max(0, (clickTime + 30) - os.time()) .. ")" end
+		self.charImportStatus = function() return "Logging in... (" .. m_max(0, (clickTime + 60) - os.time()) .. ") - URL copied to clipboard" end
 	end)
 	self.controls.authenticateButton.shown = function()
 		return self.charImportMode == "AUTHENTICATION"
@@ -1102,6 +1102,10 @@ function ImportTabClass:ImportItemsAndSkills(charData)
 				self.build.itemsTab:DeleteItem(self.build.itemsTab.items[slot.selItemId])
 			end
 		end
+		for _, slotName in ipairs(self.build.itemsTab.runeSlotOrder) do
+			self.build.itemsTab.runeSlots[slotName]:SelByValue("None", "name")
+			self.build.itemsTab.activeItemSet[slotName].runeName = "None"
+		end
 	end
 
 	local mainSkillEmpty = #self.build.skillsTab.socketGroupList == 0
@@ -1123,6 +1127,9 @@ function ImportTabClass:ImportItemsAndSkills(charData)
 			t_insert(preservedSocketGroupStateByKey[key], snapshotSocketGroupReimportState(socketGroup, index == self.build.mainSocketGroup))
 		end
 		wipeTable(self.build.skillsTab.socketGroupList)
+		self.build.skillsTab.controls.groupList.selIndex = nil
+		self.build.skillsTab.controls.groupList.selValue = nil
+		self.build.skillsTab:SetDisplayGroup()
 	end
 	self.charImportStatus = colorCodes.POSITIVE.."Items and skills successfully imported."
 	--ConPrintTable(charItemData)
@@ -1141,28 +1148,25 @@ function ImportTabClass:ImportItemsAndSkills(charData)
 			gemId = "Metadata/Items/Gems/SkillGemSummonBeast"
 		end
 
-		-- This could be done better with the character melee skills data at some point.
+		-- Prefer the character skill requirement, then fall back to equipped items for older responses and dual wielding.
 		if typeLine:match("Mace Strike") then
-			local weapon1Sel = self.build.itemsTab.activeItemSet["Weapon 1"] and self.build.itemsTab.activeItemSet["Weapon 1"].selItemId or 0
-			local weapon2Sel = self.build.itemsTab.activeItemSet["Weapon 2"] and self.build.itemsTab.activeItemSet["Weapon 2"].selItemId or 0
-			if weapon2Sel == 0 then
-				if weapon1Sel == 0 or self.build.itemsTab.items[weapon1Sel].base.type == "One Hand Mace" then -- Facebreaker uses single handed mace strike
-					gemId = "Metadata/Items/Gems/SkillGemPlayerDefault1HMace"
-				elseif self.build.itemsTab.items[weapon1Sel].base.type == "Two Hand Mace" then
-					gemId = "Metadata/Items/Gems/SkillGemPlayerDefault2HMace"
-				end
-			else
-				if self.build.itemsTab.items[weapon2Sel].base.type == "One Hand Mace" or self.build.itemsTab.items[weapon2Sel].base.type == "Two Hand Mace" then
-					gemId = "Metadata/Items/Gems/SkillGemPlayerDefaultMaceMace" -- Dual wielding maces
-				elseif self.build.itemsTab.items[weapon1Sel].base.type == "One Hand Mace" then
-					gemId = "Metadata/Items/Gems/SkillGemPlayerDefault1HMace"
-				elseif self.build.itemsTab.items[weapon1Sel].base.type == "Two Hand Mace" then
-					gemId = "Metadata/Items/Gems/SkillGemPlayerDefault2HMace"
-				end
-			end
-		end
-		if typeLine:match("Spear Stab") and (self.build.itemsTab.activeItemSet["Weapon 2"].selItemId or 0) ~= 0 then
-			gemId = "Metadata/Items/Gems/SkillGemPlayerDefaultSpearOffHand"
+			local weaponRequirement = skillData.weaponRequirements and skillData.weaponRequirements[1]
+			local requiredWeaponType = weaponRequirement and escapeGGGString(weaponRequirement.values[1][1])
+			local mainItem = self.build.itemsTab.items[self.build.itemsTab.activeItemSet["Weapon 1"].selItemId]
+			local offItem = self.build.itemsTab.items[self.build.itemsTab.activeItemSet["Weapon 2"].selItemId]
+			-- Facebreaker uses the one-handed variant when no mace is equipped.
+			local mainType = requiredWeaponType == "Two Hand Mace" and requiredWeaponType
+				or mainItem and mainItem.base.type == "Two Hand Mace" and mainItem.base.type or "One Hand Mace"
+			local offType = requiredWeaponType ~= "Two Hand Mace" and offItem and offItem.base.type or "Unarmed"
+			local maceSkills = self.build.data.characterMeleeSkills[mainType]
+			gemId = (maceSkills[offType] or maceSkills.Unarmed)[1].id
+		elseif typeLine:match("Spear Stab") then
+			local mainItem = self.build.itemsTab.items[self.build.itemsTab.activeItemSet["Weapon 1"].selItemId]
+			local swapItem = self.build.itemsTab.items[self.build.itemsTab.activeItemSet["Weapon 1 Swap"].selItemId]
+			local slot = (not mainItem or mainItem.base.type ~= "Spear") and swapItem and swapItem.base.type == "Spear" and "Weapon 2 Swap" or "Weapon 2"
+			local offItem = self.build.itemsTab.items[self.build.itemsTab.activeItemSet[slot].selItemId]
+			local offType = offItem and offItem.base.tags.buckler and "Buckler" or "Unarmed"
+			gemId = self.build.data.characterMeleeSkills.Spear[offType][1].id
 		end
 
 		if gemId then
@@ -1315,6 +1319,7 @@ function ImportTabClass:ImportItemsAndSkills(charData)
 	if mainSkillEmpty then
 		self.build.mainSocketGroup = self:GuessMainSocketGroup()
 	end
+	self.build.calcsTab:BuildOutput(true)
 	self.build.itemsTab:PopulateSlots()
 	self.build.itemsTab:AddUndoState()
 	self.build.skillsTab:AddUndoState()
@@ -1330,7 +1335,17 @@ local slotMap = { ["Weapon"] = "Weapon 1", ["Offhand"] = "Weapon 2", ["Weapon2"]
 
 function ImportTabClass:ImportItem(itemData, slotName)
 	if not slotName then
-		if itemData.inventoryId == "PassiveJewels" then
+		if itemData.inventoryId == "Chakra" then
+			slotName = self.build.itemsTab.runeSlotOrder[itemData.x + 1]
+			local slot = slotName and self.build.itemsTab.runeSlots[slotName]
+			if slot and itemData.baseType then
+				slot:SelByValue(itemData.baseType, "name")
+				if slot:GetSelValue().name == itemData.baseType then
+					self.build.itemsTab.activeItemSet[slotName].runeName = itemData.baseType
+				end
+				return
+			end
+		elseif itemData.inventoryId == "PassiveJewels" then
 			slotName = "Jewel ".. self.build.latestTree.jewelSlots[itemData.x + 1]
 		elseif itemData.inventoryId == "Flask" then
 			if itemData.x > 1 then
@@ -1416,34 +1431,36 @@ function ImportTabClass:ImportItem(itemData, slotName)
 	end
 	if itemData.properties then
 		for _, property in pairs(itemData.properties) do
-			if escapeGGGString(property.name) == "Quality" then
+			local propertyName = escapeGGGString(property.name)
+			if propertyName == "Quality" then
 				item.quality = tonumber(property.values[1][1]:match("%d+"))
-			elseif property.name == "Radius" then
+			elseif propertyName == "Radius" then
 				item.jewelRadiusLabel = property.values[1][1]
-			elseif property.name == "Limited to" then
+			elseif propertyName == "Limited to" then
 				item.limit = tonumber(property.values[1][1])
-			elseif property.name == "Evasion Rating" then
+			elseif propertyName == "Evasion Rating" then
 				if item.baseName == "Two-Toned Boots (Armour/Energy Shield)" then
 					-- Another hack for Two-Toned Boots
 					item.baseName = "Two-Toned Boots (Armour/Evasion)"
 					item.base = self.build.data.itemBases[item.baseName]
 				end
-			elseif property.name == "Energy Shield" then
+			elseif propertyName == "Energy Shield" then
 				if item.baseName == "Two-Toned Boots (Armour/Evasion)" then
 					-- Yet another hack for Two-Toned Boots
 					item.baseName = "Two-Toned Boots (Evasion/Energy Shield)"
 					item.base = self.build.data.itemBases[item.baseName]
 				end
 			end
-			if property.name == "Energy Shield" or property.name == "Ward" or property.name == "Armour" or property.name == "Evasion Rating" then
+			if propertyName == "Energy Shield" or propertyName == "Runic Ward" or propertyName == "Armour" or propertyName == "Evasion Rating" then
 				item.armourData = item.armourData or { }
+				local defenceType = propertyName:gsub("Runic Ward", "Ward"):gsub(" Rating", ""):gsub(" ", "")
 				for _, value in ipairs(property.values) do
-					item.armourData[property.name:gsub(" Rating", ""):gsub(" ", "")] = (item.armourData[property.name:gsub(" Rating", ""):gsub(" ", "")] or 0) + tonumber(value[1])
+					item.armourData[defenceType] = (item.armourData[defenceType] or 0) + tonumber(value[1])
 				end
 			end
 		end
 	end
-	item.mirrored = itemData.mirrored
+	item.mirrored = itemData.duplicated or itemData.mirrored
 	item.corrupted = itemData.corrupted
 	item.sanctified = itemData.sanctified
 	item.doubleCorrupted = itemData.doubleCorrupted
@@ -1516,50 +1533,18 @@ function ImportTabClass:ImportItem(itemData, slotName)
 			end
 		end
 	end
-	-- TODO: Remove once 3.29 releases https://www.pathofexile.com/developer/docs/changelog#3-29-0
-	if itemData.fracturedMods then
-		for _, line in ipairs(itemData.fracturedMods) do
-			for line in line:gmatch("[^\n]+") do
-				local modList, extra = modLib.parseMod(line)
-				t_insert(item.explicitModLines, { line = line, extra = extra, mods = modList or { }, fractured = true })
-			end
-		end
-	end
 	if itemData.explicitMods then
 		for _, itemMod in ipairs(itemData.explicitMods) do
 			local modLine = itemMod.description or itemMod
+			local flags = itemMod.flags or itemMod
 			for line in modLine:gmatch("[^\n]+") do
 				local modList, extra = modLib.parseMod(line)
 				t_insert(item.explicitModLines, { line = line, extra = extra, mods = modList or { },
-					fractured = itemMod.fractured,
-					crafted = itemMod.crafted,
-					mutated = itemMod.mutated })
-			end
-		end
-	end
-	if itemData.desecratedMods then
-		for _, line in ipairs(itemData.desecratedMods) do
-			for line in line:gmatch("[^\n]+") do
-				local modList, extra = modLib.parseMod(line)
-				t_insert(item.explicitModLines, { line = line, extra = extra, mods = modList or { }, desecrated = true })
-			end
-		end
-	end
-	-- TODO: Remove once 3.29 releases https://www.pathofexile.com/developer/docs/changelog#3-29-0
-	if itemData.mutatedMods then
-		for _, line in ipairs(itemData.mutatedMods) do
-			for line in line:gmatch("[^\n]+") do
-				local modList, extra = modLib.parseMod(line)
-				t_insert(item.explicitModLines, { line = line, extra = extra, mods = modList or { }, mutated = true })
-			end
-		end
-	end
-	-- TODO: Remove once 3.29 releases https://www.pathofexile.com/developer/docs/changelog#3-29-0
-	if itemData.craftedMods then
-		for _, line in ipairs(itemData.craftedMods) do
-			for line in line:gmatch("[^\n]+") do
-				local modList, extra = modLib.parseMod(line)
-				t_insert(item.explicitModLines, { line = line, extra = extra, mods = modList or { }, crafted = true })
+					fractured = flags.fractured,
+					crafted = flags.crafted,
+					mutated = flags.mutated,
+					desecrated = flags.desecrated,
+				})
 			end
 		end
 	end
