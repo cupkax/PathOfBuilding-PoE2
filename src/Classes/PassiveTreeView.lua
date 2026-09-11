@@ -18,6 +18,88 @@ local b_rshift = bit.rshift
 local unseenPathHover = false
 
 local gemTooltip = LoadModule("Classes/GemTooltip")
+
+-- Keywords worth explaining in a node tooltip. Nothing is shown unless it is listed here:
+-- most of GGG's ~770 keywords are plain stat vocabulary and only add noise. Add a name to
+-- start showing its popup, exactly as it appears in Data/KeywordPopups.lua.
+local explainedKeywords = { }
+for _, name in ipairs({
+	-- ascendancy and node mechanics
+	"Unravelling", "Inevitable Critical Hits", "Culling Strike", "Decimating Strike",
+	"Sands of Time", "Thaumaturgical Dynamism",
+	-- PoE2 mechanics that are easy to miss
+	"Presence", "Rage", "Companions", "Glory", "Thorns", "Daze", "Remnants", "Flammability",
+	"Energy Shield Recharge", "Reservation", "Empowered", "Surrounded",
+	-- ailments and status
+	"Stun", "Freeze", "Shock", "Chill", "Ignite", "Bleeding", "Poison", "Ailments",
+	"Elemental Ailment Threshold", "Charges", "Debuffs", "Curses", "Buffs",
+	-- recovery and speed rules
+	"Cooldown Recovery Rate", "Skill Speed",
+}) do
+	explainedKeywords[name] = true
+end
+
+-- Keyword popups, deduplicated by name and sorted longest first so "Energy Shield Recharge"
+-- is matched before "Energy Shield". Built on first use, as data is not loaded at module load.
+local keywordList
+local function getKeywordList()
+	if not keywordList then
+		local byName = { }
+		for id, popup in pairs(data.keywordPopups) do
+			if explainedKeywords[popup.name] and popup.description and popup.description ~= "" then
+				local cur = byName[popup.name]
+				if not cur or id < cur.id then
+					byName[popup.name] = { id = id, name = popup.name, description = popup.description }
+				end
+			end
+		end
+		keywordList = { }
+		for _, popup in pairs(byName) do
+			t_insert(keywordList, popup)
+		end
+		table.sort(keywordList, function(a, b)
+			if #a.name ~= #b.name then
+				return #a.name > #b.name
+			end
+			return a.name < b.name
+		end)
+	end
+	return keywordList
+end
+
+-- Returns the keyword popups mentioned by the given stat lines
+local function findKeywords(lines)
+	local found, seen = { }, { }
+	for _, text in ipairs(lines) do
+		local taken = { }
+		for _, popup in ipairs(getKeywordList()) do
+			local init = 1
+			while true do
+				local s, e = text:find(popup.name, init, true)
+				if not s then
+					break
+				end
+				-- skip matches inside a longer word ("Life" in "Lifetap") and inside an
+				-- already claimed keyword ("Shield" within "Energy Shield")
+				if not taken[s] and not taken[e]
+					and (s == 1 or not text:sub(s - 1, s - 1):match("%w"))
+					and (e == #text or not text:sub(e + 1, e + 1):match("%w")) then
+					for i = s, e do
+						taken[i] = true
+					end
+					if not seen[popup.name] then
+						seen[popup.name] = true
+						t_insert(found, popup)
+					end
+					break
+				end
+				init = e + 1
+			end
+		end
+	end
+	return found
+end
+
 local JEWEL_RADIUS_TINT_NEUTRAL = { 1, 1, 1, 0.7 }
 local JEWEL_RADIUS_TINT_PRIMARY_ONLY = { 1, 0, 0, 0.7 }
 local JEWEL_RADIUS_TINT_COMPARE_ONLY = { 0, 1, 0, 0.7 }
@@ -1892,6 +1974,13 @@ function PassiveTreeViewClass:AddNodeTooltip(tooltip, node, build, incSmallPassi
 		end
 		for i, line in ipairs(mNode.sd) do
 			addModInfoToTooltip(mNode, i, line, localIncEffect)
+		end
+
+		-- Explain any game keywords the stat lines mention, the way the in-game tooltip does
+		for _, popup in ipairs(findKeywords(mNode.sd)) do
+			tooltip:AddSeparator(10)
+			tooltip:AddLine(14, colorCodes.MAGIC .. popup.name)
+			tooltip:AddLine(14, "^xA0A080" .. (escapeGGGString(popup.description):gsub("\r", "")))
 		end
 		-- add child tooltip for skills
 		self.skillTooltip:Clear()

@@ -193,4 +193,10 @@ for row in dat("CharacterMeleeSkills"):Rows() do
 end
 utils.saveTableToFile("../Data/CharacterMeleeSkills.lua", characterMeleeSkills, "Default skill gem base item IDs keyed by main-hand and off-hand WieldableClasses item class IDs.")
 
+local keywordPopups = {}
+for row in dat("keywordPopups"):Rows() do
+    keywordPopups[row.Id] = { description = row.Description, name = row.Name }
+end
+utils.saveTableToFile("../Data/KeywordPopups.lua", keywordPopups, "This file contains the GGG keyword popup descriptions.")
+
 print("Misc data exported.")
