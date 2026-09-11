@@ -197,6 +197,7 @@ local keywordPopups = {}
 for row in dat("keywordPopups"):Rows() do
     keywordPopups[row.Id] = { description = row.Description, name = row.Name }
 end
-utils.saveTableToFile("../Data/KeywordPopups.lua", keywordPopups, "This file contains the GGG keyword popup descriptions.")
+-- allowMultiLine keeps GGG's paragraph breaks
+utils.saveTableToFile("../Data/KeywordPopups.lua", keywordPopups, "This file contains the GGG keyword popup descriptions.", true)
 
 print("Misc data exported.")

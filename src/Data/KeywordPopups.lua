@@ -6,7 +6,11 @@
 -- spell-checker: disable
 return {
 	["AbandonedCityMap"] = {
-		["description"] = "Abandoned Cities have very few living inhabitants.   Monsters in the area are replaced by Undead. These undead have 50% chance to drop non-equipment items instead of equipment.  Abandoned Cities have 25% increased Chests in the area.",
+		["description"] = "Abandoned Cities have very few living inhabitants. \13\
+\13\
+Monsters in the area are replaced by Undead. These undead have 50% chance to drop non-equipment items instead of equipment.\13\
+\13\
+Abandoned Cities have 25% increased Chests in the area.",
 		["name"] = "Abandoned City",
 	},
 	["AbsentAmulet"] = {
@@ -18,11 +22,20 @@ return {
 		["name"] = "",
 	},
 	["AbyssCrack"] = {
-		["description"] = "Abyssal Fissures are a group of areas which contain [ContainsAbyss|Abysses].   These Abysses are always of a single faction, with the final area leading to that faction's boss. Abyssal monsters become stronger and more frequent further along the Fissure.",
+		["description"] = "Abyssal Fissures are a group of areas which contain [ContainsAbyss|Abysses]. \13\
+\13\
+These Abysses are always of a single faction, with the final area leading to that faction's boss. Abyssal monsters become stronger and more frequent further along the Fissure.",
 		["name"] = "Abyssal Fissure",
 	},
 	["AbyssalDepths"] = {
-		["description"] = "Abyssal Depths are an underground dungeon sometimes found when completing the final [ContainsAbyss|Abyss] in the area.  The Abyssal Depths contains many Abyssal monsters and all Rare monsters will have an [AbyssalModifiers|Abyssal Modifier]. At the end of the Abyssal Depths is a more powerful Rare with both a Lichborn Modifier and an Abyssal Modifier. Defeating this Rare will unlock valuable chests nearby.  The chests at the end of the Abyssal Depths can also drop pieces of [Abyssalify|Preserved Bone], but also can rarely drop additional exclusive [Omen|Omens] and [LineageSupports|Lineage Supports].  At higher levels the Abyssal Depths can lead to powerful Boss Fights.",
+		["description"] = "Abyssal Depths are an underground dungeon sometimes found when completing the final [ContainsAbyss|Abyss] in the area.\13\
+\13\
+The Abyssal Depths contains many Abyssal monsters and all Rare monsters will have an [AbyssalModifiers|Abyssal Modifier].\13\
+At the end of the Abyssal Depths is a more powerful Rare with both a Lichborn Modifier and an Abyssal Modifier. Defeating this Rare will unlock valuable chests nearby.\13\
+\13\
+The chests at the end of the Abyssal Depths can also drop pieces of [Abyssalify|Preserved Bone], but also can rarely drop additional exclusive [Omen|Omens] and [LineageSupports|Lineage Supports].\13\
+\13\
+At higher levels the Abyssal Depths can lead to powerful Boss Fights.",
 		["name"] = "Abyssal Depths",
 	},
 	["AbyssalEye"] = {
@@ -30,7 +43,9 @@ return {
 		["name"] = "Abyssal Eye",
 	},
 	["AbyssalModifiers"] = {
-		["description"] = "Abyssal Monsters spawned from [ContainsAbyss|Abysses] steal modifiers from monsters killed near their pit, these modifiers can be upgraded to Abyssal Modifiers.  Abyssal Modifiers rarely have a chance to become a more powerful Lichborn Modifier.",
+		["description"] = "Abyssal Monsters spawned from [ContainsAbyss|Abysses] steal modifiers from monsters killed near their pit, these modifiers can be upgraded to Abyssal Modifiers.\13\
+\13\
+Abyssal Modifiers rarely have a chance to become a more powerful Lichborn Modifier.",
 		["name"] = "Abyssal Modifiers",
 	},
 	["AbyssalWasting"] = {
@@ -38,7 +53,9 @@ return {
 		["name"] = "Abyssal Wasting",
 	},
 	["Abyssalify"] = {
-		["description"] = "Desecrating an item adds an Unrevealed Desecrated modifier. If modifiers are full then a random modifier is also removed. These modifiers can be revealed at the Well of Souls.  Items with Desecrated Modifiers cannot be Desecrated again.",
+		["description"] = "Desecrating an item adds an Unrevealed Desecrated modifier. If modifiers are full then a random modifier is also removed. These modifiers can be revealed at the Well of Souls.\13\
+\13\
+Items with Desecrated Modifiers cannot be Desecrated again.",
 		["name"] = "Desecrated Modifiers",
 	},
 	["AccountBound"] = {
@@ -46,19 +63,26 @@ return {
 		["name"] = "Account Bound",
 	},
 	["Accuracy"] = {
-		["description"] = "Accuracy is used to hit a target with an [Attack|Attack], and is checked against the targets [Evasion] to determine that chance.   Player [Attack|Attacks] incur an Accuracy penalty based on distance from the origin of the damage to the target, with no penalty for targets within 2 metres and up to 90% less Accuracy for targets further than 9 metres away.",
+		["description"] = "Accuracy is used to hit a target with an [Attack|Attack], and is checked against the targets [Evasion] to determine that chance. \13\
+\13\
+Player [Attack|Attacks] incur an Accuracy penalty based on distance from the origin of the damage to the target, with no penalty for targets within 2 metres and up to 90% less Accuracy for targets further than 9 metres away.",
 		["name"] = "Accuracy",
 	},
 	["Acrobatics"] = {
-		["description"] = "Can [Evasion|Evade] all Hits 75% less [Evasion] Rating",
+		["description"] = "Can [Evasion|Evade] all Hits\
+75% less [Evasion] Rating",
 		["name"] = "Acrobatics",
 	},
 	["Adaptation"] = {
-		["description"] = "Adaptations are gained by taking [ElementalDamage|Elemental Damage] from [Hit|Hits] and cause you to take less damage of that [ElementalDamage|Type] from subsequent [Hit|Hits].  Unless otherwise specified, you can have 3 Adaptations at a time, and Adaptations do not have a duration.",
+		["description"] = "Adaptations are gained by taking [ElementalDamage|Elemental Damage] from [Hit|Hits] and cause you to take less damage of that [ElementalDamage|Type] from subsequent [Hit|Hits].\13\
+\13\
+Unless otherwise specified, you can have 3 Adaptations at a time, and Adaptations do not have a duration.",
 		["name"] = "Adaptation",
 	},
 	["AdaptiveRune"] = {
-		["description"] = "<<ExpedRuneAdaptive>><rgb(219,217,206)>{Adaptive Rune} <font:'fontin'>{<italic>{<rgb(110,87,66)>{Monsters gain:}}} <rgb(135,134,253)>{[Adaptation]}",
+		["description"] = "<<ExpedRuneAdaptive>><rgb(219,217,206)>{Adaptive Rune}\13\
+<font:'fontin'>{<italic>{<rgb(110,87,66)>{Monsters gain:}}}\13\
+<rgb(135,134,253)>{[Adaptation]}",
 		["name"] = "Adaptive Rune",
 	},
 	["AddedAttackCastTime"] = {
@@ -66,15 +90,23 @@ return {
 		["name"] = "Added Skill Use Time",
 	},
 	["AdditionalRareMonster"] = {
-		["description"] = "Additional Rare Monsters can spawn in [Rarity|Rare] Monster [Pack|Packs] with larger pack sizes.  Each Rare Monster in the Pack provides one modifier to the Pack's [MonsterMinion|Minions].  Additional Rare Monsters in [Essence] Packs also carry Essences.",
+		["description"] = "Additional Rare Monsters can spawn in [Rarity|Rare] Monster [Pack|Packs] with larger pack sizes.\13\
+\13\
+Each Rare Monster in the Pack provides one modifier to the Pack's [MonsterMinion|Minions].\13\
+\13\
+Additional Rare Monsters in [Essence] Packs also carry Essences.",
 		["name"] = "Additional Rare Monsters",
 	},
 	["Affinity"] = {
-		["description"] = "Affinity is a buff granted by the Trinity skill. There are three types of Affinity: Fire, Cold and Lightning. You can have a maximum of 100 of each type of Affinity.  You lose 10 Affinity per second of specific types if you haven't gained Affinity of that type in the past 8 seconds.",
+		["description"] = "Affinity is a buff granted by the Trinity skill. There are three types of Affinity: Fire, Cold and Lightning. You can have a maximum of 100 of each type of Affinity.\13\
+\13\
+You lose 10 Affinity per second of specific types if you haven't gained Affinity of that type in the past 8 seconds.",
 		["name"] = "Affinity",
 	},
 	["Afflictions"] = {
-		["description"] = "Afflictions are negative effects that are applied to the Trial of the Sekhemas; making them harder to run. Afflictions will be applied for entering certain rooms in the Trial or from encountering certain Maraketh Shrines. Afflictions can be either Minor or Major, providing varying negative effects to your Trial.",
+		["description"] = "Afflictions are negative effects that are applied to the Trial of the Sekhemas; making them harder to run.\13\
+Afflictions will be applied for entering certain rooms in the Trial or from encountering certain Maraketh Shrines.\13\
+Afflictions can be either Minor or Major, providing varying negative effects to your Trial.",
 		["name"] = "Afflictions",
 	},
 	["Aftershock"] = {
@@ -82,19 +114,31 @@ return {
 		["name"] = "Aftershocks",
 	},
 	["Aggravate"] = {
-		["description"] = "[Bleeding] that has been Aggravated always treats the target as moving, which causes it to deal 100% extra damage.  Once a [Bleeding] [Debuff] has been Aggravated, it will remain Aggravated until its duration expires.  Each [Bleeding] [Debuff] can be Aggravated, or not, independently — one [Bleeding] [Debuff] being Aggravated does not mean other [Bleeding] [Debuff|Debuffs] on the target are also Aggravated, and Aggravating some or all of them will have no effect on new [Bleeding] [Debuff|Debuffs] applied afterwards. However, effects which Aggravate [Bleeding] on a target do so to all [Bleeding] [Debuff|Debuffs] currently on that target unless otherwise specified.",
+		["description"] = "[Bleeding] that has been Aggravated always treats the target as moving, which causes it to deal 100% extra damage.\13\
+\13\
+Once a [Bleeding] [Debuff] has been Aggravated, it will remain Aggravated until its duration expires.\13\
+\13\
+Each [Bleeding] [Debuff] can be Aggravated, or not, independently — one [Bleeding] [Debuff] being Aggravated does not mean other [Bleeding] [Debuff|Debuffs] on the target are also Aggravated, and Aggravating some or all of them will have no effect on new [Bleeding] [Debuff|Debuffs] applied afterwards. However, effects which Aggravate [Bleeding] on a target do so to all [Bleeding] [Debuff|Debuffs] currently on that target unless otherwise specified.",
 		["name"] = "Aggravated Bleeding",
 	},
 	["AggravateIgnite"] = {
-		["description"] = "[Ignite] that has been Aggravated deals 100% extra damage.  Once an [Ignite] has been Aggravated, it will remain Aggravated until its duration expires.  Just like [Bleeding], each [Ignite] [Debuff] can be Aggravated, or not, independently of others on the target.",
+		["description"] = "[Ignite] that has been Aggravated deals 100% extra damage.\13\
+\13\
+Once an [Ignite] has been Aggravated, it will remain Aggravated until its duration expires.\13\
+\13\
+Just like [Bleeding], each [Ignite] [Debuff] can be Aggravated, or not, independently of others on the target.",
 		["name"] = "Aggravated Ignite",
 	},
 	["AilmentApplication"] = {
-		["description"] = "Modifiers to [Ailments|Ailment] Application apply to: [Bleeding], [Poison] and [Shock] chance [Flammability], [Freeze] and [Electrocute|Electrocution] Buildup.",
+		["description"] = "Modifiers to [Ailments|Ailment] Application apply to:\13\
+[Bleeding], [Poison] and [Shock] chance\13\
+[Flammability], [Freeze] and [Electrocute|Electrocution] Buildup.",
 		["name"] = "Ailment Application",
 	},
 	["AilmentSpread"] = {
-		["description"] = "Spreading an ailment inflicts a new, matching ailment on another target, from the same source. The new ailment can potentially spread further, but never back to the same target twice.  Ailments can never spread to, or from, the entity that originally inflicted them.",
+		["description"] = "Spreading an ailment inflicts a new, matching ailment on another target, from the same source. The new ailment can potentially spread further, but never back to the same target twice.\13\
+\13\
+Ailments can never spread to, or from, the entity that originally inflicted them.",
 		["name"] = "Spreading Ailments",
 	},
 	["AilmentThreshold"] = {
@@ -110,7 +154,9 @@ return {
 		["name"] = "Aldur's Legacies",
 	},
 	["Allies"] = {
-		["description"] = "Your allies include other players, [Minion|Minions], and any other entity that fights alongside you and has its own stats.   You do not count as your own Ally.",
+		["description"] = "Your allies include other players, [Minion|Minions], and any other entity that fights alongside you and has its own stats. \13\
+\13\
+You do not count as your own Ally.",
 		["name"] = "Allies",
 	},
 	["AlteredCollarbone"] = {
@@ -118,7 +164,8 @@ return {
 		["name"] = "",
 	},
 	["AlternateStrengthBonus"] = {
-		["description"] = "Gain no inherent bonus from [Strength] 1% increased [EnergyShield|Energy Shield] per 2 Strength",
+		["description"] = "Gain no inherent bonus from [Strength]\13\
+1% increased [EnergyShield|Energy Shield] per 2 Strength",
 		["name"] = "Black Scythe Training",
 	},
 	["AmberAmulet"] = {
@@ -134,7 +181,9 @@ return {
 		["name"] = "Anaemia",
 	},
 	["AncestralBond"] = {
-		["description"] = "Your [Totem] [Limit] is doubled No cost or [Charges|Charge] requirement for placing [Totem|Totems] [Totem|Totems] reserve 75 [Spirit] each",
+		["description"] = "Your [Totem] [Limit] is doubled\13\
+No cost or [Charges|Charge] requirement for placing [Totem|Totems]\13\
+[Totem|Totems] reserve 75 [Spirit] each",
 		["name"] = "Ancestral Bond",
 	},
 	["AncestralBoost"] = {
@@ -150,7 +199,10 @@ return {
 		["name"] = "Ancient Augment",
 	},
 	["AncientBlooms"] = {
-		["description"] = "Ancient Blooms are [Remnant|Remnants] that grant the following bonuses when collected: Vivid Blooms grant 5 Charges to all of your [Charm|Charms] Primal Blooms grant 5 Charges to all of your Mana [Flask|Flasks] Wild Blooms grant 5 Charges to all of your Life [Flask|Flasks]",
+		["description"] = "Ancient Blooms are [Remnant|Remnants] that grant the following bonuses when collected:\13\
+Vivid Blooms grant 5 Charges to all of your [Charm|Charms]\13\
+Primal Blooms grant 5 Charges to all of your Mana [Flask|Flasks]\13\
+Wild Blooms grant 5 Charges to all of your Life [Flask|Flasks]",
 		["name"] = "Ancient Blooms",
 	},
 	["AnnulmentOrb"] = {
@@ -158,11 +210,16 @@ return {
 		["name"] = "",
 	},
 	["AoESkill"] = {
-		["description"] = "This Skill has an effect that applies to every target in its area, rather than picking specific targets.  Areas of Effect that originate from a target hit by a Skill will add that target's size to their radius.",
+		["description"] = "This Skill has an effect that applies to every target in its area, rather than picking specific targets.\13\
+\13\
+Areas of Effect that originate from a target hit by a Skill will add that target's size to their radius.",
 		["name"] = "Area of Effect Skills",
 	},
 	["ArcaneRune"] = {
-		["description"] = "<<ExpedRuneArcane>><rgb(219,217,206)>{Arcane Rune} <font:'fontin'>{<italic>{<rgb(110,87,66)>{Monsters gain:}}} <rgb(135,134,253)>{Extra Energy Shield} <rgb(135,134,253)>{Trigger a Stunning nova when Energy Shield is depleted}",
+		["description"] = "<<ExpedRuneArcane>><rgb(219,217,206)>{Arcane Rune}\13\
+<font:'fontin'>{<italic>{<rgb(110,87,66)>{Monsters gain:}}}\13\
+<rgb(135,134,253)>{Extra Energy Shield}\13\
+<rgb(135,134,253)>{Trigger a Stunning nova when Energy Shield is depleted}",
 		["name"] = "Arcane Rune",
 	},
 	["ArcaneSurge"] = {
@@ -170,19 +227,28 @@ return {
 		["name"] = "Arcane Surge",
 	},
 	["ArcaneSurgeDuration"] = {
-		["description"] = "Arcane Surge grants 15% increased Cast Speed and 20% more Mana Regeneration Rate. It lasts for 4 seconds by default.",
+		["description"] = "Arcane Surge grants 15% increased Cast Speed and 20% more Mana Regeneration Rate.\13\
+It lasts for 4 seconds by default.",
 		["name"] = "Arcane Surge",
 	},
 	["Archon"] = {
-		["description"] = "Archons are a type of [Buff] that significantly augment your prowess with a certain type of Skills, such as [ElementalArchon|Elemental Spells] or [NatureArchon|Plant Skills].  By default, each Archon Buff lasts 10 seconds.  You cannot gain any Archon Buff while you already have one, or during a recovery period after you lose one, which lasts 20 seconds by default.",
+		["description"] = "Archons are a type of [Buff] that significantly augment your prowess with a certain type of Skills, such as [ElementalArchon|Elemental Spells] or [NatureArchon|Plant Skills].\13\
+\13\
+By default, each Archon Buff lasts 10 seconds.\13\
+\13\
+You cannot gain any Archon Buff while you already have one, or during a recovery period after you lose one, which lasts 20 seconds by default.",
 		["name"] = "Archon Buff",
 	},
 	["Armour"] = {
-		["description"] = "Armour reduces [Hit|Damage taken from Hits]. By default, Armour only applies to [Physical] [Hit|Damage].  Damage reduction from Armour is proportional to the amount of [Hit|Damage], and is more effective at reducing smaller hits.",
+		["description"] = "Armour reduces [Hit|Damage taken from Hits]. By default, Armour only applies to [Physical] [Hit|Damage].\13\
+\13\
+Damage reduction from Armour is proportional to the amount of [Hit|Damage], and is more effective at reducing smaller hits.",
 		["name"] = "Armour",
 	},
 	["ArmourBreak"] = {
-		["description"] = "Some Skills, Items, Support Gems and other effects can Break [Armour|Armour], which lowers a target's [Armour|Armour] by a specified amount. If this brings the target's [Armour|Armour] value to 0, their [Armour|Armour] is Fully Broken for 12 seconds, or 4 seconds for players. On top of not benefitting from [Armour], non-player targets with Fully Broken [Armour] take 20% increased [Physical] damage from [Hit|Hits].  Players Break 3 times Armour against Normal Monsters and 2 times Armour against Magic Monsters.",
+		["description"] = "Some Skills, Items, Support Gems and other effects can Break [Armour|Armour], which lowers a target's [Armour|Armour] by a specified amount. If this brings the target's [Armour|Armour] value to 0, their [Armour|Armour] is Fully Broken for 12 seconds, or 4 seconds for players. On top of not benefitting from [Armour], non-player targets with Fully Broken [Armour] take 20% increased [Physical] damage from [Hit|Hits].\13\
+\13\
+Players Break 3 times Armour against Normal Monsters and 2 times Armour against Magic Monsters.",
 		["name"] = "Armour Break",
 	},
 	["ArmourOverbreak"] = {
@@ -190,7 +256,9 @@ return {
 		["name"] = "Armour Break below 0",
 	},
 	["ArmourPenalties"] = {
-		["description"] = "Depending on the type of [EquipArmour|Armour] equipped, Players will have a less Movement Speed penalty applied depending on what [Attributes|Attribute] the Armour requires. These penalties only apply to equipped Body Armours and [Shield|Shields]. For Body Armour, pure [Strength] has a 5% penalty, hybrid [Strength] and [Dexterity] or [Intelligence] has a 4% penalty and pure [Dexterity] or [Intelligence] has a 3% penalty. For [Shield|Shields], pure [Strength] has a 3% penalty, hybrid [Strength] and [Dexterity] or [Intelligence] has a 1.5% penalty and pure [Dexterity] or [Intelligence] has no penalty.",
+		["description"] = "Depending on the type of [EquipArmour|Armour] equipped, Players will have a less Movement Speed penalty applied depending on what [Attributes|Attribute] the Armour requires. These penalties only apply to equipped Body Armours and [Shield|Shields].\13\
+For Body Armour, pure [Strength] has a 5% penalty, hybrid [Strength] and [Dexterity] or [Intelligence] has a 4% penalty and pure [Dexterity] or [Intelligence] has a 3% penalty.\13\
+For [Shield|Shields], pure [Strength] has a 3% penalty, hybrid [Strength] and [Dexterity] or [Intelligence] has a 1.5% penalty and pure [Dexterity] or [Intelligence] has no penalty.",
 		["name"] = "Armour Movement Penalties",
 	},
 	["ArmouredShield"] = {
@@ -202,19 +270,35 @@ return {
 		["name"] = "Artificer's Orb",
 	},
 	["AscendancyPoints"] = {
-		["description"] = "Ascendancy Passive Skill Points can be allocated in your Ascendancy Skill Tree once you have chosen your Ascendancy. Your Ascendancy class is unlocked by completing any Ascension Trial. In order to change your Ascendancy, you must complete an Ascension Trial to the furthest extent you have successfully already done so, and then interact with the Ascendancy Altar while you have no Ascendancy Passive Skill Points currently assigned. Trialmaster and Balbala will offer the ability to refund passive points while in rooms with Ascendancy Altars to facilitate this.  You can obtain 4 sets of 2 Ascendancy Points for a total of 8 in the following ways: Set 1 - Completing floor 1 of the Trial of the Sekhemas or completing the Trials of Chaos with at least 7 Trials Set 2 - Completing floor 2 of the Trial of the Sekhemas or completing the Trials of Chaos Set 3 - Completing floor 3 of the Trial of the Sekhemas or completing the Trials of Chaos with at least 10 Trials Set 4 - Completing floor 4 of the Trial of the Sekhemas or completing the secret challenge behind the locked door in the Trials of Chaos",
+		["description"] = "Ascendancy Passive Skill Points can be allocated in your Ascendancy Skill Tree once you have chosen your Ascendancy. Your Ascendancy class is unlocked by completing any Ascension Trial. In order to change your Ascendancy, you must complete an Ascension Trial to the furthest extent you have successfully already done so, and then interact with the Ascendancy Altar while you have no Ascendancy Passive Skill Points currently assigned. Trialmaster and Balbala will offer the ability to refund passive points while in rooms with Ascendancy Altars to facilitate this.\13\
+\13\
+You can obtain 4 sets of 2 Ascendancy Points for a total of 8 in the following ways:\13\
+Set 1 - Completing floor 1 of the Trial of the Sekhemas or completing the Trials of Chaos with at least 7 Trials\13\
+Set 2 - Completing floor 2 of the Trial of the Sekhemas or completing the Trials of Chaos\13\
+Set 3 - Completing floor 3 of the Trial of the Sekhemas or completing the Trials of Chaos with at least 10 Trials\13\
+Set 4 - Completing floor 4 of the Trial of the Sekhemas or completing the secret challenge behind the locked door in the Trials of Chaos",
 		["name"] = "Ascendancy Points",
 	},
 	["AtlasDifficulty"] = {
-		["description"] = "Difficulty causes monsters to have increased damage and life, as well as improving the items they drop.  Certain Bosses with increased difficulty will gain new abilities and begin to drop exclusive items, and have a reduced number of [LimitedRespawn|Respawn Attempts].  Difficulty above 4 has no additional effect.",
+		["description"] = "Difficulty causes monsters to have increased damage and life, as well as improving the items they drop.\13\
+\13\
+Certain Bosses with increased difficulty will gain new abilities and begin to drop exclusive items, and have a reduced number of [LimitedRespawn|Respawn Attempts].\13\
+\13\
+Difficulty above 4 has no additional effect.",
 		["name"] = "Difficulty",
 	},
 	["Attack"] = {
-		["description"] = "Attacks are skills that directly damage enemies, usually using your equipped [MartialWeapon|Martial Weapon]. [Spell|Spells] are not Attacks.  The base damage, attack speed and [Critical|critical hit] chance of an attack are determined using your [MartialWeapon|Martial Weapon]'s stats unless the skill says otherwise.  Attacks do not necessarily deal [Physical] damage — they can deal any damage type.",
+		["description"] = "Attacks are skills that directly damage enemies, usually using your equipped [MartialWeapon|Martial Weapon]. [Spell|Spells] are not Attacks.\13\
+\13\
+The base damage, attack speed and [Critical|critical hit] chance of an attack are determined using your [MartialWeapon|Martial Weapon]'s stats unless the skill says otherwise.\13\
+\13\
+Attacks do not necessarily deal [Physical] damage — they can deal any damage type.",
 		["name"] = "Attacks",
 	},
 	["Attributes"] = {
-		["description"] = "[Strength], [Dexterity], and [Intelligence] are the 3 primary attributes. The most important use of Attributes is to meet requirements to use Equipment and Gems.  Each Attribute provides a different inherent bonus.",
+		["description"] = "[Strength], [Dexterity], and [Intelligence] are the 3 primary attributes. The most important use of Attributes is to meet requirements to use Equipment and Gems.\13\
+\13\
+Each Attribute provides a different inherent bonus.",
 		["name"] = "Attributes",
 	},
 	["AudienceWithTheKing"] = {
@@ -222,7 +306,9 @@ return {
 		["name"] = "An Audience With The King",
 	},
 	["Augment"] = {
-		["description"] = "Augments are items which can be placed into Augment sockets, usually on [Equipment] items. Once socketed, they can be replaced by other Augments, but cannot be removed by normal means.   The types of [Equipment] which an Augment can be placed into and the corresponding benefit provided are listed on the item.",
+		["description"] = "Augments are items which can be placed into Augment sockets, usually on [Equipment] items. Once socketed, they can be replaced by other Augments, but cannot be removed by normal means. \13\
+\13\
+The types of [Equipment] which an Augment can be placed into and the corresponding benefit provided are listed on the item.",
 		["name"] = "Augment",
 	},
 	["Aura"] = {
@@ -230,27 +316,46 @@ return {
 		["name"] = "Auras",
 	},
 	["AvatarOfFire"] = {
-		["description"] = "75% of Damage [Conversion|Converted] to [Fire] Damage Deal no Non-[Fire] Damage",
+		["description"] = "75% of Damage [Conversion|Converted] to [Fire] Damage\13\
+Deal no Non-[Fire] Damage",
 		["name"] = "Avatar of Fire",
 	},
 	["Axe"] = {
-		["description"] = "Axes are [Melee] weapons that can be [One-Handed] or [Two-Handed]. Axes require [Strength] and [Dexterity] to equip.   Axe [Attack|Attacks] commonly involve throwing your axe and/or inflicting [Bleeding].",
+		["description"] = "Axes are [Melee] weapons that can be [One-Handed] or [Two-Handed]. Axes require [Strength] and [Dexterity] to equip. \13\
+\13\
+Axe [Attack|Attacks] commonly involve throwing your axe and/or inflicting [Bleeding].",
 		["name"] = "Axes",
 	},
 	["AzmeriSpirit"] = {
-		["description"] = "Azmeri Spirits are the spirits of various Azmeri Animal Guardians.  Azmeri Spirits appear as wisps that flee as you approach them. [Rarity|Normal or Magic] Monsters the Spirit comes into contact with become [SpiritTouched|Spirit-Influenced], while [Rarity|Rare or Unique] monsters will be [SpiritPossessed|Possessed].  Spirit-Influenced or Possessed monsters are stronger and more rewarding. Possession's bonuses are more effective for each monster the Spirit has Influenced.",
+		["description"] = "Azmeri Spirits are the spirits of various Azmeri Animal Guardians.\13\
+\13\
+Azmeri Spirits appear as wisps that flee as you approach them. [Rarity|Normal or Magic] Monsters the Spirit comes into contact with become [SpiritTouched|Spirit-Influenced], while [Rarity|Rare or Unique] monsters will be [SpiritPossessed|Possessed].\13\
+\13\
+Spirit-Influenced or Possessed monsters are stronger and more rewarding. Possession's bonuses are more effective for each monster the Spirit has Influenced.",
 		["name"] = "Azmeri Spirit",
 	},
 	["AzmeriSpiritPrimal"] = {
-		["description"] = "Primal Spirits are a type of [AzmeriSpirit|Azmeri Spirit].  Monsters [SpiritTouched|Influenced] or [SpiritPossessed|Possessed] by Primal Spirits deal increased damage, in addition to any bonuses from the specific spirit type.  Monsters [SpiritPossessed|Possessed] by Primal Spirits drop [Intelligence] items. ",
+		["description"] = "Primal Spirits are a type of [AzmeriSpirit|Azmeri Spirit].\13\
+\13\
+Monsters [SpiritTouched|Influenced] or [SpiritPossessed|Possessed] by Primal Spirits deal increased damage, in addition to any bonuses from the specific spirit type.\13\
+\13\
+Monsters [SpiritPossessed|Possessed] by Primal Spirits drop [Intelligence] items. ",
 		["name"] = "Primal Spirit",
 	},
 	["AzmeriSpiritVivid"] = {
-		["description"] = "Vivid Spirits are a type of [AzmeriSpirit|Azmeri Spirit].  Monsters [SpiritTouched|Influenced] or [SpiritPossessed|Possessed] by Vivid Spirits gain increased Skill Speed, in addition to any bonuses from the specific spirit type.  Monsters [SpiritPossessed|Possessed] by Vivid Spirits drop [Dexterity] items. ",
+		["description"] = "Vivid Spirits are a type of [AzmeriSpirit|Azmeri Spirit].\13\
+\13\
+Monsters [SpiritTouched|Influenced] or [SpiritPossessed|Possessed] by Vivid Spirits gain increased Skill Speed, in addition to any bonuses from the specific spirit type.\13\
+\13\
+Monsters [SpiritPossessed|Possessed] by Vivid Spirits drop [Dexterity] items. ",
 		["name"] = "Vivid Spirit",
 	},
 	["AzmeriSpiritWild"] = {
-		["description"] = "Wild Spirits are a type of [AzmeriSpirit|Azmeri Spirit].  Monsters [SpiritTouched|Influenced] or [SpiritPossessed|Possessed] by Wild Spirits gain increased [Toughness], in addition to any bonuses from the specific spirit type.  Monsters [SpiritPossessed|Possessed] by Wild Spirits drop [Strength] items. ",
+		["description"] = "Wild Spirits are a type of [AzmeriSpirit|Azmeri Spirit].\13\
+\13\
+Monsters [SpiritTouched|Influenced] or [SpiritPossessed|Possessed] by Wild Spirits gain increased [Toughness], in addition to any bonuses from the specific spirit type.\13\
+\13\
+Monsters [SpiritPossessed|Possessed] by Wild Spirits drop [Strength] items. ",
 		["name"] = "Wild Spirit",
 	},
 	["AzureAmulet"] = {
@@ -262,7 +367,8 @@ return {
 		["name"] = "Ballista Totems",
 	},
 	["Banner"] = {
-		["description"] = "Banner Skills generate [Glory] when you attack a Monster while it is activated. [Glory] generated corresponds to the [Power] of the Monster hit. Once at full [Glory], the Banner can be placed to create powerful [Buff|Buffing] Areas. Normally you have a limit of a single Banner placed at one time.",
+		["description"] = "Banner Skills generate [Glory] when you attack a Monster while it is activated. [Glory] generated corresponds to the [Power] of the Monster hit. Once at full [Glory], the Banner can be placed to create powerful [Buff|Buffing] Areas.\13\
+Normally you have a limit of a single Banner placed at one time.",
 		["name"] = "Banner Skills",
 	},
 	["BaseSkillAttackTime"] = {
@@ -270,15 +376,23 @@ return {
 		["name"] = "Base Skill Attack Time",
 	},
 	["BaseType"] = {
-		["description"] = "An item's Base Type refers to the specific variety of item it is, and grants it inherent properties such as damage on [MartialWeapon|Martial Weapons], defensive bonuses on Armour, or Life recovery on Life [Flask|Flasks]. It is also often responsible for the Level and/or [Attributes|Attribute] Requirements to equip an item.  For example: • [Quarterstaff1|Wrapped Quarterstaff] and [Quarterstaff2|Long Quarterstaff] are both [Quarterstaff] Base Types • [GlovesStr1|Stocky Mitts] and [GlovesDexInt2|Linen Wraps] are both Gloves Base Types • [FlaskMana1|Lesser Mana Flask] and [FlaskMana3|Greater Mana Flask] are both Mana [Flask] Base Types",
+		["description"] = "An item's Base Type refers to the specific variety of item it is, and grants it inherent properties such as damage on [MartialWeapon|Martial Weapons], defensive bonuses on Armour, or Life recovery on Life [Flask|Flasks]. It is also often responsible for the Level and/or [Attributes|Attribute] Requirements to equip an item.\13\
+\13\
+For example:\13\
+• [Quarterstaff1|Wrapped Quarterstaff] and [Quarterstaff2|Long Quarterstaff] are both [Quarterstaff] Base Types\13\
+• [GlovesStr1|Stocky Mitts] and [GlovesDexInt2|Linen Wraps] are both Gloves Base Types\13\
+• [FlaskMana1|Lesser Mana Flask] and [FlaskMana3|Greater Mana Flask] are both Mana [Flask] Base Types",
 		["name"] = "Base Type",
 	},
 	["BasicJewel"] = {
-		["description"] = "Basic Jewels do not affect nodes in a radius. Basic Jewels are Rubies, Emeralds, Sapphires and Diamonds.",
+		["description"] = "Basic Jewels do not affect nodes in a radius.\
+Basic Jewels are Rubies, Emeralds, Sapphires and Diamonds.",
 		["name"] = "Basic Jewel",
 	},
 	["BasicMap"] = {
-		["description"] = "Basic Maps are any maps with no special interaction with areas or access requirements.  Notably, not [ContainsUniqueMap|Unique Maps], [DeadlyMapBoss|Deadly Map Boss] Maps, [PrecursorTower|Precursor Towers], Expedition Areas or Quest Areas.",
+		["description"] = "Basic Maps are any maps with no special interaction with areas or access requirements.\13\
+\13\
+Notably, not [ContainsUniqueMap|Unique Maps], [DeadlyMapBoss|Deadly Map Boss] Maps, [PrecursorTower|Precursor Towers], Expedition Areas or Quest Areas.",
 		["name"] = "Basic Maps",
 	},
 	["BasicStrongbox"] = {
@@ -286,7 +400,12 @@ return {
 		["name"] = "Basic Strongbox",
 	},
 	["Bear"] = {
-		["description"] = "[Shapeshift|Shapeshifting] into a Bear grants access to devastating [Slam|Slams] and [Fire] [Attack|Attacks] fuelled by smouldering [Rage].  While in Bear form, you gain: • +10 to [Armour] per level • 30% of [Armour] also applies to [ElementalDamage|Elemental Damage] • an [Charges|Endurance Charge] for every 15 [Rage] you spend",
+		["description"] = "[Shapeshift|Shapeshifting] into a Bear grants access to devastating [Slam|Slams] and [Fire] [Attack|Attacks] fuelled by smouldering [Rage].\13\
+\13\
+While in Bear form, you gain:\13\
+• +10 to [Armour] per level\13\
+• 30% of [Armour] also applies to [ElementalDamage|Elemental Damage]\13\
+• an [Charges|Endurance Charge] for every 15 [Rage] you spend",
 		["name"] = "Bear Form",
 	},
 	["BetterCurrencyMinimumLevel"] = {
@@ -298,7 +417,11 @@ return {
 		["name"] = "Binding Chains",
 	},
 	["Biome"] = {
-		["description"] = "Biomes are found throughout Endgame Maps.  Grass, Forest, Swamp, Desert, Mountain and Water Biomes are all commonly found.  Cities and special biomes are less likely to be encountered.",
+		["description"] = "Biomes are found throughout Endgame Maps.\13\
+\13\
+Grass, Forest, Swamp, Desert, Mountain and Water Biomes are all commonly found.\13\
+\13\
+Cities and special biomes are less likely to be encountered.",
 		["name"] = "Biome",
 	},
 	["BiostaticRing"] = {
@@ -306,7 +429,17 @@ return {
 		["name"] = "",
 	},
 	["Bleeding"] = {
-		["description"] = "Bleeding is an [Ailments|Ailment] that deals [Physical|Physical] damage over time, and lasts 5 seconds by default. Damage from Bleeding bypasses [EnergyShield|Energy Shield]  Bleeding deals an extra 100% damage while the target is moving, or if the Bleeding is [Aggravate|Aggravated].  [Physical] damage from [Hit|Hits] [Contributes|Contributes] to Bleeding [BuffMagnitude|Magnitude].  Damage does not [Contributes|Contribute] to Bleeding chance, so it cannot be inflicted without an explicit source of Bleeding chance.  The base [BuffMagnitude|Magnitude] of Bleeding is [Physical] damage per second equal to 15% of the [Premitigation|Pre-mitigation] [Physical] damage of the [Hit] that inflicted it. This magnitude is not further affected by any modifiers to the damage you deal.   Modifiers and [Debuff|Debuffs] that affect the enemy's ability to mitigate damage (such as [Shock]) can affect the damage the enemy takes from Bleeding, but any such modifiers that specifically apply to [Hit] damage (such as [ArmourBreak|Armour Break]) do not affect Bleeding damage.",
+		["description"] = "Bleeding is an [Ailments|Ailment] that deals [Physical|Physical] damage over time, and lasts 5 seconds by default. Damage from Bleeding bypasses [EnergyShield|Energy Shield]\13\
+\13\
+Bleeding deals an extra 100% damage while the target is moving, or if the Bleeding is [Aggravate|Aggravated].\13\
+\13\
+[Physical] damage from [Hit|Hits] [Contributes|Contributes] to Bleeding [BuffMagnitude|Magnitude].\13\
+\13\
+Damage does not [Contributes|Contribute] to Bleeding chance, so it cannot be inflicted without an explicit source of Bleeding chance.\13\
+\13\
+The base [BuffMagnitude|Magnitude] of Bleeding is [Physical] damage per second equal to 15% of the [Premitigation|Pre-mitigation] [Physical] damage of the [Hit] that inflicted it. This magnitude is not further affected by any modifiers to the damage you deal. \13\
+\13\
+Modifiers and [Debuff|Debuffs] that affect the enemy's ability to mitigate damage (such as [Shock]) can affect the damage the enemy takes from Bleeding, but any such modifiers that specifically apply to [Hit] damage (such as [ArmourBreak|Armour Break]) do not affect Bleeding damage.",
 		["name"] = "Bleeding",
 	},
 	["Blind"] = {
@@ -314,7 +447,11 @@ return {
 		["name"] = "Blind",
 	},
 	["Block"] = {
-		["description"] = "Blocking completely prevents the damage of an incoming [Hit].  You will still take any [Stun] from the Blocked hit. You can't Block while [Stun|Stunned] or [Freeze|Frozen].   Some Skills used by Bosses cannot be blocked. These are indicated by a red glow and audio cue during the windup of the Skill.",
+		["description"] = "Blocking completely prevents the damage of an incoming [Hit].\13\
+\13\
+You will still take any [Stun] from the Blocked hit. You can't Block while [Stun|Stunned] or [Freeze|Frozen]. \13\
+\13\
+Some Skills used by Bosses cannot be blocked. These are indicated by a red glow and audio cue during the windup of the Skill.",
 		["name"] = "Block",
 	},
 	["BloodLoss"] = {
@@ -322,15 +459,22 @@ return {
 		["name"] = "Blood Loss",
 	},
 	["BloodMagic"] = {
-		["description"] = "You have no Mana Skill Mana Costs [StatConversion|Converted] to Life Costs",
+		["description"] = "You have no Mana\13\
+Skill Mana Costs [StatConversion|Converted] to Life Costs",
 		["name"] = "Blood Magic",
 	},
 	["BloodlettingRune"] = {
-		["description"] = "<<ExpedRuneBloodletting>><rgb(219,217,206)>{Bloodletting Rune} <font:'fontin'>{<italic>{<rgb(110,87,66)>{Monsters gain:}}} <rgb(135,134,253)>{Life Leech} <rgb(135,134,253)>{Cannot have Life Leeched from} <rgb(135,134,253)>{Inflicts Corrupted Blood on Hit}",
+		["description"] = "<<ExpedRuneBloodletting>><rgb(219,217,206)>{Bloodletting Rune}\13\
+<font:'fontin'>{<italic>{<rgb(110,87,66)>{Monsters gain:}}}\13\
+<rgb(135,134,253)>{Life Leech}\13\
+<rgb(135,134,253)>{Cannot have Life Leeched from}\13\
+<rgb(135,134,253)>{Inflicts Corrupted Blood on Hit}",
 		["name"] = "Bloodletting Rune",
 	},
 	["Bloodstained"] = {
-		["description"] = "While [Bleeding] enemies build up Bloodstained, gaining the Bloodstained [Debuff] after Bleeding for a total of 6 seconds. Bloodstained builds up 100% faster if the [Bleeding] enemy is moving or the Bleeding is [Aggravate|Aggravated].  Certain skills allow you to view the Bloodstained Debuff on enemies and can consume the Debuff for powerful effects.",
+		["description"] = "While [Bleeding] enemies build up Bloodstained, gaining the Bloodstained [Debuff] after Bleeding for a total of 6 seconds. Bloodstained builds up 100% faster if the [Bleeding] enemy is moving or the Bleeding is [Aggravate|Aggravated].\13\
+\13\
+Certain skills allow you to view the Bloodstained Debuff on enemies and can consume the Debuff for powerful effects.",
 		["name"] = "Bloodstained",
 	},
 	["BloodstoneAmulet"] = {
@@ -342,7 +486,12 @@ return {
 		["name"] = "Blue Flames of Chayula",
 	},
 	["BondRune"] = {
-		["description"] = "<<ExpedRuneBond>><rgb(219,217,206)>{Bond Rune} <font:'fontin'>{<italic>{<rgb(110,87,66)>{Monsters gain:}}} <rgb(135,134,253)>{Rare Monsters may transfer a Mod on death} <font:'fontin'>{<italic>{<rgb(110,87,66)>{Remnant gains:}}} <rgb(135,134,253)>{Increased chance to spawn Rare Monsters} <rgb(135,134,253)>{Rare Monsters have more [MonsterModifiers|Monster Modifiers]}",
+		["description"] = "<<ExpedRuneBond>><rgb(219,217,206)>{Bond Rune}\13\
+<font:'fontin'>{<italic>{<rgb(110,87,66)>{Monsters gain:}}}\13\
+<rgb(135,134,253)>{Rare Monsters may transfer a Mod on death}\13\
+<font:'fontin'>{<italic>{<rgb(110,87,66)>{Remnant gains:}}}\13\
+<rgb(135,134,253)>{Increased chance to spawn Rare Monsters}\13\
+<rgb(135,134,253)>{Rare Monsters have more [MonsterModifiers|Monster Modifiers]}",
 		["name"] = "Bond Rune",
 	},
 	["BonusMapEvent"] = {
@@ -350,15 +499,23 @@ return {
 		["name"] = "Ancient Modifiers",
 	},
 	["BooleanDamageRoll"] = {
-		["description"] = "[Hit|Hits] from a weapon or skill with this property will not roll a random value between the minimum or maximum damage value, but instead will always roll either the minimum value or the maximum value, with a 50% chance for each.  Each [DamageTypes|Damage Type] has its damage value rolled separately, so if the hit deals multiple types of damage, some types may roll the maximum while others roll minimum.  If the damage rolls are [Lucky], that will still apply, make this roll twice and picking the maximum if either roll had that result, only picking minimum damage if both rolls selected minimum. Unlucky damage rolls will prefer minimum damage in the same way.",
+		["description"] = "[Hit|Hits] from a weapon or skill with this property will not roll a random value between the minimum or maximum damage value, but instead will always roll either the minimum value or the maximum value, with a 50% chance for each.\13\
+\13\
+Each [DamageTypes|Damage Type] has its damage value rolled separately, so if the hit deals multiple types of damage, some types may roll the maximum while others roll minimum.\13\
+\13\
+If the damage rolls are [Lucky], that will still apply, make this roll twice and picking the maximum if either roll had that result, only picking minimum damage if both rolls selected minimum. Unlucky damage rolls will prefer minimum damage in the same way.",
 		["name"] = "Only Minimum or Maximum Damage",
 	},
 	["Boons"] = {
-		["description"] = "Boons are positive effects that are applied to the Trial of the Sekhemas; making them easier to run. Boons can be gained from certain Maraketh Shrines or from buying them from the Trial Merchant using [SacredWater|Sacred Water]. Boons can be either Minor or Major, providing varying benefits to your Trial.",
+		["description"] = "Boons are positive effects that are applied to the Trial of the Sekhemas; making them easier to run.\13\
+Boons can be gained from certain Maraketh Shrines or from buying them from the Trial Merchant using [SacredWater|Sacred Water].\13\
+Boons can be either Minor or Major, providing varying benefits to your Trial.",
 		["name"] = "Boons",
 	},
 	["Bow"] = {
-		["description"] = "Bows are [Two-Handed] ranged weapons that require [Dexterity] to equip. Equipping a Bow allows you to also equip a [Quiver] in the off hand slot.   Bows can [Attack] from long range and with high mobility using a variety of skills, but generally deal less damage than other two-handed weapon types.",
+		["description"] = "Bows are [Two-Handed] ranged weapons that require [Dexterity] to equip. Equipping a Bow allows you to also equip a [Quiver] in the off hand slot. \13\
+\13\
+Bows can [Attack] from long range and with high mobility using a variety of skills, but generally deal less damage than other two-handed weapon types.",
 		["name"] = "Bows",
 	},
 	["BreachAugment"] = {
@@ -386,7 +543,9 @@ return {
 		["name"] = "",
 	},
 	["BreachHiveAddModifierToRareSkill"] = {
-		["description"] = "A skill created by Ailith that creates a zone which adds a [MonsterModifiers|Modifier] to Rare Breach Monsters which enter it.  A Rare Monster can only have one Modifier added.",
+		["description"] = "A skill created by Ailith that creates a zone which adds a [MonsterModifiers|Modifier] to Rare Breach Monsters which enter it.\13\
+\13\
+A Rare Monster can only have one Modifier added.",
 		["name"] = "Dreamer's Inspiration",
 	},
 	["BreachHiveAdditionalRarePackSkill"] = {
@@ -398,7 +557,9 @@ return {
 		["name"] = "Xesht's Fervour",
 	},
 	["BreachHiveMonsterUpgradeSkill"] = {
-		["description"] = "A skill created by Ailith that creates a zone which upgrades the [MonsterRarity|Rarity] of Breach Monsters which enter it.  Monsters can only have their [MonsterRarity|Rarity] upgraded once, and can not be upgraded beyond Rare.",
+		["description"] = "A skill created by Ailith that creates a zone which upgrades the [MonsterRarity|Rarity] of Breach Monsters which enter it.\13\
+\13\
+Monsters can only have their [MonsterRarity|Rarity] upgraded once, and can not be upgraded beyond Rare.",
 		["name"] = "Dreamer's Sight",
 	},
 	["BreachHiveSacrificeForPowerSkill"] = {
@@ -422,7 +583,13 @@ return {
 		["name"] = "",
 	},
 	["BreachWombgift"] = {
-		["description"] = "Wombgifts are found within [ContainsBreach|Breaches] and are grown on The Genesis Tree.  The 4 types of Wombgifts are: * [BreachFruitCurrency|Lavish Wombgift] * [BreachFruitAmulet|Ornate Wombgift] * [BreachFruitBelt|Banded Wombgift] * [BreachFruitRing|Signet Wombgift]",
+		["description"] = "Wombgifts are found within [ContainsBreach|Breaches] and are grown on The Genesis Tree.\13\
+\13\
+The 4 types of Wombgifts are:\13\
+* [BreachFruitCurrency|Lavish Wombgift]\13\
+* [BreachFruitAmulet|Ornate Wombgift]\13\
+* [BreachFruitBelt|Banded Wombgift]\13\
+* [BreachFruitRing|Signet Wombgift]",
 		["name"] = "Wombgifts",
 	},
 	["BreachlordSac"] = {
@@ -442,11 +609,17 @@ return {
 		["name"] = "Brittle",
 	},
 	["BrokenFace"] = {
-		["description"] = "Each \"Boss Encounter\" icon on the World Screen is a face which can be broken by beating the encounter.  \"Rare Monster Encounter\" icons do not provide any bonus when broken.",
+		["description"] = "Each \"Boss Encounter\" icon on the World Screen is a face which can be broken by beating the encounter.\13\
+\13\
+\"Rare Monster Encounter\" icons do not provide any bonus when broken.",
 		["name"] = "Broken Boss Faces",
 	},
 	["BrokenStance"] = {
-		["description"] = "Broken Stance is a [Debuff] inflicted by [Hit|Hits], which stores 10% of the [Premitigation|Pre-mitigation] [Physical] [Hit|Hit damage] of the [Hit] that inflicts it as its [BuffMagnitude|Magnitude].  The inflicter's subsequent [Hit|Hits] against the target will gain additional unscaleable added [Physical] [Hit|Damage] equal to that magnitude.  Enemies with Broken Stance cannot be [Daze|Dazed] again.",
+		["description"] = "Broken Stance is a [Debuff] inflicted by [Hit|Hits], which stores 10% of the [Premitigation|Pre-mitigation] [Physical] [Hit|Hit damage] of the [Hit] that inflicts it as its [BuffMagnitude|Magnitude].\13\
+\13\
+The inflicter's subsequent [Hit|Hits] against the target will gain additional unscaleable added [Physical] [Hit|Damage] equal to that magnitude.\13\
+\13\
+Enemies with Broken Stance cannot be [Daze|Dazed] again.",
 		["name"] = "Broken Stance",
 	},
 	["Buckler"] = {
@@ -454,7 +627,9 @@ return {
 		["name"] = "Bucklers",
 	},
 	["Buff"] = {
-		["description"] = "Buffs are effects that boost a player or monster's stats for a duration or while a condition is met.  Unless otherwise stated, Buffs of the same type do not stack — only the copy with the strongest effect applies.",
+		["description"] = "Buffs are effects that boost a player or monster's stats for a duration or while a condition is met.\13\
+\13\
+Unless otherwise stated, Buffs of the same type do not stack — only the copy with the strongest effect applies.",
 		["name"] = "Buffs",
 	},
 	["BuffEffect"] = {
@@ -462,11 +637,14 @@ return {
 		["name"] = "Buff/Debuff Effect",
 	},
 	["BuffMagnitude"] = {
-		["description"] = "The Magnitudes of a [Buff] or [Debuff] are the values of the stats it applies to the target. A [Buff] or [Debuff] with higher magnitudes is more powerful.  Modifiers to the Magnitude of [Buff|Buffs] or [Debuff|Debuffs] come from whoever applies it and are multiplicative with modifiers to the [BuffEffect|Effect] the [Buff] or [Debuff] has on the target.",
+		["description"] = "The Magnitudes of a [Buff] or [Debuff] are the values of the stats it applies to the target. A [Buff] or [Debuff] with higher magnitudes is more powerful.\13\
+\13\
+Modifiers to the Magnitude of [Buff|Buffs] or [Debuff|Debuffs] come from whoever applies it and are multiplicative with modifiers to the [BuffEffect|Effect] the [Buff] or [Debuff] has on the target.",
 		["name"] = "Buff/Debuff Magnitude",
 	},
 	["Bulwark"] = {
-		["description"] = "Dodge Roll cannot Avoid Damage Take 30% less [Hit|Damage from Hits] while Dodge Rolling",
+		["description"] = "Dodge Roll cannot Avoid Damage\
+Take 30% less [Hit|Damage from Hits] while Dodge Rolling",
 		["name"] = "Bulwark",
 	},
 	["Burning"] = {
@@ -478,7 +656,11 @@ return {
 		["name"] = "Cartographer's Strongbox",
 	},
 	["Cascadable"] = {
-		["description"] = "[Warcry|Warcries], and Non-[Channelling] [Spell|Spells] that affect an area around you or a targeted location, are Cascadable.  Certain effects can cause Cascadable Skills to Cascade, making them also affect other locations, or to Echo, affecting the same targeted location again after a delay.  A Cascadable Spell that [Repeat|Repeats] will not Cascade or Echo while [Repeat|Repeating].",
+		["description"] = "[Warcry|Warcries], and Non-[Channelling] [Spell|Spells] that affect an area around you or a targeted location, are Cascadable.\13\
+\13\
+Certain effects can cause Cascadable Skills to Cascade, making them also affect other locations, or to Echo, affecting the same targeted location again after a delay.\13\
+\13\
+A Cascadable Spell that [Repeat|Repeats] will not Cascade or Echo while [Repeat|Repeating].",
 		["name"] = "Cascadable Skills",
 	},
 	["CasterWeapon"] = {
@@ -490,11 +672,17 @@ return {
 		["name"] = "Catalysts",
 	},
 	["CelestialRune"] = {
-		["description"] = "<<ExpedRuneCelestial>><rgb(219,217,206)>{Celestial Rune} <font:'fontin'>{<italic>{<rgb(110,87,66)>{Monsters gain:}}} <rgb(135,134,253)>{Chance for a Fire Explosion on Death} <rgb(135,134,253)>{Chance for a Cold Explosion on Death} <rgb(135,134,253)>{Chance for a Lightning Explosion on Death}",
+		["description"] = "<<ExpedRuneCelestial>><rgb(219,217,206)>{Celestial Rune}\13\
+<font:'fontin'>{<italic>{<rgb(110,87,66)>{Monsters gain:}}}\13\
+<rgb(135,134,253)>{Chance for a Fire Explosion on Death}\13\
+<rgb(135,134,253)>{Chance for a Cold Explosion on Death}\13\
+<rgb(135,134,253)>{Chance for a Lightning Explosion on Death}",
 		["name"] = "Celestial Rune",
 	},
 	["Chain"] = {
-		["description"] = "Effects that Chain are redirected to another target after colliding with an enemy. [Projectile|Projectiles] [Split|Splitting], [Pierce|Piercing] or [Fork|Forking] take priority over Chaining. Projectiles have a base chaining distance of 6 metres whereas other effects have a chaining distance of 4 metres. Enemies cannot be targeted more than once in the same Chain.",
+		["description"] = "Effects that Chain are redirected to another target after colliding with an enemy.\13\
+[Projectile|Projectiles] [Split|Splitting], [Pierce|Piercing] or [Fork|Forking] take priority over Chaining.\13\
+Projectiles have a base chaining distance of 6 metres whereas other effects have a chaining distance of 4 metres. Enemies cannot be targeted more than once in the same Chain.",
 		["name"] = "Chain",
 	},
 	["ChanceToBlock"] = {
@@ -506,11 +694,13 @@ return {
 		["name"] = "Channelling",
 	},
 	["Chaos"] = {
-		["description"] = "Chaos damage is one of the five [DamageTypes|Damage Types]. It is reduced by [Resistances|Chaos Resistance].  Chaos damage is the least common damage type, and removes twice as much [EnergyShield|Energy Shield] as the damage value when taken.",
+		["description"] = "Chaos damage is one of the five [DamageTypes|Damage Types]. It is reduced by [Resistances|Chaos Resistance]. \13\
+Chaos damage is the least common damage type, and removes twice as much [EnergyShield|Energy Shield] as the damage value when taken.",
 		["name"] = "Chaos Damage",
 	},
 	["ChaosInoculation"] = {
-		["description"] = "Maximum Life is 1 Immune to [Chaos] Damage and [Bleeding]",
+		["description"] = "Maximum Life is 1\13\
+Immune to [Chaos] Damage and [Bleeding]",
 		["name"] = "Chaos Inoculation",
 	},
 	["ChaosOrb"] = {
@@ -530,19 +720,29 @@ return {
 		["name"] = "Chaos Surge",
 	},
 	["ChargeCycle"] = {
-		["description"] = "Gain [Charges|Power Charges] instead of [Charges|Frenzy Charges] Gain [Charges|Frenzy Charges] instead of [Charges|Endurance Charges] Gain [Charges|Endurance Charges] instead of [Charges|Power Charges]",
+		["description"] = "Gain [Charges|Power Charges] instead of [Charges|Frenzy Charges]\
+Gain [Charges|Frenzy Charges] instead of [Charges|Endurance Charges]\
+Gain [Charges|Endurance Charges] instead of [Charges|Power Charges]",
 		["name"] = "Resonance",
 	},
 	["Charges"] = {
-		["description"] = "Charges can be gained from a number of Skills, passives, and other effects. They do not grant any inherent benefits, but can be consumed to fuel many skills and other effects. Charges last for 15 seconds by default, refreshing whenever you gain another charge of the same type.  There are three types of Charges — Endurance, Frenzy and Power. By default players can have up to 3 of each type of Charge at once.",
+		["description"] = "Charges can be gained from a number of Skills, passives, and other effects. They do not grant any inherent benefits, but can be consumed to fuel many skills and other effects. Charges last for 15 seconds by default, refreshing whenever you gain another charge of the same type.\13\
+\13\
+There are three types of Charges — Endurance, Frenzy and Power. By default players can have up to 3 of each type of Charge at once.",
 		["name"] = "Charges",
 	},
 	["Charm"] = {
-		["description"] = "Charms are protective trinkets you can equip that automatically trigger a defensive effect when a specific condition is met. Similar to [Flask|Flasks], Charms require charges to trigger. Charm charges can be regained by killing monsters, granting charges equal to half of the monster's [Power]. [Checkpoint|Checkpoints] and [Wells] completely recharge Charms when activated.  The maximum number of Charm slots is capped at 3.",
+		["description"] = "Charms are protective trinkets you can equip that automatically trigger a defensive effect when a specific condition is met. Similar to [Flask|Flasks], Charms require charges to trigger. Charm charges can be regained by killing monsters, granting charges equal to half of the monster's [Power]. [Checkpoint|Checkpoints] and [Wells] completely recharge Charms when activated.\13\
+\13\
+The maximum number of Charm slots is capped at 3.",
 		["name"] = "Charms",
 	},
 	["Checkpoint"] = {
-		["description"] = "Checkpoints are a form of saving your progress through Wraeclast and will often appear before Boss fights and at points of interest. Reaching a Checkpoint will refill your Life, Mana, [Flask|Flasks] and [Charm|Charms].  On death, you can choose to revive either in Town or at the last Checkpoint you reached. For this purpose, [Waypoint|Waypoints] also function as Checkpoints.  You can also teleport between Checkpoints within an area, or from a Checkpoint to the Waypoint.",
+		["description"] = "Checkpoints are a form of saving your progress through Wraeclast and will often appear before Boss fights and at points of interest. Reaching a Checkpoint will refill your Life, Mana, [Flask|Flasks] and [Charm|Charms].\13\
+\13\
+On death, you can choose to revive either in Town or at the last Checkpoint you reached. For this purpose, [Waypoint|Waypoints] also function as Checkpoints.\13\
+\13\
+You can also teleport between Checkpoints within an area, or from a Checkpoint to the Waypoint.",
 		["name"] = "Checkpoints",
 	},
 	["CheckpointMaps"] = {
@@ -550,7 +750,9 @@ return {
 		["name"] = "Checkpoints in Maps",
 	},
 	["Chill"] = {
-		["description"] = "Chill is an [Ailments|Ailment] that [Slow|Slows] the afflicted target, and lasts 2 seconds on players or 8 seconds on non-players by default. Chill [BuffMagnitude|Magnitude] depends on the Chilling damage dealt relative to the target's [AilmentThreshold|Elemental Ailment Threshold], with a minimum of 30% and a default maximum of 50%.  [Cold] damage from [Hit|Hits] can Chill by default, and does not require a chance to inflict Chill. However, Chills smaller than 30% will be ignored, so small [Hit|Hits] can fail to Chill.",
+		["description"] = "Chill is an [Ailments|Ailment] that [Slow|Slows] the afflicted target, and lasts 2 seconds on players or 8 seconds on non-players by default. Chill [BuffMagnitude|Magnitude] depends on the Chilling damage dealt relative to the target's [AilmentThreshold|Elemental Ailment Threshold], with a minimum of 30% and a default maximum of 50%.\13\
+\13\
+[Cold] damage from [Hit|Hits] can Chill by default, and does not require a chance to inflict Chill. However, Chills smaller than 30% will be ignored, so small [Hit|Hits] can fail to Chill.",
 		["name"] = "Chill",
 	},
 	["ChilledGround"] = {
@@ -562,15 +764,23 @@ return {
 		["name"] = "Sands of Time",
 	},
 	["Citadel"] = {
-		["description"] = "There are three types of Citadels, each located in different cities throughout Wraeclast.   [CopperCitadel|Copper Citadels] in Faridun Cities, [IronCitadel|Iron Citadels] in Ezomyte Cities and [StoneCitadel|Stone Citadels] in Vaal Cities.  Complete one of each type of Citadel and collect their Crisis Fragments to gain access to [TheBurningMonoilth|The Burning Monolith].",
+		["description"] = "There are three types of Citadels, each located in different cities throughout Wraeclast. \13\
+\13\
+[CopperCitadel|Copper Citadels] in Faridun Cities, [IronCitadel|Iron Citadels] in Ezomyte Cities and [StoneCitadel|Stone Citadels] in Vaal Cities.\13\
+\13\
+Complete one of each type of Citadel and collect their Crisis Fragments to gain access to [TheBurningMonoilth|The Burning Monolith].",
 		["name"] = "Citadel",
 	},
 	["Claw"] = {
-		["description"] = "Claws are [One-Handed] [Melee] weapons that require [Dexterity] to equip. Claws can be [DualWield|Dual Wielded] with another Claw, but cannot be combined with other equipped items in the off hand.  Claw [Attack|Attacks] are commonly fast and cause [Bleeding].",
+		["description"] = "Claws are [One-Handed] [Melee] weapons that require [Dexterity] to equip. Claws can be [DualWield|Dual Wielded] with another Claw, but cannot be combined with other equipped items in the off hand.\13\
+\13\
+Claw [Attack|Attacks] are commonly fast and cause [Bleeding].",
 		["name"] = "Claws",
 	},
 	["Cleansed"] = {
-		["description"] = "The Corruption in this area has been Cleansed, which may add an additional modifier to the area.  Cleansed areas also contain monsters twisted by the disruption of power in the area.",
+		["description"] = "The Corruption in this area has been Cleansed, which may add an additional modifier to the area.\13\
+\13\
+Cleansed areas also contain monsters twisted by the disruption of power in the area.",
 		["name"] = "Cleansed",
 	},
 	["CloseRange"] = {
@@ -586,11 +796,15 @@ return {
 		["name"] = "Cold Damage",
 	},
 	["ColdRune"] = {
-		["description"] = "<<ExpedRuneCold>><rgb(219,217,206)>{Cold Rune} <font:'fontin'>{<italic>{<rgb(110,87,66)>{Monsters gain:}}} <rgb(135,134,253)>{Extra Cold Damage}",
+		["description"] = "<<ExpedRuneCold>><rgb(219,217,206)>{Cold Rune}\13\
+<font:'fontin'>{<italic>{<rgb(110,87,66)>{Monsters gain:}}}\13\
+<rgb(135,134,253)>{Extra Cold Damage}",
 		["name"] = "Cold Rune",
 	},
 	["Combo"] = {
-		["description"] = "Combo is a counter on some Skills that can be required to use the Skill or grant extra effects. Skills gain Combo when you [Strike] Enemies. Combo will fall off after a short time without this happening.  Combo can only be built while using the same weapon as the Combo Skill is bound to, and will be lost if you [WeaponSets|Swap Weapons].",
+		["description"] = "Combo is a counter on some Skills that can be required to use the Skill or grant extra effects. Skills gain Combo when you [Strike] Enemies. Combo will fall off after a short time without this happening.\13\
+\13\
+Combo can only be built while using the same weapon as the Combo Skill is bound to, and will be lost if you [WeaponSets|Swap Weapons].",
 		["name"] = "Combo",
 	},
 	["Command"] = {
@@ -602,7 +816,9 @@ return {
 		["name"] = "Companions",
 	},
 	["CompoundIgnite"] = {
-		["description"] = "When [Ignite|Igniting] a target which has already been [Ignite|Ignited] by the same use of this Skill, the existing [Ignite] is removed to boost the new [Ignite], multiplying its [BuffMagnitude|Magnitude] by the total number of [Ignite|Ignites] compounded this way.  [Ignite|Ignites] cannot Compound when reflected, or when applied by [OilGround|Oil Ground] that has been [Ignite|Ignited]. They will neither remove existing [Ignite], nor get any boost to [BuffMagnitude|Ignite Magnitude].",
+		["description"] = "When [Ignite|Igniting] a target which has already been [Ignite|Ignited] by the same use of this Skill, the existing [Ignite] is removed to boost the new [Ignite], multiplying its [BuffMagnitude|Magnitude] by the total number of [Ignite|Ignites] compounded this way.\13\
+\13\
+[Ignite|Ignites] cannot Compound when reflected, or when applied by [OilGround|Oil Ground] that has been [Ignite|Ignited]. They will neither remove existing [Ignite], nor get any boost to [BuffMagnitude|Ignite Magnitude].",
 		["name"] = "Compounding Ignite",
 	},
 	["Concentration"] = {
@@ -622,7 +838,9 @@ return {
 		["name"] = "Congealed Mist",
 	},
 	["ConnectedGem"] = {
-		["description"] = "Two gems are considered Connected if one is socketed into the other, or if both are socketed into a third gem.  A [SupportGem|Support Gem] socketed in a [Meta|Meta] Skill  is still Connected to that [Meta] Skill and to all other Skills socketed in that [Meta] Skill, even if it cannot Support some of those skills.",
+		["description"] = "Two gems are considered Connected if one is socketed into the other, or if both are socketed into a third gem.\13\
+\13\
+A [SupportGem|Support Gem] socketed in a [Meta|Meta] Skill  is still Connected to that [Meta] Skill and to all other Skills socketed in that [Meta] Skill, even if it cannot Support some of those skills.",
 		["name"] = "Connected Support Gems",
 	},
 	["ConsecratedGround"] = {
@@ -630,39 +848,85 @@ return {
 		["name"] = "Consecrated Ground",
 	},
 	["Consume"] = {
-		["description"] = "Multiple effects on enemies can be Consumed. Only one Consumption benefit can occur at once, and Consumption effects from Skills will take priority over those from other sources.  Consuming a [Debuff] on an enemy causes the enemy to be immune to that [Debuff] for 1 seconds.",
+		["description"] = "Multiple effects on enemies can be Consumed. Only one Consumption benefit can occur at once, and Consumption effects from Skills will take priority over those from other sources.\13\
+\13\
+Consuming a [Debuff] on an enemy causes the enemy to be immune to that [Debuff] for 1 seconds.",
 		["name"] = "Effect Consumption",
 	},
 	["ContainsAbyss"] = {
-		["description"] = "An Abyss is a pit which leads deep underground with multiple fissures branching from it. Any monsters spawned near an Abyss will be weakened by it. Defeating these weakened monsters will cause the fissures to close. Once the fissures have closed all the way to the pit, the pit will activate and spawn a large number of Abyssal monsters. Defeating these monsters will close the pit.   Each closed pit has a chance to spawn an Abyssal Trove which can grant pieces of [Abyssalify|Preserved Bone] to craft onto your Items. The final Abyss in the area has a chance to instead open an underground dungeon called an [AbyssalDepths|Abyssal Depths].  There are three separate groups of Abyssal Monsters: the Lightless, the Blackblooded and the Legion of the Pit, each area generally contains one of these groups. The rarity of the monsters spawned depends on the rarity of the slain weakened monsters and the emerging Abyssal will steal some or all of the modifiers from them. Any of the modifiers stolen by Rare Abyssal can be upgraded to [AbyssalModifiers|Abyssal Modifiers].",
+		["description"] = "An Abyss is a pit which leads deep underground with multiple fissures branching from it. Any monsters spawned near an Abyss will be weakened by it.\13\
+Defeating these weakened monsters will cause the fissures to close.\13\
+Once the fissures have closed all the way to the pit, the pit will activate and spawn a large number of Abyssal monsters. Defeating these monsters will close the pit. \13\
+\13\
+Each closed pit has a chance to spawn an Abyssal Trove which can grant pieces of [Abyssalify|Preserved Bone] to craft onto your Items. The final Abyss in the area has a chance to instead open an underground dungeon called an [AbyssalDepths|Abyssal Depths].\13\
+\13\
+There are three separate groups of Abyssal Monsters: the Lightless, the Blackblooded and the Legion of the Pit, each area generally contains one of these groups.\13\
+The rarity of the monsters spawned depends on the rarity of the slain weakened monsters and the emerging Abyssal will steal some or all of the modifiers from them.\13\
+Any of the modifiers stolen by Rare Abyssal can be upgraded to [AbyssalModifiers|Abyssal Modifiers].",
 		["name"] = "Abyss",
 	},
 	["ContainsBreach"] = {
-		["description"] = "Breaches allow invaders from another world to access ours.  Unstable Breaches are a small tear in the fabric that will open for a short time. Kill Breach monsters to keep them open longer. Once enough monsters have been killed, the Breach will stabalise, calling stronger monsters through the portal at the centre. Kill these monsters in the centre will complete the Unstable Breach, closing the tear.  A Breach Hive is a tear that has already grown out of control. You will need the help of Ailith to close these. With a blessing from Chayula, burn your way to the centre of the Hive and help Ailith start the process of destorying the centre. As Ailith destroys the Hive, Breach monsters will pour in to try and kill her. Defend Ailith until she has completely destroyed the centre of the hive to remove it from existence. If Ailith dies during this, the Hive will remain.",
+		["description"] = "Breaches allow invaders from another world to access ours.\13\
+\13\
+Unstable Breaches are a small tear in the fabric that will open for a short time. Kill Breach monsters to keep them open longer.\13\
+Once enough monsters have been killed, the Breach will stabalise, calling stronger monsters through the portal at the centre.\13\
+Kill these monsters in the centre will complete the Unstable Breach, closing the tear.\13\
+\13\
+A Breach Hive is a tear that has already grown out of control. You will need the help of Ailith to close these.\13\
+With a blessing from Chayula, burn your way to the centre of the Hive and help Ailith start the process of destorying the centre.\13\
+As Ailith destroys the Hive, Breach monsters will pour in to try and kill her. Defend Ailith until she has completely destroyed the centre of the hive to remove it from existence.\13\
+If Ailith dies during this, the Hive will remain.",
 		["name"] = "Breach",
 	},
 	["ContainsCorruption"] = {
-		["description"] = "Contains Corruption, which may add an additional modifier to the area.  Corrupted Areas cause slain monsters to [CoalescedCorruption|Coalesce Corruption] to manifest powerful monsters.",
+		["description"] = "Contains Corruption, which may add an additional modifier to the area.\13\
+\13\
+Corrupted Areas cause slain monsters to [CoalescedCorruption|Coalesce Corruption] to manifest powerful monsters.",
 		["name"] = "Corruption",
 	},
 	["ContainsDelirium"] = {
-		["description"] = "Maps containing a Delirium Mirror can have the mirror walked through to unleash the rolling Delirium fog ring across the current area.  You must stay within this fog as it expands to maintain the [Delirious|Delirium] or it will disappear.  [Rarity|Magic] monsters are able to gain Delirium specific [MonsterModifiers|Modifiers] while inside the fog.  [Rarity|Rare] or [Rarity|Unique] monsters in the fog may manifest Delirium Demons. Manifested Delirium Demons inhabit the monster's body to occasionally use Skills of their own.  [FracturingMirror|Fractured Mirrors] may be found within Delirium Fog, summoning extra monsters while [FracturingMirrorShard|Fracturing Mirror Shards] are found at set depths, with more varied rewards.  Defeating [MapBoss|Map Bosses] has a chance to summon a [DeliriumGigaMirror|Grand Mirror] on a nearby map.",
+		["description"] = "Maps containing a Delirium Mirror can have the mirror walked through to unleash the rolling Delirium fog ring across the current area. \13\
+You must stay within this fog as it expands to maintain the [Delirious|Delirium] or it will disappear.\13\
+\13\
+[Rarity|Magic] monsters are able to gain Delirium specific [MonsterModifiers|Modifiers] while inside the fog.\13\
+\13\
+[Rarity|Rare] or [Rarity|Unique] monsters in the fog may manifest Delirium Demons. Manifested Delirium Demons inhabit the monster's body to occasionally use Skills of their own.\13\
+\13\
+[FracturingMirror|Fractured Mirrors] may be found within Delirium Fog, summoning extra monsters while [FracturingMirrorShard|Fracturing Mirror Shards] are found at set depths, with more varied rewards.\13\
+\13\
+Defeating [MapBoss|Map Bosses] has a chance to summon a [DeliriumGigaMirror|Grand Mirror] on a nearby map.",
 		["name"] = "Delirium",
 	},
 	["ContainsExpedition"] = {
-		["description"] = "Expeditions are Ancient Kalguuran burial sites, with [ContainsExpedition2|Verisium Remnants] and dangers buried beneath the ground.  Set up a chain of explosives and unearth the treasures, but beware of the dangers that hide in wait. Verisium Remnants apply their Modifiers to Monsters and Chests that are excavated with the same explosive that destroys the Remnant and all subsequent unearthed Monsters and Chests.  Using [ExpeditionLogbookCurrency|Logbooks] on the Atlas can reveal [GrandExpedition|Grand Expeditions] which are larger versions of regular Expeditions and can contain special types of Remnants.",
+		["description"] = "Expeditions are Ancient Kalguuran burial sites, with [ContainsExpedition2|Verisium Remnants] and dangers buried beneath the ground.\13\
+\13\
+Set up a chain of explosives and unearth the treasures, but beware of the dangers that hide in wait. Verisium Remnants apply their Modifiers to Monsters and Chests that are excavated with the same explosive that destroys the Remnant and all subsequent unearthed Monsters and Chests.\13\
+\13\
+Using [ExpeditionLogbookCurrency|Logbooks] on the Atlas can reveal [GrandExpedition|Grand Expeditions] which are larger versions of regular Expeditions and can contain special types of Remnants.",
 		["name"] = "Expedition",
 	},
 	["ContainsExpedition2"] = {
-		["description"] = "Verisium Remnants are fragments of the stars themselves, called down by Kalguurans to harness their power.  Verisium Remnants allow you to craft a variety of rewards. Each Remnant has a number of slots available for runes to be inscribed, and when you first find it, it will have one rune already inscribed.  Based on the inscribed rune, you'll be able to select a reward and, based on the runes required for the recipe, you will have to fight waves of Verisium infused monsters to complete the encounter and receive your reward.  These Inscriptions can be used to create Runeshapes within [ContainsExpedition2|Verisium Remnants].  [Rune|Runes] are the result of the Kalguurans study of these Inscriptions and the power of Runeshapes.",
+		["description"] = "Verisium Remnants are fragments of the stars themselves, called down by Kalguurans to harness their power.\13\
+\13\
+Verisium Remnants allow you to craft a variety of rewards. Each Remnant has a number of slots available for runes to be inscribed, and when you first find it, it will have one rune already inscribed.\13\
+\13\
+Based on the inscribed rune, you'll be able to select a reward and, based on the runes required for the recipe, you will have to fight waves of Verisium infused monsters to complete the encounter and receive your reward.\13\
+\13\
+These Inscriptions can be used to create Runeshapes within [ContainsExpedition2|Verisium Remnants].\13\
+\13\
+[Rune|Runes] are the result of the Kalguurans study of these Inscriptions and the power of Runeshapes.",
 		["name"] = "Verisium Remnant",
 	},
 	["ContainsHideout"] = {
-		["description"] = "Contains a Hideout that can be fully cleared to unlock the Hideout for personal use.  All monsters in the area are at least [Rarity|Magic].",
+		["description"] = "Contains a Hideout that can be fully cleared to unlock the Hideout for personal use.\13\
+\13\
+All monsters in the area are at least [Rarity|Magic].",
 		["name"] = "Hideout",
 	},
 	["ContainsIncursion"] = {
-		["description"] = "Activating Vaal Beacons [IncursionCrystal|Energises Crystals] allowing access to Atziri's Temple.  Within the Vaal Ruins a Vaal architect's console may be activated to allow the manipulation of the Temple before activating a temporal portal to travel back in time to 400 BIC, during the reign of Queen Atziri.",
+		["description"] = "Activating Vaal Beacons [IncursionCrystal|Energises Crystals] allowing access to Atziri's Temple.\13\
+\13\
+Within the Vaal Ruins a Vaal architect's console may be activated to allow the manipulation of the Temple before activating a temporal portal to travel back in time to 400 BIC, during the reign of Queen Atziri.",
 		["name"] = "Vaal Beacon",
 	},
 	["ContainsIrradiated"] = {
@@ -674,11 +938,18 @@ return {
 		["name"] = "Empowerment",
 	},
 	["ContainsRitual"] = {
-		["description"] = "Ritual Altars are sacrificial sites that absorb the monsters slain within their ritual circles. After an amount of monsters have been slain, the Ritual can be activated. Activating the Ritual will resurrect the slain monsters, requiring you slay them once more.   Defeating these revived monsters earns you Tribute, a resource that you can trade for various Favours from the Ritual Altar.  The list of Favours tradable for Tribute can be rerolled, costing Tribute. Favours can be deferred, paying a part of their cost but having them appear again later.",
+		["description"] = "Ritual Altars are sacrificial sites that absorb the monsters slain within their ritual circles. After an amount of monsters have been slain, the Ritual can be activated.\13\
+Activating the Ritual will resurrect the slain monsters, requiring you slay them once more. \13\
+\13\
+Defeating these revived monsters earns you Tribute, a resource that you can trade for various Favours from the Ritual Altar. \13\
+The list of Favours tradable for Tribute can be rerolled, costing Tribute.\13\
+Favours can be deferred, paying a part of their cost but having them appear again later.",
 		["name"] = "Ritual",
 	},
 	["ContainsUniqueMap"] = {
-		["description"] = "Contains a [Rarity|Unique] Map layout which may contain specialised rewards.  Unique Maps cannot gain additional content, [Essence|Essences], [Shrine|Shrines], or [Strongbox|Strongboxes].",
+		["description"] = "Contains a [Rarity|Unique] Map layout which may contain specialised rewards.\13\
+\13\
+Unique Maps cannot gain additional content, [Essence|Essences], [Shrine|Shrines], or [Strongbox|Strongboxes].",
 		["name"] = "Unique Map",
 	},
 	["ContainsWanderingTrader"] = {
@@ -686,19 +957,31 @@ return {
 		["name"] = "Wandering Trader",
 	},
 	["Contributes"] = {
-		["description"] = "By default, specific [Ailments] are calculated based on only specific [DamageTypes|damage types], such as only the [Fire] damage of a [Hit] mattering when inflicting [Ignite].  Allowing another damage type to contribute to an [Ailments|Ailment] means that all damage of the relevant types is summed when performing calculations for that [Ailments|Ailment].  For [Ailments] that use [Hit] damage to determine [Ailments|Ailment] chance or buildup, this means that the damage type becomes capable of inflicting that [Ailments|Ailment]. For [Ailments] that only use [Hit] damage to determine [Ailments|Ailment] [BuffMagnitude|Magnitude] (i.e. [Bleeding] and [Poison]), you still need a way to apply those [Ailments] (e.g. a source of [Bleeding] or [Poison] chance).",
+		["description"] = "By default, specific [Ailments] are calculated based on only specific [DamageTypes|damage types], such as only the [Fire] damage of a [Hit] mattering when inflicting [Ignite].\13\
+\13\
+Allowing another damage type to contribute to an [Ailments|Ailment] means that all damage of the relevant types is summed when performing calculations for that [Ailments|Ailment].\13\
+\13\
+For [Ailments] that use [Hit] damage to determine [Ailments|Ailment] chance or buildup, this means that the damage type becomes capable of inflicting that [Ailments|Ailment]. For [Ailments] that only use [Hit] damage to determine [Ailments|Ailment] [BuffMagnitude|Magnitude] (i.e. [Bleeding] and [Poison]), you still need a way to apply those [Ailments] (e.g. a source of [Bleeding] or [Poison] chance).",
 		["name"] = "Damage Contributing to Ailments",
 	},
 	["Conversion"] = {
-		["description"] = "Damage can be converted from one type to another. This causes it to deal the new damage type, scale with modifiers to the new damage type, and no longer scale with modifiers to the old damage type.  For example, [Fire] damage converted to [Lightning] now scales with [Lightning] damage modifiers and causes [Shock], but no longer scales with [Fire] damage modifiers or causes [Ignite].  Conversion is a two step process. Conversion inherent to Skills occurs first, then Conversion from all other sources. Damage over time cannot be converted.",
+		["description"] = "Damage can be converted from one type to another. This causes it to deal the new damage type, scale with modifiers to the new damage type, and no longer scale with modifiers to the old damage type.\13\
+\13\
+For example, [Fire] damage converted to [Lightning] now scales with [Lightning] damage modifiers and causes [Shock], but no longer scales with [Fire] damage modifiers or causes [Ignite].\13\
+\13\
+Conversion is a two step process. Conversion inherent to Skills occurs first, then Conversion from all other sources. Damage over time cannot be converted.",
 		["name"] = "Damage Conversion",
 	},
 	["CooldownRecovery"] = {
-		["description"] = "Cooldown Recovery Rate modifies the speed at which your Skill cooldowns are restored. For example, with 100% increased Cooldown Recovery Rate your Skill cooldowns will effectively be halved.  Cooldown Recovery Rate does not affect anything other than Skill cooldowns.",
+		["description"] = "Cooldown Recovery Rate modifies the speed at which your Skill cooldowns are restored. For example, with 100% increased Cooldown Recovery Rate your Skill cooldowns will effectively be halved.\13\
+\13\
+Cooldown Recovery Rate does not affect anything other than Skill cooldowns.",
 		["name"] = "Cooldown Recovery Rate",
 	},
 	["CopperCitadel"] = {
-		["description"] = "The Copper [Citadel] is an endgame area which can be accessed with a Tier 15 or above [Waystone]. The boss of this area will drop a [PinnacleKey2|Faded Crisis Fragment].  Increases to [Waystone] Drop Chance gives a chance for additional Crisis Fragments to drop.",
+		["description"] = "The Copper [Citadel] is an endgame area which can be accessed with a Tier 15 or above [Waystone]. The boss of this area will drop a [PinnacleKey2|Faded Crisis Fragment].\13\
+\13\
+Increases to [Waystone] Drop Chance gives a chance for additional Crisis Fragments to drop.",
 		["name"] = "Copper Citadel",
 	},
 	["CoronaAmulet"] = {
@@ -710,11 +993,15 @@ return {
 		["name"] = "Corpses",
 	},
 	["Corrupted"] = {
-		["description"] = "Certain items can be found Corrupted or made Corrupted using a Vaal Orb, changing their properties unpredictably. Most methods of item crafting and modification cannot be used on Corrupted items. There is no penalty for using Corrupted items.",
+		["description"] = "Certain items can be found Corrupted or made Corrupted using a Vaal Orb, changing their properties unpredictably.\13\
+Most methods of item crafting and modification cannot be used on Corrupted items. There is no penalty for using Corrupted items.",
 		["name"] = "Corrupted Items",
 	},
 	["CorruptedBlood"] = {
-		["description"] = "Corrupted Blood is a [Debuff] that deals [Physical] damage over time. Up to 10 Corrupted Blood debuffs can be inflicted on each target.  Corrupted Blood is not [Bleeding] and is not affected by any stats related to [Bleeding].",
+		["description"] = "Corrupted Blood is a [Debuff] that deals [Physical] damage over time.\13\
+Up to 10 Corrupted Blood debuffs can be inflicted on each target.\13\
+\13\
+Corrupted Blood is not [Bleeding] and is not affected by any stats related to [Bleeding].",
 		["name"] = "Corrupted Blood",
 	},
 	["CorruptedBoss"] = {
@@ -722,7 +1009,9 @@ return {
 		["name"] = "Corrupted Boss",
 	},
 	["CorruptedMonster"] = {
-		["description"] = "Corrupted Monsters have an additional Corrupted [MonsterModifiers|Modifier].  These modifiers may increase the difficulty and reward of the Monster, or may make it easier to defeat.",
+		["description"] = "Corrupted Monsters have an additional Corrupted [MonsterModifiers|Modifier].\13\
+\13\
+These modifiers may increase the difficulty and reward of the Monster, or may make it easier to defeat.",
 		["name"] = "Corrupted Monsters",
 	},
 	["CorruptedNexus"] = {
@@ -734,7 +1023,9 @@ return {
 		["name"] = "Seeking Shrine",
 	},
 	["Crafted"] = {
-		["description"] = "Some methods of item crafting guarantee that a specific Modifier will be crafted onto the item. An item can only have one Crafted Modifier, but they otherwise behave identically to other Modifiers.  Crafted Modifiers are displayed in a lighter blue colour than regular Modifiers.",
+		["description"] = "Some methods of item crafting guarantee that a specific Modifier will be crafted onto the item. An item can only have one Crafted Modifier, but they otherwise behave identically to other Modifiers.\13\
+\13\
+Crafted Modifiers are displayed in a lighter blue colour than regular Modifiers.",
 		["name"] = "Crafted Modifiers",
 	},
 	["CrimsonAmulet"] = {
@@ -742,11 +1033,17 @@ return {
 		["name"] = "",
 	},
 	["CrimsonAssault"] = {
-		["description"] = "[Bleeding] you inflict is [Aggravate|Aggravated] Base [Bleeding] Duration is 1 second 50% more [BuffMagnitude|Magnitude] of [Bleeding] you inflict",
+		["description"] = "[Bleeding] you inflict is [Aggravate|Aggravated]\13\
+Base [Bleeding] Duration is 1 second\13\
+50% more [BuffMagnitude|Magnitude] of [Bleeding] you inflict",
 		["name"] = "Crimson Assault",
 	},
 	["Critical"] = {
-		["description"] = "Critical Hits deal +100% extra damage (i.e. twice as much damage) by default. [CriticalDamageBonus|Critical Damage Bonuses] can further modify this value.  [Attack|Attacks] usually use your weapon's base Critical Hit Chance, while [Spell|Spells] and some other skills have their base Critical Hit Chance listed on the skill.   Most modifiers to Critical Hit Chance are percentage based. For example, gaining 100% increased Critical Hit Chance on a base Critical Hit Chance of 7% would result in a final Critical Hit Chance of 14%.",
+		["description"] = "Critical Hits deal +100% extra damage (i.e. twice as much damage) by default. [CriticalDamageBonus|Critical Damage Bonuses] can further modify this value.\13\
+\13\
+[Attack|Attacks] usually use your weapon's base Critical Hit Chance, while [Spell|Spells] and some other skills have their base Critical Hit Chance listed on the skill. \13\
+\13\
+Most modifiers to Critical Hit Chance are percentage based. For example, gaining 100% increased Critical Hit Chance on a base Critical Hit Chance of 7% would result in a final Critical Hit Chance of 14%.",
 		["name"] = "Critical Hits",
 	},
 	["CriticalDamageBonus"] = {
@@ -758,7 +1055,9 @@ return {
 		["name"] = "Critical Weakness",
 	},
 	["Crossbow"] = {
-		["description"] = "Crossbows are [Two-Handed] ranged weapons that require [Strength] and [Dexterity] to equip. Crossbow basic [Attack|Attacks] can be modified with [Ammunition|Ammunition Skills].  Multiple [Projectile|Projectiles] fired from a single Crossbow skill can all hit the same target, and single-[Projectile] skills fire additional [Projectile|Projectiles] in sequence rather than in a spread.",
+		["description"] = "Crossbows are [Two-Handed] ranged weapons that require [Strength] and [Dexterity] to equip. Crossbow basic [Attack|Attacks] can be modified with [Ammunition|Ammunition Skills].\13\
+\13\
+Multiple [Projectile|Projectiles] fired from a single Crossbow skill can all hit the same target, and single-[Projectile] skills fire additional [Projectile|Projectiles] in sequence rather than in a spread.",
 		["name"] = "Crossbows",
 	},
 	["Crushed"] = {
@@ -786,15 +1085,27 @@ return {
 		["name"] = "",
 	},
 	["Curse"] = {
-		["description"] = "Curses significantly [Debuff] affected targets. By default a target can have one Curse on them at a time.  Higher [Rarity] enemies are less affected by Curses:  15% less Curse effect on Magic monsters 30% less Curse effect on Rare monsters 50% less Curse effect on Unique monsters",
+		["description"] = "Curses significantly [Debuff] affected targets. By default a target can have one Curse on them at a time.\13\
+\13\
+Higher [Rarity] enemies are less affected by Curses:\13\
+\13\
+15% less Curse effect on Magic monsters\13\
+30% less Curse effect on Rare monsters\13\
+50% less Curse effect on Unique monsters",
 		["name"] = "Curses",
 	},
 	["CyclonicRune"] = {
-		["description"] = "<<ExpedRuneCyclonic>><rgb(219,217,206)>{Cyclonic Rune} <font:'fontin'>{<italic>{<rgb(110,87,66)>{Monsters gain:}}} <rgb(135,134,253)>{Chance to inflict Exposure on Hit} <rgb(135,134,253)>{Armour Break on Hit} <rgb(135,134,253)>{Wither on Hit}",
+		["description"] = "<<ExpedRuneCyclonic>><rgb(219,217,206)>{Cyclonic Rune}\13\
+<font:'fontin'>{<italic>{<rgb(110,87,66)>{Monsters gain:}}}\13\
+<rgb(135,134,253)>{Chance to inflict Exposure on Hit}\13\
+<rgb(135,134,253)>{Armour Break on Hit}\13\
+<rgb(135,134,253)>{Wither on Hit}",
 		["name"] = "Cyclonic Rune",
 	},
 	["Dagger"] = {
-		["description"] = "Daggers are [One-Handed] [Melee] weapons that require [Dexterity] and [Intelligence] to equip.   Dagger [Attack|Attacks] are commonly related to ambushing or debilitating enemies. Some blade-related [Spell|Spells] also require a Dagger.",
+		["description"] = "Daggers are [One-Handed] [Melee] weapons that require [Dexterity] and [Intelligence] to equip. \13\
+\13\
+Dagger [Attack|Attacks] are commonly related to ambushing or debilitating enemies. Some blade-related [Spell|Spells] also require a Dagger.",
 		["name"] = "Daggers",
 	},
 	["DamageAbsorption"] = {
@@ -814,19 +1125,31 @@ return {
 		["name"] = "Dance with Death",
 	},
 	["DarkWhispers"] = {
-		["description"] = "[Curse|Curses] you inflict have 4% increased [Curse] [BuffMagnitude|Magnitudes] for each Dark Whisper you have. You can have a maximum of 10 Dark Whispers.  Dark Whispers last for 8 seconds, and this duration is refreshed whenever you gain more.  When Dark Whispers expire, you Lose 3% of Life, Mana, and Energy Shield for each of them, over 4 seconds.",
+		["description"] = "[Curse|Curses] you inflict have 4% increased [Curse] [BuffMagnitude|Magnitudes] for each Dark Whisper you have. You can have a maximum of 10 Dark Whispers.\13\
+\13\
+Dark Whispers last for 8 seconds, and this duration is refreshed whenever you gain more.\13\
+\13\
+When Dark Whispers expire, you Lose 3% of Life, Mana, and Energy Shield for each of them, over 4 seconds.",
 		["name"] = "Dark Whispers",
 	},
 	["Daze"] = {
-		["description"] = "Some skills and effects have a chance to apply Daze to enemies on [Hit].  Daze lasts for 8 seconds, and a Dazed enemy will take 50% more [Stun|Stun Buildup]. There are also a number of Skills, Effects, and other mechanics which interact with Daze for various benefits.",
+		["description"] = "Some skills and effects have a chance to apply Daze to enemies on [Hit].\13\
+\13\
+Daze lasts for 8 seconds, and a Dazed enemy will take 50% more [Stun|Stun Buildup]. There are also a number of Skills, Effects, and other mechanics which interact with Daze for various benefits.",
 		["name"] = "Daze",
 	},
 	["DeadlyMapBoss"] = {
-		["description"] = "Deadly Map Bosses are specific [PowerfulMapBoss|Powerful Map Bosses] that appear in specific Maps and are more difficult and drop better rewards.  These rewards are often accompanied by a specific item, usually from a pool of items. For example Unique Items, or [LineageSupports|Lineage Supports].  Deadly Map Bosses can also drop items that grant access to [PinnacleBoss|Pinnacle Bosses].",
+		["description"] = "Deadly Map Bosses are specific [PowerfulMapBoss|Powerful Map Bosses] that appear in specific Maps and are more difficult and drop better rewards.\13\
+\13\
+These rewards are often accompanied by a specific item, usually from a pool of items. For example Unique Items, or [LineageSupports|Lineage Supports].\13\
+\13\
+Deadly Map Bosses can also drop items that grant access to [PinnacleBoss|Pinnacle Bosses].",
 		["name"] = "Deadly Map Boss",
 	},
 	["DeathRune"] = {
-		["description"] = "<<ExpedRuneDeath>><rgb(219,217,206)>{Death Rune} <font:'fontin'>{<italic>{<rgb(110,87,66)>{Monsters gain:}}} <rgb(135,134,253)>{Slain Monsters may merge into stronger Monsters}",
+		["description"] = "<<ExpedRuneDeath>><rgb(219,217,206)>{Death Rune}\13\
+<font:'fontin'>{<italic>{<rgb(110,87,66)>{Monsters gain:}}}\13\
+<rgb(135,134,253)>{Slain Monsters may merge into stronger Monsters}",
 		["name"] = "Death Rune",
 	},
 	["Debilitate"] = {
@@ -834,7 +1157,9 @@ return {
 		["name"] = "Debilitate",
 	},
 	["Debuff"] = {
-		["description"] = "Debuffs are negative effects that deal damage or penalise an entity's stats, either for a set duration or when a condition is met.  Unless otherwise stated, Debuffs of the same type do not stack — only the copy with the strongest effect applies.",
+		["description"] = "Debuffs are negative effects that deal damage or penalise an entity's stats, either for a set duration or when a condition is met.\13\
+\13\
+Unless otherwise stated, Debuffs of the same type do not stack — only the copy with the strongest effect applies.",
 		["name"] = "Debuffs",
 	},
 	["DecimatingStrike"] = {
@@ -842,11 +1167,19 @@ return {
 		["name"] = "Decimating Strike",
 	},
 	["DefaultAttack"] = {
-		["description"] = "Default Attacks are the innate [Attack] skills provided by [MartialWeapon|Martial Weapons], and the innate [UnarmedAttack|Unarmed Attack] skill \"Punch\".  The skill level of your Default Attacks is determined by your character level, and in turn determines the Attack Damage scaling of the skill, which is the percentage of your [MartialWeapon|Weapon's] damage the Default Attack deals.  Default Attacks never have any cost.",
+		["description"] = "Default Attacks are the innate [Attack] skills provided by [MartialWeapon|Martial Weapons], and the innate [UnarmedAttack|Unarmed Attack] skill \"Punch\".\13\
+\13\
+The skill level of your Default Attacks is determined by your character level, and in turn determines the Attack Damage scaling of the skill, which is the percentage of your [MartialWeapon|Weapon's] damage the Default Attack deals.\13\
+\13\
+Default Attacks never have any cost.",
 		["name"] = "Default Attack",
 	},
 	["DefaultAttackDamage"] = {
-		["description"] = "Your Default Attack Damage is the expected damage of a [DefaultAttack|Default Attack], and is determined by the damage of your [MartialWeapon|Weapon] and an Attack Damage scaling value based on your character level.  Your [DefaultAttack|Default Attacks] will always deal Default Attack Damage unless modifiers are applied to change their damage or skill level.  Some [Attack] skills provided by [SupportGem|Support Gems] do not determine their Attack Damage scaling from skill level, but instead deal a percentage of Default Attack Damage.",
+		["description"] = "Your Default Attack Damage is the expected damage of a [DefaultAttack|Default Attack], and is determined by the damage of your [MartialWeapon|Weapon] and an Attack Damage scaling value based on your character level.\13\
+\13\
+Your [DefaultAttack|Default Attacks] will always deal Default Attack Damage unless modifiers are applied to change their damage or skill level.\13\
+\13\
+Some [Attack] skills provided by [SupportGem|Support Gems] do not determine their Attack Damage scaling from skill level, but instead deal a percentage of Default Attack Damage.",
 		["name"] = "Default Attack Damage",
 	},
 	["Deflect"] = {
@@ -854,11 +1187,15 @@ return {
 		["name"] = "Deflect",
 	},
 	["Delirious"] = {
-		["description"] = "Delirious players are assaulted by illusions, making combat more difficult. Higher delirium causes monsters to deal more damage and have additional [Toughness]. It can also cause additional monsters to appear or can grant additional modifiers to existing monsters. Monster item drops are improved by higher delirium.  Maps within Fog Banks gain Deliriousness as [MapBoss|Map Bosses], [Rarity|Rare] Monsters or Unique Monsters are killed.",
+		["description"] = "Delirious players are assaulted by illusions, making combat more difficult. Higher delirium causes monsters to deal more damage and have additional [Toughness]. It can also cause additional monsters to appear or can grant additional modifiers to existing monsters. Monster item drops are improved by higher delirium.\13\
+\13\
+Maps within Fog Banks gain Deliriousness as [MapBoss|Map Bosses], [Rarity|Rare] Monsters or Unique Monsters are killed.",
 		["name"] = "Delirious Players",
 	},
 	["DeliriumApexPredators"] = {
-		["description"] = "Adds an additional Boss to the encounter.   Additional bosses will be summoned into all remaining waves in the Simulacrum.",
+		["description"] = "Adds an additional Boss to the encounter. \13\
+\13\
+Additional bosses will be summoned into all remaining waves in the Simulacrum.",
 		["name"] = "Apex Predators",
 	},
 	["DeliriumAugment"] = {
@@ -866,15 +1203,21 @@ return {
 		["name"] = "",
 	},
 	["DeliriumEscalatingThreats"] = {
-		["description"] = "Adds an additional Modifier to the area. These modifiers generally add danger and reward.  These modifiers will apply for all remaining waves in the Simulacrum.",
+		["description"] = "Adds an additional Modifier to the area. These modifiers generally add danger and reward.\13\
+\13\
+These modifiers will apply for all remaining waves in the Simulacrum.",
 		["name"] = "Escalating Threats",
 	},
 	["DeliriumGigaMirror"] = {
-		["description"] = "A Grand Mirror causes a reflection of the [MapBoss|Map Boss]. When the bosses are defeated [ContainsDelirium|Delirium] fog spreads to nearby Maps.  When the fog reaches 100% [Delirious|Deliriousness] one of the remaining maps will be transformed into a Simulacrum.",
+		["description"] = "A Grand Mirror causes a reflection of the [MapBoss|Map Boss]. When the bosses are defeated [ContainsDelirium|Delirium] fog spreads to nearby Maps.\13\
+\13\
+When the fog reaches 100% [Delirious|Deliriousness] one of the remaining maps will be transformed into a Simulacrum.",
 		["name"] = "Grand Mirror",
 	},
 	["DeliriumPureEmotions"] = {
-		["description"] = "Adds additional monster packs to the encounter.   Additional monster packs will be added to all remaining waves in the Simulacrum.",
+		["description"] = "Adds additional monster packs to the encounter. \13\
+\13\
+Additional monster packs will be added to all remaining waves in the Simulacrum.",
 		["name"] = "Pure Emotions",
 	},
 	["DeliriumSplinter"] = {
@@ -906,7 +1249,11 @@ return {
 		["name"] = "Dex/Int",
 	},
 	["Dexterity"] = {
-		["description"] = "Dexterity is an [Attributes|Attribute] required to use most equipment that grants [Evasion|Evasion Rating], as well as various range-aligned Weapons and Skills.  Dexterity provides an inherent bonus of +8 to [Accuracy|Accuracy Rating] per 1 Dexterity.  Dexterity does not grant damage to Skills or any other benefits except where specifically stated.",
+		["description"] = "Dexterity is an [Attributes|Attribute] required to use most equipment that grants [Evasion|Evasion Rating], as well as various range-aligned Weapons and Skills.\13\
+\13\
+Dexterity provides an inherent bonus of +8 to [Accuracy|Accuracy Rating] per 1 Dexterity.\13\
+\13\
+Dexterity does not grant damage to Skills or any other benefits except where specifically stated.",
 		["name"] = "Dexterity",
 	},
 	["DistilledEmotion"] = {
@@ -926,7 +1273,9 @@ return {
 		["name"] = "",
 	},
 	["Divinity"] = {
-		["description"] = "Divinity can be spent for skills, similar to Mana.  Divinity inherently Regenerates at a rate of 25% per second.",
+		["description"] = "Divinity can be spent for skills, similar to Mana.\13\
+\13\
+Divinity inherently Regenerates at a rate of 25% per second.",
 		["name"] = "Divinity",
 	},
 	["Drenched"] = {
@@ -958,7 +1307,9 @@ return {
 		["name"] = "Energy Shield Recharge Rate",
 	},
 	["EarthRune"] = {
-		["description"] = "<<ExpedRuneEarth>><rgb(219,217,206)>{Earth Rune} <font:'fontin'>{<italic>{<rgb(110,87,66)>{Remnant gains:}}} <rgb(135,134,253)>{Conjures Earthly Spires}",
+		["description"] = "<<ExpedRuneEarth>><rgb(219,217,206)>{Earth Rune}\13\
+<font:'fontin'>{<italic>{<rgb(110,87,66)>{Remnant gains:}}}\13\
+<rgb(135,134,253)>{Conjures Earthly Spires}",
 		["name"] = "Earth Rune",
 	},
 	["EasyTargetDebuff"] = {
@@ -974,7 +1325,9 @@ return {
 		["name"] = "[DNT-UNUSED] Edict Declaration",
 	},
 	["EffectiveChance"] = {
-		["description"] = "Some effects manipulate how random chances are rolled in ways that affect the result without changing the stated chance for the effect, such as a chance being [Lucky] causing it to be rolled twice and use the better result, or an effect skipping the roll entirely to force something to succeed or fail. The Effective chance is the real chance to get a specific result, accounting for all such roll-manipulating effects.  For example, if you had a [Critical|Critical Hit] chance of 20%, and your Critical Hit chance was [Lucky], you would have an Effective Critical Hit chance of 36%, which is the chance that at least one of the two 20% rolls succeeds.",
+		["description"] = "Some effects manipulate how random chances are rolled in ways that affect the result without changing the stated chance for the effect, such as a chance being [Lucky] causing it to be rolled twice and use the better result, or an effect skipping the roll entirely to force something to succeed or fail. The Effective chance is the real chance to get a specific result, accounting for all such roll-manipulating effects.\13\
+\13\
+For example, if you had a [Critical|Critical Hit] chance of 20%, and your Critical Hit chance was [Lucky], you would have an Effective Critical Hit chance of 36%, which is the chance that at least one of the two 20% rolls succeeds.",
 		["name"] = "Effective Chance",
 	},
 	["Efficiency"] = {
@@ -982,11 +1335,14 @@ return {
 		["name"] = "Efficiency",
 	},
 	["EldritchBattery"] = {
-		["description"] = "[StatConversion|Converts] 100% of maximum [EnergyShield|Energy Shield] to maximum Mana Doubles Mana Costs",
+		["description"] = "[StatConversion|Converts] 100% of maximum [EnergyShield|Energy Shield] to maximum Mana\13\
+Doubles Mana Costs",
 		["name"] = "Eldritch Battery",
 	},
 	["Electrocute"] = {
-		["description"] = "Electrocution is an [Ailments|Ailment] that interrupts the target's actions and prevents them performing any action, and lasts 5 seconds by default.  Only [Lightning] damage from [Hit|Hits] with specific skills or effects [Contributes] to Electrocution Buildup on enemies until they become [Electrocute|Electrocuted]. Other sources of [Lightning] damage will not build up towards Electrocution.",
+		["description"] = "Electrocution is an [Ailments|Ailment] that interrupts the target's actions and prevents them performing any action, and lasts 5 seconds by default.\13\
+\13\
+Only [Lightning] damage from [Hit|Hits] with specific skills or effects [Contributes] to Electrocution Buildup on enemies until they become [Electrocute|Electrocuted]. Other sources of [Lightning] damage will not build up towards Electrocution.",
 		["name"] = "Electrocution",
 	},
 	["ElectrocuteThreshold"] = {
@@ -994,7 +1350,11 @@ return {
 		["name"] = "Electrocute Threshold",
 	},
 	["ElectrocutingRune"] = {
-		["description"] = "<<ExpedRuneElectrocuting>><rgb(219,217,206)>{Electrocuting Rune} <font:'fontin'>{<italic>{<rgb(110,87,66)>{Monsters gain:}}} <rgb(135,134,253)>{Extra Lightning Damage} <rgb(135,134,253)>{Lightning Damage Electrocutes} <rgb(135,134,253)>{Shocked Ground Trails}",
+		["description"] = "<<ExpedRuneElectrocuting>><rgb(219,217,206)>{Electrocuting Rune}\13\
+<font:'fontin'>{<italic>{<rgb(110,87,66)>{Monsters gain:}}}\13\
+<rgb(135,134,253)>{Extra Lightning Damage}\13\
+<rgb(135,134,253)>{Lightning Damage Electrocutes}\13\
+<rgb(135,134,253)>{Shocked Ground Trails}",
 		["name"] = "Electrocuting Rune",
 	},
 	["ElementalAilments"] = {
@@ -1002,7 +1362,14 @@ return {
 		["name"] = "Elemental Ailments",
 	},
 	["ElementalArchon"] = {
-		["description"] = "Elemental Archon is a type of [Archon] [Buff]. It grants: • 25% more [ElementalDamage|Elemental Damage] with [Spell|Spells] • Cannot deal [ElementalDamage|Non-Elemental] Damage with [Spell|Spells] • [Hit|Hits] with [Spell|Spells] cause 100% more [Freeze] Buildup • [Spell|Spells] have 100% more [Flammability] [BuffMagnitude|Magnitude] • [Hit|Hits] with [Spell|Spells] have 100% more [Shock] chance  Using a non-instant [Attack] causes Elemental Archon to be removed immediately.",
+		["description"] = "Elemental Archon is a type of [Archon] [Buff]. It grants:\13\
+• 25% more [ElementalDamage|Elemental Damage] with [Spell|Spells]\13\
+• Cannot deal [ElementalDamage|Non-Elemental] Damage with [Spell|Spells]\13\
+• [Hit|Hits] with [Spell|Spells] cause 100% more [Freeze] Buildup\13\
+• [Spell|Spells] have 100% more [Flammability] [BuffMagnitude|Magnitude]\13\
+• [Hit|Hits] with [Spell|Spells] have 100% more [Shock] chance\13\
+\13\
+Using a non-instant [Attack] causes Elemental Archon to be removed immediately.",
 		["name"] = "Elemental Archon",
 	},
 	["ElementalDamage"] = {
@@ -1010,7 +1377,9 @@ return {
 		["name"] = "Elemental Damage Types",
 	},
 	["ElementalEquilibrium"] = {
-		["description"] = "Create [Lightning] [ElementalInfusion|Infusion] [Remnant|Remnants] instead of [Fire] Create [Cold] [ElementalInfusion|Infusion] [Remnant|Remnants] instead of [Lightning] Create [Fire] [ElementalInfusion|Infusion] [Remnant|Remnants] instead of [Cold]",
+		["description"] = "Create [Lightning] [ElementalInfusion|Infusion] [Remnant|Remnants] instead of [Fire]\13\
+Create [Cold] [ElementalInfusion|Infusion] [Remnant|Remnants] instead of [Lightning]\13\
+Create [Fire] [ElementalInfusion|Infusion] [Remnant|Remnants] instead of [Cold]",
 		["name"] = "Elemental Equilibrium",
 	},
 	["ElementalGround"] = {
@@ -1018,7 +1387,9 @@ return {
 		["name"] = "Elemental Ground Surfaces",
 	},
 	["ElementalInfusion"] = {
-		["description"] = "Some Skills create Elemental Infusion [Remnant|Remnants] when specific conditions are met. Picking up the [Remnant] grants you the Infusion for 20 seconds or until it is Consumed by another Skill. You can have up to 3 of each Infusion by default.  Skills that can Consume Infusions specifically mention the type(s) of Infusion they can Consume and the benefits for doing so. If a Skill repeats or reoccurs, each of them must Consume an Infusion separately to gain the effect.",
+		["description"] = "Some Skills create Elemental Infusion [Remnant|Remnants] when specific conditions are met. Picking up the [Remnant] grants you the Infusion for 20 seconds or until it is Consumed by another Skill. You can have up to 3 of each Infusion by default.\13\
+\13\
+Skills that can Consume Infusions specifically mention the type(s) of Infusion they can Consume and the benefits for doing so. If a Skill repeats or reoccurs, each of them must Consume an Infusion separately to gain the effect.",
 		["name"] = "Elemental Infusions",
 	},
 	["ElementalWeakness"] = {
@@ -1034,7 +1405,9 @@ return {
 		["name"] = "Empowered Skills",
 	},
 	["EmpoweredMonsterMinions"] = {
-		["description"] = "Empowered [MonsterMinion|Monster Minions] deal increased damage and have increased health.  Empowerment does not inherently increase rewards but some effects add rewards when Empowering Minions.",
+		["description"] = "Empowered [MonsterMinion|Monster Minions] deal increased damage and have increased health.\13\
+\13\
+Empowerment does not inherently increase rewards but some effects add rewards when Empowering Minions.",
 		["name"] = "Empowered Monster Minions",
 	},
 	["EndgameDistilledEmotion1"] = {
@@ -1058,15 +1431,27 @@ return {
 		["name"] = "Enemy Stun Threshold",
 	},
 	["Energy"] = {
-		["description"] = "Several [Meta] Skills generate and use Energy. Each Skill which generates Energy has its own Energy count particular to that Skill. Most effects which use Energy do so to [Trigger] other effects or Skills, based on the use time of the triggered Skill. When calculating Energy gain or consumption from the use time of a Skill, modifiers to [Total] use time are treated as though they were double the value.  Energy cannot be gained from direct effects of [Trigger|Triggered] Skills.",
+		["description"] = "Several [Meta] Skills generate and use Energy. Each Skill which generates Energy has its own Energy count particular to that Skill. Most effects which use Energy do so to [Trigger] other effects or Skills, based on the use time of the triggered Skill. When calculating Energy gain or consumption from the use time of a Skill, modifiers to [Total] use time are treated as though they were double the value.\13\
+\13\
+Energy cannot be gained from direct effects of [Trigger|Triggered] Skills.",
 		["name"] = "Energy",
 	},
 	["EnergyShield"] = {
-		["description"] = "Energy Shield protects your Life by taking damage instead. Rapidly [ESRecharge|Recharges] if you don't lose Energy Shield for a short time. [Chaos] damage removes twice as much Energy Shield. Damage from [Bleeding] and [Poison] bypasses Energy Shield to remove Life directly.",
+		["description"] = "Energy Shield protects your Life by taking damage instead. Rapidly [ESRecharge|Recharges] if you don't lose Energy Shield for a short time.\13\
+[Chaos] damage removes twice as much Energy Shield.\13\
+Damage from [Bleeding] and [Poison] bypasses Energy Shield to remove Life directly.",
 		["name"] = "Energy Shield",
 	},
 	["EnergyShieldLeech"] = {
-		["description"] = "When you deal damage with a [Hit], [EnergyShield|Energy Shield] Leech causes you to recover an amount of [EnergyShield|Energy Shield] to a percentage of the damage dealt, over a period of one second.  Hits that deal more than 40,000 total damage are treated as though they only dealt 40,000 damage for this calculation. If this damage is of multiple [DamageTypes|Damage Types], the ratios between them will stay the same.  Monsters have Leech Resistance that increases with monster level, reducing how much you recover from Leech from [Hit|Hits] against them.  You can only recover from a single instance of [EnergyShield|Energy Shield] Leech at a time, and all [EnergyShield|Energy Shield] Leech is removed when [EnergyShield|Energy Shield] is filled.  Modifiers specific to Life Leech will not apply to Energy Shield Leech.",
+		["description"] = "When you deal damage with a [Hit], [EnergyShield|Energy Shield] Leech causes you to recover an amount of [EnergyShield|Energy Shield] to a percentage of the damage dealt, over a period of one second.\13\
+\13\
+Hits that deal more than 40,000 total damage are treated as though they only dealt 40,000 damage for this calculation. If this damage is of multiple [DamageTypes|Damage Types], the ratios between them will stay the same.\13\
+\13\
+Monsters have Leech Resistance that increases with monster level, reducing how much you recover from Leech from [Hit|Hits] against them.\13\
+\13\
+You can only recover from a single instance of [EnergyShield|Energy Shield] Leech at a time, and all [EnergyShield|Energy Shield] Leech is removed when [EnergyShield|Energy Shield] is filled.\13\
+\13\
+Modifiers specific to Life Leech will not apply to Energy Shield Leech.",
 		["name"] = "Energy Shield Leech",
 	},
 	["Enfeeble"] = {
@@ -1094,7 +1479,11 @@ return {
 		["name"] = "Equipped",
 	},
 	["Essence"] = {
-		["description"] = "Essence monsters are powerful monsters trapped in crystallised corruption.  Breaking these monsters free allows them to be defeated, dropping the Essence that can then be used to modify equipment.  Any monsters with Essences [MonsterModifiers|Modifiers] drop an additional Essence of that type.",
+		["description"] = "Essence monsters are powerful monsters trapped in crystallised corruption.\13\
+\13\
+Breaking these monsters free allows them to be defeated, dropping the Essence that can then be used to modify equipment.\13\
+\13\
+Any monsters with Essences [MonsterModifiers|Modifiers] drop an additional Essence of that type.",
 		["name"] = "Essence",
 	},
 	["EssenceDelirium"] = {
@@ -1106,7 +1495,8 @@ return {
 		["name"] = "",
 	},
 	["EternalYouth"] = {
-		["description"] = "Life [LifeRecharge|Recharges] instead of [ESRecharge|Energy Shield] 50% less Life Recovery from [Flask|Flasks]",
+		["description"] = "Life [LifeRecharge|Recharges] instead of [ESRecharge|Energy Shield]\13\
+50% less Life Recovery from [Flask|Flasks]",
 		["name"] = "Eternal Youth",
 	},
 	["Evasion"] = {
@@ -1134,7 +1524,9 @@ return {
 		["name"] = "Chances in excess of 100%",
 	},
 	["ExceptionalItem"] = {
-		["description"] = "Exceptional Items have [Quality] over maximum or an additional [Augment] Socket.  High Tier [Rarity|Rare] Items found have a chance to instead drop as an Exceptional Normal Item.",
+		["description"] = "Exceptional Items have [Quality] over maximum or an additional [Augment] Socket.\13\
+\13\
+High Tier [Rarity|Rare] Items found have a chance to instead drop as an Exceptional Normal Item.",
 		["name"] = "Exceptional Item",
 	},
 	["ExpectedKnockback"] = {
@@ -1190,15 +1582,23 @@ return {
 		["name"] = "",
 	},
 	["ExpeditionSentinel"] = {
-		["description"] = "Verisium Sentries are ancient remnants of Kalguuran technology found within [ContainsExpedition|Expeditions].  When unearthed they follow the player, adding Runic [MonsterModifiers|Modifiers] to Monsters throughout the area.",
+		["description"] = "Verisium Sentries are ancient remnants of Kalguuran technology found within [ContainsExpedition|Expeditions].\13\
+\13\
+When unearthed they follow the player, adding Runic [MonsterModifiers|Modifiers] to Monsters throughout the area.",
 		["name"] = "Verisium Sentry",
 	},
 	["ExpeditionVaalRelic"] = {
-		["description"] = "Vaal Relics are found within Frigid Bluffs [GrandExpedition|Grand Expeditions] and as a modifier on [ExpeditionAugment|Expedition Tablets].  These Relics can be unearthed, similar to [ContainsExpedition2|Verisium Remnants] and add their modifiers to anything excavated with the explosive that destroys the Relic and any excavated with future explosives in the chain.  Unlike Verisium Remnants, Vaal Relics have predefined modifiers that cannot be modified.",
+		["description"] = "Vaal Relics are found within Frigid Bluffs [GrandExpedition|Grand Expeditions] and as a modifier on [ExpeditionAugment|Expedition Tablets].\13\
+\13\
+These Relics can be unearthed, similar to [ContainsExpedition2|Verisium Remnants] and add their modifiers to anything excavated with the explosive that destroys the Relic and any excavated with future explosives in the chain.\13\
+\13\
+Unlike Verisium Remnants, Vaal Relics have predefined modifiers that cannot be modified.",
 		["name"] = "Vaal Relics",
 	},
 	["ExplosiveFervour"] = {
-		["description"] = "Explosive Fervour is a [Buff] that grants 15% increased Attack Speed per different [Grenade] Skill you've used [Recently], causes [Grenade] Skills to ignore their cooldown and fire an additional projectile, and makes [Grenade|Grenades] explode on any impact.  You cannot gain [ExplosiveRhythm|Explosive Rhythm] while you have Explosive Fervour. ",
+		["description"] = "Explosive Fervour is a [Buff] that grants 15% increased Attack Speed per different [Grenade] Skill you've used [Recently], causes [Grenade] Skills to ignore their cooldown and fire an additional projectile, and makes [Grenade|Grenades] explode on any impact.\13\
+\13\
+You cannot gain [ExplosiveRhythm|Explosive Rhythm] while you have Explosive Fervour. ",
 		["name"] = "Explosive Fervour",
 	},
 	["ExplosiveRhythm"] = {
@@ -1206,7 +1606,13 @@ return {
 		["name"] = "Explosive Rhythm",
 	},
 	["Exposure"] = {
-		["description"] = "Exposure is a type of [Debuff] that lowers the affected enemy's [Total] [Resistances|Elemental Resistances]. By default it lowers [Resistances] by -20% and lasts for 4 seconds, though some sources of exposure can override these values. Like most sources of lowering [Resistances], this can cause the enemy's [Resistances|Resistance] to become negative.  Higher [Rarity] enemies are less affected by Exposure:  15% less Exposure effect on Magic monsters 30% less Exposure effect on Rare monsters 50% less Exposure effect on Unique monsters",
+		["description"] = "Exposure is a type of [Debuff] that lowers the affected enemy's [Total] [Resistances|Elemental Resistances]. By default it lowers [Resistances] by -20% and lasts for 4 seconds, though some sources of exposure can override these values. Like most sources of lowering [Resistances], this can cause the enemy's [Resistances|Resistance] to become negative.\13\
+\13\
+Higher [Rarity] enemies are less affected by Exposure:\13\
+\13\
+15% less Exposure effect on Magic monsters\13\
+30% less Exposure effect on Rare monsters\13\
+50% less Exposure effect on Unique monsters",
 		["name"] = "Exposure",
 	},
 	["ExtraContent"] = {
@@ -1222,11 +1628,15 @@ return {
 		["name"] = "Faster Start of Energy Shield Recharge",
 	},
 	["FearIncarnate"] = {
-		["description"] = "Each Fear Incarnate grants 10% increased [CullingStrike|Culling Strike] Threshold and lasts 10 seconds. This duration is refreshed when you gain another Fear Incarnate.  You can have up to a maximum of 20 Fear Incarnate.",
+		["description"] = "Each Fear Incarnate grants 10% increased [CullingStrike|Culling Strike] Threshold and lasts 10 seconds. This duration is refreshed when you gain another Fear Incarnate.\13\
+\13\
+You can have up to a maximum of 20 Fear Incarnate.",
 		["name"] = "Fear Incarnate",
 	},
 	["FearOverwhelming"] = {
-		["description"] = "Each Fear Overwhelming grants 5% increased Area of Effect for [Attack] Skills and lasts 10 seconds. This duration is refreshed when you gain another Fear Overwhelming.  You can have up to a maximum of 20 Fear Overwhelming.",
+		["description"] = "Each Fear Overwhelming grants 5% increased Area of Effect for [Attack] Skills and lasts 10 seconds. This duration is refreshed when you gain another Fear Overwhelming.\13\
+\13\
+You can have up to a maximum of 20 Fear Overwhelming.",
 		["name"] = "Fear Overwhelming",
 	},
 	["FinalStrike"] = {
@@ -1234,7 +1644,9 @@ return {
 		["name"] = "Final Strike",
 	},
 	["Finality"] = {
-		["description"] = "Finality is a [Buff] that grants 100% increased [Critical|Critical Hit Chance] with [FinalStrike|Final Strikes], and makes your [Strike] skills skip to their [FinalStrike|Final Strike] if they have one.  Skills cannot gain [Combo] while you have Finality.",
+		["description"] = "Finality is a [Buff] that grants 100% increased [Critical|Critical Hit Chance] with [FinalStrike|Final Strikes], and makes your [Strike] skills skip to their [FinalStrike|Final Strike] if they have one.\13\
+\13\
+Skills cannot gain [Combo] while you have Finality.",
 		["name"] = "Finality",
 	},
 	["FineBelt"] = {
@@ -1246,27 +1658,56 @@ return {
 		["name"] = "Fire Damage",
 	},
 	["FireRune"] = {
-		["description"] = "<<ExpedRuneFire>><rgb(219,217,206)>{Fire Rune} <font:'fontin'>{<italic>{<rgb(110,87,66)>{Monsters gain:}}} <rgb(135,134,253)>{Extra Fire Damage}",
+		["description"] = "<<ExpedRuneFire>><rgb(219,217,206)>{Fire Rune}\13\
+<font:'fontin'>{<italic>{<rgb(110,87,66)>{Monsters gain:}}}\13\
+<rgb(135,134,253)>{Extra Fire Damage}",
 		["name"] = "Fire Rune",
 	},
 	["Flail"] = {
-		["description"] = "Flails are [One-Handed] [Melee] weapons that require [Strength] and [Intelligence] to equip. Flails cannot be [DualWield|Dual Wielded].   Flail [Attack|Attacks] tend to reward careful placement and long wind-up times with devastating effects.",
+		["description"] = "Flails are [One-Handed] [Melee] weapons that require [Strength] and [Intelligence] to equip. Flails cannot be [DualWield|Dual Wielded]. \13\
+\13\
+Flail [Attack|Attacks] tend to reward careful placement and long wind-up times with devastating effects.",
 		["name"] = "Flails",
 	},
 	["FlameArchon"] = {
-		["description"] = "Flame Archon is a type of [Archon] [Buff]. It grants: • 25% more [Fire] Damage with [Spell|Spells] • [StatConversion|Convert] 100% of [ElementalDamage|Elemental] Damage with [Spell|Spells] to [Fire] Damage • Cannot deal [Fire|Non-Fire] Damage with [Spell|Spells] • [Spell|Spells] have 100% more [Flammability] [BuffMagnitude|Magnitude]  Using a non-instant [Attack] causes Flame Archon to be removed immediately.",
+		["description"] = "Flame Archon is a type of [Archon] [Buff]. It grants:\13\
+• 25% more [Fire] Damage with [Spell|Spells]\13\
+• [StatConversion|Convert] 100% of [ElementalDamage|Elemental] Damage with [Spell|Spells] to [Fire] Damage\13\
+• Cannot deal [Fire|Non-Fire] Damage with [Spell|Spells]\13\
+• [Spell|Spells] have 100% more [Flammability] [BuffMagnitude|Magnitude]\13\
+\13\
+Using a non-instant [Attack] causes Flame Archon to be removed immediately.",
 		["name"] = "Flame Archon",
 	},
 	["FlamesOfChayula"] = {
-		["description"] = "Flames of Chayula are [Remnant|Remnants] that grant the following bonuses when collected: Red Flames of Chayula [LifeLeech|Leech] 20% of your maximum Life to you Blue Flames of Chayula [ManaLeech|Leech] 20% of your maximum Mana to you Purple Flames of Chayula provide a stacking [Buff] granting 7% of damage as extra [Chaos] damage for 8 seconds, and stacks up to 10 times.",
+		["description"] = "Flames of Chayula are [Remnant|Remnants] that grant the following bonuses when collected:\13\
+Red Flames of Chayula [LifeLeech|Leech] 20% of your maximum Life to you\13\
+Blue Flames of Chayula [ManaLeech|Leech] 20% of your maximum Mana to you\13\
+Purple Flames of Chayula provide a stacking [Buff] granting 7% of damage as extra [Chaos] damage for 8 seconds, and stacks up to 10 times.",
 		["name"] = "Flame of Chayula",
 	},
 	["Flammability"] = {
-		["description"] = "Flammability is a [Debuff] that provides the chance for [Hit|Hits] to [Ignite] the target. It is not itself an [Ailments|Ailment], but is closely associated with [Ignite], which is.  [Fire] damage from [Hit|Hits] [Contributes] to the [BuffMagnitude|Magnitude] of Flammability, so [Hit|Hits] that deal more [Fire] damage will [Ignite] more often.  The base [BuffMagnitude|Magnitude] of Flammability is 1% chance to Ignite the target for every 5% of the target's [AilmentThreshold|Ailment Threshold] dealt as [Fire] damage. Flammability from a [Hit] is applied before that hit checks whether it should [Ignite] the target, and so will affect that chance for that [Hit] to [Ignite].  Since chance for [Hit|Hits] to [Ignite] comes from Flammability on the target, modifiers which increase the chance to inflict [Ailments] will increase the [BuffMagnitude|Magnitude] of Flammability inflicted.  Effects which do not [Hit] targets, but [Ignite] as if they had, such as [IgnitedGround|Ignited Ground], also inflict Flammability, but do not roll a random chance to [Ignite]. Such effects will only [Ignite] once the total Flammability on the target reaches 50%.  Multiple instances of Flammability stack, raising the chance for [Hit|Hits] to [Ignite] the target up to 100%. Each instance of Flammability has its own independent duration, lasting 8 seconds by default.",
+		["description"] = "Flammability is a [Debuff] that provides the chance for [Hit|Hits] to [Ignite] the target. It is not itself an [Ailments|Ailment], but is closely associated with [Ignite], which is.\13\
+\13\
+[Fire] damage from [Hit|Hits] [Contributes] to the [BuffMagnitude|Magnitude] of Flammability, so [Hit|Hits] that deal more [Fire] damage will [Ignite] more often.\13\
+\13\
+The base [BuffMagnitude|Magnitude] of Flammability is 1% chance to Ignite the target for every 5% of the target's [AilmentThreshold|Ailment Threshold] dealt as [Fire] damage. Flammability from a [Hit] is applied before that hit checks whether it should [Ignite] the target, and so will affect that chance for that [Hit] to [Ignite].\13\
+\13\
+Since chance for [Hit|Hits] to [Ignite] comes from Flammability on the target, modifiers which increase the chance to inflict [Ailments] will increase the [BuffMagnitude|Magnitude] of Flammability inflicted.\13\
+\13\
+Effects which do not [Hit] targets, but [Ignite] as if they had, such as [IgnitedGround|Ignited Ground], also inflict Flammability, but do not roll a random chance to [Ignite]. Such effects will only [Ignite] once the total Flammability on the target reaches 50%.\13\
+\13\
+Multiple instances of Flammability stack, raising the chance for [Hit|Hits] to [Ignite] the target up to 100%. Each instance of Flammability has its own independent duration, lasting 8 seconds by default.",
 		["name"] = "Flammability",
 	},
 	["Flask"] = {
-		["description"] = "Flasks can be used to recover your Life or Mana. Flasks are not consumable, but require charges to use. Flask charges can be regained by killing enemies.   [Rarity|Normal] enemies grant Flask charges equal to half their [Power] [Rarity|Magic] enemies grant Flask charges equal to their [Power] [Rarity|Rare] and [Rarity|Unique] enemies grant Flask charges equal to twice their [Power]  [Checkpoint|Checkpoints] and [Wells] completely refill Flasks when activated. Flasks can only hold charges while in a Flask slot.",
+		["description"] = "Flasks can be used to recover your Life or Mana. Flasks are not consumable, but require charges to use. Flask charges can be regained by killing enemies. \13\
+\13\
+[Rarity|Normal] enemies grant Flask charges equal to half their [Power]\13\
+[Rarity|Magic] enemies grant Flask charges equal to their [Power]\13\
+[Rarity|Rare] and [Rarity|Unique] enemies grant Flask charges equal to twice their [Power]\13\
+\13\
+[Checkpoint|Checkpoints] and [Wells] completely refill Flasks when activated. Flasks can only hold charges while in a Flask slot.",
 		["name"] = "Flasks",
 	},
 	["FlaskMana1"] = {
@@ -1278,7 +1719,9 @@ return {
 		["name"] = "",
 	},
 	["Focus"] = {
-		["description"] = "Foci are armour items that are equipped in your off hand and require [Intelligence] to equip.   Foci can grant significant amounts of [EnergyShield|Energy Shield] and powerful bonuses to your [Spell|Spells].",
+		["description"] = "Foci are armour items that are equipped in your off hand and require [Intelligence] to equip. \13\
+\13\
+Foci can grant significant amounts of [EnergyShield|Energy Shield] and powerful bonuses to your [Spell|Spells].",
 		["name"] = "Foci",
 	},
 	["ForetoldBounty"] = {
@@ -1298,7 +1741,13 @@ return {
 		["name"] = "",
 	},
 	["ForksCrit"] = {
-		["description"] = "Hits with this weapon roll against their [Critical|Critical Hit] chance twice when determining if they are a [Critical|Critical Hit].  If either roll succeeds, the hit will be a [Critical|Critical Hit], and thus the [CriticalDamageBonus|Critical Damage Bonus] will apply as normal.  If both rolls succeed, the hit will be a [Critical|Critical Hit], and the [CriticalDamageBonus|Critical Damage Bonus] will apply twice to that Hit.  If a modifier makes your Critical Hit Chance [Lucky], that Luck will apply individually to both of these rolls.",
+		["description"] = "Hits with this weapon roll against their [Critical|Critical Hit] chance twice when determining if they are a [Critical|Critical Hit].\13\
+\13\
+If either roll succeeds, the hit will be a [Critical|Critical Hit], and thus the [CriticalDamageBonus|Critical Damage Bonus] will apply as normal.\13\
+\13\
+If both rolls succeed, the hit will be a [Critical|Critical Hit], and the [CriticalDamageBonus|Critical Damage Bonus] will apply twice to that Hit.\13\
+\13\
+If a modifier makes your Critical Hit Chance [Lucky], that Luck will apply individually to both of these rolls.",
 		["name"] = "Bifurcated Critical Hits",
 	},
 	["FourAmuletLake1"] = {
@@ -1342,11 +1791,19 @@ return {
 		["name"] = "Fractured Modifiers",
 	},
 	["FracturingMirror"] = {
-		["description"] = "Fracturing Mirrors are structures found in [ContainsDelirium|Delirium] Fog that shatter when you get near them, spawning [ContainsDelirium|Delirium] monsters.  Occasionally Fracturing Mirrors [FracturingMirrorShard|Shards] may appear with other bonuses, such as adding [DistilledEmotion|Liquid Emotions] to monsters or summoning a Mirrored Boss.",
+		["description"] = "Fracturing Mirrors are structures found in [ContainsDelirium|Delirium] Fog that shatter when you get near them, spawning [ContainsDelirium|Delirium] monsters.\13\
+\13\
+Occasionally Fracturing Mirrors [FracturingMirrorShard|Shards] may appear with other bonuses, such as adding [DistilledEmotion|Liquid Emotions] to monsters or summoning a Mirrored Boss.",
 		["name"] = "Fracturing Mirrors",
 	},
 	["FracturingMirrorShard"] = {
-		["description"] = "Fracturing Mirror Shards are a type of [FracturingMirror|Fracturing Mirror] found within [ContainsDelirium|Delirium] Fog at set depths.  Escalation Shards may add modifiers to rare Delirium monsters, summoning more difficult and rewarding monsters, or pausing the Fog.  Deceptive Shards summon Delirium bosses or lead to an extra Delirious area.  Capricious Shards do not manifest by default, once unlocked they may summon a mirrored Map Boss, or cause Map Bosses to manifest [DeliriumGigaMirror|Grand Mirrors].",
+		["description"] = "Fracturing Mirror Shards are a type of [FracturingMirror|Fracturing Mirror] found within [ContainsDelirium|Delirium] Fog at set depths.\13\
+\13\
+Escalation Shards may add modifiers to rare Delirium monsters, summoning more difficult and rewarding monsters, or pausing the Fog.\13\
+\13\
+Deceptive Shards summon Delirium bosses or lead to an extra Delirious area.\13\
+\13\
+Capricious Shards do not manifest by default, once unlocked they may summon a mirrored Map Boss, or cause Map Bosses to manifest [DeliriumGigaMirror|Grand Mirrors].",
 		["name"] = "Fracturing Mirror Shards",
 	},
 	["FracturingOrb"] = {
@@ -1354,11 +1811,21 @@ return {
 		["name"] = "",
 	},
 	["FragmentedMirror"] = {
-		["description"] = "Each Mirror offers a rare item of one of the following base types: • [FourRingLake1|Dusk Ring] • [FourRingLake2|Gloam Ring] • [FourRingLake3|Penumbra Ring] • [FourRingLake4|Tenebrous Ring] • [FourAmuletLake1|Dusk Amulet] • [FourAmuletLake2|Gloam Amulet] • [FourAmuletLake3|Penumbra Amulet] • [FourAmuletLake4|Tenebrous Amulet]",
+		["description"] = "Each Mirror offers a rare item of one of the following base types:\13\
+• [FourRingLake1|Dusk Ring]\13\
+• [FourRingLake2|Gloam Ring]\13\
+• [FourRingLake3|Penumbra Ring]\13\
+• [FourRingLake4|Tenebrous Ring]\13\
+• [FourAmuletLake1|Dusk Amulet]\13\
+• [FourAmuletLake2|Gloam Amulet]\13\
+• [FourAmuletLake3|Penumbra Amulet]\13\
+• [FourAmuletLake4|Tenebrous Amulet]",
 		["name"] = "Fragmented Mirror",
 	},
 	["Freeze"] = {
-		["description"] = "Freeze is an [Ailments|Ailment] that causes targets to be unable to move or act, and lasts 4 seconds by default.  [Cold] damage from [Hit|Hits] [Contributes] to Freeze Buildup on enemies until they become [Frozen].",
+		["description"] = "Freeze is an [Ailments|Ailment] that causes targets to be unable to move or act, and lasts 4 seconds by default.\13\
+\13\
+[Cold] damage from [Hit|Hits] [Contributes] to Freeze Buildup on enemies until they become [Frozen].",
 		["name"] = "Freeze",
 	},
 	["FreezeThreshold"] = {
@@ -1370,15 +1837,25 @@ return {
 		["name"] = "Frozen",
 	},
 	["Gain"] = {
-		["description"] = "Damage gained as a specific damage type only scales with modifiers to the new type, not with modifiers to the source damage's type (unless they're the same type).   For example, [Lightning] damage gained from [Physical] damage scales with [Lightning] damage modifiers, but not [Physical] damage modifiers.  Damage Gain occurs in the same two step process as [Conversion|Damage Conversion]. Damage over time cannot benefit from damage Gain.",
+		["description"] = "Damage gained as a specific damage type only scales with modifiers to the new type, not with modifiers to the source damage's type (unless they're the same type). \13\
+\13\
+For example, [Lightning] damage gained from [Physical] damage scales with [Lightning] damage modifiers, but not [Physical] damage modifiers.\13\
+\13\
+Damage Gain occurs in the same two step process as [Conversion|Damage Conversion]. Damage over time cannot benefit from damage Gain.",
 		["name"] = "Damage Gained as extra X",
 	},
 	["GainsStages"] = {
-		["description"] = "Skills can gain Stages passively or while attacking/casting them, depending on the Skill in question.  Stages gained for a given Skill apply to that instance of the Skill and will not carry over from one area to another.",
+		["description"] = "Skills can gain Stages passively or while attacking/casting them, depending on the Skill in question.\13\
+\13\
+Stages gained for a given Skill apply to that instance of the Skill and will not carry over from one area to another.",
 		["name"] = "Stage-Gaining Skills",
 	},
 	["GaspRune"] = {
-		["description"] = "<<ExpedRuneGasp>><rgb(219,217,206)>{Volcanic Rune} <font:'fontin'>{<italic>{<rgb(110,87,66)>{Monsters gain:}}} <rgb(135,134,253)>{Extra Fire Damage} <rgb(135,134,253)>{All Damage can Ignite} <rgb(135,134,253)>{Ignited Ground Trails}",
+		["description"] = "<<ExpedRuneGasp>><rgb(219,217,206)>{Volcanic Rune}\13\
+<font:'fontin'>{<italic>{<rgb(110,87,66)>{Monsters gain:}}}\13\
+<rgb(135,134,253)>{Extra Fire Damage}\13\
+<rgb(135,134,253)>{All Damage can Ignite}\13\
+<rgb(135,134,253)>{Ignited Ground Trails}",
 		["name"] = "Gasp Rune",
 	},
 	["GemcuttersPrism"] = {
@@ -1538,7 +2015,9 @@ return {
 		["name"] = "",
 	},
 	["GiantsBlood"] = {
-		["description"] = "You can wield [Two-Handed] [Axe|Axes], [Mace|Maces] and [Sword|Swords] in one hand Triple [Attributes|Attribute] requirements of weapons Inherent Life granted by [Strength] is halved",
+		["description"] = "You can wield [Two-Handed] [Axe|Axes], [Mace|Maces] and [Sword|Swords] in one hand\
+Triple [Attributes|Attribute] requirements of weapons\
+Inherent Life granted by [Strength] is halved",
 		["name"] = "Giant's Blood",
 	},
 	["Gigantic"] = {
@@ -1546,7 +2025,8 @@ return {
 		["name"] = "Gigantic",
 	},
 	["GlancingBlows"] = {
-		["description"] = "Chance to [Evasion|Evade] is [Unlucky] Chance to [Deflect] is [Lucky]",
+		["description"] = "Chance to [Evasion|Evade] is [Unlucky]\13\
+Chance to [Deflect] is [Lucky]",
 		["name"] = "Glancing Blows",
 	},
 	["GloomShrine"] = {
@@ -1554,7 +2034,9 @@ return {
 		["name"] = "Gloom Shrine",
 	},
 	["Glory"] = {
-		["description"] = "Glory is a resource that must be spent to use certain powerful Skills. These Skills each have a method of generating Glory, and actions taken against enemies will generate Glory equal to the monster's [Power]. Different Skills gain and lose Glory separately, and each Skill can only generate Glory once every 0.5 seconds per monster.  Different Skills have different Glory requirements. Skills lose 2 Glory per second if they haven't gained Glory in the past 15 seconds. You cannot gain Glory for a Skill while any instance of that Skill is active unless that Skill is a [Banner], but different Skills can generate Glory from the same Glorious action.",
+		["description"] = "Glory is a resource that must be spent to use certain powerful Skills. These Skills each have a method of generating Glory, and actions taken against enemies will generate Glory equal to the monster's [Power]. Different Skills gain and lose Glory separately, and each Skill can only generate Glory once every 0.5 seconds per monster.\13\
+\13\
+Different Skills have different Glory requirements. Skills lose 2 Glory per second if they haven't gained Glory in the past 15 seconds. You cannot gain Glory for a Skill while any instance of that Skill is active unless that Skill is a [Banner], but different Skills can generate Glory from the same Glorious action.",
 		["name"] = "Glory",
 	},
 	["GlovesDexInt2"] = {
@@ -1570,7 +2052,11 @@ return {
 		["name"] = "",
 	},
 	["GrandExpedition"] = {
-		["description"] = "Grand Expeditions are a larger version of [ContainsExpedition|Expeditions] with many more explosives. These contain special [ContainsExpedition2|Remnants] and treasures to unearth.  These are only found in Ocean Biomes revealed with [ExpeditionLogbookCurrency|Logbooks].  These areas have additional modifiers to improve their rewards.",
+		["description"] = "Grand Expeditions are a larger version of [ContainsExpedition|Expeditions] with many more explosives. These contain special [ContainsExpedition2|Remnants] and treasures to unearth.\13\
+\13\
+These are only found in Ocean Biomes revealed with [ExpeditionLogbookCurrency|Logbooks].\13\
+\13\
+These areas have additional modifiers to improve their rewards.",
 		["name"] = "Grand Expedition",
 	},
 	["GraspingRing"] = {
@@ -1578,7 +2064,8 @@ return {
 		["name"] = "",
 	},
 	["GraspingVines"] = {
-		["description"] = "Grasping Vines is a stacking [Debuff] that [Slow|Slows] character movement speed by 8% for each stack applied. Moving will gradually remove stacks of Grasping Vines.",
+		["description"] = "Grasping Vines is a stacking [Debuff] that [Slow|Slows] character movement speed by 8% for each stack applied.\13\
+Moving will gradually remove stacks of Grasping Vines.",
 		["name"] = "Grasping Vines",
 	},
 	["GreatBeast"] = {
@@ -1666,15 +2153,24 @@ return {
 		["name"] = "Greed Shrine",
 	},
 	["Grenade"] = {
-		["description"] = "Grenade Skills are only usable when wielding a [Crossbow]. They have cooldowns, but generally deliver high damage or powerful utility.  Grenade Skills have a fuse duration and will generally not explode until the fuse has expired, so they are strongest when you aim carefully and predict enemy movements.  Grenades cannot [Fork] or [Chain].",
+		["description"] = "Grenade Skills are only usable when wielding a [Crossbow]. They have cooldowns, but generally deliver high damage or powerful utility.\13\
+\13\
+Grenade Skills have a fuse duration and will generally not explode until the fuse has expired, so they are strongest when you aim carefully and predict enemy movements.\13\
+\13\
+Grenades cannot [Fork] or [Chain].",
 		["name"] = "Grenade Skills",
 	},
 	["GruellingMadness"] = {
-		["description"] = "The first Gruelling Madness on a target [Slow|Slows] their movement speed by 15%. Each additional Gruelling Madness instead increases the [Slow|Slowing] Potency of [Debuff|Debuffs] on the targets by 10%, which affects both the first Gruelling Madness and any other [Debuff|Debuffs] that are [Slow|Slowing] the target.  A maximum of 10 Gruelling Madness can be inflicted on each target. Targets will lose 1 Gruelling Madness every 2 seconds that passes without more being inflicted.",
+		["description"] = "The first Gruelling Madness on a target [Slow|Slows] their movement speed by 15%.\13\
+Each additional Gruelling Madness instead increases the [Slow|Slowing] Potency of [Debuff|Debuffs] on the targets by 10%, which affects both the first Gruelling Madness and any other [Debuff|Debuffs] that are [Slow|Slowing] the target.\13\
+\13\
+A maximum of 10 Gruelling Madness can be inflicted on each target. Targets will lose 1 Gruelling Madness every 2 seconds that passes without more being inflicted.",
 		["name"] = "Gruelling Madness",
 	},
 	["Guard"] = {
-		["description"] = "Guard is a [Buff] that provides a buffer against damage from [Hit|Hits], taking the damage before your Life or [EnergyShield|Energy Shield] until the buff expires or is depleted.  You can only have a single Guard buff at a time. If you gain Guard when you already have it, whichever buff has the higher magnitude will be kept, and that buff's duration will be refreshed by an amount proportional to the magnitude of the discarded buff, but not to longer than its original duration. Your maximum amount of Guard is equal to 200% of your maximum Life.",
+		["description"] = "Guard is a [Buff] that provides a buffer against damage from [Hit|Hits], taking the damage before your Life or [EnergyShield|Energy Shield] until the buff expires or is depleted.\13\
+\13\
+You can only have a single Guard buff at a time. If you gain Guard when you already have it, whichever buff has the higher magnitude will be kept, and that buff's duration will be refreshed by an amount proportional to the magnitude of the discarded buff, but not to longer than its original duration. Your maximum amount of Guard is equal to 200% of your maximum Life.",
 		["name"] = "Guard",
 	},
 	["HandWraps"] = {
@@ -1686,7 +2182,8 @@ return {
 		["name"] = "Hazards",
 	},
 	["Heartstopper"] = {
-		["description"] = "Take 50% less damage over time if you've started taking damage over time in the past second Take 50% more damage over time if you haven't started taking damage over time in the past second",
+		["description"] = "Take 50% less damage over time if you've started taking damage over time in the past second\
+Take 50% more damage over time if you haven't started taking damage over time in the past second",
 		["name"] = "Heartstopper",
 	},
 	["Heat"] = {
@@ -1694,7 +2191,11 @@ return {
 		["name"] = "Heat",
 	},
 	["HeavyStun"] = {
-		["description"] = "[HeavyStun|Heavy Stuns] occur when a target's [Stun] bar is filled, interrupts the target's current action and prevent them from taking actions for a few seconds. [Hit|Hits] cause Heavy Stun buildup based on the damage dealt. Players and their [Minion|Minions] usually cannot be [HeavyStun|Heavily Stunned], but players can receive [HeavyStun|Heavy Stun] buildup where specifically mentioned while taking specific actions (such as raising their [Shield], Parrying with a [Buckler], or riding a mount).  While an enemy is Heavy Stunned, they cannot act and count as [Immobilised]. It will also be harder to Heavy Stun them again for a short time afterwards.  [Physical] damage, and player (but not monster) [Melee] Damage, each cause 50% more [HeavyStun|Heavy Stun] buildup. For players, these bonuses are multiplicative with each other.",
+		["description"] = "[HeavyStun|Heavy Stuns] occur when a target's [Stun] bar is filled, interrupts the target's current action and prevent them from taking actions for a few seconds. [Hit|Hits] cause Heavy Stun buildup based on the damage dealt. Players and their [Minion|Minions] usually cannot be [HeavyStun|Heavily Stunned], but players can receive [HeavyStun|Heavy Stun] buildup where specifically mentioned while taking specific actions (such as raising their [Shield], Parrying with a [Buckler], or riding a mount).\13\
+\13\
+While an enemy is Heavy Stunned, they cannot act and count as [Immobilised]. It will also be harder to Heavy Stun them again for a short time afterwards.\13\
+\13\
+[Physical] damage, and player (but not monster) [Melee] Damage, each cause 50% more [HeavyStun|Heavy Stun] buildup. For players, these bonuses are multiplicative with each other.",
 		["name"] = "Heavy Stun",
 	},
 	["HeavyStunPlayer"] = {
@@ -1710,7 +2211,8 @@ return {
 		["name"] = "Herald Skills",
 	},
 	["HexMaster"] = {
-		["description"] = "You can apply an additional [Curse] Double Activation Delay of Curses",
+		["description"] = "You can apply an additional [Curse]\
+Double Activation Delay of Curses",
 		["name"] = "Hex Master",
 	},
 	["Hexproof"] = {
@@ -1718,7 +2220,9 @@ return {
 		["name"] = "Hexproof",
 	},
 	["HiddenMaps"] = {
-		["description"] = "Anomaly Maps have added requirements to access on the World Map.   Bosses of these maps are [DeadlyMapBoss|Deadly] and may drop an additional [LineageSupports|lineage support].",
+		["description"] = "Anomaly Maps have added requirements to access on the World Map. \13\
+\13\
+Bosses of these maps are [DeadlyMapBoss|Deadly] and may drop an additional [LineageSupports|lineage support].",
 		["name"] = "Anomaly Map",
 	},
 	["HighInfernalFlame"] = {
@@ -1738,31 +2242,50 @@ return {
 		["name"] = "Historic Jewels",
 	},
 	["Hit"] = {
-		["description"] = "Any damage that isn't damage over time is Hit damage.  [DamagingAilments|Damaging Ailments] which result from a Hit will calculate their damage from that Hit, and will not subsequently have Damage modifiers applied directly to them. As a result of this, raising Hit Damage will result in more powerful Damaging Ailments innately.",
+		["description"] = "Any damage that isn't damage over time is Hit damage.\13\
+\13\
+[DamagingAilments|Damaging Ailments] which result from a Hit will calculate their damage from that Hit, and will not subsequently have Damage modifiers applied directly to them. As a result of this, raising Hit Damage will result in more powerful Damaging Ailments innately.",
 		["name"] = "Hit Damage",
 	},
 	["Hiveblood"] = {
-		["description"] = "Hiveblood is used to birth Wombgifts from The Genesis Tree in Monastery of the Keepers.  The maximum amount of Hiveblood you can have is 100,000.",
+		["description"] = "Hiveblood is used to birth Wombgifts from The Genesis Tree in Monastery of the Keepers.\13\
+\13\
+The maximum amount of Hiveblood you can have is 100,000.",
 		["name"] = "Hiveblood",
 	},
 	["Hobble"] = {
-		["description"] = "Hobbling a target lowers their [Evasion] by a specified amount. If this brings that target's [Evasion] value to 0, they are fully Hobbled for 12 seconds.  Hobble from Players lowers [Evasion] by 3 times as much against Normal Monsters and 2 times as much against Magic Monsters.",
+		["description"] = "Hobbling a target lowers their [Evasion] by a specified amount. If this brings that target's [Evasion] value to 0, they are fully Hobbled for 12 seconds.\13\
+\13\
+Hobble from Players lowers [Evasion] by 3 times as much against Normal Monsters and 2 times as much against Magic Monsters.",
 		["name"] = "Hobble",
 	},
 	["HollowPalmTechnique"] = {
-		["description"] = "Can [Attack] as though using a [Quarterstaff] while both of your hand slots are empty [UnarmedAttack|Unarmed Attacks] that would use an [Equipped] [Quarterstaff]'s damage have: • Base [UnarmedDamage|Unarmed] [Physical] damage replaced with damage based on their Skill Level • 1% more [Attack] Speed per 75 [ItemEvasion|Item Evasion] on [EquipArmour|Equipped Armour Items] • +0.1% to [Critical|Critical Hit Chance] per 10 [ItemEnergyShield|Item Energy Shield] on [EquipArmour|Equipped Armour Items]",
+		["description"] = "Can [Attack] as though using a [Quarterstaff] while both of your hand slots are empty\13\
+[UnarmedAttack|Unarmed Attacks] that would use an [Equipped] [Quarterstaff]'s damage have:\13\
+• Base [UnarmedDamage|Unarmed] [Physical] damage replaced with damage based on their Skill Level\13\
+• 1% more [Attack] Speed per 75 [ItemEvasion|Item Evasion] on [EquipArmour|Equipped Armour Items]\13\
+• +0.1% to [Critical|Critical Hit Chance] per 10 [ItemEnergyShield|Item Energy Shield] on [EquipArmour|Equipped Armour Items]",
 		["name"] = "Hollow Palm Technique",
 	},
 	["Honour"] = {
-		["description"] = "Honour is an additional resource you have to manage within the Trial of the Sekhemas. A percentage of the damage you take from enemies in the Trial will be taken from your Honour. If your Honour reaches zero then the Trial is failed.  Your starting and maximum Honour are the sum of your maximum Life, [EnergyShield|Energy Shield] and [Ward|Runic Ward]. Your maximum Mana is also added if you have [passive_keystone_mind_over_matter|Mind Over Matter].",
+		["description"] = "Honour is an additional resource you have to manage within the Trial of the Sekhemas. A percentage of the damage you take from enemies in the Trial will be taken from your Honour. If your Honour reaches zero then the Trial is failed.\13\
+\13\
+Your starting and maximum Honour are the sum of your maximum Life, [EnergyShield|Energy Shield] and [Ward|Runic Ward]. Your maximum Mana is also added if you have [passive_keystone_mind_over_matter|Mind Over Matter].",
 		["name"] = "Honour",
 	},
 	["HonourResistance"] = {
-		["description"] = "You lose this much less [Honour]. Maximum Honour Resistance is capped at 75% by default and cannot be higher than 90%.",
+		["description"] = "You lose this much less [Honour].\13\
+Maximum Honour Resistance is capped at 75% by default and cannot be higher than 90%.",
 		["name"] = "Honour Resistance",
 	},
 	["IceArchon"] = {
-		["description"] = "Ice Archon is a type of [Archon] [Buff]. It grants: • 25% more [Cold] Damage with [Spell|Spells] • [StatConversion|Convert] 100% of [ElementalDamage|Elemental] Damage with [Spell|Spells] to [Cold] Damage • Cannot deal [Cold|Non-Cold] Damage with [Spell|Spells] • [Hit|Hits] with [Spell|Spells] cause 100% more [Freeze] Buildup  Using a non-instant [Attack] causes Ice Archon to be removed immediately.",
+		["description"] = "Ice Archon is a type of [Archon] [Buff]. It grants:\13\
+• 25% more [Cold] Damage with [Spell|Spells]\13\
+• [StatConversion|Convert] 100% of [ElementalDamage|Elemental] Damage with [Spell|Spells] to [Cold] Damage\13\
+• Cannot deal [Cold|Non-Cold] Damage with [Spell|Spells]\13\
+• [Hit|Hits] with [Spell|Spells] cause 100% more [Freeze] Buildup\13\
+\13\
+Using a non-instant [Attack] causes Ice Archon to be removed immediately.",
 		["name"] = "Ice Archon",
 	},
 	["IceCrystalShatter"] = {
@@ -1770,11 +2293,15 @@ return {
 		["name"] = "Ice Crystal Shattering",
 	},
 	["IceCrystals"] = {
-		["description"] = "Ice Crystals are solid blocks of ice which can be damaged. When destroyed, Ice Crystals will deal [Cold|Cold] damage in an area. Ice Crystals will block the movement of smaller monsters, while larger monsters will destroy Ice Crystals in their path.  Skills which [Consume] [Freeze] will instantly shatter Ice Crystals, causing them to deal more damage in a larger area.",
+		["description"] = "Ice Crystals are solid blocks of ice which can be damaged. When destroyed, Ice Crystals will deal [Cold|Cold] damage in an area. Ice Crystals will block the movement of smaller monsters, while larger monsters will destroy Ice Crystals in their path.\13\
+\13\
+Skills which [Consume] [Freeze] will instantly shatter Ice Crystals, causing them to deal more damage in a larger area.",
 		["name"] = "Ice Crystals",
 	},
 	["IceFragment"] = {
-		["description"] = "Ice Fragments are created by a variety of Skills and [DetonationTime|Detonate] in an Area to deal [Cold] damage. If a Skill creates multiple Ice Fragments at the same time, only one of them can damage a single enemy.  Some skills can interact with Ice Fragments. Unless otherwise specified, each Ice Fragment can only interact with a single Skill use during its lifetime.",
+		["description"] = "Ice Fragments are created by a variety of Skills and [DetonationTime|Detonate] in an Area to deal [Cold] damage. If a Skill creates multiple Ice Fragments at the same time, only one of them can damage a single enemy.\13\
+\13\
+Some skills can interact with Ice Fragments. Unless otherwise specified, each Ice Fragment can only interact with a single Skill use during its lifetime.",
 		["name"] = "Ice Fragments",
 	},
 	["Idol"] = {
@@ -1794,7 +2321,14 @@ return {
 		["name"] = "",
 	},
 	["Ignite"] = {
-		["description"] = "Ignite is an [Ailments|Ailment] that deals [Fire] damage over time, and lasts for 4 seconds by default.  The chance for a [Hit] to Ignite a target is determined by the total [BuffMagnitude|Magnitude] of [Flammability] on the target, including the amount added by that [Hit].  [Fire] damage from [Hit|Hits] [Contributes] to the [BuffMagnitude|Magnitude] of Ignite, so [Hit|Hits] dealing more [Fire] damage inflict stronger Ignites. The base [BuffMagnitude|Magnitude] of Ignite is [Fire] damage per second equal to 20% of the [Fire] damage dealt by the [Hit] that inflicted it. This is calculated using the final damage dealt by the [Hit], but not any modifiers on the target that affect how much damage they will take from the [Hit]. This [BuffMagnitude|Magnitude] is not further affected by any modifiers to the damage you deal.  Modifiers and [Debuff|Debuffs] that affect the enemy's ability to mitigate damage (such as [Shock]) can affect the damage the enemy takes from Ignite, but any such modifiers that specifically apply to [Hit] damage (such as [Penetration]) do not affect Ignite damage.",
+		["description"] = "Ignite is an [Ailments|Ailment] that deals [Fire] damage over time, and lasts for 4 seconds by default.\13\
+\13\
+The chance for a [Hit] to Ignite a target is determined by the total [BuffMagnitude|Magnitude] of [Flammability] on the target, including the amount added by that [Hit].\13\
+\13\
+[Fire] damage from [Hit|Hits] [Contributes] to the [BuffMagnitude|Magnitude] of Ignite, so [Hit|Hits] dealing more [Fire] damage inflict stronger Ignites.\13\
+The base [BuffMagnitude|Magnitude] of Ignite is [Fire] damage per second equal to 20% of the [Fire] damage dealt by the [Hit] that inflicted it. This is calculated using the final damage dealt by the [Hit], but not any modifiers on the target that affect how much damage they will take from the [Hit]. This [BuffMagnitude|Magnitude] is not further affected by any modifiers to the damage you deal.\13\
+\13\
+Modifiers and [Debuff|Debuffs] that affect the enemy's ability to mitigate damage (such as [Shock]) can affect the damage the enemy takes from Ignite, but any such modifiers that specifically apply to [Hit] damage (such as [Penetration]) do not affect Ignite damage.",
 		["name"] = "Ignite",
 	},
 	["IgnitedGround"] = {
@@ -1814,11 +2348,17 @@ return {
 		["name"] = "Immured Fury",
 	},
 	["Impale"] = {
-		["description"] = "Impale is a [Debuff] inflicted by [Hit|Hits], which stores 30% of the [Premitigation|Pre-mitigation] [Physical] [Hit|Hit damage] of the Impaling hit as its [BuffMagnitude|Magnitude].  Subsequent [Attack] [Hit|Hits] against Impaled targets will Extract the Impale debuff. When this occurs, the [BuffMagnitude|Magnitude] of the Impale is added to the [Premitigation|Pre-mitigation] [Physical] damage of that attack hit.  A maximum of 60 Impale [Debuff|Debuffs] can be present on a target at once. If multiple Impales are present on a target, each [Attack|Attack's] [Hit] only Extracts and benefits from the strongest one of them.",
+		["description"] = "Impale is a [Debuff] inflicted by [Hit|Hits], which stores 30% of the [Premitigation|Pre-mitigation] [Physical] [Hit|Hit damage] of the Impaling hit as its [BuffMagnitude|Magnitude].\13\
+\13\
+Subsequent [Attack] [Hit|Hits] against Impaled targets will Extract the Impale debuff. When this occurs, the [BuffMagnitude|Magnitude] of the Impale is added to the [Premitigation|Pre-mitigation] [Physical] damage of that attack hit.\13\
+\13\
+A maximum of 60 Impale [Debuff|Debuffs] can be present on a target at once. If multiple Impales are present on a target, each [Attack|Attack's] [Hit] only Extracts and benefits from the strongest one of them.",
 		["name"] = "Impale",
 	},
 	["Incision"] = {
-		["description"] = "Incision is a Debuff which causes the affected target to gain increasingly higher chance to be inflicted with [Bleeding] when [Hit]. All Incision stacks are removed when [Bleeding] is inflicted.  Each stack of Incision applies 10% chance to be inflicted with [Bleeding] when [Hit]. A maximum of 10 Incision stacks can be present on a target at once.",
+		["description"] = "Incision is a Debuff which causes the affected target to gain increasingly higher chance to be inflicted with [Bleeding] when [Hit]. All Incision stacks are removed when [Bleeding] is inflicted.\13\
+\13\
+Each stack of Incision applies 10% chance to be inflicted with [Bleeding] when [Hit]. A maximum of 10 Incision stacks can be present on a target at once.",
 		["name"] = "Incision",
 	},
 	["IncursionAugment"] = {
@@ -1826,11 +2366,17 @@ return {
 		["name"] = "",
 	},
 	["IncursionCrystal"] = {
-		["description"] = "Energised Crystals are collected by energising [ContainsIncursion|Vaal Beacons] throughout Wraeclast, and are required to access Atziri's Temple.  6 Energised Crystals are required to power the Temple Console.",
+		["description"] = "Energised Crystals are collected by energising [ContainsIncursion|Vaal Beacons] throughout Wraeclast, and are required to access Atziri's Temple.\13\
+\13\
+6 Energised Crystals are required to power the Temple Console.",
 		["name"] = "Energised Crystal",
 	},
 	["IncursionDestabilization"] = {
-		["description"] = "Each time you enter the Temple a random selection of rooms are Destabilised, removing them permanently when you next exit.   In addition to the randomly selected rooms, some rooms are Destabilised upon completion. [IncursionRestrictedRoom|Restricted Rooms] that are accessible will always destabilise upon exiting the Temple.  Defeating the Architect or Atziri causes greater Destabilisation.",
+		["description"] = "Each time you enter the Temple a random selection of rooms are Destabilised, removing them permanently when you next exit. \13\
+\13\
+In addition to the randomly selected rooms, some rooms are Destabilised upon completion. [IncursionRestrictedRoom|Restricted Rooms] that are accessible will always destabilise upon exiting the Temple.\13\
+\13\
+Defeating the Architect or Atziri causes greater Destabilisation.",
 		["name"] = "Temple Destabilisation",
 	},
 	["IncursionLimbModification"] = {
@@ -1878,7 +2424,11 @@ return {
 		["name"] = "Medallions",
 	},
 	["IncursionPower"] = {
-		["description"] = "Power is provided to connected Paths by Generator rooms. Powered Paths provide Power to adjacent rooms.  The Generator rooms are Dynamo, Shrine of Empowerment, Solar Nexus and Infinite Horizon.   The Smithy, Synthflesh Lab, Transcendent Barracks and Golem Works rooms can be [IncursionRoomUpgrades|Upgraded] by receiving Power.",
+		["description"] = "Power is provided to connected Paths by Generator rooms. Powered Paths provide Power to adjacent rooms.\13\
+\13\
+The Generator rooms are Dynamo, Shrine of Empowerment, Solar Nexus and Infinite Horizon. \13\
+\13\
+The Smithy, Synthflesh Lab, Transcendent Barracks and Golem Works rooms can be [IncursionRoomUpgrades|Upgraded] by receiving Power.",
 		["name"] = "Power",
 	},
 	["IncursionRestrictedRoom"] = {
@@ -1886,15 +2436,27 @@ return {
 		["name"] = "Restricted Room",
 	},
 	["IncursionRoomUpgrades"] = {
-		["description"] = "Rooms in Atziri's Temple may have their tier upgraded in various ways, up to a default maximum of tier 3.  Most rooms are upgraded via their adjacent rooms, some rooms are upgraded via [IncursionPower|Powered Paths].  Garrisons may be transformed into a Legion Barracks when adjacent to a Viper Spymaster or to a Transcendant Barracks when adjacent to a Synthflesh Lab.  Flesh Surgeon and Thaumaturge instead have their level equal to the highest adjacent Synthflesh Lab or Sacrificial Chamber, respectively.  Quipolatl's Medallion may be used to upgrade the tier of a room by 1.",
+		["description"] = "Rooms in Atziri's Temple may have their tier upgraded in various ways, up to a default maximum of tier 3.\13\
+\13\
+Most rooms are upgraded via their adjacent rooms, some rooms are upgraded via [IncursionPower|Powered Paths].\13\
+\13\
+Garrisons may be transformed into a Legion Barracks when adjacent to a Viper Spymaster or to a Transcendant Barracks when adjacent to a Synthflesh Lab.\13\
+\13\
+Flesh Surgeon and Thaumaturge instead have their level equal to the highest adjacent Synthflesh Lab or Sacrificial Chamber, respectively.\13\
+\13\
+Quipolatl's Medallion may be used to upgrade the tier of a room by 1.",
 		["name"] = "Room Upgrades",
 	},
 	["IncursionTempleCurrency"] = {
-		["description"] = "Temple Currency are currency items found primarily throughout the Temple.  These currency items typically interact with [Corrupted|Corrupted Items] in a variety of ways.",
+		["description"] = "Temple Currency are currency items found primarily throughout the Temple.\13\
+\13\
+These currency items typically interact with [Corrupted|Corrupted Items] in a variety of ways.",
 		["name"] = "Temple Currency",
 	},
 	["InevitableCriticalHits"] = {
-		["description"] = "[Hit|Hits] which could potentially be a [Critical|Critical Hit] but do not roll a [Critical|Critical Hit] will re-roll [Critical|Critical Hit] chance until they succeed.  Hits have 30% less [CriticalDamageBonus|Critical Damage Bonus] for each time [Critical|Critical Hit] chance was re-rolled.",
+		["description"] = "[Hit|Hits] which could potentially be a [Critical|Critical Hit] but do not roll a [Critical|Critical Hit] will re-roll [Critical|Critical Hit] chance until they succeed.\13\
+\13\
+Hits have 30% less [CriticalDamageBonus|Critical Damage Bonus] for each time [Critical|Critical Hit] chance was re-rolled.",
 		["name"] = "Inevitable Critical Hits",
 	},
 	["Int"] = {
@@ -1902,7 +2464,11 @@ return {
 		["name"] = "Int",
 	},
 	["Intelligence"] = {
-		["description"] = "Intelligence is an [Attributes|Attribute] required to use most equipment that grants [EnergyShield|Energy Shield], as well as various spell-aligned Weapons and Skills.  Intelligence provides an inherent bonus of +2 to maximum Mana per 1 Intelligence  Intelligence does not grant damage to Skills or any other benefits except where specifically stated.",
+		["description"] = "Intelligence is an [Attributes|Attribute] required to use most equipment that grants [EnergyShield|Energy Shield], as well as various spell-aligned Weapons and Skills.\13\
+\13\
+Intelligence provides an inherent bonus of +2 to maximum Mana per 1 Intelligence\13\
+\13\
+Intelligence does not grant damage to Skills or any other benefits except where specifically stated.",
 		["name"] = "Intelligence",
 	},
 	["Intimidate"] = {
@@ -1910,7 +2476,11 @@ return {
 		["name"] = "Intimidate",
 	},
 	["InvadedCityMap"] = {
-		["description"] = "Invaded Cities have their natural inhabitants plus 15 extra [Pack|Packs] of another faction.  Invaded Cities gain the [Biome] bonuses of the invading faction.  The Factions are the Ezomyte, Faridun and Vaal.",
+		["description"] = "Invaded Cities have their natural inhabitants plus 15 extra [Pack|Packs] of another faction.\13\
+\13\
+Invaded Cities gain the [Biome] bonuses of the invading faction.\13\
+\13\
+The Factions are the Ezomyte, Faridun and Vaal.",
 		["name"] = "Invaded City",
 	},
 	["Invocation"] = {
@@ -1926,11 +2496,14 @@ return {
 		["name"] = "",
 	},
 	["IronCitadel"] = {
-		["description"] = "The Iron [Citadel] is an endgame area which can be accessed with a Tier 15 or above [Waystone]. The boss of this area will drop a [PinnacleKey1|Ancient Crisis Fragment].  Increases to [Waystone] Drop Chance gives a chance for additional Crisis Fragments to drop.",
+		["description"] = "The Iron [Citadel] is an endgame area which can be accessed with a Tier 15 or above [Waystone]. The boss of this area will drop a [PinnacleKey1|Ancient Crisis Fragment].\13\
+\13\
+Increases to [Waystone] Drop Chance gives a chance for additional Crisis Fragments to drop.",
 		["name"] = "Iron Citadel",
 	},
 	["IronGrip"] = {
-		["description"] = "Gain no inherent bonus from [Strength] 1% increased [Projectile] [Attack] damage per 2 [Strength]",
+		["description"] = "Gain no inherent bonus from [Strength]\13\
+1% increased [Projectile] [Attack] damage per 2 [Strength]",
 		["name"] = "Iron Grip",
 	},
 	["IronReflexes"] = {
@@ -1938,7 +2511,8 @@ return {
 		["name"] = "Iron Reflexes",
 	},
 	["IronWill"] = {
-		["description"] = "Gain no inherent bonus from [Strength] 1% increased [Spell] damage per 2 [Strength]",
+		["description"] = "Gain no inherent bonus from [Strength]\13\
+1% increased [Spell] damage per 2 [Strength]",
 		["name"] = "Iron Will",
 	},
 	["IrradiatedNonAtlas"] = {
@@ -1962,7 +2536,10 @@ return {
 		["name"] = "Item Evasion",
 	},
 	["ItemRarity"] = {
-		["description"] = "Items can be Normal (grey), Magic (blue), Rare (yellow) or Unique (brown). Item Classes which do not have these rarities, such as Currency, have individual rarity for each item. Magic items can have 2 Modifiers; a Prefix and a Suffix. Rare items can have up to 6 Modifiers; 3 Prefixes and 3 Suffixes. More powerful and dangerous enemies are more likely to drop rarer Items.",
+		["description"] = "Items can be Normal (grey), Magic (blue), Rare (yellow) or Unique (brown). Item Classes which do not have these rarities, such as Currency, have individual rarity for each item.\13\
+Magic items can have 2 Modifiers; a Prefix and a Suffix.\13\
+Rare items can have up to 6 Modifiers; 3 Prefixes and 3 Suffixes.\13\
+More powerful and dangerous enemies are more likely to drop rarer Items.",
 		["name"] = "Item Rarity",
 	},
 	["Jade"] = {
@@ -2042,15 +2619,23 @@ return {
 		["name"] = "",
 	},
 	["KalguuranSupportGemLimit"] = {
-		["description"] = "The number of Kalguuran Support Gems you can use is limited by your character level: Level 1+: 1 Level 17+: 2 Level 33+: 3 Level 45+: 4 Level 65+: 5 Level 80+: 6",
+		["description"] = "The number of Kalguuran Support Gems you can use is limited by your character level:\13\
+Level 1+: 1\13\
+Level 17+: 2\13\
+Level 33+: 3\13\
+Level 45+: 4\13\
+Level 65+: 5\13\
+Level 80+: 6",
 		["name"] = "Kalguuran Support Gem Limit",
 	},
 	["KeystoneAlternateDexterityBonus"] = {
-		["description"] = "Gain no inherent bonus from [Dexterity] 1% increased [Armour|Armour] per 2 Dexterity",
+		["description"] = "Gain no inherent bonus from [Dexterity]\13\
+1% increased [Armour|Armour] per 2 Dexterity",
 		["name"] = "Circular Teachings",
 	},
 	["KeystoneAlternateIntelligenceBonus"] = {
-		["description"] = "Gain no inherent bonus from [Intelligence] 1% increased [Evasion|Evasion Rating] per 2 Intelligence",
+		["description"] = "Gain no inherent bonus from [Intelligence]\13\
+1% increased [Evasion|Evasion Rating] per 2 Intelligence",
 		["name"] = "Knightly Tenets",
 	},
 	["KeystoneAutoInvocation"] = {
@@ -2058,15 +2643,21 @@ return {
 		["name"] = "Ritual Cadence",
 	},
 	["KeystoneDruidicRage"] = {
-		["description"] = "100% more Maximum [Rage] Regenerate 1 [Rage] per second per 4 [Rage] spent [Recently] No [Rage] effect",
+		["description"] = "100% more Maximum [Rage]\13\
+Regenerate 1 [Rage] per second per 4 [Rage] spent [Recently]\13\
+No [Rage] effect",
 		["name"] = "Primal Hunger",
 	},
 	["KeystoneFireSpellsBecomeChaosSpells"] = {
-		["description"] = "[Fire] [Spell|Spells] [Conversion|Convert] 100% of Fire Damage to [Chaos|Chaos Damage] [Chaos|Chaos Damage] from [Fire] [Spell|Spells] [Contributes] to [Flammability] and [Ignite] [BuffMagnitude|Magnitudes] [Ignite] inflicted with [Fire] [Spell|Spells] deals [Chaos|Chaos Damage] instead of Fire Damage",
+		["description"] = "[Fire] [Spell|Spells] [Conversion|Convert] 100% of Fire Damage to [Chaos|Chaos Damage]\13\
+[Chaos|Chaos Damage] from [Fire] [Spell|Spells] [Contributes] to [Flammability] and [Ignite] [BuffMagnitude|Magnitudes]\13\
+[Ignite] inflicted with [Fire] [Spell|Spells] deals [Chaos|Chaos Damage] instead of Fire Damage",
 		["name"] = "Blackflame Covenant",
 	},
 	["KeystoneWildsurgeIncantation"] = {
-		["description"] = "[Storm|Storm] and [Plant|Plant] [Spell|Spells] deal 50% more damage [Storm|Storm] and [Plant|Plant] [Spell|Spells] have 75% less duration [Storm|Storm] and [Plant|Plant] [Spell|Spells] have 50% less cost",
+		["description"] = "[Storm|Storm] and [Plant|Plant] [Spell|Spells] deal 50% more damage\13\
+[Storm|Storm] and [Plant|Plant] [Spell|Spells] have 75% less duration\13\
+[Storm|Storm] and [Plant|Plant] [Spell|Spells] have 50% less cost",
 		["name"] = "Wildsurge Incantation",
 	},
 	["KhatalsRejuvenation"] = {
@@ -2094,7 +2685,9 @@ return {
 		["name"] = "",
 	},
 	["Leech"] = {
-		["description"] = "Leech recovers an amount of [LifeLeech|Life], [ManaLeech|Mana], [EnergyShieldLeech|Energy Shield], or [RageLeech|Rage] over one second, usually as a result of [Hit|Hitting] an enemy and based on the damage of the [Hit].  Only one instance of Leech for each resource can provide recovery at a time.",
+		["description"] = "Leech recovers an amount of [LifeLeech|Life], [ManaLeech|Mana], [EnergyShieldLeech|Energy Shield], or [RageLeech|Rage] over one second, usually as a result of [Hit|Hitting] an enemy and based on the damage of the [Hit].\13\
+\13\
+Only one instance of Leech for each resource can provide recovery at a time.",
 		["name"] = "Leech",
 	},
 	["LeechSameAmount"] = {
@@ -2158,11 +2751,27 @@ return {
 		["name"] = "Legacy of Topaz",
 	},
 	["LichSkeletalBuff"] = {
-		["description"] = "Umbral Souls grant varying [Buff|Buffs] depending on the kind of Skeletal [Minion] being replaced, as follows -  Umbral Souls from: • Skeletal Warriors grant 15% increased [Attack] Damage. • Skeletal Snipers grant 15% increased [Projectile] Speed. • Skeletal Clerics grant 30% increased [ESRecharge|Energy Shield Recharge Rate]. • Skeletal Arsonists grant 15% increased Area of Effect. • Skeletal Storm Mages grant 25% increased Spell Damage. • Skeletal Frost Mages grant 35% increased maximum Energy Shield. • Skeletal Brutes grant 60% increased [Stun] buildup. • Skeletal Reavers grant 6% increased Skill Speed.",
+		["description"] = "Umbral Souls grant varying [Buff|Buffs] depending on the kind of Skeletal [Minion] being replaced, as follows -\13\
+\13\
+Umbral Souls from:\13\
+• Skeletal Warriors grant 15% increased [Attack] Damage.\13\
+• Skeletal Snipers grant 15% increased [Projectile] Speed.\13\
+• Skeletal Clerics grant 30% increased [ESRecharge|Energy Shield Recharge Rate].\13\
+• Skeletal Arsonists grant 15% increased Area of Effect.\13\
+• Skeletal Storm Mages grant 25% increased Spell Damage.\13\
+• Skeletal Frost Mages grant 35% increased maximum Energy Shield.\13\
+• Skeletal Brutes grant 60% increased [Stun] buildup.\13\
+• Skeletal Reavers grant 6% increased Skill Speed.",
 		["name"] = "Umbral Souls",
 	},
 	["LifeLeech"] = {
-		["description"] = "When you deal damage with a [Hit], Life Leech causes you to recover an amount of Life to a percentage of the damage dealt, over a period of one second.  Hits that deal more than 40,000 total damage are treated as though they only dealt 40,000 damage for this calculation. If this damage is of multiple [DamageTypes|Damage Types], the ratios between them will stay the same.  Monsters have Leech Resistance that increases with monster level, reducing how much you recover from Leech from [Hit|Hits] against them.  You can only recover from a single instance of Life Leech at a time, and all Life Leech is removed when Life is filled.",
+		["description"] = "When you deal damage with a [Hit], Life Leech causes you to recover an amount of Life to a percentage of the damage dealt, over a period of one second.\13\
+\13\
+Hits that deal more than 40,000 total damage are treated as though they only dealt 40,000 damage for this calculation. If this damage is of multiple [DamageTypes|Damage Types], the ratios between them will stay the same.\13\
+\13\
+Monsters have Leech Resistance that increases with monster level, reducing how much you recover from Leech from [Hit|Hits] against them.\13\
+\13\
+You can only recover from a single instance of Life Leech at a time, and all Life Leech is removed when Life is filled.",
 		["name"] = "Life Leech",
 	},
 	["LifeLoss"] = {
@@ -2170,11 +2779,14 @@ return {
 		["name"] = "Life Loss",
 	},
 	["LifeRecharge"] = {
-		["description"] = "Lost Life will start Recharging at a rate of 12.5% per second after a base delay of 4 seconds. Further loss of Life resets this delay, interrupting Recharge. Modifiers to Energy Shield [ESRechargeRate|Recharge Rate] or to [FasterESRechargeStart|how fast it starts] will also apply to Life Recharge.",
+		["description"] = "Lost Life will start Recharging at a rate of 12.5% per second after a base delay of 4 seconds. Further loss of Life resets this delay, interrupting Recharge.\13\
+Modifiers to Energy Shield [ESRechargeRate|Recharge Rate] or to [FasterESRechargeStart|how fast it starts] will also apply to Life Recharge.",
 		["name"] = "Life Recharge",
 	},
 	["LifeRune"] = {
-		["description"] = "<<ExpedRuneLife>><rgb(219,217,206)>{Life Rune} <font:'fontin'>{<italic>{<rgb(110,87,66)>{Monsters gain:}}} <rgb(135,134,253)>{Shared Life}",
+		["description"] = "<<ExpedRuneLife>><rgb(219,217,206)>{Life Rune}\13\
+<font:'fontin'>{<italic>{<rgb(110,87,66)>{Monsters gain:}}}\13\
+<rgb(135,134,253)>{Shared Life}",
 		["name"] = "Life Rune",
 	},
 	["LightRadius"] = {
@@ -2182,7 +2794,9 @@ return {
 		["name"] = "Light Radius",
 	},
 	["LightStun"] = {
-		["description"] = "Any [Hit] has a chance to [LightStun|Light Stun] the target, interrupting their current action and preventing them from taking actions for a fraction of a second. The chance is based on the damage dealt, up to 100% base chance for [Hit|Hits] that deal 100% of the target's maximum Life. Chances lower than 15% are treated as 0%.  [Physical] damage, and player (but not monster) [Melee] Damage, each have 50% more [LightStun|Light Stun] chance. For players, these bonuses are multiplicative with each other.",
+		["description"] = "Any [Hit] has a chance to [LightStun|Light Stun] the target, interrupting their current action and preventing them from taking actions for a fraction of a second. The chance is based on the damage dealt, up to 100% base chance for [Hit|Hits] that deal 100% of the target's maximum Life. Chances lower than 15% are treated as 0%.\13\
+\13\
+[Physical] damage, and player (but not monster) [Melee] Damage, each have 50% more [LightStun|Light Stun] chance. For players, these bonuses are multiplicative with each other.",
 		["name"] = "Light Stun",
 	},
 	["Lightning"] = {
@@ -2194,23 +2808,39 @@ return {
 		["name"] = "Lightning Ailments",
 	},
 	["LightningArchon"] = {
-		["description"] = "Lightning Archon is a type of [Archon] [Buff]. It grants: • 25% more [Lightning] Damage with [Spell|Spells] • [StatConversion|Convert] 100% of [ElementalDamage|Elemental] Damage with [Spell|Spells] to [Lightning] Damage • Cannot deal [Lightning|Non-Lightning] Damage with [Spell|Spells] • [Hit|Hits] with [Spell|Spells] have 100% more [Shock] chance  Using a non-instant [Attack] causes Lightning Archon to be removed immediately.",
+		["description"] = "Lightning Archon is a type of [Archon] [Buff]. It grants:\13\
+• 25% more [Lightning] Damage with [Spell|Spells]\13\
+• [StatConversion|Convert] 100% of [ElementalDamage|Elemental] Damage with [Spell|Spells] to [Lightning] Damage\13\
+• Cannot deal [Lightning|Non-Lightning] Damage with [Spell|Spells]\13\
+• [Hit|Hits] with [Spell|Spells] have 100% more [Shock] chance\13\
+\13\
+Using a non-instant [Attack] causes Lightning Archon to be removed immediately.",
 		["name"] = "Lightning Archon",
 	},
 	["LightningRune"] = {
-		["description"] = "<<ExpedRuneLightning>><rgb(219,217,206)>{Lightning Rune} <font:'fontin'>{<italic>{<rgb(110,87,66)>{Monsters gain:}}} <rgb(135,134,253)>{Extra Lightning Damage}",
+		["description"] = "<<ExpedRuneLightning>><rgb(219,217,206)>{Lightning Rune}\13\
+<font:'fontin'>{<italic>{<rgb(110,87,66)>{Monsters gain:}}}\13\
+<rgb(135,134,253)>{Extra Lightning Damage}",
 		["name"] = "Lightning Rune",
 	},
 	["Limit"] = {
-		["description"] = "Certain skills can only have a limited number of effects active at once. If a new effect is created while at the maximum number of effects, the oldest effect will dissapear. Certain support gems and items can modify skill effect limits.",
+		["description"] = "Certain skills can only have a limited number of effects active at once.\13\
+If a new effect is created while at the maximum number of effects, the oldest effect will dissapear.\13\
+Certain support gems and items can modify skill effect limits.",
 		["name"] = "Limit",
 	},
 	["LimitedRespawn"] = {
-		["description"] = "Most endgame content allows for a limited number of deaths before you can no longer access the area. Most areas allow unlimited leaving and re-entry for other reasons except while fighting a boss.  On death during a boss fight, the [MapOwner|Map Owner] may respawn all players into a new instance of the area to attempt the boss fight again.  The number of modifiers on a [Waystone] will reduce the number of Revivals available allowed when opening a Map.",
+		["description"] = "Most endgame content allows for a limited number of deaths before you can no longer access the area. Most areas allow unlimited leaving and re-entry for other reasons except while fighting a boss.\13\
+\13\
+On death during a boss fight, the [MapOwner|Map Owner] may respawn all players into a new instance of the area to attempt the boss fight again.\13\
+\13\
+The number of modifiers on a [Waystone] will reduce the number of Revivals available allowed when opening a Map.",
 		["name"] = "Revival Availability",
 	},
 	["LineageSupports"] = {
-		["description"] = "Lineage Supports are powerful and transformative [SupportGem|Support Gems] which can drop in maps, or come from specific sources like a particular Boss.  You may only Socket one copy of any given Lineage Support across all of your Skills at once.",
+		["description"] = "Lineage Supports are powerful and transformative [SupportGem|Support Gems] which can drop in maps, or come from specific sources like a particular Boss.\13\
+\13\
+You may only Socket one copy of any given Lineage Support across all of your Skills at once.",
 		["name"] = "Lineage Supports",
 	},
 	["Link"] = {
@@ -2218,7 +2848,9 @@ return {
 		["name"] = "Link Skills",
 	},
 	["LocalOnAggravateBleeding"] = {
-		["description"] = "This effect will occur when a hit with the weapon directly causes at least one [Bleeding] [Debuff] on the target to become [Aggravate|Aggravated].  It will not occur if an on-hit effect tries to [Aggravate] [Bleeding] but there are no [Bleeding] [Debuff|Debuffs] on the target to [Aggravate], or all of them are already [Aggravate|Aggravated], since no [Bleeding] [Debuff|Debuffs] will be [Aggravate|Aggravated] by that hit.",
+		["description"] = "This effect will occur when a hit with the weapon directly causes at least one [Bleeding] [Debuff] on the target to become [Aggravate|Aggravated].\13\
+\13\
+It will not occur if an on-hit effect tries to [Aggravate] [Bleeding] but there are no [Bleeding] [Debuff|Debuffs] on the target to [Aggravate], or all of them are already [Aggravate|Aggravated], since no [Bleeding] [Debuff|Debuffs] will be [Aggravate|Aggravated] by that hit.",
 		["name"] = "Aggravating any Bleeding",
 	},
 	["Logbook"] = {
@@ -2226,7 +2858,9 @@ return {
 		["name"] = "",
 	},
 	["LordOfTheWilds"] = {
-		["description"] = "You can equip a non-[ItemRarity|Unique] [Sceptre] while wielding a [Talisman] 50% less [Spirit] Non-[Minion] Skills have 50% less [Reservation] [Efficiency]",
+		["description"] = "You can equip a non-[ItemRarity|Unique] [Sceptre] while wielding a [Talisman]\13\
+50% less [Spirit]\13\
+Non-[Minion] Skills have 50% less [Reservation] [Efficiency]",
 		["name"] = "Lord of the Wilds",
 	},
 	["LoreweaveRecipeBook"] = {
@@ -2262,11 +2896,29 @@ return {
 		["name"] = "",
 	},
 	["Mace"] = {
-		["description"] = "Maces are [Melee] weapons that can be [One-Handed] or [Two-Handed]. Maces require [Strength] to equip.   Mace [Attack|Attacks] are often [Slam|Slams] or slow [Strike|Strikes] that deal [Physical] or [Fire] damage.",
+		["description"] = "Maces are [Melee] weapons that can be [One-Handed] or [Two-Handed]. Maces require [Strength] to equip. \13\
+\13\
+Mace [Attack|Attacks] are often [Slam|Slams] or slow [Strike|Strikes] that deal [Physical] or [Fire] damage.",
 		["name"] = "Maces",
 	},
 	["MagesLegacy"] = {
-		["description"] = "There are a number of possible Mage's Legacies, each granting a different bonus: • [LegacyOfAmethyst|Legacy of Amethyst] • [LegacyOfBasalt|Legacy of Basalt] • [LegacyOfBismuth|Legacy of Bismuth] • [LegacyOfDiamond|Legacy of Diamond] • [LegacyOfGold|Legacy of Gold] • [LegacyOfGranite|Legacy of Granite] • [LegacyOfJade|Legacy of Jade] • [LegacyOfQuicksilver|Legacy of Quicksilver] • [LegacyOfRuby|Legacy of Ruby] • [LegacyOfSapphire|Legacy of Sapphire] • [LegacyOfSilver|Legacy of Silver] • [LegacyOfStibnite|Legacy of Stibnite] • [LegacyOfSulphur|Legacy of Sulphur] • [LegacyOfTopaz|Legacy of Topaz]  Only one instance of each Mage's Legacy can apply its bonus to you at a time.",
+		["description"] = "There are a number of possible Mage's Legacies, each granting a different bonus:\13\
+• [LegacyOfAmethyst|Legacy of Amethyst]\13\
+• [LegacyOfBasalt|Legacy of Basalt]\13\
+• [LegacyOfBismuth|Legacy of Bismuth]\13\
+• [LegacyOfDiamond|Legacy of Diamond]\13\
+• [LegacyOfGold|Legacy of Gold]\13\
+• [LegacyOfGranite|Legacy of Granite]\13\
+• [LegacyOfJade|Legacy of Jade]\13\
+• [LegacyOfQuicksilver|Legacy of Quicksilver]\13\
+• [LegacyOfRuby|Legacy of Ruby]\13\
+• [LegacyOfSapphire|Legacy of Sapphire]\13\
+• [LegacyOfSilver|Legacy of Silver]\13\
+• [LegacyOfStibnite|Legacy of Stibnite]\13\
+• [LegacyOfSulphur|Legacy of Sulphur]\13\
+• [LegacyOfTopaz|Legacy of Topaz]\13\
+\13\
+Only one instance of each Mage's Legacy can apply its bonus to you at a time.",
 		["name"] = "Mage's Legacy",
 	},
 	["Maim"] = {
@@ -2274,11 +2926,19 @@ return {
 		["name"] = "Maim",
 	},
 	["ManaLeech"] = {
-		["description"] = "When you deal damage with a [Hit], Mana Leech causes you to recover an amount of Mana to a percentage of the damage dealt, over a period of one second.  Hits that deal more than 40,000 total damage are treated as though they only dealt 40,000 damage for this calculation. If this damage is of multiple [DamageTypes|Damage Types], the ratios between them will stay the same.  Monsters have Leech Resistance that increases with monster level, reducing how much you recover from Leech from [Hit|Hits] against them.  You can only recover from a single instance of Mana Leech at a time, and all Mana Leech is removed when Mana is filled.",
+		["description"] = "When you deal damage with a [Hit], Mana Leech causes you to recover an amount of Mana to a percentage of the damage dealt, over a period of one second.\13\
+\13\
+Hits that deal more than 40,000 total damage are treated as though they only dealt 40,000 damage for this calculation. If this damage is of multiple [DamageTypes|Damage Types], the ratios between them will stay the same.\13\
+\13\
+Monsters have Leech Resistance that increases with monster level, reducing how much you recover from Leech from [Hit|Hits] against them.\13\
+\13\
+You can only recover from a single instance of Mana Leech at a time, and all Mana Leech is removed when Mana is filled.",
 		["name"] = "Mana Leech",
 	},
 	["MapBoss"] = {
-		["description"] = "Endgame Maps each contain a Map Boss. These Map Bosses are Unique Monsters that have special mechanics and drop increased rewards.  Defeating the Map Boss will complete the Map.",
+		["description"] = "Endgame Maps each contain a Map Boss. These Map Bosses are Unique Monsters that have special mechanics and drop increased rewards.\13\
+\13\
+Defeating the Map Boss will complete the Map.",
 		["name"] = "Map Boss",
 	},
 	["MapBossAugment"] = {
@@ -2286,7 +2946,9 @@ return {
 		["name"] = "",
 	},
 	["MapBossMapDrop"] = {
-		["description"] = "Only the Final [PowerfulMapBoss|Powerful Map Boss] in a Map Area has a chance to drop a [Waystone] of a higher tier than the tier of that Map Area.  The chance diminishes the higher the tier of the [Waystone] used to the create the Map Area, but can be increased again by adding modifiers to [Waystone|Waystones], additional modifiers on [Waystone|Waystones] can give increased chance for [Waystone|Waystones] to drop in the Map Areas they create.",
+		["description"] = "Only the Final [PowerfulMapBoss|Powerful Map Boss] in a Map Area has a chance to drop a [Waystone] of a higher tier than the tier of that Map Area.\13\
+\13\
+The chance diminishes the higher the tier of the [Waystone] used to the create the Map Area, but can be increased again by adding modifiers to [Waystone|Waystones], additional modifiers on [Waystone|Waystones] can give increased chance for [Waystone|Waystones] to drop in the Map Areas they create.",
 		["name"] = "Waystone Tier Progression",
 	},
 	["MapKeyTier1"] = {
@@ -2354,7 +3016,11 @@ return {
 		["name"] = "",
 	},
 	["MapNode"] = {
-		["description"] = "This represents a Map. A [Waystone] can be used to access it.   If you fail to complete the Map, it may be attempted again but will not contain additional content, [Essence|Essences], [Shrine|Shrines], or [Strongbox|Strongboxes]. It will not be [ContainsCorruption|Corrupted]. [Tablet|Tablets] cannot be used on failed Maps.  To complete a Map, defeat the [MapBoss|Boss].",
+		["description"] = "This represents a Map. A [Waystone] can be used to access it. \13\
+\13\
+If you fail to complete the Map, it may be attempted again but will not contain additional content, [Essence|Essences], [Shrine|Shrines], or [Strongbox|Strongboxes]. It will not be [ContainsCorruption|Corrupted]. [Tablet|Tablets] cannot be used on failed Maps.\13\
+\13\
+To complete a Map, defeat the [MapBoss|Boss].",
 		["name"] = "Map Node",
 	},
 	["MapOwner"] = {
@@ -2362,11 +3028,14 @@ return {
 		["name"] = "Map Owner",
 	},
 	["Mark"] = {
-		["description"] = "Marks are a family of [Debuff|Debuffs] that apply powerful effects to a single enemy, usually for a limited duration. You can have multiple Marked enemies at once, but each individual enemy can only have a single Mark applied to them at once.  Marks can be [MarkActivate|Activated] when specific conditions occur, which will cause some extra effect and then [Consume] the Mark.",
+		["description"] = "Marks are a family of [Debuff|Debuffs] that apply powerful effects to a single enemy, usually for a limited duration. You can have multiple Marked enemies at once, but each individual enemy can only have a single Mark applied to them at once.\13\
+\13\
+Marks can be [MarkActivate|Activated] when specific conditions occur, which will cause some extra effect and then [Consume] the Mark.",
 		["name"] = "Mark",
 	},
 	["MarkActivate"] = {
-		["description"] = "[Mark|Marks] all have a condition that makes them Activate. When a [Mark] Activates, it will cause an extra effect and then be [Consume|Consumed].",
+		["description"] = "[Mark|Marks] all have a condition that makes them Activate.\13\
+When a [Mark] Activates, it will cause an extra effect and then be [Consume|Consumed].",
 		["name"] = "Activating Marks",
 	},
 	["MarkedforDeath"] = {
@@ -2398,11 +3067,15 @@ return {
 		["name"] = "",
 	},
 	["Melee"] = {
-		["description"] = "Melee [Attack|Attacks] are those that directly hit with a melee [Strike] or a [Slam], dealing Melee damage. Melee attacks usually scale from Weapon or Unarmed damage.   Any [Projectile|Projectiles] these attacks create do not count as Melee damage.",
+		["description"] = "Melee [Attack|Attacks] are those that directly hit with a melee [Strike] or a [Slam], dealing Melee damage. Melee attacks usually scale from Weapon or Unarmed damage. \13\
+\13\
+Any [Projectile|Projectiles] these attacks create do not count as Melee damage.",
 		["name"] = "Melee",
 	},
 	["MeleeSplash"] = {
-		["description"] = "[Strike] Skills can be made to deal Splash damage when hitting an enemy, causing an additional [Hit] to other enemies around the one hit by the [Strike].  The base radius of Splash damage is 1.5 metres.",
+		["description"] = "[Strike] Skills can be made to deal Splash damage when hitting an enemy, causing an additional [Hit] to other enemies around the one hit by the [Strike].\13\
+\13\
+The base radius of Splash damage is 1.5 metres.",
 		["name"] = "Splash Damage",
 	},
 	["Merging"] = {
@@ -2410,11 +3083,14 @@ return {
 		["name"] = "Merging",
 	},
 	["Meta"] = {
-		["description"] = "Meta Gems are Skill Gems that other Skill Gems can be socketed into. They can use, [Trigger], or otherwise apply the effects of those other Skill Gems. Skill Gems and [SupportGem|Support Gems] can be socketed into Meta Gems interchangeably, though most Meta Gems require at least one Skill Gem to be socketed to function.  Meta Gems can never be socketed into other Meta Gems.",
+		["description"] = "Meta Gems are Skill Gems that other Skill Gems can be socketed into. They can use, [Trigger], or otherwise apply the effects of those other Skill Gems. Skill Gems and [SupportGem|Support Gems] can be socketed into Meta Gems interchangeably, though most Meta Gems require at least one Skill Gem to be socketed to function.\13\
+\13\
+Meta Gems can never be socketed into other Meta Gems.",
 		["name"] = "Meta Gems",
 	},
 	["MindOverMatter"] = {
-		["description"] = "All [DamageTypes|Damage] is taken from Mana before Life 50% less Mana Recovery Rate",
+		["description"] = "All [DamageTypes|Damage] is taken from Mana before Life\
+50% less Mana Recovery Rate",
 		["name"] = "Mind over Matter",
 	},
 	["Minion"] = {
@@ -2426,7 +3102,8 @@ return {
 		["name"] = "Minion Death and Killing Minions",
 	},
 	["Mirrored"] = {
-		["description"] = "Certain items can be found Mirrored or made Mirrored using a Mirror of Kalandra. Mirrored items are copies of an original item. Most methods of item crafting and modification cannot be used on Mirrored items.",
+		["description"] = "Certain items can be found Mirrored or made Mirrored using a Mirror of Kalandra.\13\
+Mirrored items are copies of an original item. Most methods of item crafting and modification cannot be used on Mirrored items.",
 		["name"] = "Mirrored Items",
 	},
 	["MnemonicRing"] = {
@@ -2434,11 +3111,16 @@ return {
 		["name"] = "",
 	},
 	["MoltenFissure"] = {
-		["description"] = "Molten Fissures are long-lasting fissures created by some [Slam|Slams] that can themselves be [Slam|Slammed] to create [Aftershock|Aftershocks].   Hitting a Molten Fissure with a [Slam] other than another Molten Fissure causes an [Aftershock] to propagate along its length, dealing the Fissure's damage again to enemies standing on it. This [Aftershock] will also spread to other intersecting Molten Fissures. Each Molten Fissure can [Aftershock] no more than once every 0.2 seconds.",
+		["description"] = "Molten Fissures are long-lasting fissures created by some [Slam|Slams] that can themselves be [Slam|Slammed] to create [Aftershock|Aftershocks]. \13\
+\13\
+Hitting a Molten Fissure with a [Slam] other than another Molten Fissure causes an [Aftershock] to propagate along its length, dealing the Fissure's damage again to enemies standing on it. This [Aftershock] will also spread to other intersecting Molten Fissures. Each Molten Fissure can [Aftershock] no more than once every 0.2 seconds.",
 		["name"] = "Molten Fissures",
 	},
 	["MomentumRune"] = {
-		["description"] = "<<ExpedRuneMomentum>><rgb(219,217,206)>{Momentum Rune} <font:'fontin'>{<italic>{<rgb(110,87,66)>{Monsters gain:}}} <rgb(135,134,253)>{Increased Movement Speed} <rgb(135,134,253)>{Movement Speed Cannot be Slowed below base}",
+		["description"] = "<<ExpedRuneMomentum>><rgb(219,217,206)>{Momentum Rune}\13\
+<font:'fontin'>{<italic>{<rgb(110,87,66)>{Monsters gain:}}}\13\
+<rgb(135,134,253)>{Increased Movement Speed}\13\
+<rgb(135,134,253)>{Movement Speed Cannot be Slowed below base}",
 		["name"] = "Momentum Rune",
 	},
 	["MonsterAdditionalProjectiles1"] = {
@@ -2458,7 +3140,9 @@ return {
 		["name"] = "Bombardier",
 	},
 	["MonsterCategory"] = {
-		["description"] = "Every Monster has exactly one Monster Category. These are Humanoid, Beast, Undead, Construct, Demon and Eldritch.  Certain Skills interact with specific Monster Categories.",
+		["description"] = "Every Monster has exactly one Monster Category. These are Humanoid, Beast, Undead, Construct, Demon and Eldritch.\13\
+\13\
+Certain Skills interact with specific Monster Categories.",
 		["name"] = "Monster Category",
 	},
 	["MonsterChaosResistance1"] = {
@@ -2594,11 +3278,16 @@ return {
 		["name"] = "Siphons Mana and Deals Lightning Damage",
 	},
 	["MonsterManaSiphonAura2"] = {
-		["description"] = "Monster creates a circular effect that drains Mana and deals [Lightning] Damage over time to enemies near the edge of the circle. Additionally, Monster will periodically create separate circles that drain Mana and deal [Lightning] Damage over time to enemies standing in them.",
+		["description"] = "Monster creates a circular effect that drains Mana and deals [Lightning] Damage over time to enemies near the edge of the circle.\13\
+Additionally, Monster will periodically create separate circles that drain Mana and deal [Lightning] Damage over time to enemies standing in them.",
 		["name"] = "Siphons Mana and Deals Lightning Damage",
 	},
 	["MonsterMinion"] = {
-		["description"] = "Monster Minions are any monsters that are part of a [Rarity|Rare] Monster [Pack].  These monsters receive one modifier from each Rare Monster in the Pack.  Monsters summoned or created by other Monsters do not count as Monster Minions.",
+		["description"] = "Monster Minions are any monsters that are part of a [Rarity|Rare] Monster [Pack].\13\
+\13\
+These monsters receive one modifier from each Rare Monster in the Pack.\13\
+\13\
+Monsters summoned or created by other Monsters do not count as Monster Minions.",
 		["name"] = "Monster Minions",
 	},
 	["MonsterMinionStrongerMinions1"] = {
@@ -2618,7 +3307,13 @@ return {
 		["name"] = "Crit Resistant",
 	},
 	["MonsterModifiers"] = {
-		["description"] = "[MonsterRarity|Magic and Rare] Monsters have Modifiers which will augment them in many ways, making them more rewarding, but also more powerful and deadly. Magic Monsters will normally have a single Monster Modifier, whereas Rare Monsters have up to 4 by default.   Each Monster Modifier grants at least 100% increased Rarity of Items Dropped, and can grant the Monster additional abilities or permanant buffs.  Monster Modifier Chance increases the potential number of Rare Monster Modifiers with each modifier above 4 requiring twice as much Modifier Chance. Monster Modifier Chance above the maximum number of modifiers increases the chance Rare monsters will have maximum modifiers.  Other mechanics such as [AzmeriSpirit|Azmeri Spirits], [Essence|Essences] and [ContainsDelirium|Delirium] can add additional Monster Modifiers to monsters of any rarity.",
+		["description"] = "[MonsterRarity|Magic and Rare] Monsters have Modifiers which will augment them in many ways, making them more rewarding, but also more powerful and deadly. Magic Monsters will normally have a single Monster Modifier, whereas Rare Monsters have up to 4 by default. \13\
+\13\
+Each Monster Modifier grants at least 100% increased Rarity of Items Dropped, and can grant the Monster additional abilities or permanant buffs.\13\
+\13\
+Monster Modifier Chance increases the potential number of Rare Monster Modifiers with each modifier above 4 requiring twice as much Modifier Chance. Monster Modifier Chance above the maximum number of modifiers increases the chance Rare monsters will have maximum modifiers.\13\
+\13\
+Other mechanics such as [AzmeriSpirit|Azmeri Spirits], [Essence|Essences] and [ContainsDelirium|Delirium] can add additional Monster Modifiers to monsters of any rarity.",
 		["name"] = "Monster Modifiers",
 	},
 	["MonsterPeriodicEnrage1"] = {
@@ -2642,7 +3337,9 @@ return {
 		["name"] = "Proximal Tangibility",
 	},
 	["MonsterRarity"] = {
-		["description"] = "Monster Rarity increases the chance for monsters to be [Rarity|Rare and Magic].  Monster Rarity also increases [MonsterModifiers|Monster Modifier] Chance for Rare Monsters. ",
+		["description"] = "Monster Rarity increases the chance for monsters to be [Rarity|Rare and Magic].\13\
+\13\
+Monster Rarity also increases [MonsterModifiers|Monster Modifier] Chance for Rare Monsters. ",
 		["name"] = "Monster Rarity",
 	},
 	["MonsterResistanceAura1"] = {
@@ -2702,15 +3399,24 @@ return {
 		["name"] = "Empowering Volatile Crag",
 	},
 	["MoonRune"] = {
-		["description"] = "<<ExpedRuneMoon>><rgb(219,217,206)>{Moon Rune} <font:'fontin'>{<italic>{<rgb(110,87,66)>{Remnant gains:}}} <rgb(135,134,253)>{Conjures moon beams}",
+		["description"] = "<<ExpedRuneMoon>><rgb(219,217,206)>{Moon Rune}\13\
+<font:'fontin'>{<italic>{<rgb(110,87,66)>{Remnant gains:}}}\13\
+<rgb(135,134,253)>{Conjures moon beams}",
 		["name"] = "Moon Rune",
 	},
 	["MountainsTeachings"] = {
-		["description"] = "While you have any amount of Mountain's Teachings: • [Attack|Attacks] you use yourself and [Attack|Attacks] granted by this Ascendancy Class deal 15% more damage • Enemy [Hit|Hits] you take that would deal damage less than or equal to 30% of your maximum Life (after mitigation such as [Armour] and [Resistances], but before other modifiers to damage taken) deal 40% less damage • You have 50% more [StunThreshold|Stun Threshold]  All Mountain's Teachings are lost if you go 20 seconds without gaining any.",
+		["description"] = "While you have any amount of Mountain's Teachings:\13\
+• [Attack|Attacks] you use yourself and [Attack|Attacks] granted by this Ascendancy Class deal 15% more damage\13\
+• Enemy [Hit|Hits] you take that would deal damage less than or equal to 30% of your maximum Life (after mitigation such as [Armour] and [Resistances], but before other modifiers to damage taken) deal 40% less damage\13\
+• You have 50% more [StunThreshold|Stun Threshold]\13\
+\13\
+All Mountain's Teachings are lost if you go 20 seconds without gaining any.",
 		["name"] = "Mountain's Teachings",
 	},
 	["MountingGreed"] = {
-		["description"] = "Players with Mounting Greed gain increased [ItemRarity|Rarity of Items] on kill up to a limit of 100%. This increased Rarity decays over time.  Higher [Rarity] monsters grant a greater amount of Rarity.",
+		["description"] = "Players with Mounting Greed gain increased [ItemRarity|Rarity of Items] on kill up to a limit of 100%. This increased Rarity decays over time.\13\
+\13\
+Higher [Rarity] monsters grant a greater amount of Rarity.",
 		["name"] = "Mounting Greed",
 	},
 	["NaturalSpawn"] = {
@@ -2718,7 +3424,11 @@ return {
 		["name"] = "Naturally Spawning Monsters",
 	},
 	["NatureArchon"] = {
-		["description"] = "Nature's Archon is a type of [Archon] [Buff]. It grants: • 25% more Damage with [Plant] Skills • [Plant|Plants] have a 100% chance to immediately [Plant|Overgrow] • 200% more Skill Effect Duration of [Plant] Skills • [Plant] Skills have +2 to [Limit]",
+		["description"] = "Nature's Archon is a type of [Archon] [Buff]. It grants:\13\
+• 25% more Damage with [Plant] Skills\13\
+• [Plant|Plants] have a 100% chance to immediately [Plant|Overgrow]\13\
+• 200% more Skill Effect Duration of [Plant] Skills\13\
+• [Plant] Skills have +2 to [Limit]",
 		["name"] = "Nature's Archon",
 	},
 	["NecromanticTalisman"] = {
@@ -2738,11 +3448,14 @@ return {
 		["name"] = "Nova Skills",
 	},
 	["Oasis"] = {
-		["description"] = "Cannot use [Charm|Charms] 30% more Recovery from [Flask|Flasks]",
+		["description"] = "Cannot use [Charm|Charms]\
+30% more Recovery from [Flask|Flasks]",
 		["name"] = "Oasis",
 	},
 	["OathRune"] = {
-		["description"] = "<<ExpedRuneOath>><rgb(219,217,206)>{Oath Rune} <font:'fontin'>{<italic>{<rgb(110,87,66)>{Monsters gain:}}} <rgb(135,134,253)>{A Monster summons Allies}",
+		["description"] = "<<ExpedRuneOath>><rgb(219,217,206)>{Oath Rune}\13\
+<font:'fontin'>{<italic>{<rgb(110,87,66)>{Monsters gain:}}}\13\
+<rgb(135,134,253)>{A Monster summons Allies}",
 		["name"] = "Oath Rune",
 	},
 	["ObeliskCleansing"] = {
@@ -2758,11 +3471,15 @@ return {
 		["name"] = "Offering Skills",
 	},
 	["Oil"] = {
-		["description"] = "Enemies covered in Oil have their movement speed [Slow|Slowed], are inflicted with [Exposure] and have 200% more [BuffMagnitude|Magnitude] of [Flammability] inflicted on them.  [IgnitedGround|Ignited Ground] or [Detonator] Skills will [Ignite] Oil-covered enemies. This removes the Oil, but the [Exposure] will remain for the duration of that [Ignite].",
+		["description"] = "Enemies covered in Oil have their movement speed [Slow|Slowed], are inflicted with [Exposure] and have 200% more [BuffMagnitude|Magnitude] of [Flammability] inflicted on them.\13\
+\13\
+[IgnitedGround|Ignited Ground] or [Detonator] Skills will [Ignite] Oil-covered enemies. This removes the Oil, but the [Exposure] will remain for the duration of that [Ignite].",
 		["name"] = "Covered in Oil",
 	},
 	["OilGround"] = {
-		["description"] = "Enemies standing in Oil Ground have their movement speed [Slow|Slowed] and are inflicted with [Exposure].  [Ignite|Ignited] enemies, [IgnitedGround|Ignited Ground], or [Detonator] Skills that touch the Oil cause it to catch fire, [Ignite|Igniting] enemies instead of [Slow|Slowing] them, but still inflicting the [Exposure].",
+		["description"] = "Enemies standing in Oil Ground have their movement speed [Slow|Slowed] and are inflicted with [Exposure].\13\
+\13\
+[Ignite|Ignited] enemies, [IgnitedGround|Ignited Ground], or [Detonator] Skills that touch the Oil cause it to catch fire, [Ignite|Igniting] enemies instead of [Slow|Slowing] them, but still inflicting the [Exposure].",
 		["name"] = "Oil Ground",
 	},
 	["Omen"] = {
@@ -2842,15 +3559,20 @@ return {
 		["name"] = "",
 	},
 	["Onslaught"] = {
-		["description"] = "Onslaught grants 20% increased [SkillSpeed|Skill Speed] and 10% increased movement speed. Unless specified, Onslaught lasts 4 seconds.",
+		["description"] = "Onslaught grants 20% increased [SkillSpeed|Skill Speed] and 10% increased movement speed.\13\
+Unless specified, Onslaught lasts 4 seconds.",
 		["name"] = "Onslaught",
 	},
 	["OpulentRune"] = {
-		["description"] = "<<ExpedRuneOpulent>><rgb(219,217,206)>{Opulent Rune} <font:'fontin'>{<italic>{<rgb(110,87,66)>{Monsters gain:}}} <rgb(135,134,253)>{Increased Monster Rarity}",
+		["description"] = "<<ExpedRuneOpulent>><rgb(219,217,206)>{Opulent Rune}\13\
+<font:'fontin'>{<italic>{<rgb(110,87,66)>{Monsters gain:}}}\13\
+<rgb(135,134,253)>{Increased Monster Rarity}",
 		["name"] = "Opulent Rune",
 	},
 	["OraclePaths"] = {
-		["description"] = "You see what is and what might have been. Reveal a suite of Oracle-only passive tree nodes after Ascending as an Oracle.  On taking The Unseen Path Ascendancy Notable, gain the ability to allocate these nodes.",
+		["description"] = "You see what is and what might have been. Reveal a suite of Oracle-only passive tree nodes after Ascending as an Oracle.\13\
+\13\
+On taking The Unseen Path Ascendancy Notable, gain the ability to allocate these nodes.",
 		["name"] = "Paths Not Taken",
 	},
 	["Orb"] = {
@@ -2930,11 +3652,16 @@ return {
 		["name"] = "Pacification",
 	},
 	["Pack"] = {
-		["description"] = "A Pack Monster or [MonsterMinion|Minion] is a Monster that naturally spawns as a part of a Monster Pack in areas or from mechanics like [Strongbox|Strongboxes].  Modifiers to Pack Size also provide a chance that there is an [AdditionalRareMonster|Additional Rare Monster] in the Pack.  Monsters summoned or created by other Monsters do not count as Pack Monsters or [MonsterMinion|Minions].",
+		["description"] = "A Pack Monster or [MonsterMinion|Minion] is a Monster that naturally spawns as a part of a Monster Pack in areas or from mechanics like [Strongbox|Strongboxes].\13\
+\13\
+Modifiers to Pack Size also provide a chance that there is an [AdditionalRareMonster|Additional Rare Monster] in the Pack.\13\
+\13\
+Monsters summoned or created by other Monsters do not count as Pack Monsters or [MonsterMinion|Minions].",
 		["name"] = "Pack",
 	},
 	["PainAttunement"] = {
-		["description"] = "30% less [CriticalDamageBonus|Critical Damage Bonus] when on Full Life 30% more Critical Damage Bonus when on [LowLife|Low Life]",
+		["description"] = "30% less [CriticalDamageBonus|Critical Damage Bonus] when on Full Life\
+30% more Critical Damage Bonus when on [LowLife|Low Life]",
 		["name"] = "Pain Attunement",
 	},
 	["ParriedDebuff"] = {
@@ -2950,7 +3677,9 @@ return {
 		["name"] = "Payoff Skills",
 	},
 	["Penetration"] = {
-		["description"] = "Penetration causes the target's corresponding [Resistances|Resistance] to be treated as lower than its actual value by the specified amount when of calculating Damage taken from your [Hit|Hits]. [Resistances] can only be Penetrated down to a minimum of 0% by default.  Since Penetration only affects [Hit|Hits] and applies to the target's defensive stats rather than your own offensive stats, it does not affect damage with [DamagingAilments|Ailments].",
+		["description"] = "Penetration causes the target's corresponding [Resistances|Resistance] to be treated as lower than its actual value by the specified amount when of calculating Damage taken from your [Hit|Hits]. [Resistances] can only be Penetrated down to a minimum of 0% by default.\13\
+\13\
+Since Penetration only affects [Hit|Hits] and applies to the target's defensive stats rather than your own offensive stats, it does not affect damage with [DamagingAilments|Ailments].",
 		["name"] = "Resistance Penetration",
 	},
 	["PerfectEssenceAlly"] = {
@@ -3030,11 +3759,14 @@ return {
 		["name"] = "",
 	},
 	["PerfectTiming"] = {
-		["description"] = "Certain [Channelling] skills have extra effects and benefits if released within a certain timing window while using the skill. Certain support gems and items can modify the duration of that timing window.",
+		["description"] = "Certain [Channelling] skills have extra effects and benefits if released within a certain timing window while using the skill.\13\
+Certain support gems and items can modify the duration of that timing window.",
 		["name"] = "Perfect Timing",
 	},
 	["PerfectionBuff"] = {
-		["description"] = "Perfection lasts for 10 seconds and can stack up to 4 times, granting 5% more Damage per stack. This Damage bonus is not limited to Skills Supported by Perfection Support.  Failing to successfully execute any [PerfectTiming|Perfect Timing] will remove all Perfection stacks on you.",
+		["description"] = "Perfection lasts for 10 seconds and can stack up to 4 times, granting 5% more Damage per stack. This Damage bonus is not limited to Skills Supported by Perfection Support.\13\
+\13\
+Failing to successfully execute any [PerfectTiming|Perfect Timing] will remove all Perfection stacks on you.",
 		["name"] = "Perfection Buff",
 	},
 	["Persistent"] = {
@@ -3046,7 +3778,10 @@ return {
 		["name"] = "Petrify",
 	},
 	["PhasedForm"] = {
-		["description"] = "Phased Form is a notable Ascendancy Passive Skill granted by Chronomancer granting the following stats:  Take 30% less Damage. 4 seconds after being Damaged by an Enemy Hit, take Damage equal to 30% of that Hit's Damage.",
+		["description"] = "Phased Form is a notable Ascendancy Passive Skill granted by Chronomancer granting the following stats:\13\
+\13\
+Take 30% less Damage.\13\
+4 seconds after being Damaged by an Enemy Hit, take Damage equal to 30% of that Hit's Damage.",
 		["name"] = "Phased Form",
 	},
 	["Phasing"] = {
@@ -3054,7 +3789,9 @@ return {
 		["name"] = "Phasing",
 	},
 	["Physical"] = {
-		["description"] = "Physical damage is one of the five [DamageTypes|Damage Types]. It is the most common and the only one reduced by [Armour], rather than by a [Resistances|Resistance].   Most physical damage comes from [MartialWeapon|Weapon] [Attack|Attacks], but some [Spell|Spells] and other skills deal physical damage as well. Physical damage over time can be inflicted with [Bleeding].",
+		["description"] = "Physical damage is one of the five [DamageTypes|Damage Types]. It is the most common and the only one reduced by [Armour], rather than by a [Resistances|Resistance]. \13\
+\13\
+Most physical damage comes from [MartialWeapon|Weapon] [Attack|Attacks], but some [Spell|Spells] and other skills deal physical damage as well. Physical damage over time can be inflicted with [Bleeding].",
 		["name"] = "Physical Damage",
 	},
 	["Pierce"] = {
@@ -3078,7 +3815,9 @@ return {
 		["name"] = "",
 	},
 	["Pinned"] = {
-		["description"] = "Certain skills and effects allow damage to build up Pinned. Once this build up passes the enemy's Pinned Threshold, they are Pinned, preventing them moving, being moved or [Evasion|Evading] for 3 seconds. They are also [LightStun|Light Stunned] when they become Pinned.  Pinned targets count as [Immobilised].",
+		["description"] = "Certain skills and effects allow damage to build up Pinned. Once this build up passes the enemy's Pinned Threshold, they are Pinned, preventing them moving, being moved or [Evasion|Evading] for 3 seconds. They are also [LightStun|Light Stunned] when they become Pinned.\13\
+\13\
+Pinned targets count as [Immobilised].",
 		["name"] = "Pinned",
 	},
 	["Plant"] = {
@@ -3090,7 +3829,15 @@ return {
 		["name"] = "Possessed",
 	},
 	["Poison"] = {
-		["description"] = "Poison is an [Ailments|Ailment] that deals [Chaos] damage over time, and lasts 2 seconds by default. Damage from Poison bypasses [EnergyShield|Energy Shield].  [Physical] and [Chaos] damage from [Hit|Hits] [Contributes|Contribute] to Poison [BuffMagnitude|Magnitude].  Damage does not [Contributes|Contribute] to Poison chance, so it cannot be inflicted without an explicit source of Poison chance.  The base [BuffMagnitude|Magnitude] of Poison is [Chaos] damage per second equal to 20% of the [Premitigation|Pre-mitigation] [Physical] and [Chaos] damage of the [Hit] that inflicted it. This magnitude is not further affected by any modifiers to the damage you deal.  Modifiers and [Debuff|Debuffs] that affect the enemy's ability to mitigate damage (such as [Shock]) can affect the damage the enemy takes from Poison, but any such modifiers that specifically apply to [Hit] damage (such as [Penetration]) do not affect Poison damage.",
+		["description"] = "Poison is an [Ailments|Ailment] that deals [Chaos] damage over time, and lasts 2 seconds by default. Damage from Poison bypasses [EnergyShield|Energy Shield].\13\
+\13\
+[Physical] and [Chaos] damage from [Hit|Hits] [Contributes|Contribute] to Poison [BuffMagnitude|Magnitude].\13\
+\13\
+Damage does not [Contributes|Contribute] to Poison chance, so it cannot be inflicted without an explicit source of Poison chance.\13\
+\13\
+The base [BuffMagnitude|Magnitude] of Poison is [Chaos] damage per second equal to 20% of the [Premitigation|Pre-mitigation] [Physical] and [Chaos] damage of the [Hit] that inflicted it. This magnitude is not further affected by any modifiers to the damage you deal.\13\
+\13\
+Modifiers and [Debuff|Debuffs] that affect the enemy's ability to mitigate damage (such as [Shock]) can affect the damage the enemy takes from Poison, but any such modifiers that specifically apply to [Hit] damage (such as [Penetration]) do not affect Poison damage.",
 		["name"] = "Poison",
 	},
 	["PortentAmulet"] = {
@@ -3098,27 +3845,43 @@ return {
 		["name"] = "",
 	},
 	["Power"] = {
-		["description"] = "Monster Power is a number that approximately reflects how strong and dangerous a monster is. An average monster has a Power of 1, strong monsters can have Power of 2 to 3, and weak monsters might have as little as 0.5, or very occasionally less. This value is then multiplied according to the monster's [Rarity]:  Normal: 1 Magic: 2 Rare: 5  Unique monsters always have 20 Power.",
+		["description"] = "Monster Power is a number that approximately reflects how strong and dangerous a monster is. An average monster has a Power of 1, strong monsters can have Power of 2 to 3, and weak monsters might have as little as 0.5, or very occasionally less. This value is then multiplied according to the monster's [Rarity]:\13\
+\13\
+Normal: 1\13\
+Magic: 2\13\
+Rare: 5\13\
+\13\
+Unique monsters always have 20 Power.",
 		["name"] = "Monster Power",
 	},
 	["PowerRune"] = {
-		["description"] = "<<ExpedRunePower>><rgb(219,217,206)>{Power Rune} <font:'fontin'>{<italic>{<rgb(110,87,66)>{Runes gain:}}} <rgb(135,134,253)>{Empowered}",
+		["description"] = "<<ExpedRunePower>><rgb(219,217,206)>{Power Rune}\13\
+<font:'fontin'>{<italic>{<rgb(110,87,66)>{Runes gain:}}}\13\
+<rgb(135,134,253)>{Empowered}",
 		["name"] = "Power Rune",
 	},
 	["PowerfulMapBoss"] = {
-		["description"] = "Powerful Map Bosses are [MapBoss|Map Bosses] that are even more difficult and drop even better rewards.  Powerful Map Bosses frequently drop [Waystone|Waystones] one Tier higher.",
+		["description"] = "Powerful Map Bosses are [MapBoss|Map Bosses] that are even more difficult and drop even better rewards.\13\
+\13\
+Powerful Map Bosses frequently drop [Waystone|Waystones] one Tier higher.",
 		["name"] = "Powerful Map Boss",
 	},
 	["PrecursorTerraformer"] = {
-		["description"] = "Activating a Precursor Terraformer will change a group of nearby [BasicMap|Basic Maps] to the shown [Biome].  The Terraformer shows which biome it will change maps to. All maps in the Terraformed area will be replaced with maps that can appear in the shown biome.",
+		["description"] = "Activating a Precursor Terraformer will change a group of nearby [BasicMap|Basic Maps] to the shown [Biome].\13\
+\13\
+The Terraformer shows which biome it will change maps to. All maps in the Terraformed area will be replaced with maps that can appear in the shown biome.",
 		["name"] = "Precursor Terraformer",
 	},
 	["PrecursorTower"] = {
-		["description"] = "Precursor Towers are ancient structures that are scattered all throughout the Atlas. Precursor Tower Maps can be completed to reveal a large area around them and to obtain a [Tablet|Tablet].  Completing a Precursor Tower requires you to activate the Precursor Beacon at the end of the Map, after defeating the [MapBoss|Map Boss].",
+		["description"] = "Precursor Towers are ancient structures that are scattered all throughout the Atlas. Precursor Tower Maps can be completed to reveal a large area around them and to obtain a [Tablet|Tablet].\13\
+\13\
+Completing a Precursor Tower requires you to activate the Precursor Beacon at the end of the Map, after defeating the [MapBoss|Map Boss].",
 		["name"] = "Precursor Towers",
 	},
 	["Premitigation"] = {
-		["description"] = "Your Pre-mitigation Damage is the damage of your hits after all your modifiers to damage have been applied, but before the target's mitigation, such as [Armour], [Resistances] or [Block|Blocking], prevents any of that damage.  The target's modifiers to Damage taken apply after their mitigation, so Pre-mitigation Damage also does not include the effects of those modifiers. However, modifiers that cause the target to take damage as a different [DamageTypes|Type] occur before mitigating the damage, so are included in Pre-mitigation Damage.",
+		["description"] = "Your Pre-mitigation Damage is the damage of your hits after all your modifiers to damage have been applied, but before the target's mitigation, such as [Armour], [Resistances] or [Block|Blocking], prevents any of that damage.\13\
+\13\
+The target's modifiers to Damage taken apply after their mitigation, so Pre-mitigation Damage also does not include the effects of those modifiers. However, modifiers that cause the target to take damage as a different [DamageTypes|Type] occur before mitigating the damage, so are included in Pre-mitigation Damage.",
 		["name"] = "Pre-mitigation Damage",
 	},
 	["Presence"] = {
@@ -3142,19 +3905,35 @@ return {
 		["name"] = "Primed for Stun",
 	},
 	["PrismaticRune"] = {
-		["description"] = "<<ExpedRunePrismatic>><rgb(219,217,206)>{Prismatic Rune} <font:'fontin'>{<italic>{<rgb(110,87,66)>{Monsters gain:}}} <rgb(135,134,253)>{All Damage can Shock} <rgb(135,134,253)>{All Damage can Chill} <rgb(135,134,253)>{All Damage can Ignite} <rgb(135,134,253)>{Increased Elemental Resistances}",
+		["description"] = "<<ExpedRunePrismatic>><rgb(219,217,206)>{Prismatic Rune}\13\
+<font:'fontin'>{<italic>{<rgb(110,87,66)>{Monsters gain:}}}\13\
+<rgb(135,134,253)>{All Damage can Shock}\13\
+<rgb(135,134,253)>{All Damage can Chill}\13\
+<rgb(135,134,253)>{All Damage can Ignite}\13\
+<rgb(135,134,253)>{Increased Elemental Resistances}",
 		["name"] = "Prismatic Rune",
 	},
 	["Projectile"] = {
-		["description"] = "A Projectile is a moving [Attack] or [Spell] that usually impacts with targets when it hits them.  When a group of multiple Projectiles is fired from the same source at the same time, only one Projectile in the group can hit each target unless otherwise specified.",
+		["description"] = "A Projectile is a moving [Attack] or [Spell] that usually impacts with targets when it hits them.\13\
+\13\
+When a group of multiple Projectiles is fired from the same source at the same time, only one Projectile in the group can hit each target unless otherwise specified.",
 		["name"] = "Projectile",
 	},
 	["ProtectiveRune"] = {
-		["description"] = "<<ExpedRuneProtective>><rgb(219,217,206)>{Protective Rune} <font:'fontin'>{<italic>{<rgb(110,87,66)>{Monsters gain:}}} <rgb(135,134,253)>{Periodically gain Verisium Proximity Shields}",
+		["description"] = "<<ExpedRuneProtective>><rgb(219,217,206)>{Protective Rune}\13\
+<font:'fontin'>{<italic>{<rgb(110,87,66)>{Monsters gain:}}}\13\
+<rgb(135,134,253)>{Periodically gain Verisium Proximity Shields}",
 		["name"] = "Protective Rune",
 	},
 	["PuppetMaster"] = {
-		["description"] = "Puppet Master is a stacking [Buff] which grants:  10% increased Skill Speed with Command Skills 10% reduced Movement Speed Penalty with Command Skills Minions deal 10% increased damage with Command Skills Minions have 2% increased Movement Speed Minions have 3% increased Skill Speed  Each stack has an independent duration of 8 seconds. Maximum 5 stacks.",
+		["description"] = "Puppet Master is a stacking [Buff] which grants: \13\
+10% increased Skill Speed with Command Skills\13\
+10% reduced Movement Speed Penalty with Command Skills\13\
+Minions deal 10% increased damage with Command Skills\13\
+Minions have 2% increased Movement Speed\13\
+Minions have 3% increased Skill Speed\13\
+\13\
+Each stack has an independent duration of 8 seconds. Maximum 5 stacks.",
 		["name"] = "Puppet Master",
 	},
 	["PurpleFlamesOfChayula"] = {
@@ -3162,11 +3941,20 @@ return {
 		["name"] = "Purple Flame of Chayula",
 	},
 	["Quality"] = {
-		["description"] = "Quality grants small bonuses to an item depending on the type of item, up to a default maximum of 20%.  [MartialWeapon|Martial Weapons] gain 1% more [Physical] damage per Quality. Armours gain 1% more [Armour], [Evasion], [EnergyShield|Energy Shield] and [Ward|Runic Ward] per Quality. Rings and Amulets have a number of possible quality types that provide bonuses to specific modifiers on the item. [Flask|Flasks] gain 1% more Life and Mana recovery per Quality. [Charm|Charms] gain 1% increased duration per Quality. Skill Gems or equipment that grant Skills grant a specific bonus to their Skill based on their Quality.",
+		["description"] = "Quality grants small bonuses to an item depending on the type of item, up to a default maximum of 20%.\13\
+\13\
+[MartialWeapon|Martial Weapons] gain 1% more [Physical] damage per Quality.\13\
+Armours gain 1% more [Armour], [Evasion], [EnergyShield|Energy Shield] and [Ward|Runic Ward] per Quality.\13\
+Rings and Amulets have a number of possible quality types that provide bonuses to specific modifiers on the item.\13\
+[Flask|Flasks] gain 1% more Life and Mana recovery per Quality.\13\
+[Charm|Charms] gain 1% increased duration per Quality.\13\
+Skill Gems or equipment that grant Skills grant a specific bonus to their Skill based on their Quality.",
 		["name"] = "Quality",
 	},
 	["Quarterstaff"] = {
-		["description"] = "Quarterstaves are [Two-Handed] [Melee] weapons that require [Dexterity] and [Intelligence] to equip.   Quarterstaff [Attack|Attacks] often focus on high mobility in combat.",
+		["description"] = "Quarterstaves are [Two-Handed] [Melee] weapons that require [Dexterity] and [Intelligence] to equip. \13\
+\13\
+Quarterstaff [Attack|Attacks] often focus on high mobility in combat.",
 		["name"] = "Quarterstaves",
 	},
 	["Quarterstaff1"] = {
@@ -3186,19 +3974,31 @@ return {
 		["name"] = "Quivers",
 	},
 	["Rage"] = {
-		["description"] = "Rage grants 1% more [Attack|Attack] damage per 1 Rage. By default, you have 30 maximum Rage and lose 1 Rage every 0.2 seconds. Rage loss is paused for 4 seconds upon gaining Rage, or after taking damage.  Only one [Hit] every 0.5 seconds can cause you to gain Rage.",
+		["description"] = "Rage grants 1% more [Attack|Attack] damage per 1 Rage. By default, you have 30 maximum Rage and lose 1 Rage every 0.2 seconds. Rage loss is paused for 4 seconds upon gaining Rage, or after taking damage.\13\
+\13\
+Only one [Hit] every 0.5 seconds can cause you to gain Rage.",
 		["name"] = "Rage",
 	},
 	["RageLeech"] = {
-		["description"] = "When you deal damage with a [Hit], [Rage] Leech causes you to recover an amount of [Rage] to a percentage of the damage dealt, over a period of one second.  Hits that deal more than 40,000 total damage are treated as though they only dealt 40,000 damage for this calculation. If this damage is of multiple [DamageTypes|Damage Types], the ratios between them will stay the same.  Monsters have Leech Resistance that increases with monster level, reducing how much you recover from Leech from [Hit|Hits] against them.  You can only recover from a single instance of [Rage] Leech at a time, and all [Rage] Leech is removed when [Rage] is filled.",
+		["description"] = "When you deal damage with a [Hit], [Rage] Leech causes you to recover an amount of [Rage] to a percentage of the damage dealt, over a period of one second.\13\
+\13\
+Hits that deal more than 40,000 total damage are treated as though they only dealt 40,000 damage for this calculation. If this damage is of multiple [DamageTypes|Damage Types], the ratios between them will stay the same.\13\
+\13\
+Monsters have Leech Resistance that increases with monster level, reducing how much you recover from Leech from [Hit|Hits] against them.\13\
+\13\
+You can only recover from a single instance of [Rage] Leech at a time, and all [Rage] Leech is removed when [Rage] is filled.",
 		["name"] = "Rage Leech",
 	},
 	["RageRune"] = {
-		["description"] = "<<ExpedRuneRage>><rgb(219,217,206)>{Rage Rune} <font:'fontin'>{<italic>{<rgb(110,87,66)>{Monsters gain:}}} <rgb(135,134,253)>{Periodically Enrage}",
+		["description"] = "<<ExpedRuneRage>><rgb(219,217,206)>{Rage Rune}\13\
+<font:'fontin'>{<italic>{<rgb(110,87,66)>{Monsters gain:}}}\13\
+<rgb(135,134,253)>{Periodically Enrage}",
 		["name"] = "Rage Rune",
 	},
 	["RareMonsterMapDrop"] = {
-		["description"] = "The final [Rarity|Rare Monster] slain in a Map Area has a chance to drop a [Waystone] equal to the tier of the [Waystone] used to create that Map Area.   The chance diminishes the tier of the [Waystone] used to the create the Map Area, but can be increased again by adding modifiers to [Waystone|Waystones], additional modifiers on [Waystone|Waystones] can give increased chance for [Waystone|Waystones] to drop in the Map Areas they create.",
+		["description"] = "The final [Rarity|Rare Monster] slain in a Map Area has a chance to drop a [Waystone] equal to the tier of the [Waystone] used to create that Map Area. \13\
+\13\
+The chance diminishes the tier of the [Waystone] used to the create the Map Area, but can be increased again by adding modifiers to [Waystone|Waystones], additional modifiers on [Waystone|Waystones] can give increased chance for [Waystone|Waystones] to drop in the Map Areas they create.",
 		["name"] = "Map Objective Waystone Drops",
 	},
 	["Rarity"] = {
@@ -3206,7 +4006,11 @@ return {
 		["name"] = "Rarity",
 	},
 	["RavenTouched"] = {
-		["description"] = "Raven-Touched items have been warped by the Raven Trickster, Tangmazu.  The influence of the mist allows you to instil the item with a Notable Passive Skill at the Withered Willow.  Items that are already instillable will not be able to gain an additional instillment if they become Raven-Touched.",
+		["description"] = "Raven-Touched items have been warped by the Raven Trickster, Tangmazu.\13\
+\13\
+The influence of the mist allows you to instil the item with a Notable Passive Skill at the Withered Willow.\13\
+\13\
+Items that are already instillable will not be able to gain an additional instillment if they become Raven-Touched.",
 		["name"] = "Raven-Touched",
 	},
 	["Realmgate"] = {
@@ -3214,7 +4018,9 @@ return {
 		["name"] = "The Realmgate",
 	},
 	["RebirthRune"] = {
-		["description"] = "<<ExpedRuneRebirth>><rgb(219,217,206)>{Rebirth Rune} <font:'fontin'>{<italic>{<rgb(110,87,66)>{Monsters gain:}}} <rgb(135,134,253)>{Chance to Rebirth on death}",
+		["description"] = "<<ExpedRuneRebirth>><rgb(219,217,206)>{Rebirth Rune}\13\
+<font:'fontin'>{<italic>{<rgb(110,87,66)>{Monsters gain:}}}\13\
+<rgb(135,134,253)>{Chance to Rebirth on death}",
 		["name"] = "Rebirth Rune",
 	},
 	["Recently"] = {
@@ -3250,11 +4056,20 @@ return {
 		["name"] = "",
 	},
 	["ReleaseAzmeriSpirits"] = {
-		["description"] = "[AzmeriSpirit|Azmeri Spirits] can be released from various [SpiritPossessed|Possessed] monsters.  Released Spirits have a chance to manifest into the world with a portion of the empowerment the monster was possessed with.   Released Spirits have 1% chance to manifest per 2% empowerment. This empowerment is shared with each Spirit released, and the Released Spirit has half of this empowerment once released.",
+		["description"] = "[AzmeriSpirit|Azmeri Spirits] can be released from various [SpiritPossessed|Possessed] monsters.\13\
+\13\
+Released Spirits have a chance to manifest into the world with a portion of the empowerment the monster was possessed with. \13\
+\13\
+Released Spirits have 1% chance to manifest per 2% empowerment. This empowerment is shared with each Spirit released, and the Released Spirit has half of this empowerment once released.",
 		["name"] = "Released Azmeri Spirits",
 	},
 	["Relic"] = {
-		["description"] = "Relics are items that are placed in the Relic Altar before the start of the Trial of the Sekhemas. Relics influence various aspects of the Trial to make it easier. Your Relics persist between Trials. Selected Relics cannot be changed while you have an active Trial. Relics have varying dimensions, so arrange them carefully to maximise your benefits. You can unlock more Relic slots by killing bosses deeper into the Trials. Spare Relics can be stored in the Relic Locker or any of your personal stash tabs.",
+		["description"] = "Relics are items that are placed in the Relic Altar before the start of the Trial of the Sekhemas.\13\
+Relics influence various aspects of the Trial to make it easier. Your Relics persist between Trials.\13\
+Selected Relics cannot be changed while you have an active Trial.\13\
+Relics have varying dimensions, so arrange them carefully to maximise your benefits.\13\
+You can unlock more Relic slots by killing bosses deeper into the Trials.\13\
+Spare Relics can be stored in the Relic Locker or any of your personal stash tabs.",
 		["name"] = "Relics",
 	},
 	["ReliquaryVault"] = {
@@ -3266,7 +4081,9 @@ return {
 		["name"] = "Remnants",
 	},
 	["RemnantBonusReward"] = {
-		["description"] = "Some Remnant encounters have Bonus Rewards which provide guaranteed rewards, in addition to allowing you to choose a Runeshape Combination.   Bonus rewards are granted to all party members who have not previously claimed the reward and were in the area when the Remnant was encountered.",
+		["description"] = "Some Remnant encounters have Bonus Rewards which provide guaranteed rewards, in addition to allowing you to choose a Runeshape Combination. \13\
+\13\
+Bonus rewards are granted to all party members who have not previously claimed the reward and were in the area when the Remnant was encountered.",
 		["name"] = "Bonus Reward",
 	},
 	["Remote"] = {
@@ -3274,11 +4091,17 @@ return {
 		["name"] = "Remote Skills",
 	},
 	["Repeat"] = {
-		["description"] = "Some effects can cause Repeatable Skills to Repeat, causing you to perform the part of the skill where it fires off projectiles or other effects multiple times in quick succession from a single use of the skill.  [Trigger|Triggered] skills, Instant skills, and [Channelling] skills cannot Repeat.  Skills take 5% longer to perform for each time they Repeat.",
+		["description"] = "Some effects can cause Repeatable Skills to Repeat, causing you to perform the part of the skill where it fires off projectiles or other effects multiple times in quick succession from a single use of the skill.\13\
+\13\
+[Trigger|Triggered] skills, Instant skills, and [Channelling] skills cannot Repeat.\13\
+\13\
+Skills take 5% longer to perform for each time they Repeat.",
 		["name"] = "Repeating Skills",
 	},
 	["RerollCrit"] = {
-		["description"] = "Any mechanic where the calculation of a single [Hit] would roll [Critical|Critical Hit] Chance more than once is considered to be Rerolling. This includes anything that makes [Critical|Critical Hit] Chance [Lucky], [Unlucky], [ForksCrit|Bifurcated], or [InevitableCriticalHits|Inevitable].  [Sustained] Skills using an independent [Critical|Critical Hit] Chance roll for each different time they deal damage is not Rerolling.",
+		["description"] = "Any mechanic where the calculation of a single [Hit] would roll [Critical|Critical Hit] Chance more than once is considered to be Rerolling. This includes anything that makes [Critical|Critical Hit] Chance [Lucky], [Unlucky], [ForksCrit|Bifurcated], or [InevitableCriticalHits|Inevitable].\13\
+\13\
+[Sustained] Skills using an independent [Critical|Critical Hit] Chance roll for each different time they deal damage is not Rerolling.",
 		["name"] = "Rerolling Critical Hit Chance",
 	},
 	["ResearchersStrongbox"] = {
@@ -3290,15 +4113,20 @@ return {
 		["name"] = "Reservation",
 	},
 	["Resistances"] = {
-		["description"] = "Resistances reduce damage taken of the corresponding damage type — [Fire], [Cold], [Lightning] or [Chaos] — up to a [MaximumResistances|Maximum]. [Fire], [Cold] and [Lightning] Resistances are Elemental Resistances. Resistances can be improved with Equipment, Passives & Quest items.  Your Elemental Resistances are lowered as you progress through the game. Elemental Resistances are a vital defensive tool, and should be one of the first things to check if you're having difficulty surviving.",
+		["description"] = "Resistances reduce damage taken of the corresponding damage type — [Fire], [Cold], [Lightning] or [Chaos] — up to a [MaximumResistances|Maximum]. [Fire], [Cold] and [Lightning] Resistances are Elemental Resistances. Resistances can be improved with Equipment, Passives & Quest items.\13\
+\13\
+Your Elemental Resistances are lowered as you progress through the game. Elemental Resistances are a vital defensive tool, and should be one of the first things to check if you're having difficulty surviving.",
 		["name"] = "Resistances",
 	},
 	["ResistedBy"] = {
-		["description"] = "Damage from your [Hit|Hits] will effectively ignore the value of the target's relevant [Resistances|Resistance], and instead be mitigated by the specified value of [Resistances|Resistance].  This will still occur even if you [IgnoreResistances|Ignore] the target's [Resistances|Resistance], as this mitigation is not based on their [Resistances|Resistance] stats. Similarly, [Penetration] will not apply to this [Resistances|Resistance] value.",
+		["description"] = "Damage from your [Hit|Hits] will effectively ignore the value of the target's relevant [Resistances|Resistance], and instead be mitigated by the specified value of [Resistances|Resistance].\13\
+\13\
+This will still occur even if you [IgnoreResistances|Ignore] the target's [Resistances|Resistance], as this mitigation is not based on their [Resistances|Resistance] stats. Similarly, [Penetration] will not apply to this [Resistances|Resistance] value.",
 		["name"] = "Resisted by Other Value",
 	},
 	["ResoluteTechnique"] = {
-		["description"] = "[Accuracy] Rating is Doubled Never deal [Critical|Critical Hits]",
+		["description"] = "[Accuracy] Rating is Doubled\13\
+Never deal [Critical|Critical Hits]",
 		["name"] = "Resolute Technique",
 	},
 	["RetaliateAgainstAll"] = {
@@ -3342,15 +4170,23 @@ return {
 		["name"] = "Effigy",
 	},
 	["RitualRiteOfTheNameless"] = {
-		["description"] = "The Rite of the Nameless is a group of maps which each contain [ContainsRitual|Ritual Altars] and a [MapBoss|Map Boss].  Completing all Ritual Altars will drop an [RitualPinnacleEffigyPiece|Effigy Piece].",
+		["description"] = "The Rite of the Nameless is a group of maps which each contain [ContainsRitual|Ritual Altars] and a [MapBoss|Map Boss].\13\
+\13\
+Completing all Ritual Altars will drop an [RitualPinnacleEffigyPiece|Effigy Piece].",
 		["name"] = "Rite of the Nameless",
 	},
 	["RivenArmour"] = {
-		["description"] = "Riven Armour is a [Debuff] inflicted by [Hit|Hits], which stores 5% of the [Premitigation|Pre-mitigation] [Physical] [Hit|Hit damage] of the Hit that inflicts it as its [BuffMagnitude|Magnitude].  The inflicter's subsequent [Attack] [Hit|Hits] against the target will gain additional unscaleable added [Physical] [Hit|Damage] equal to that magnitude.  Enemies with Riven Armour cannot get their [ArmourBreak|Armour Broken] further.",
+		["description"] = "Riven Armour is a [Debuff] inflicted by [Hit|Hits], which stores 5% of the [Premitigation|Pre-mitigation] [Physical] [Hit|Hit damage] of the Hit that inflicts it as its [BuffMagnitude|Magnitude].\13\
+\13\
+The inflicter's subsequent [Attack] [Hit|Hits] against the target will gain additional unscaleable added [Physical] [Hit|Damage] equal to that magnitude.\13\
+\13\
+Enemies with Riven Armour cannot get their [ArmourBreak|Armour Broken] further.",
 		["name"] = "Riven Armour",
 	},
 	["RogueExile"] = {
-		["description"] = "Rogue Exiles are dangerous foes that wander Wraeclast and Maps.  They have access to the same Skills, Items, and Uniques that you do. This can make them very formidable opponents - however, if they can be defeated they will drop a full set of gear, including any [Rarity|Unique] equipment that they were using in combat. If any Rogue Exile manages to defeat you, they will portal away, taking their equipment with them.",
+		["description"] = "Rogue Exiles are dangerous foes that wander Wraeclast and Maps. \13\
+They have access to the same Skills, Items, and Uniques that you do. This can make them very formidable opponents - however, if they can be defeated they will drop a full set of gear, including any [Rarity|Unique] equipment that they were using in combat.\13\
+If any Rogue Exile manages to defeat you, they will portal away, taking their equipment with them.",
 		["name"] = "Rogue Exile",
 	},
 	["RogueExileHuntingGrounds"] = {
@@ -3362,7 +4198,11 @@ return {
 		["name"] = "Rune",
 	},
 	["RunefathersBoast"] = {
-		["description"] = "You can have up to 10,000 Runefather's Boast [Buff|Buffs].  Each Runefather's Boast grants +1 to [Armour], +1 to [Evasion|Evasion Rating], and +1 to [StunThreshold|Stun Threshold].  Runefather's Boast does not have a duration, but is lost when you die or change area.",
+		["description"] = "You can have up to 10,000 Runefather's Boast [Buff|Buffs].\13\
+\13\
+Each Runefather's Boast grants +1 to [Armour], +1 to [Evasion|Evasion Rating], and +1 to [StunThreshold|Stun Threshold].\13\
+\13\
+Runefather's Boast does not have a duration, but is lost when you die or change area.",
 		["name"] = "Runefather's Boast",
 	},
 	["RunefathersChallenge"] = {
@@ -3370,11 +4210,15 @@ return {
 		["name"] = "Runefather's Challenge",
 	},
 	["Runic"] = {
-		["description"] = "Runic Monsters are powerful monsters encountered in [ContainsExpedition|Expeditions].  Runic Monsters are more commonly found by using explosives on larger [ContainsExpedition|Expedition] markers.",
+		["description"] = "Runic Monsters are powerful monsters encountered in [ContainsExpedition|Expeditions].\13\
+\13\
+Runic Monsters are more commonly found by using explosives on larger [ContainsExpedition|Expedition] markers.",
 		["name"] = "Runic Monsters",
 	},
 	["RunicBinding"] = {
-		["description"] = "Each Runic Binding grants 10% reduced [Spell] Damage and 2% reduced Skill cost [Efficiency]. You can have up to 10 Runic Bindings. Runic Bindings last for 10 seconds.  Runic Bindings cannot be gained while [Shapeshift|Shapeshifted].",
+		["description"] = "Each Runic Binding grants 10% reduced [Spell] Damage and 2% reduced Skill cost [Efficiency]. You can have up to 10 Runic Bindings. Runic Bindings last for 10 seconds.\13\
+\13\
+Runic Bindings cannot be gained while [Shapeshift|Shapeshifted].",
 		["name"] = "Runic Bindings",
 	},
 	["RunicInscription"] = {
@@ -3394,7 +4238,8 @@ return {
 		["name"] = "",
 	},
 	["Sanctified"] = {
-		["description"] = "Sanctifying an item will multiply the values of an items modifiers by a random value ranging from 78% to 122% for each modifier. The resulting item will now be Sanctified. Most methods of item crafting and modification cannot be used on Sanctified items.",
+		["description"] = "Sanctifying an item will multiply the values of an items modifiers by a random value ranging from 78% to 122% for each modifier. The resulting item will now be Sanctified.\13\
+Most methods of item crafting and modification cannot be used on Sanctified items.",
 		["name"] = "Sanctified Items",
 	},
 	["SanctumKey"] = {
@@ -3406,15 +4251,22 @@ return {
 		["name"] = "Savage Hit",
 	},
 	["ScarredFaith"] = {
-		["description"] = "5% of Physical Damage prevented [Recoup|Recouped] as [EnergyShield|Energy Shield] per enemy [Power] [EnergyShield|Energy Shield] does not [ESRecharge|Recharge] You cannot Recover [EnergyShield|Energy Shield] from Regeneration You cannot Recover [EnergyShield|Energy Shield] to above [Armour]",
+		["description"] = "5% of Physical Damage prevented [Recoup|Recouped] as [EnergyShield|Energy Shield] per enemy [Power]\13\
+[EnergyShield|Energy Shield] does not [ESRecharge|Recharge]\13\
+You cannot Recover [EnergyShield|Energy Shield] from Regeneration\13\
+You cannot Recover [EnergyShield|Energy Shield] to above [Armour]",
 		["name"] = "Scarred Faith",
 	},
 	["Sceptre"] = {
-		["description"] = "Sceptres are [One-Handed] weapons that require [Strength] and [Intelligence] to equip. Sceptres can be equipped in your main hand or off hand, but you cannot [DualWield|Dual Wield] two Sceptres.   Sceptres cannot be used to [Attack] and do not grant bonuses to [Spell|Spellcasting]. Instead, they grant additional [Spirit] and can provide bonuses to your [Allies].",
+		["description"] = "Sceptres are [One-Handed] weapons that require [Strength] and [Intelligence] to equip. Sceptres can be equipped in your main hand or off hand, but you cannot [DualWield|Dual Wield] two Sceptres. \13\
+\13\
+Sceptres cannot be used to [Attack] and do not grant bonuses to [Spell|Spellcasting]. Instead, they grant additional [Spirit] and can provide bonuses to your [Allies].",
 		["name"] = "Sceptres",
 	},
 	["Seal"] = {
-		["description"] = "Sealed Skills are skills which gain Seals. Only skills you use yourself can be Sealed.  When you use a Sealed Skill, its Seals are broken, and that use of the skill will gain some benefit based on how many Seals it had.",
+		["description"] = "Sealed Skills are skills which gain Seals. Only skills you use yourself can be Sealed.\13\
+\13\
+When you use a Sealed Skill, its Seals are broken, and that use of the skill will gain some benefit based on how many Seals it had.",
 		["name"] = "Seals and Sealed Skills",
 	},
 	["SecuredStrongbox"] = {
@@ -3430,7 +4282,9 @@ return {
 		["name"] = "Bonded Modifiers",
 	},
 	["Shapeshift"] = {
-		["description"] = "Shapeshifting changes you into a non-human form. Shapeshifting skills still use your character's stats as normal unless otherwise specified.  Using a skill that is not compatible with your Shapeshifted form will automatically Shapeshift you back to human form.",
+		["description"] = "Shapeshifting changes you into a non-human form. Shapeshifting skills still use your character's stats as normal unless otherwise specified.\13\
+\13\
+Using a skill that is not compatible with your Shapeshifted form will automatically Shapeshift you back to human form.",
 		["name"] = "Shapeshifting",
 	},
 	["Shatter"] = {
@@ -3438,11 +4292,15 @@ return {
 		["name"] = "Shatter",
 	},
 	["Shield"] = {
-		["description"] = "Shields are defensive items that are equipped in your off hand, usually granting [Armour]. While holding a Shield you have a chance to passively [Block]. Shields also grant a Skill that lets you [Block] incoming [Hit|Hits] more actively, either raising your Shield to absorb the [Hit] or [Parry|Parrying] the [Hit] depending on the type of Shield.  [Buckler|Bucklers] are a special type of Shield that do not grant any [Armour] and can Parry enemy skills instead of being raised to [Block].",
+		["description"] = "Shields are defensive items that are equipped in your off hand, usually granting [Armour]. While holding a Shield you have a chance to passively [Block]. Shields also grant a Skill that lets you [Block] incoming [Hit|Hits] more actively, either raising your Shield to absorb the [Hit] or [Parry|Parrying] the [Hit] depending on the type of Shield.\13\
+\13\
+[Buckler|Bucklers] are a special type of Shield that do not grant any [Armour] and can Parry enemy skills instead of being raised to [Block].",
 		["name"] = "Shields",
 	},
 	["Shock"] = {
-		["description"] = "Shock is an [Ailments|Ailment] that causes targets to take 20% increased damage, and lasts 4 seconds on players or 8 seconds on non-players by default.  [Lightning] damage from [Hit|Hits] [Contributes] to chance to Shock enemies. The higher the [Lightning] damage dealt, the higher the chance. By default a [Hit] has 1% chance to Shock for every 4% of the target's [AilmentThreshold|Ailment Threshold] dealt.",
+		["description"] = "Shock is an [Ailments|Ailment] that causes targets to take 20% increased damage, and lasts 4 seconds on players or 8 seconds on non-players by default.\13\
+\13\
+[Lightning] damage from [Hit|Hits] [Contributes] to chance to Shock enemies. The higher the [Lightning] damage dealt, the higher the chance. By default a [Hit] has 1% chance to Shock for every 4% of the target's [AilmentThreshold|Ailment Threshold] dealt.",
 		["name"] = "Shock",
 	},
 	["ShockedGround"] = {
@@ -3450,11 +4308,14 @@ return {
 		["name"] = "Shocked Ground",
 	},
 	["Shrine"] = {
-		["description"] = "Shrines are Precursor Artifacts that empower monsters with its [Presence] with various effects. Defeat all the monsters [ShrineMonster|Worshipping] the Shrine and interact with it to temporarily gain the power for yourself.",
+		["description"] = "Shrines are Precursor Artifacts that empower monsters with its [Presence] with various effects.\13\
+Defeat all the monsters [ShrineMonster|Worshipping] the Shrine and interact with it to temporarily gain the power for yourself.",
 		["name"] = "Shrine",
 	},
 	["ShrineMonster"] = {
-		["description"] = "[Shrine|Shrines] are found with multiple packs of monsters Worshipping the Shrine.  Other monsters may be affected by the Shrine's [Presence] but do not count as Worshippers.",
+		["description"] = "[Shrine|Shrines] are found with multiple packs of monsters Worshipping the Shrine.\13\
+\13\
+Other monsters may be affected by the Shrine's [Presence] but do not count as Worshippers.",
 		["name"] = "Shrine Worship",
 	},
 	["SinewBelt"] = {
@@ -3462,7 +4323,11 @@ return {
 		["name"] = "",
 	},
 	["SinisterJewelSockets"] = {
-		["description"] = "Allocated Sinister [Jewel] Sockets are visible on the left edge of the character portrait in the centre of the passive skill tree.  [ItemRarity|Unique] [Jewel|Jewels] cannot be socketed in Sinister Jewel Sockets, and modifiers to the effect of Jewel Sockets do not apply to Sinister Jewel Sockets.  They are entirely disconnected from the rest of your passive skill tree - they are not considered to be within any radius of any other passive skill, and no passive skill is within any radius of a Sinister [Jewel] Socket. Multiple Sinister [Jewel] Sockets are also not within any radius of each other. Radius effects of [Jewel|Jewels] will therefore have no effect when socketed in Sinister Sockets.",
+		["description"] = "Allocated Sinister [Jewel] Sockets are visible on the left edge of the character portrait in the centre of the passive skill tree.\13\
+\13\
+[ItemRarity|Unique] [Jewel|Jewels] cannot be socketed in Sinister Jewel Sockets, and modifiers to the effect of Jewel Sockets do not apply to Sinister Jewel Sockets.\13\
+\13\
+They are entirely disconnected from the rest of your passive skill tree - they are not considered to be within any radius of any other passive skill, and no passive skill is within any radius of a Sinister [Jewel] Socket. Multiple Sinister [Jewel] Sockets are also not within any radius of each other. Radius effects of [Jewel|Jewels] will therefore have no effect when socketed in Sinister Sockets.",
 		["name"] = "Sinister Jewel Sockets",
 	},
 	["SkillSpeed"] = {
@@ -3470,7 +4335,9 @@ return {
 		["name"] = "Skill Speed",
 	},
 	["SkyRune"] = {
-		["description"] = "<<ExpedRuneSky>><rgb(219,217,206)>{Sky Rune} <font:'fontin'>{<italic>{<rgb(110,87,66)>{Remnant gains:}}} <rgb(135,134,253)>{Conjures Elemental Tornados}",
+		["description"] = "<<ExpedRuneSky>><rgb(219,217,206)>{Sky Rune}\13\
+<font:'fontin'>{<italic>{<rgb(110,87,66)>{Remnant gains:}}}\13\
+<rgb(135,134,253)>{Conjures Elemental Tornados}",
 		["name"] = "Sky Rune",
 	},
 	["Slam"] = {
@@ -3478,7 +4345,15 @@ return {
 		["name"] = "Slams",
 	},
 	["Slow"] = {
-		["description"] = "Slows are modifiers from [Debuff|Debuffs] that cause actions to take longer. Slows can apply to a specific stat (such as attack speed or movement speed) — if a specific type of slow is not specified, it applies to everything the affected entity does. Slows are always multiplicative with each other.  Higher [Rarity] enemies are less affected by Slows:  15% less Slow effect on Magic monsters 30% less Slow effect on Rare monsters 50% less Slow effect on Unique monsters  Additionally, Slows have 10% less effect on all monsters for each player in the area beyond the first and monsters cannot be slowed below 25% of their base speed.",
+		["description"] = "Slows are modifiers from [Debuff|Debuffs] that cause actions to take longer. Slows can apply to a specific stat (such as attack speed or movement speed) — if a specific type of slow is not specified, it applies to everything the affected entity does. Slows are always multiplicative with each other.\13\
+\13\
+Higher [Rarity] enemies are less affected by Slows:\13\
+\13\
+15% less Slow effect on Magic monsters\13\
+30% less Slow effect on Rare monsters\13\
+50% less Slow effect on Unique monsters\13\
+\13\
+Additionally, Slows have 10% less effect on all monsters for each player in the area beyond the first and monsters cannot be slowed below 25% of their base speed.",
 		["name"] = "Slow",
 	},
 	["SlowMagnitudeModifier"] = {
@@ -3490,15 +4365,20 @@ return {
 		["name"] = "Small Passives",
 	},
 	["SmokeCloud"] = {
-		["description"] = "Enemies standing in Smoke Clouds are [Blind|Blinded]. Smoke Clouds have a radius of 2 metres unless otherwise specified.",
+		["description"] = "Enemies standing in Smoke Clouds are [Blind|Blinded].\13\
+Smoke Clouds have a radius of 2 metres unless otherwise specified.",
 		["name"] = "Smoke Clouds",
 	},
 	["SoaringGround"] = {
-		["description"] = "Soaring Ground grants 30% increased [Evasion] Rating, 40% increased damage while on Full Life, and [Onslaught] to you or [Allies] standing on it. These effects Linger for 1 second.  Soaring Ground has a 6 second base duration unless otherwise specified.",
+		["description"] = "Soaring Ground grants 30% increased [Evasion] Rating, 40% increased damage while on Full Life, and [Onslaught] to you or [Allies] standing on it. These effects Linger for 1 second.\13\
+\13\
+Soaring Ground has a 6 second base duration unless otherwise specified.",
 		["name"] = "Soaring Ground",
 	},
 	["SocketBound"] = {
-		["description"] = "Socket-bound [Augment|Augments] permanently fill any [Augment] Socket they are placed into.  Once Socketed, they cannot be removed, replaced or extracted by any means.",
+		["description"] = "Socket-bound [Augment|Augments] permanently fill any [Augment] Socket they are placed into.\13\
+\13\
+Once Socketed, they cannot be removed, replaced or extracted by any means.",
 		["name"] = "Socket-bound Augments",
 	},
 	["SolarAmulet"] = {
@@ -3510,7 +4390,9 @@ return {
 		["name"] = "Soul Core",
 	},
 	["SoulEater"] = {
-		["description"] = "[EatenSoul|Eat the Souls] of enemies that die in your [Presence].  Each Soul grants 1% increased [SkillSpeed|Skill Speed]. You can have up to 50 eaten Souls, and lose a Soul every 0.5 seconds if you have not eaten one in the past 4 seconds.",
+		["description"] = "[EatenSoul|Eat the Souls] of enemies that die in your [Presence].\13\
+\13\
+Each Soul grants 1% increased [SkillSpeed|Skill Speed]. You can have up to 50 eaten Souls, and lose a Soul every 0.5 seconds if you have not eaten one in the past 4 seconds.",
 		["name"] = "Soul Eater",
 	},
 	["SoulEaterMonster"] = {
@@ -3518,11 +4400,15 @@ return {
 		["name"] = "Monster Soul Eater",
 	},
 	["SoulRune"] = {
-		["description"] = "<<ExpedRuneSoul>><rgb(219,217,206)>{Soul Rune} <font:'fontin'>{<italic>{<rgb(110,87,66)>{Monsters gain:}}} <rgb(135,134,253)>{[UnionofSoulsPack|Union of Souls]}",
+		["description"] = "<<ExpedRuneSoul>><rgb(219,217,206)>{Soul Rune}\13\
+<font:'fontin'>{<italic>{<rgb(110,87,66)>{Monsters gain:}}}\13\
+<rgb(135,134,253)>{[UnionofSoulsPack|Union of Souls]}",
 		["name"] = "Soul Rune",
 	},
 	["Spear"] = {
-		["description"] = "Spears are [One-Handed] [Melee] weapons that require [Strength] and [Dexterity] to equip. Spears cannot be dual wielded.   Spear combat is often a mix of both ranged and [Melee], as many spear skills enable you to throw your spear.",
+		["description"] = "Spears are [One-Handed] [Melee] weapons that require [Strength] and [Dexterity] to equip. Spears cannot be dual wielded. \13\
+\13\
+Spear combat is often a mix of both ranged and [Melee], as many spear skills enable you to throw your spear.",
 		["name"] = "Spears",
 	},
 	["SpectralFire"] = {
@@ -3530,55 +4416,70 @@ return {
 		["name"] = "Spectral Fire",
 	},
 	["Spell"] = {
-		["description"] = "Spells are skills that use raw magic to destroy your enemies. [Attack|Attacks] are not Spells.  Spells have their own base damage, cast speed and [Critical|Critical Hit] chance determined by the skill. They do not benefit from a weapon's inherent damage, attack speed or [Critical|Critical Hit] chance.",
+		["description"] = "Spells are skills that use raw magic to destroy your enemies. [Attack|Attacks] are not Spells.\13\
+\13\
+Spells have their own base damage, cast speed and [Critical|Critical Hit] chance determined by the skill. They do not benefit from a weapon's inherent damage, attack speed or [Critical|Critical Hit] chance.",
 		["name"] = "Spells",
 	},
 	["Spirit"] = {
-		["description"] = "Spirit is a reserve of power used to activate and maintain skills with permanent effects. Spirit-powered skills are managed within the Skills Panel.  [WeaponSets|Weapon Sets] can have differing amounts of available Spirit, due to weapons with Spirit (such as [Sceptre|Sceptres]), [WeaponSetPassiveSkillPoints|Weapon Set Passive Skills], or [Persistent] Skills that are active in specific [WeaponSets|Weapon Sets].",
+		["description"] = "Spirit is a reserve of power used to activate and maintain skills with permanent effects. Spirit-powered skills are managed within the Skills Panel.\13\
+\13\
+[WeaponSets|Weapon Sets] can have differing amounts of available Spirit, due to weapons with Spirit (such as [Sceptre|Sceptres]), [WeaponSetPassiveSkillPoints|Weapon Set Passive Skills], or [Persistent] Skills that are active in specific [WeaponSets|Weapon Sets].",
 		["name"] = "Spirit",
 	},
 	["SpiritOfTheBearPossessedPlayer"] = {
-		["description"] = "Players possessed by the Spirit Of The Bear have 20% Increased Maximum Life, 60% increased [StunThreshold|Stun Threshold], 60% increased [Stun|Stun] Buildup and 20% reduced damage taken. Players will also periodically summon a spiritual Bear that uses slam attacks.",
+		["description"] = "Players possessed by the Spirit Of The Bear have 20% Increased Maximum Life, 60% increased [StunThreshold|Stun Threshold], 60% increased [Stun|Stun] Buildup and 20% reduced damage taken.\13\
+Players will also periodically summon a spiritual Bear that uses slam attacks.",
 		["name"] = "Spirit Of The Bear",
 	},
 	["SpiritOfTheBoarPossessedPlayer"] = {
-		["description"] = "Players possessed by the Spirit Of The Boar [Gain] 20% of Damage as Extra [Fire] Damage, always inflict [Bleeding] on [Hit] and have 20% reduced damage taken. Players will also periodically summon spiritual Boars that explode, dealing [Fire] Damage.",
+		["description"] = "Players possessed by the Spirit Of The Boar [Gain] 20% of Damage as Extra [Fire] Damage, always inflict [Bleeding] on [Hit] and have 20% reduced damage taken.\13\
+Players will also periodically summon spiritual Boars that explode, dealing [Fire] Damage.",
 		["name"] = "Spirit Of The Boar",
 	},
 	["SpiritOfTheCatPossessedPlayer"] = {
-		["description"] = "Players possessed by the Spirit Of The Cat have 60% increased [Evasion] Rating, 100% increased [Critical|Critical Hit chance], 30% increased [SkillSpeed|Skill Speed] and 15% increased Movement Speed. Players will also periodically summon a ravaging flurry of spiritual Cats.",
+		["description"] = "Players possessed by the Spirit Of The Cat have 60% increased [Evasion] Rating, 100% increased [Critical|Critical Hit chance], 30% increased [SkillSpeed|Skill Speed] and 15% increased Movement Speed.\13\
+Players will also periodically summon a ravaging flurry of spiritual Cats.",
 		["name"] = "Spirit Of The Cat",
 	},
 	["SpiritOfTheOwlPossessedPlayer"] = {
-		["description"] = "Players possessed by the Spirit Of The Owl have 60% increased [EnergyShield|Energy Shield], 80% increased Damage and [Gain] 20% of Damage as Extra [Cold] Damage. Players will also periodically summon a spiritual Owl that conjures a [Cold] tornado.",
+		["description"] = "Players possessed by the Spirit Of The Owl have 60% increased [EnergyShield|Energy Shield], 80% increased Damage and [Gain] 20% of Damage as Extra [Cold] Damage.\13\
+Players will also periodically summon a spiritual Owl that conjures a [Cold] tornado.",
 		["name"] = "Spirit Of The Owl",
 	},
 	["SpiritOfTheOxPossessedPlayer"] = {
-		["description"] = "Players possessed by the Spirit Of The Ox have 50% reduced [Slow|Slowing] Potency of [Debuff|Debuffs] on them, 60% increased [AilmentThreshold|Elemental Ailment Threshold] and [Armour] and 20% reduced damage taken. Players will also periodically summon a spiritual stampede of Oxen that tramples over enemies.",
+		["description"] = "Players possessed by the Spirit Of The Ox have 50% reduced [Slow|Slowing] Potency of [Debuff|Debuffs] on them, 60% increased [AilmentThreshold|Elemental Ailment Threshold] and [Armour] and 20% reduced damage taken.\13\
+Players will also periodically summon a spiritual stampede of Oxen that tramples over enemies.",
 		["name"] = "Spirit Of The Ox",
 	},
 	["SpiritOfThePrimatePossessedPlayer"] = {
-		["description"] = "Players possessed by the Spirit Of The Primate have [DamageTypes|All Damage] from [Hit|Hits] [Contributes|Contributes] to [Chill] Magnitude, 60% Increased [Freeze] Buildup and 80% increased Damage. Players will also periodically summon a group of spiritual Primates.",
+		["description"] = "Players possessed by the Spirit Of The Primate have [DamageTypes|All Damage] from [Hit|Hits] [Contributes|Contributes] to [Chill] Magnitude, 60% Increased [Freeze] Buildup and 80% increased Damage.\13\
+Players will also periodically summon a group of spiritual Primates.",
 		["name"] = "Spirit Of The Primate",
 	},
 	["SpiritOfTheSerpentPossessedPlayer"] = {
-		["description"] = "Players possessed by the Spirit Of The Serpent have [DamageTypes|All Damage] from [Hit|Hits] [Contributes|Contributes] to [Poison] Magnitude, Always [Poison] on [Hit] and 80% increased Damage. Players will also be accompanied by Spiritual Snakes that periodically strike enemies.",
+		["description"] = "Players possessed by the Spirit Of The Serpent have [DamageTypes|All Damage] from [Hit|Hits] [Contributes|Contributes] to [Poison] Magnitude, Always [Poison] on [Hit] and 80% increased Damage.\13\
+Players will also be accompanied by Spiritual Snakes that periodically strike enemies.",
 		["name"] = "Spirit Of The Serpent",
 	},
 	["SpiritOfTheStagPossessedPlayer"] = {
-		["description"] = "Players possessed by the Spirit Of The Stag have +30% to all [ElementalDamage|Elemental] [Resistances], 30% increased [SkillSpeed|Skill Speed], 15% increased Movement Speed and [Gain] 20% of Damage as Extra [Lightning] Damage. Players will also periodically summon a spiritual Stag that calls down [Lightning] bolts.",
+		["description"] = "Players possessed by the Spirit Of The Stag have +30% to all [ElementalDamage|Elemental] [Resistances], 30% increased [SkillSpeed|Skill Speed], 15% increased Movement Speed and [Gain] 20% of Damage as Extra [Lightning] Damage.\13\
+Players will also periodically summon a spiritual Stag that calls down [Lightning] bolts.",
 		["name"] = "Spirit Of The Stag",
 	},
 	["SpiritOfTheWolfPossessedPlayer"] = {
-		["description"] = "Players possessed by the Spirit Of The Wolf have 10% increased [SkillSpeed|Skill Speed], 5% increased Movement Speed and [ArmourBreak|Break Armour] equal to 10% of [Hit|Hit Damage] dealt. Players will also periodically summon a spiritual Wolf which uses a [Maim|Maiming] dash attack.",
+		["description"] = "Players possessed by the Spirit Of The Wolf have 10% increased [SkillSpeed|Skill Speed], 5% increased Movement Speed and [ArmourBreak|Break Armour] equal to 10% of [Hit|Hit Damage] dealt.\13\
+Players will also periodically summon a spiritual Wolf which uses a [Maim|Maiming] dash attack.",
 		["name"] = "Spirit Of The Wolf",
 	},
 	["SpiritPossessed"] = {
-		["description"] = "A Possessed monster is a [Rarity|Rare or Unique] monster that has had an [AzmeriSpirit|Azmeri Spirit] enter and empower them. The possessed monster is empowered by the spirit and gains bonuses depending on the type of Spirit that possessed them. Occasionally the possessed monster will summon spiritual animals depending on the type of Animal Spirit they represent. Possessed monsters are more rewarding depending on how many [SpiritTouched|Spirit-Influenced] monsters were defeated leading up to possession.",
+		["description"] = "A Possessed monster is a [Rarity|Rare or Unique] monster that has had an [AzmeriSpirit|Azmeri Spirit] enter and empower them. The possessed monster is empowered by the spirit and gains bonuses depending on the type of Spirit that possessed them. Occasionally the possessed monster will summon spiritual animals depending on the type of Animal Spirit they represent.\13\
+Possessed monsters are more rewarding depending on how many [SpiritTouched|Spirit-Influenced] monsters were defeated leading up to possession.",
 		["name"] = "Possessed",
 	},
 	["SpiritTouched"] = {
-		["description"] = "A Spirit-Influenced monster is a [Rarity|Normal or Magic] monster that has been passed through by an [AzmeriSpirit|Azmeri Spirit]. These monsters are empowered by the spirit and gain bonuses depending on the type of Spirit that passed through them.  Defeating Spirit-Influenced monsters makes the resulting [SpiritPossessed|Possessed] monster more rewarding.",
+		["description"] = "A Spirit-Influenced monster is a [Rarity|Normal or Magic] monster that has been passed through by an [AzmeriSpirit|Azmeri Spirit]. These monsters are empowered by the spirit and gain bonuses depending on the type of Spirit that passed through them. \13\
+Defeating Spirit-Influenced monsters makes the resulting [SpiritPossessed|Possessed] monster more rewarding.",
 		["name"] = "Spirit-Influenced",
 	},
 	["SpiritWalkerBearAura"] = {
@@ -3590,7 +4491,8 @@ return {
 		["name"] = "Split",
 	},
 	["Staff"] = {
-		["description"] = "Staves are [Two-Handed] [Spell|Spellcasting] weapons that require [Intelligence] to equip.  Staves cannot be used to [Attack]. However, they grant inbuilt [Spell|Spells] based on the staff type and powerful bonuses to spells.",
+		["description"] = "Staves are [Two-Handed] [Spell|Spellcasting] weapons that require [Intelligence] to equip. \13\
+Staves cannot be used to [Attack]. However, they grant inbuilt [Spell|Spells] based on the staff type and powerful bonuses to spells.",
 		["name"] = "Staves",
 	},
 	["StalkingBelt"] = {
@@ -3598,11 +4500,15 @@ return {
 		["name"] = "",
 	},
 	["StatConversion"] = {
-		["description"] = "Converting stat A to stat B applies the base value of stat A to stat B instead. The converted stat scales with percentage modifiers to stat B, but not with percentage modifiers to stat A.  For example, if you converted your [Evasion] to [Armour], the converted portion would be scaled by percentage modifiers to [Armour], but percentage modifiers to [Evasion] would have no effect.",
+		["description"] = "Converting stat A to stat B applies the base value of stat A to stat B instead. The converted stat scales with percentage modifiers to stat B, but not with percentage modifiers to stat A.\13\
+\13\
+For example, if you converted your [Evasion] to [Armour], the converted portion would be scaled by percentage modifiers to [Armour], but percentage modifiers to [Evasion] would have no effect.",
 		["name"] = "Stat Conversion",
 	},
 	["StatGain"] = {
-		["description"] = "Gaining a percentage of stat A as stat B is calculated from the base value of stat A. The portion gained scales with percentage modifiers to stat B, but not with percentage modifiers to stat A.  For example, if you gained 50% of [Evasion] as [Armour], the portion gained would be scaled by percentage modifiers to [Armour], but not by percentage modifiers to [Evasion].",
+		["description"] = "Gaining a percentage of stat A as stat B is calculated from the base value of stat A. The portion gained scales with percentage modifiers to stat B, but not with percentage modifiers to stat A.\13\
+\13\
+For example, if you gained 50% of [Evasion] as [Armour], the portion gained would be scaled by percentage modifiers to [Armour], but not by percentage modifiers to [Evasion].",
 		["name"] = "Gaining Stats from other Stats",
 	},
 	["StellarAmulet"] = {
@@ -3610,15 +4516,23 @@ return {
 		["name"] = "",
 	},
 	["StoneCitadel"] = {
-		["description"] = "The Stone [Citadel] is an endgame area which can be accessed with a Tier 15 or above [Waystone]. The boss of this area will drop a [PinnacleKey3|Weathered Crisis Fragment].  Increases to [Waystone] Drop Chance gives a chance for additional Crisis Fragments to drop.",
+		["description"] = "The Stone [Citadel] is an endgame area which can be accessed with a Tier 15 or above [Waystone]. The boss of this area will drop a [PinnacleKey3|Weathered Crisis Fragment].\13\
+\13\
+Increases to [Waystone] Drop Chance gives a chance for additional Crisis Fragments to drop.",
 		["name"] = "Stone Citadel",
 	},
 	["StoneRune"] = {
-		["description"] = "<<ExpedRuneStone>><rgb(219,217,206)>{Stone Rune} <font:'fontin'>{<italic>{<rgb(110,87,66)>{Monsters gain:}}} <rgb(135,134,253)>{[Armour|Armoured]} <rgb(135,134,253)>{Increased Stun Threshold} <rgb(135,134,253)>{Earthly Prison}",
+		["description"] = "<<ExpedRuneStone>><rgb(219,217,206)>{Stone Rune}\13\
+<font:'fontin'>{<italic>{<rgb(110,87,66)>{Monsters gain:}}}\13\
+<rgb(135,134,253)>{[Armour|Armoured]}\13\
+<rgb(135,134,253)>{Increased Stun Threshold}\13\
+<rgb(135,134,253)>{Earthly Prison}",
 		["name"] = "Stone Rune",
 	},
 	["StoneSummoningCircle"] = {
-		["description"] = "Activating a Summoning Circle will cause a Boss to be spawned.   If an area contains more than one Summoning Circle it will contain runes to reactivate the Summoning Circle instead of additional Summoning Circles.",
+		["description"] = "Activating a Summoning Circle will cause a Boss to be spawned. \13\
+\13\
+If an area contains more than one Summoning Circle it will contain runes to reactivate the Summoning Circle instead of additional Summoning Circles.",
 		["name"] = "Summoning Circle",
 	},
 	["Storm"] = {
@@ -3646,7 +4560,11 @@ return {
 		["name"] = "Str/Int",
 	},
 	["Strength"] = {
-		["description"] = "Strength is an [Attributes|Attribute] required to equip most equipment that grants [Armour], as well as various melee-aligned Weapons and Skills.  Strength provides an inherent bonus of +2 to maximum Life per 1 Strength.  Strength does not grant damage to Skills or any other benefits except where specifically stated.",
+		["description"] = "Strength is an [Attributes|Attribute] required to equip most equipment that grants [Armour], as well as various melee-aligned Weapons and Skills.\13\
+\13\
+Strength provides an inherent bonus of +2 to maximum Life per 1 Strength.\13\
+\13\
+Strength does not grant damage to Skills or any other benefits except where specifically stated.",
 		["name"] = "Strength",
 	},
 	["Strike"] = {
@@ -3654,7 +4572,13 @@ return {
 		["name"] = "Strike",
 	},
 	["Strongbox"] = {
-		["description"] = "Strongboxes are locked chests that contain various items.  Attempting to unlock a Strongbox will unleash [Pack|Packs] of monsters that must be defeated in order to get the items within.  Strongboxes can be modified to increase the difficulty and reward of the monsters and rewards within respectively.  Most Strongboxes can be opened a single time. Some sources may allow you to open Strongboxes an additional time, these only apply to Strongboxes which return to an openable state after first opening, and do not apply if the Strongbox already allows multiple openings.",
+		["description"] = "Strongboxes are locked chests that contain various items.\13\
+\13\
+Attempting to unlock a Strongbox will unleash [Pack|Packs] of monsters that must be defeated in order to get the items within.\13\
+\13\
+Strongboxes can be modified to increase the difficulty and reward of the monsters and rewards within respectively.\13\
+\13\
+Most Strongboxes can be opened a single time. Some sources may allow you to open Strongboxes an additional time, these only apply to Strongboxes which return to an openable state after first opening, and do not apply if the Strongbox already allows multiple openings.",
 		["name"] = "Strongbox",
 	},
 	["StrongboxKey"] = {
@@ -3662,7 +4586,14 @@ return {
 		["name"] = "",
 	},
 	["Stun"] = {
-		["description"] = "[Hit|Hits] against any target can potentially cause a Stun on that target, depending on the damage dealt. Stunning a target interrupts their current action and prevents them from taking actions for a short time. There are two types of Stun:  [LightStun|Light Stuns] last a fraction of a second but can be inflicted frequently. Any [Hit] has a chance to cause a [LightStun|Light Stun]. The chance is based on the damage dealt, up to 100% base chance for [Hit|Hits] that deal 100% of the target's maximum Life. Chances lower than 15% are treated as 0%.  [HeavyStun|Heavy Stuns] occur when a target's Stun bar is filled and last multiple seconds. [Hit|Hits] cause Heavy Stun buildup based on the damage dealt. Players and their [Minion|Minions] usually cannot be [HeavyStun|Heavily Stunned], but players can receive [HeavyStun|Heavy Stun] buildup where specifically mentioned while taking specific actions (such as raising their [Shield], Parrying with a [Buckler], or riding a mount).  Player [Physical] damage and [Melee] Damage each have 50% more [LightStun|Light Stun] chance and [HeavyStun|Heavy Stun] buildup. These bonuses are multiplicative with each other. Monster [Physical] damage and [Melee] Damage have 100% more and 33% more [LightStun|Light Stun] chance and [HeavyStun|Heavy Stun] buildup respectively. These bonuses are multiplicative with each other.",
+		["description"] = "[Hit|Hits] against any target can potentially cause a Stun on that target, depending on the damage dealt. Stunning a target interrupts their current action and prevents them from taking actions for a short time. There are two types of Stun:\13\
+\13\
+[LightStun|Light Stuns] last a fraction of a second but can be inflicted frequently. Any [Hit] has a chance to cause a [LightStun|Light Stun]. The chance is based on the damage dealt, up to 100% base chance for [Hit|Hits] that deal 100% of the target's maximum Life. Chances lower than 15% are treated as 0%.\13\
+\13\
+[HeavyStun|Heavy Stuns] occur when a target's Stun bar is filled and last multiple seconds. [Hit|Hits] cause Heavy Stun buildup based on the damage dealt. Players and their [Minion|Minions] usually cannot be [HeavyStun|Heavily Stunned], but players can receive [HeavyStun|Heavy Stun] buildup where specifically mentioned while taking specific actions (such as raising their [Shield], Parrying with a [Buckler], or riding a mount).\13\
+\13\
+Player [Physical] damage and [Melee] Damage each have 50% more [LightStun|Light Stun] chance and [HeavyStun|Heavy Stun] buildup. These bonuses are multiplicative with each other.\13\
+Monster [Physical] damage and [Melee] Damage have 100% more and 33% more [LightStun|Light Stun] chance and [HeavyStun|Heavy Stun] buildup respectively. These bonuses are multiplicative with each other.",
 		["name"] = "Stun",
 	},
 	["StunRecovery"] = {
@@ -3674,11 +4605,16 @@ return {
 		["name"] = "Player Stun Threshold",
 	},
 	["SunderedArmour"] = {
-		["description"] = "Sundered Armour is a [Debuff] that can be applied to enemies with [ArmourBreak|Fully Broken Armour] that increases the [Physical] damage they take from [Hit|Hits] by an additional 20%. This effect stacks with the target's normal [ArmourBreak|Fully Broken Armour].  Unless otherwise specified, modifiers to [ArmourBreak|Fully Broken Armour] also apply to Sundered Armour. Enemies with Sundered Armour cannot get their [ArmourBreak|Armour Broken] further.",
+		["description"] = "Sundered Armour is a [Debuff] that can be applied to enemies with [ArmourBreak|Fully Broken Armour] that increases the [Physical] damage they take from [Hit|Hits] by an additional 20%. This effect stacks with the target's normal [ArmourBreak|Fully Broken Armour].\13\
+\13\
+Unless otherwise specified, modifiers to [ArmourBreak|Fully Broken Armour] also apply to Sundered Armour. Enemies with Sundered Armour cannot get their [ArmourBreak|Armour Broken] further.",
 		["name"] = "Sundered Armour",
 	},
 	["SupportGem"] = {
-		["description"] = "Support Gems can be inserted into sockets on a Skill Gem in order to modify the effects of that Skill. They only apply to the Skill Gem they are socketed into.  You cannot use multiple copies of the exact same [LineageSupports|Lineage Support] across multiple Skills, or for Supports that grant global benefits to persistent reservation Skills while active. Cannot use multiple Support Gems of the same [SupportGemCategory|Category] in one Skill.",
+		["description"] = "Support Gems can be inserted into sockets on a Skill Gem in order to modify the effects of that Skill. They only apply to the Skill Gem they are socketed into.\13\
+\13\
+You cannot use multiple copies of the exact same [LineageSupports|Lineage Support] across multiple Skills, or for Supports that grant global benefits to persistent reservation Skills while active.\13\
+Cannot use multiple Support Gems of the same [SupportGemCategory|Category] in one Skill.",
 		["name"] = "Support Gems",
 	},
 	["SupportGemCategory"] = {
@@ -3686,7 +4622,9 @@ return {
 		["name"] = "Support Gem Categories",
 	},
 	["SupportGemRequirements"] = {
-		["description"] = "Every Support Gem you have socketed will incur a cumulative [Attributes|Attribute] requirement, generally at a value of five of the relevant stat for each support gem used.  This [Attributes|Attribute] requirement is separate from that required by your Skill Gems and Equipment.",
+		["description"] = "Every Support Gem you have socketed will incur a cumulative [Attributes|Attribute] requirement, generally at a value of five of the relevant stat for each support gem used.\13\
+\13\
+This [Attributes|Attribute] requirement is separate from that required by your Skill Gems and Equipment.",
 		["name"] = "Support Gem Requirements",
 	},
 	["Suppress"] = {
@@ -3694,11 +4632,17 @@ return {
 		["name"] = "Suppress",
 	},
 	["Surge"] = {
-		["description"] = "Elemental Surges are consumed when you use a non-[Melee] [Projectile] [Attack] to suffuse the [Projectile|Projectiles] fired by that [Attack], causing them to trigger a Surging Blast when they reach the end of their flight.  Your weapon can have a maximum of 6 of each type of Surge active by default. Surges last 15 seconds. Surges are specific to your current weapon, so do not affect non-weapon damage and are not carried over if you weapon swap.  [Projectile|Projectiles] which [Split] or [Fork] do not gain the benefits of Surges.",
+		["description"] = "Elemental Surges are consumed when you use a non-[Melee] [Projectile] [Attack] to suffuse the [Projectile|Projectiles] fired by that [Attack], causing them to trigger a Surging Blast when they reach the end of their flight.\13\
+\13\
+Your weapon can have a maximum of 6 of each type of Surge active by default. Surges last 15 seconds. Surges are specific to your current weapon, so do not affect non-weapon damage and are not carried over if you weapon swap.\13\
+\13\
+[Projectile|Projectiles] which [Split] or [Fork] do not gain the benefits of Surges.",
 		["name"] = "Elemental Surges",
 	},
 	["SurpassChance"] = {
-		["description"] = "By default, chance-based stats cap at 100% chance for the result to occur. However, some chances can surpass 100%. In this case, the event for which you have a chance to effect will occur once for each 100% chance for that event you have, and then have a normal percentage chance for it to occur again based on the remaining value.  For example, a Surpassing 215% chance for an event to occur will cause the event to occur twice (once for each 100% chance) and have a 15% chance for it to occur a third time.",
+		["description"] = "By default, chance-based stats cap at 100% chance for the result to occur. However, some chances can surpass 100%. In this case, the event for which you have a chance to effect will occur once for each 100% chance for that event you have, and then have a normal percentage chance for it to occur again based on the remaining value.\13\
+\13\
+For example, a Surpassing 215% chance for an event to occur will cause the event to occur twice (once for each 100% chance) and have a 15% chance for it to occur a third time.",
 		["name"] = "Chance can Surpass 100%",
 	},
 	["Surrounded"] = {
@@ -3710,7 +4654,9 @@ return {
 		["name"] = "Sustained Skills",
 	},
 	["Sword"] = {
-		["description"] = "Swords are [Melee] weapons that can be [One-Handed] or [Two-Handed]. Swords require [Strength] and [Dexterity] to equip.   Sword [Attack|Attacks] are commonly related to elemental damage.",
+		["description"] = "Swords are [Melee] weapons that can be [One-Handed] or [Two-Handed]. Swords require [Strength] and [Dexterity] to equip. \13\
+\13\
+Sword [Attack|Attacks] are commonly related to elemental damage.",
 		["name"] = "Swords",
 	},
 	["Tablet"] = {
@@ -3718,19 +4664,41 @@ return {
 		["name"] = "Tablets",
 	},
 	["TacticianTotemBuff"] = {
-		["description"] = "[Totem|Totems] you place which grant Embankment Auras give a different Aura [Buff] to Players in range depending on the kind of [Totem], as follows:  Artillery Ballista grants 20% increased [SkillSpeed|Skill Speed].  Siege Ballista grants 25% more Damage against [Immobilised] Enemies.  Mortar Cannon grants 25% of Damage [Gain|Gained] as extra [Fire].  Shockwave Totem grants 30% increased Area of Effect.  Ancestral Warrior Totem grants 40% increased [Glory] Generation.  Dark Effigy grants 40% increased Damage over Time.  Spell Totem grants 50% increased [Critical|Critical Hit Chance].",
+		["description"] = "[Totem|Totems] you place which grant Embankment Auras give a different Aura [Buff] to Players in range depending on the kind of [Totem], as follows:\13\
+\13\
+Artillery Ballista grants 20% increased [SkillSpeed|Skill Speed].\13\
+\13\
+Siege Ballista grants 25% more Damage against [Immobilised] Enemies.\13\
+\13\
+Mortar Cannon grants 25% of Damage [Gain|Gained] as extra [Fire].\13\
+\13\
+Shockwave Totem grants 30% increased Area of Effect.\13\
+\13\
+Ancestral Warrior Totem grants 40% increased [Glory] Generation.\13\
+\13\
+Dark Effigy grants 40% increased Damage over Time.\13\
+\13\
+Spell Totem grants 50% increased [Critical|Critical Hit Chance].",
 		["name"] = "Embankment Auras",
 	},
 	["Tailwind"] = {
-		["description"] = "Tailwind is a stacking [Buff] which grants 1% increased movement speed, 2% increased [SkillSpeed|Skill Speed], 10% increased [Evasion] Rating and prevent 1% of Damage from [Deflect|Deflected] [Hit|Hits] per stack. Maximum 10 stacks.  Lose all Tailwind stacks when [Hit].",
+		["description"] = "Tailwind is a stacking [Buff] which grants 1% increased movement speed, 2% increased [SkillSpeed|Skill Speed], 10% increased [Evasion] Rating and prevent 1% of Damage from [Deflect|Deflected] [Hit|Hits] per stack. Maximum 10 stacks.\13\
+\13\
+Lose all Tailwind stacks when [Hit].",
 		["name"] = "Tailwind",
 	},
 	["TakeManaCostAsDamage"] = {
-		["description"] = "[UpfrontCost|Upfront Costs] will result in taking the damage all at once as a [Hit].  A per-second costs will instead result in taking Damage per second, which is damage over time, and thus not a [Hit].",
+		["description"] = "[UpfrontCost|Upfront Costs] will result in taking the damage all at once as a [Hit].\13\
+\13\
+A per-second costs will instead result in taking Damage per second, which is damage over time, and thus not a [Hit].",
 		["name"] = "Take Mana Costs as Damage",
 	},
 	["Talisman"] = {
-		["description"] = "Talismans are [Two-Handed] [Melee] weapons that require [Strength] and [Intelligence] to equip.  Talismans allow you to use [Shapeshift|Shapeshifting] Skills associated with the Talisman's current form, and grants a basic Attack for that form. You can change the Talisman's form at any time.  While you have a Talisman in your active weapon set you will [Shapeshift] into its associated form. As a result, Skills that cannot be used in a [Shapeshift] form cannot be used with Talismans. [Trigger|Triggered] Skills and [Persistent] Skills will continue to function.",
+		["description"] = "Talismans are [Two-Handed] [Melee] weapons that require [Strength] and [Intelligence] to equip.\13\
+\13\
+Talismans allow you to use [Shapeshift|Shapeshifting] Skills associated with the Talisman's current form, and grants a basic Attack for that form. You can change the Talisman's form at any time.\13\
+\13\
+While you have a Talisman in your active weapon set you will [Shapeshift] into its associated form. As a result, Skills that cannot be used in a [Shapeshift] form cannot be used with Talismans. [Trigger|Triggered] Skills and [Persistent] Skills will continue to function.",
 		["name"] = "Talismans",
 	},
 	["Taunt"] = {
@@ -3738,7 +4706,10 @@ return {
 		["name"] = "Taunt",
 	},
 	["TempestRune"] = {
-		["description"] = "<<ExpedRuneTempest>><rgb(219,217,206)>{Tempest Rune} <font:'fontin'>{<italic>{<rgb(110,87,66)>{Monsters gain:}}} <rgb(135,134,253)>{Cannot be Shocked or Chilled} <rgb(135,134,253)>{[DamageTypes|All Damage] [Contributes|contributes] to chance to [Shock] and [Chill] Magnitude}",
+		["description"] = "<<ExpedRuneTempest>><rgb(219,217,206)>{Tempest Rune}\13\
+<font:'fontin'>{<italic>{<rgb(110,87,66)>{Monsters gain:}}}\13\
+<rgb(135,134,253)>{Cannot be Shocked or Chilled}\13\
+<rgb(135,134,253)>{[DamageTypes|All Damage] [Contributes|contributes] to chance to [Shock] and [Chill] Magnitude}",
 		["name"] = "Tempest Rune",
 	},
 	["TemporalChains"] = {
@@ -3754,19 +4725,28 @@ return {
 		["name"] = "Test",
 	},
 	["ThaumaturgicalDynamism"] = {
-		["description"] = "While Thaumaturgical Dynamism is active, you passively generate a [Charges|Power, Frenzy or Endurance Charge] once every five seconds.   The kind of [Charges|Charge] you generate is determined by the Attribute Requirements of the Skills you have socketed in your Skill Gem sockets. The higher the total [Strength] Requirement total of your socketed Skill Gems, the more likely you will be to generate an [Charges|Endurance Charge]. Higher total [Dexterity] Requirement corresponds to a higher chance for [Charges|Frenzy Charges], and [Intelligence] to [Charges|Power Charges].",
+		["description"] = "While Thaumaturgical Dynamism is active, you passively generate a [Charges|Power, Frenzy or Endurance Charge] once every five seconds. \13\
+\13\
+The kind of [Charges|Charge] you generate is determined by the Attribute Requirements of the Skills you have socketed in your Skill Gem sockets. The higher the total [Strength] Requirement total of your socketed Skill Gems, the more likely you will be to generate an [Charges|Endurance Charge]. Higher total [Dexterity] Requirement corresponds to a higher chance for [Charges|Frenzy Charges], and [Intelligence] to [Charges|Power Charges].",
 		["name"] = "Thaumaturgical Dynamism",
 	},
 	["TheBurningMonoilth"] = {
-		["description"] = "The Burning Monolith houses the most dangerous foe in all of Wraeclast.  Access to this foe requires three different Crisis Fragments from the [CopperCitadel|Copper], [IronCitadel|Iron] and [StoneCitadel|Stone] [Citadel|Citadels].",
+		["description"] = "The Burning Monolith houses the most dangerous foe in all of Wraeclast. \13\
+Access to this foe requires three different Crisis Fragments from the [CopperCitadel|Copper], [IronCitadel|Iron] and [StoneCitadel|Stone] [Citadel|Citadels].",
 		["name"] = "The Burning Monolith",
 	},
 	["Thorns"] = {
-		["description"] = "Thorns damage is a kind of [Hit] Damage you can deal. Thorns damage is not [Attack] damage or [Spell] damage and is not affected by modifiers specific to those.  If you have Thorns damage, you inherently [ThornsRetaliation|Retaliate] against [Melee] [Attack] [Hit|Hits], dealing your Thorns damage to the enemy that [Hit] you.  Some skills and other effects may also deal your thorns damage to enemies at other times.",
+		["description"] = "Thorns damage is a kind of [Hit] Damage you can deal. Thorns damage is not [Attack] damage or [Spell] damage and is not affected by modifiers specific to those.\13\
+\13\
+If you have Thorns damage, you inherently [ThornsRetaliation|Retaliate] against [Melee] [Attack] [Hit|Hits], dealing your Thorns damage to the enemy that [Hit] you.\13\
+\13\
+Some skills and other effects may also deal your thorns damage to enemies at other times.",
 		["name"] = "Thorns",
 	},
 	["ThornsRetaliation"] = {
-		["description"] = "Retaliating specifically refers only to the inherent ability to deal [Thorns] damage to enemies when they [Hit] you.  Some effects may cause you to deal [Thorns] damage in other ways, but those are not Retaliation, and effects which specifically care about when you Retaliate will ignore them.",
+		["description"] = "Retaliating specifically refers only to the inherent ability to deal [Thorns] damage to enemies when they [Hit] you.\13\
+\13\
+Some effects may cause you to deal [Thorns] damage in other ways, but those are not Retaliation, and effects which specifically care about when you Retaliate will ignore them.",
 		["name"] = "Retaliate with Thorns",
 	},
 	["ThornyGround"] = {
@@ -3774,7 +4754,9 @@ return {
 		["name"] = "Thorny Ground",
 	},
 	["TidalRune"] = {
-		["description"] = "<<ExpedRuneTidal>><rgb(219,217,206)>{Tidal Rune} <font:'fontin'>{<italic>{<rgb(110,87,66)>{Remnant gains:}}} <rgb(135,134,253)>{Conjures Tidal Waves}",
+		["description"] = "<<ExpedRuneTidal>><rgb(219,217,206)>{Tidal Rune}\13\
+<font:'fontin'>{<italic>{<rgb(110,87,66)>{Remnant gains:}}}\13\
+<rgb(135,134,253)>{Conjures Tidal Waves}",
 		["name"] = "Tidal Rune",
 	},
 	["TimeLostJewel"] = {
@@ -3782,7 +4764,9 @@ return {
 		["name"] = "[DNT] Time Lost Jewel",
 	},
 	["TimeRune"] = {
-		["description"] = "<<ExpedRuneTime>><rgb(219,217,206)>{Time Rune} <font:'fontin'>{<italic>{<rgb(110,87,66)>{Monsters gain:}}} <rgb(135,134,253)>{Slain Monsters may respawn as a higher Rarity}",
+		["description"] = "<<ExpedRuneTime>><rgb(219,217,206)>{Time Rune}\13\
+<font:'fontin'>{<italic>{<rgb(110,87,66)>{Monsters gain:}}}\13\
+<rgb(135,134,253)>{Slain Monsters may respawn as a higher Rarity}",
 		["name"] = "Time Rune",
 	},
 	["Total"] = {
@@ -3794,19 +4778,31 @@ return {
 		["name"] = "Adding to Stat Totals",
 	},
 	["Totem"] = {
-		["description"] = "Totems are [Allies|allied] constructs which use skills for you. Totems are not [Minion|Minions] and their skills benefit from your stats, though they have their own defensive stats and can be damaged or killed.  Totem Limit is shared between different types of Totem by default.",
+		["description"] = "Totems are [Allies|allied] constructs which use skills for you. Totems are not [Minion|Minions] and their skills benefit from your stats, though they have their own defensive stats and can be damaged or killed.\13\
+\13\
+Totem Limit is shared between different types of Totem by default.",
 		["name"] = "Totems",
 	},
 	["Toughness"] = {
-		["description"] = "The higher toughness a monster has, the less damage it takes. A monster with 100% increased toughness takes 50% less damage, a monster with 200% increased toughness takes 67% less damage, and so on.   Negative toughness instead causes the monster to take more damage. A monster with 100% reduced toughness takes 100% more damage, a monster with 200% reduced toughness takes 200% more damage, and so on.   Effectively, each 100% of toughness halves the damage a monster takes, and each -100% toughness doubles the damage a monster takes.",
+		["description"] = "The higher toughness a monster has, the less damage it takes. A monster with 100% increased toughness takes 50% less damage, a monster with 200% increased toughness takes 67% less damage, and so on. \13\
+\13\
+Negative toughness instead causes the monster to take more damage. A monster with 100% reduced toughness takes 100% more damage, a monster with 200% reduced toughness takes 200% more damage, and so on. \13\
+\13\
+Effectively, each 100% of toughness halves the damage a monster takes, and each -100% toughness doubles the damage a monster takes.",
 		["name"] = "Toughness",
 	},
 	["ToxicRune"] = {
-		["description"] = "<<ExpedRuneToxic>><rgb(219,217,206)>{Toxic Rune} <font:'fontin'>{<italic>{<rgb(110,87,66)>{Monsters gain:}}} <rgb(135,134,253)>{Chance to Poison on Hit} <rgb(135,134,253)>{Chance for Toxic Volatiles on death} <rgb(135,134,253)>{[DamageTypes|All Damage] from [Hit|Hits] [Contributes|Contributes] to [Poison] Magnitude}",
+		["description"] = "<<ExpedRuneToxic>><rgb(219,217,206)>{Toxic Rune}\13\
+<font:'fontin'>{<italic>{<rgb(110,87,66)>{Monsters gain:}}}\13\
+<rgb(135,134,253)>{Chance to Poison on Hit}\13\
+<rgb(135,134,253)>{Chance for Toxic Volatiles on death}\13\
+<rgb(135,134,253)>{[DamageTypes|All Damage] from [Hit|Hits] [Contributes|Contributes] to [Poison] Magnitude}",
 		["name"] = "Toxic Rune",
 	},
 	["Trap"] = {
-		["description"] = "Traps are [Two-Handed] ranged weapons that require [Dexterity] and [Intelligence] to equip. Traps cannot be used to [Attack] directly.   Throwing a Trap places it on the ground, where it can either be detonated manually or triggered by [CloseRange|Close by] enemies depending on the Trap type.",
+		["description"] = "Traps are [Two-Handed] ranged weapons that require [Dexterity] and [Intelligence] to equip. Traps cannot be used to [Attack] directly. \13\
+\13\
+Throwing a Trap places it on the ground, where it can either be detonated manually or triggered by [CloseRange|Close by] enemies depending on the Trap type.",
 		["name"] = "Traps",
 	},
 	["Travel"] = {
@@ -3814,11 +4810,15 @@ return {
 		["name"] = "Travel Skills",
 	},
 	["Trigger"] = {
-		["description"] = "Many effects can cause a Skill to Trigger. A Triggered Skill occurs immediately, without an attack or cast time, and usually targets the cause of the trigger. Triggering a Skill does not count as using it.  If multiple methods of Triggering a Skill attempt to apply to the same skill, that skill will be disabled. [Channelling|Channelled] Skills cannot be Triggered.",
+		["description"] = "Many effects can cause a Skill to Trigger. A Triggered Skill occurs immediately, without an attack or cast time, and usually targets the cause of the trigger. Triggering a Skill does not count as using it.\13\
+\13\
+If multiple methods of Triggering a Skill attempt to apply to the same skill, that skill will be disabled. [Channelling|Channelled] Skills cannot be Triggered.",
 		["name"] = "Triggered Skills",
 	},
 	["TrustedKinship"] = {
-		["description"] = "You can have two [Companion|Companions] of different types 30% more [Reservation] [Efficiency] of [Companion] Skills 20% less [Reservation] [Efficiency] of non-[Companion] Skills",
+		["description"] = "You can have two [Companion|Companions] of different types\13\
+30% more [Reservation] [Efficiency] of [Companion] Skills\13\
+20% less [Reservation] [Efficiency] of non-[Companion] Skills",
 		["name"] = "Trusted Kinship",
 	},
 	["Two-Handed"] = {
@@ -3830,7 +4830,9 @@ return {
 		["name"] = "Two-Hander",
 	},
 	["UFlask"] = {
-		["description"] = "Utility Flasks can only hold charges while in a flask slot. They can be bound to action buttons to trigger strategically during combat. Utility Flasks offer a buff or combat ability for a limited time.   Flasks refill at [Checkpoint|Checkpoints], [Wells|Wells] or by killing Monsters. More powerful Monsters will grant more charges.",
+		["description"] = "Utility Flasks can only hold charges while in a flask slot. They can be bound to action buttons to trigger strategically during combat. Utility Flasks offer a buff or combat ability for a limited time. \13\
+\13\
+Flasks refill at [Checkpoint|Checkpoints], [Wells|Wells] or by killing Monsters. More powerful Monsters will grant more charges.",
 		["name"] = "Utility Flasks",
 	},
 	["UltimatumKey"] = {
@@ -3838,7 +4840,9 @@ return {
 		["name"] = "",
 	},
 	["UltimatumRuin"] = {
-		["description"] = "Ruin is gained if you are hit by a Stalking Shade inside the Trial of Chaos.  Fail the Trials on reaching 7 Ruin",
+		["description"] = "Ruin is gained if you are hit by a Stalking Shade inside the Trial of Chaos.\13\
+\13\
+Fail the Trials on reaching 7 Ruin",
 		["name"] = "Ruin",
 	},
 	["Unaffected"] = {
@@ -3850,11 +4854,17 @@ return {
 		["name"] = "Unarmed",
 	},
 	["UnarmedAttack"] = {
-		["description"] = "Unarmed [Attack|Attacks] are [Attack|Attacks] which are performed while [Unarmed] and use your character's base [UnarmedDamage|Unarmed Damage] where other [Attack|Attacks] would use the base [Hit|Damage] from a [MartialWeapon|Martial Weapon].  [Attack|Attacks] which can be performed while [Unarmed] but draw their base damage from other sources, such as skills which use a [Shield] to attack, are not considered Unarmed Attacks.",
+		["description"] = "Unarmed [Attack|Attacks] are [Attack|Attacks] which are performed while [Unarmed] and use your character's base [UnarmedDamage|Unarmed Damage] where other [Attack|Attacks] would use the base [Hit|Damage] from a [MartialWeapon|Martial Weapon].\13\
+\13\
+[Attack|Attacks] which can be performed while [Unarmed] but draw their base damage from other sources, such as skills which use a [Shield] to attack, are not considered Unarmed Attacks.",
 		["name"] = "Unarmed Attacks",
 	},
 	["UnarmedDamage"] = {
-		["description"] = "Unarmed Damage refers to the [Hit|Hit Damage] of [UnarmedAttack|Unarmed Attacks]. As such, Unarmed Damage is always [Attack] [Hit|Hit Damage].  Players' base Unarmed Damage is [Physical], and has a minimum roll of 2, and a maximum roll between 5 - 8, depending on how aligned their class is with [Strength].  Other Damage is not considered Unarmed Damage, even if you are [Unarmed] while dealing it.",
+		["description"] = "Unarmed Damage refers to the [Hit|Hit Damage] of [UnarmedAttack|Unarmed Attacks]. As such, Unarmed Damage is always [Attack] [Hit|Hit Damage].\13\
+\13\
+Players' base Unarmed Damage is [Physical], and has a minimum roll of 2, and a maximum roll between 5 - 8, depending on how aligned their class is with [Strength].\13\
+\13\
+Other Damage is not considered Unarmed Damage, even if you are [Unarmed] while dealing it.",
 		["name"] = "Unarmed Damage",
 	},
 	["UnboundFury"] = {
@@ -3862,7 +4872,9 @@ return {
 		["name"] = "Unbound Fury",
 	},
 	["UnboundPotential"] = {
-		["description"] = "Each Unbound Potential grants 20% increased Damage, 10% increased [Armour], and 10% increased [EnergyShield|Energy Shield]. You can have up to 10 Unbound Potential, and will lose one every 5 seconds.  Lose all Unbound Potential when you [Shapeshift] into a Human.",
+		["description"] = "Each Unbound Potential grants 20% increased Damage, 10% increased [Armour], and 10% increased [EnergyShield|Energy Shield]. You can have up to 10 Unbound Potential, and will lose one every 5 seconds.\13\
+\13\
+Lose all Unbound Potential when you [Shapeshift] into a Human.",
 		["name"] = "Unbound Potential",
 	},
 	["UncappedResist"] = {
@@ -3870,7 +4882,12 @@ return {
 		["name"] = "Uncapped Resistance",
 	},
 	["UndeadArchon"] = {
-		["description"] = "Archon of Undeath is a type of [Archon] [Buff]. It grants: • 25% more [Minion] Damage • 200% more [CooldownRecovery|Cooldown Recovery Rate] for [Command] Skills • [TemporaryMinion|Temporary Minion Skills] have 100% more [Limit] of [Minion|Minions] summoned  When you gain Archon of Undeath all of your Persistent Undead [Minion|Minions] are revived.",
+		["description"] = "Archon of Undeath is a type of [Archon] [Buff]. It grants:\13\
+• 25% more [Minion] Damage\13\
+• 200% more [CooldownRecovery|Cooldown Recovery Rate] for [Command] Skills\13\
+• [TemporaryMinion|Temporary Minion Skills] have 100% more [Limit] of [Minion|Minions] summoned\13\
+\13\
+When you gain Archon of Undeath all of your Persistent Undead [Minion|Minions] are revived.",
 		["name"] = "Archon of Undeath",
 	},
 	["UnholyMight"] = {
@@ -3982,11 +4999,14 @@ return {
 		["name"] = "Unstable Desecration",
 	},
 	["UnwaveringStance"] = {
-		["description"] = "Cannot be Light Stunned Cannot Dodge Roll or Sprint",
+		["description"] = "Cannot be Light Stunned\
+Cannot Dodge Roll or Sprint",
 		["name"] = "Unwavering Stance",
 	},
 	["UpfrontCost"] = {
-		["description"] = "An upfront cost is one that lists just an amount of resource to pay, rather than a per-second rate to pay at.  \"3 Mana\" is an Upfront Cost, while \"3 Mana per second\" is not.",
+		["description"] = "An upfront cost is one that lists just an amount of resource to pay, rather than a per-second rate to pay at.\13\
+\13\
+\"3 Mana\" is an Upfront Cost, while \"3 Mana per second\" is not.",
 		["name"] = "Upfront Costs",
 	},
 	["UtilityBelt"] = {
@@ -3998,15 +5018,22 @@ return {
 		["name"] = "",
 	},
 	["VaalPact"] = {
-		["description"] = "50% more amount of Life [LifeLeech|Leeched] [LifeLeech|Leech Life] 67% less quickly Cannot Recover Life other than from [LifeLeech|Leech] [LifeLeech|Life Leech] effects are not removed when [Reservation|Unreserved] Life is Filled",
+		["description"] = "50% more amount of Life [LifeLeech|Leeched]\13\
+[LifeLeech|Leech Life] 67% less quickly\13\
+Cannot Recover Life other than from [LifeLeech|Leech]\13\
+[LifeLeech|Life Leech] effects are not removed when [Reservation|Unreserved] Life is Filled",
 		["name"] = "Vaal Pact",
 	},
 	["VaalSiphoner"] = {
-		["description"] = "An item with a Vaal Siphoner will require a set number of kills to complete. Once complete the tier of a random modifier on the item will be downgraded and all other modifiers will have their numeric values improved.  These improved modifier will have their values randomised between their current value and 10% above their maximum value.",
+		["description"] = "An item with a Vaal Siphoner will require a set number of kills to complete. Once complete the tier of a random modifier on the item will be downgraded and all other modifiers will have their numeric values improved.\13\
+\13\
+These improved modifier will have their values randomised between their current value and 10% above their maximum value.",
 		["name"] = "Vaal Siphoner",
 	},
 	["Valour"] = {
-		["description"] = "Valour is used to fuel Banner Skills. Killing an enemy with an [Attack] generates 1 Valour, and Banners passively gain 1 Valour per second while a [Rarity|Unique] enemy is in your [Presence]. You can only gain Valour once every 0.5 seconds, and a Banner skill cannot gain Valour while its Banner is placed.  Each Banner has 50 maximum Valour by default. If you have multiple Banner skills active, each gains Valour separately.",
+		["description"] = "Valour is used to fuel Banner Skills. Killing an enemy with an [Attack] generates 1 Valour, and Banners passively gain 1 Valour per second while a [Rarity|Unique] enemy is in your [Presence]. You can only gain Valour once every 0.5 seconds, and a Banner skill cannot gain Valour while its Banner is placed.\13\
+\13\
+Each Banner has 50 maximum Valour by default. If you have multiple Banner skills active, each gains Valour separately.",
 		["name"] = "Valour",
 	},
 	["VaultKeyWorldDrop"] = {
@@ -4018,11 +5045,17 @@ return {
 		["name"] = "",
 	},
 	["VerisiumInfusion"] = {
-		["description"] = "A Verisium Infusion can be used instead of any of the [ElementalInfusion|Elemental Infusions]. Skills will prioritise using non-Verisium Infusions. Verisium Infusions last for 20 seconds or until Consumed by another Skill.  Your maximum number of Verisium Infusions is equal to the maximum number of any single type of [ElementalInfusion|Elemental Infusion] you can have (3 by default).",
+		["description"] = "A Verisium Infusion can be used instead of any of the [ElementalInfusion|Elemental Infusions]. Skills will prioritise using non-Verisium Infusions. Verisium Infusions last for 20 seconds or until Consumed by another Skill.\13\
+\13\
+Your maximum number of Verisium Infusions is equal to the maximum number of any single type of [ElementalInfusion|Elemental Infusion] you can have (3 by default).",
 		["name"] = "Verisium Infusion",
 	},
 	["VisionRune"] = {
-		["description"] = "<<ExpedRuneVision>><rgb(219,217,206)>{Vision Rune} <font:'fontin'>{<italic>{<rgb(110,87,66)>{Monsters gain:}}} <rgb(135,134,253)>{Reflect Curses} <rgb(135,134,253)>{Chance to Reflect Shock} <rgb(135,134,253)>{Chance to Reflect Chill}",
+		["description"] = "<<ExpedRuneVision>><rgb(219,217,206)>{Vision Rune}\13\
+<font:'fontin'>{<italic>{<rgb(110,87,66)>{Monsters gain:}}}\13\
+<rgb(135,134,253)>{Reflect Curses}\13\
+<rgb(135,134,253)>{Chance to Reflect Shock}\13\
+<rgb(135,134,253)>{Chance to Reflect Chill}",
 		["name"] = "Vision Rune",
 	},
 	["VitalicRing"] = {
@@ -4034,7 +5067,9 @@ return {
 		["name"] = "Volatiles",
 	},
 	["Volatility"] = {
-		["description"] = "Volatility explodes after 4 seconds, dealing 100 [Physical] Damage to you per Volatility. For 10 seconds after explosion, you will gain Volatile Power, [Gain|Gaining] 1% of Damage as [Chaos] for each Volatility which exploded. The explosion timer will reset on gaining another stack of Volatility.  Volatility can be gained once every 0.1 seconds, and the default maximum for Volatility stacks on you at once is 200.",
+		["description"] = "Volatility explodes after 4 seconds, dealing 100 [Physical] Damage to you per Volatility. For 10 seconds after explosion, you will gain Volatile Power, [Gain|Gaining] 1% of Damage as [Chaos] for each Volatility which exploded. The explosion timer will reset on gaining another stack of Volatility.\13\
+\13\
+Volatility can be gained once every 0.1 seconds, and the default maximum for Volatility stacks on you at once is 200.",
 		["name"] = "Volatility",
 	},
 	["Vulnerability"] = {
@@ -4046,7 +5081,9 @@ return {
 		["name"] = "Waking Nightmare",
 	},
 	["Wand"] = {
-		["description"] = "Wands are [One-Handed] [Spell|Spellcasting] weapons that require [Intelligence] to equip.   Wands cannot be [DualWield|Dual Wielded] and cannot be used to [Attack] directly. However, they grant inbuilt [Spell|Spells] based on the wand type and powerful bonuses to spells.",
+		["description"] = "Wands are [One-Handed] [Spell|Spellcasting] weapons that require [Intelligence] to equip. \13\
+\13\
+Wands cannot be [DualWield|Dual Wielded] and cannot be used to [Attack] directly. However, they grant inbuilt [Spell|Spells] based on the wand type and powerful bonuses to spells.",
 		["name"] = "Wands",
 	},
 	["Warcry"] = {
@@ -4054,11 +5091,17 @@ return {
 		["name"] = "Warcries",
 	},
 	["Ward"] = {
-		["description"] = "Runic Ward is a last line of protection, absorbing fatal damage instead of your Life. If you take damage that would cause your Life to reach 0 while you have Runic Ward, you will drop to 1 Life and your Runic Ward will take the remaining damage. You will still die if you do not have enough Runic Ward to absorb the remaining damage. Runic Ward does not protect against Life loss that is not caused by taking damage.  Runic Ward constantly regenerates at a default rate of 5% per second.  Monsters can also have Runic Ward. While a monster has Runic Ward, it cannot be [CullingStrike|Culled].",
+		["description"] = "Runic Ward is a last line of protection, absorbing fatal damage instead of your Life. If you take damage that would cause your Life to reach 0 while you have Runic Ward, you will drop to 1 Life and your Runic Ward will take the remaining damage. You will still die if you do not have enough Runic Ward to absorb the remaining damage. Runic Ward does not protect against Life loss that is not caused by taking damage.\13\
+\13\
+Runic Ward constantly regenerates at a default rate of 5% per second.\13\
+\13\
+Monsters can also have Runic Ward. While a monster has Runic Ward, it cannot be [CullingStrike|Culled].",
 		["name"] = "Runic Ward",
 	},
 	["WardRune"] = {
-		["description"] = "<<ExpedRuneWard>><rgb(219,217,206)>{Ward Rune} <font:'fontin'>{<italic>{<rgb(110,87,66)>{Monsters gain:}}} <rgb(135,134,253)>{Protected by Runic Ward}",
+		["description"] = "<<ExpedRuneWard>><rgb(219,217,206)>{Ward Rune}\13\
+<font:'fontin'>{<italic>{<rgb(110,87,66)>{Monsters gain:}}}\13\
+<rgb(135,134,253)>{Protected by Runic Ward}",
 		["name"] = "Ward Rune",
 	},
 	["Waypoint"] = {
@@ -4066,7 +5109,11 @@ return {
 		["name"] = "Waypoints",
 	},
 	["Waystone"] = {
-		["description"] = "Waystones are items that can be used to travel to Maps on the Atlas.   Higher Waystone tiers open higher level areas containing more difficult monsters which drop higher level items and allows the use of higher tier Atlas Passives.  Waystones can be modified to increase the difficulty and reward of monsters encountered in Maps.",
+		["description"] = "Waystones are items that can be used to travel to Maps on the Atlas.\13\
+ \13\
+Higher Waystone tiers open higher level areas containing more difficult monsters which drop higher level items and allows the use of higher tier Atlas Passives.\13\
+\13\
+Waystones can be modified to increase the difficulty and reward of monsters encountered in Maps.",
 		["name"] = "Waystones",
 	},
 	["WeaponSetPassiveSkillPoints"] = {
@@ -4074,7 +5121,13 @@ return {
 		["name"] = "Weapon Set Passive Skill Points",
 	},
 	["WeaponSets"] = {
-		["description"] = "Your character has two Weapon Sets that can be used independently by equipping items into both sets.  By default your Skills will use the currently active Weapon Set if possible, or automatically swap to your other Weapon Set if required to use the Skill. You can also specify the Weapon Set you want to automatically swap to for each Skill in that Skill's information panel.  In addition to changing your active items, Weapon Sets also have [WeaponSetPassiveSkillPoints|dedicated Passive Skill Points] that can be allocated differently in each Weapon Set.  Weapon Sets can have differing amounts of available [Spirit], due to weapons with Spirit (such as [Sceptre|Sceptres]), [WeaponSetPassiveSkillPoints|Weapon Set Passive Skills], or [Persistent] Skills that are active in specific Weapon Sets.",
+		["description"] = "Your character has two Weapon Sets that can be used independently by equipping items into both sets.\13\
+\13\
+By default your Skills will use the currently active Weapon Set if possible, or automatically swap to your other Weapon Set if required to use the Skill. You can also specify the Weapon Set you want to automatically swap to for each Skill in that Skill's information panel.\13\
+\13\
+In addition to changing your active items, Weapon Sets also have [WeaponSetPassiveSkillPoints|dedicated Passive Skill Points] that can be allocated differently in each Weapon Set.\13\
+\13\
+Weapon Sets can have differing amounts of available [Spirit], due to weapons with Spirit (such as [Sceptre|Sceptres]), [WeaponSetPassiveSkillPoints|Weapon Set Passive Skills], or [Persistent] Skills that are active in specific Weapon Sets.",
 		["name"] = "Weapon Sets",
 	},
 	["Wells"] = {
@@ -4082,15 +5135,22 @@ return {
 		["name"] = "Wells",
 	},
 	["Werewolf"] = {
-		["description"] = "[Shapeshift] into a Werewolf to draw power from the [Cold] light of the moon, leading your pack with rabid [Attack|Attacks].  While in Werewolf form, you drop to all fours after moving for a short time, gaining 30% increased movement speed when not Sprinting.",
+		["description"] = "[Shapeshift] into a Werewolf to draw power from the [Cold] light of the moon, leading your pack with rabid [Attack|Attacks].\13\
+\13\
+While in Werewolf form, you drop to all fours after moving for a short time, gaining 30% increased movement speed when not Sprinting.",
 		["name"] = "Werewolf Form",
 	},
 	["Whirlwind"] = {
-		["description"] = "Whirlwinds [Blind] and [Slow] the movement speed of enemies within them.  If their creator crosses the edge of the Whirlwind it collapses, damaging and [Knockback|Knocking Back] enemies caught inside. The collapse deals [Melee] damage.  Trying to create a Whirlwind that would overlap with an existing Whirlwind instead moves the existing Whirlwind and grants it a stage, making it larger and more damaging.  A Whirlwind that overlaps an allied [ElementalGround|Elemental Ground Surface] takes on that element, gaining 50% of damage as the corresponding type and applying the Ground Surface's debuff to enemies inside the Whirlwind for 8 seconds.",
+		["description"] = "Whirlwinds [Blind] and [Slow] the movement speed of enemies within them.  If their creator crosses the edge of the Whirlwind it collapses, damaging and [Knockback|Knocking Back] enemies caught inside. The collapse deals [Melee] damage.\13\
+\13\
+Trying to create a Whirlwind that would overlap with an existing Whirlwind instead moves the existing Whirlwind and grants it a stage, making it larger and more damaging.\13\
+\13\
+A Whirlwind that overlaps an allied [ElementalGround|Elemental Ground Surface] takes on that element, gaining 50% of damage as the corresponding type and applying the Ground Surface's debuff to enemies inside the Whirlwind for 8 seconds.",
 		["name"] = "Whirlwinds",
 	},
 	["WhispersOfDoom"] = {
-		["description"] = "You can apply an additional [Curse] Double Activation Delay of [Curse|Curses]",
+		["description"] = "You can apply an additional [Curse]\13\
+Double Activation Delay of [Curse|Curses]",
 		["name"] = "Whispers of Doom",
 	},
 	["WildwoodWisp"] = {
@@ -4102,7 +5162,9 @@ return {
 		["name"] = "Wind Skills",
 	},
 	["WisdomRune"] = {
-		["description"] = "<<ExpedRuneWisdom>><rgb(219,217,206)>{Wisdom Rune} <font:'fontin'>{<italic>{<rgb(110,87,66)>{Monsters gain:}}} <rgb(135,134,253)>{Increased Experience}",
+		["description"] = "<<ExpedRuneWisdom>><rgb(219,217,206)>{Wisdom Rune}\13\
+<font:'fontin'>{<italic>{<rgb(110,87,66)>{Monsters gain:}}}\13\
+<rgb(135,134,253)>{Increased Experience}",
 		["name"] = "Wisdom Rune",
 	},
 	["Withered"] = {
@@ -4114,11 +5176,17 @@ return {
 		["name"] = "Withering Ground",
 	},
 	["Wyvern"] = {
-		["description"] = "[Shapeshift] into a Wyvern to bombard your enemies with [Fire] and [Lightning], then close in for the kill.  While in Wyvern form, you gain: • 50% increased [StunThreshold|Stun Threshold] • 50% increased [AilmentThreshold|Elemental Ailment Threshold] • 50% [FasterESRechargeStart|faster start of Energy Shield Recharge]",
+		["description"] = "[Shapeshift] into a Wyvern to bombard your enemies with [Fire] and [Lightning], then close in for the kill.\13\
+\13\
+While in Wyvern form, you gain:\13\
+• 50% increased [StunThreshold|Stun Threshold]\13\
+• 50% increased [AilmentThreshold|Elemental Ailment Threshold]\13\
+• 50% [FasterESRechargeStart|faster start of Energy Shield Recharge]",
 		["name"] = "Wyvern Form",
 	},
 	["ZealotsOath"] = {
-		["description"] = "Excess Life Recovery from Regeneration is applied to [EnergyShield|Energy Shield]. [EnergyShield|Energy Shield] does not Recharge.",
+		["description"] = "Excess Life Recovery from Regeneration is applied to [EnergyShield|Energy Shield].\13\
+[EnergyShield|Energy Shield] does not Recharge.",
 		["name"] = "Zealot's Oath",
 	},
 	["test2"] = {

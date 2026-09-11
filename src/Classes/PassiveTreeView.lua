@@ -19,42 +19,67 @@ local unseenPathHover = false
 
 local gemTooltip = LoadModule("Classes/GemTooltip")
 
--- Keywords worth explaining in a node tooltip. Nothing is shown unless it is listed here:
--- most of GGG's ~770 keywords are plain stat vocabulary and only add noise. Add a name to
--- start showing its popup, exactly as it appears in Data/KeywordPopups.lua.
-local explainedKeywords = { }
-for _, name in ipairs({
-	-- ascendancy and node mechanics
-	"Unravelling", "Inevitable Critical Hits", "Culling Strike", "Decimating Strike",
-	"Sands of Time", "Thaumaturgical Dynamism",
-	-- PoE2 mechanics that are easy to miss
-	"Presence", "Rage", "Companions", "Glory", "Thorns", "Daze", "Remnants", "Flammability",
-	"Energy Shield Recharge", "Reservation", "Empowered", "Surrounded",
-	-- ailments and status
-	"Stun", "Freeze", "Shock", "Chill", "Ignite", "Bleeding", "Poison", "Ailments",
-	"Elemental Ailment Threshold", "Charges", "Debuffs", "Curses", "Buffs",
-	-- recovery and speed rules
-	"Cooldown Recovery Rate", "Skill Speed",
-}) do
-	explainedKeywords[name] = true
+-- GGG tags keyword references inside popup text as [Id] or [Id|Display]. Tint the ones
+-- that map onto a colour PoB already defines, and leave the rest in the body colour.
+local keywordBodyColor = "^xA0A080"
+local keywordColors = {
+	Fire = colorCodes.FIRE,
+	Ignite = colorCodes.FIRE,
+	Burning = colorCodes.FIRE,
+	Flammability = colorCodes.FIRE,
+	Cold = colorCodes.COLD,
+	Freeze = colorCodes.COLD,
+	Frozen = colorCodes.COLD,
+	Chill = colorCodes.COLD,
+	Lightning = colorCodes.LIGHTNING,
+	Shock = colorCodes.LIGHTNING,
+	Chaos = colorCodes.CHAOS,
+	Strength = colorCodes.STRENGTH,
+	Dexterity = colorCodes.DEXTERITY,
+	Intelligence = colorCodes.INTELLIGENCE,
+	Spirit = colorCodes.SPIRIT,
+}
+
+-- Strips GGG's keyword markup, colouring the references PoB has a colour for
+local function colorKeywordText(text)
+	-- GGG also wraps text in font and colour markup, <tag>{text}, which can nest
+	-- unwrap innermost first, since these nest: <font>{<italic>{<rgb>{text}}}
+	local prev
+	repeat
+		prev = text
+		text = text:gsub("<[^<>]+>{([^{}]*)}", "%1")
+	until text == prev
+	-- then drop any tag left without braces, including the <> from <<Name>>
+	repeat
+		prev = text
+		text = text:gsub("<[^<>]*>", "")
+	until text == prev
+	return (text:gsub("%[([^|%]]+)|([^%]]+)%]", function(id, display)
+		local color = keywordColors[id]
+		return color and (color .. display .. keywordBodyColor) or display
+	end):gsub("%[([^|%]]+)%]", function(id)
+		local color = keywordColors[id]
+		return color and (color .. id .. keywordBodyColor) or id
+	end))
 end
 
--- Keyword popups, deduplicated by name and sorted longest first so "Energy Shield Recharge"
--- is matched before "Energy Shield". Built on first use, as data is not loaded at module load.
-local keywordList
-local function getKeywordList()
+-- Every GGG keyword popup, indexed by display name. Built on first use, as data is not
+-- loaded at module load. Sorted longest first so "Energy Shield Recharge" is matched
+-- before "Energy Shield".
+local keywordList, keywordByName
+local function getKeywords()
 	if not keywordList then
-		local byName = { }
+		keywordByName = { }
 		for id, popup in pairs(data.keywordPopups) do
-			if explainedKeywords[popup.name] and popup.description and popup.description ~= "" then
-				local cur = byName[popup.name]
+			if popup.name and popup.name ~= "" and popup.description and popup.description ~= "" then
+				local cur = keywordByName[popup.name]
 				if not cur or id < cur.id then
-					byName[popup.name] = { id = id, name = popup.name, description = popup.description }
+					keywordByName[popup.name] = { id = id, name = popup.name, description = popup.description }
 				end
 			end
 		end
 		keywordList = { }
-		for _, popup in pairs(byName) do
+		for _, popup in pairs(keywordByName) do
 			t_insert(keywordList, popup)
 		end
 		table.sort(keywordList, function(a, b)
@@ -64,40 +89,56 @@ local function getKeywordList()
 			return a.name < b.name
 		end)
 	end
-	return keywordList
+	return keywordList, keywordByName
 end
 
--- Returns the keyword popups mentioned by the given stat lines
+-- Splits the keywords a node mentions into two tiers.
+-- "granted" is for stat lines that are nothing but a keyword ("Inevitable Critical Hits",
+-- "Grants Unravelling"). The node exists to give you that mechanic, so it is always explained.
+-- "mentioned" is for keywords inside a longer line. Common ones like Armour turn up on
+-- hundreds of nodes, so those are only shown on request.
 local function findKeywords(lines)
-	local found, seen = { }, { }
+	local granted, mentioned, seen = { }, { }, { }
+	if not main.showKeywordTooltips then
+		return granted, mentioned
+	end
+	local list, byName = getKeywords()
 	for _, text in ipairs(lines) do
-		local taken = { }
-		for _, popup in ipairs(getKeywordList()) do
-			local init = 1
-			while true do
-				local s, e = text:find(popup.name, init, true)
-				if not s then
-					break
-				end
-				-- skip matches inside a longer word ("Life" in "Lifetap") and inside an
-				-- already claimed keyword ("Shield" within "Energy Shield")
-				if not taken[s] and not taken[e]
-					and (s == 1 or not text:sub(s - 1, s - 1):match("%w"))
-					and (e == #text or not text:sub(e + 1, e + 1):match("%w")) then
-					for i = s, e do
-						taken[i] = true
+		local whole = byName[text] or byName[text:match("^Grants (.+)$") or ""]
+		if whole then
+			if not seen[whole.name] then
+				seen[whole.name] = true
+				t_insert(granted, whole)
+			end
+		else
+			local taken = { }
+			for _, popup in ipairs(list) do
+				local init = 1
+				while true do
+					local s, e = text:find(popup.name, init, true)
+					if not s then
+						break
 					end
-					if not seen[popup.name] then
-						seen[popup.name] = true
-						t_insert(found, popup)
+					-- skip matches inside a longer word ("Life" in "Lifetap") and inside an
+					-- already claimed keyword ("Shield" within "Energy Shield")
+					if not taken[s] and not taken[e]
+						and (s == 1 or not text:sub(s - 1, s - 1):match("%w"))
+						and (e == #text or not text:sub(e + 1, e + 1):match("%w")) then
+						for i = s, e do
+							taken[i] = true
+						end
+						if not seen[popup.name] then
+							seen[popup.name] = true
+							t_insert(mentioned, popup)
+						end
+						break
 					end
-					break
+					init = e + 1
 				end
-				init = e + 1
 			end
 		end
 	end
-	return found
+	return granted, mentioned
 end
 
 local JEWEL_RADIUS_TINT_NEUTRAL = { 1, 1, 1, 0.7 }
@@ -1299,7 +1340,7 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 			-- Draw tooltip
 			SetDrawLayer(nil, 100)
 			local size = m_floor(node.size * scale)
-			if self.tooltip:CheckForUpdate(node, self.showStatDifferences, self.tracePath, launch.devModeAlt, build.outputRevision, build.spec.allocMode) then
+			if self.tooltip:CheckForUpdate(node, self.showStatDifferences, self.tracePath, launch.devModeAlt, build.outputRevision, build.spec.allocMode, IsKeyDown("ALT"), main.showKeywordTooltips) then
 				self:AddNodeTooltip(self.tooltip, node, build, incSmallPassiveSkillEffect)
 			end
 			self.tooltip.center = true
@@ -1972,15 +2013,26 @@ function PassiveTreeViewClass:AddNodeTooltip(tooltip, node, build, incSmallPassi
 		if not (mNode.isAttribute and not mNode.conqueredBy) and (mNode.type == "Normal" or mNode.type == "Notable") and isNodeInARadius(node) then
 			localIncEffect = processTimeLostModsAndGetLocalEffect(mNode, build)
 		end
+		-- Underline the keywords in the stat lines, as the game does, so it is obvious
+		-- which words have an explanation attached
+		local granted, mentioned = findKeywords(mNode.sd)
+		tooltip.underlineWords = nil
+		for _, popup in ipairs(granted) do
+			tooltip.underlineWords = tooltip.underlineWords or { }
+			tooltip.underlineWords[popup.name] = true
+		end
+		for _, popup in ipairs(mentioned) do
+			tooltip.underlineWords = tooltip.underlineWords or { }
+			tooltip.underlineWords[popup.name] = true
+		end
 		for i, line in ipairs(mNode.sd) do
 			addModInfoToTooltip(mNode, i, line, localIncEffect)
 		end
+		tooltip.underlineWords = nil
 
-		-- Explain any game keywords the stat lines mention, the way the in-game tooltip does
-		for _, popup in ipairs(findKeywords(mNode.sd)) do
+		if mentioned[1] and not IsKeyDown("ALT") then
 			tooltip:AddSeparator(10)
-			tooltip:AddLine(14, colorCodes.MAGIC .. popup.name)
-			tooltip:AddLine(14, "^xA0A080" .. (escapeGGGString(popup.description):gsub("\r", "")))
+			tooltip:AddLine(14, colorCodes.TIP .. "Tip: Hold Alt to explain the keywords in this node")
 		end
 		-- add child tooltip for skills
 		self.skillTooltip:Clear()
@@ -1998,6 +2050,24 @@ function PassiveTreeViewClass:AddNodeTooltip(tooltip, node, build, incSmallPassi
 						break
 					end
 				end
+			end
+		end
+
+		-- Keyword explanations go in the side tooltip so a long one, like Stun, cannot push
+		-- the stat and allocation numbers around in the main tooltip
+		local function addKeywordPopup(popup)
+			if #self.skillTooltip.lines > 0 then
+				self.skillTooltip:AddSeparator(10)
+			end
+			self.skillTooltip:AddLine(14, colorCodes.MAGIC .. popup.name)
+			self.skillTooltip:AddLine(14, keywordBodyColor .. colorKeywordText(popup.description:gsub("\r", "")))
+		end
+		for _, popup in ipairs(granted) do
+			addKeywordPopup(popup)
+		end
+		if IsKeyDown("ALT") then
+			for _, popup in ipairs(mentioned) do
+				addKeywordPopup(popup)
 			end
 		end
 	end
