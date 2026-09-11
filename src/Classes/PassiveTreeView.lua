@@ -96,12 +96,9 @@ end
 -- "granted" is for stat lines that are nothing but a keyword ("Inevitable Critical Hits",
 -- "Grants Unravelling"). The node exists to give you that mechanic, so it is always explained.
 -- "mentioned" is for keywords inside a longer line. Common ones like Armour turn up on
--- hundreds of nodes, so those are only shown on request.
+-- hundreds of nodes, so those are opt-in and only listed when the option is enabled.
 local function findKeywords(lines)
 	local granted, mentioned, seen = { }, { }, { }
-	if not main.showKeywordTooltips then
-		return granted, mentioned
-	end
 	local list, byName = getKeywords()
 	for _, text in ipairs(lines) do
 		local whole = byName[text] or byName[text:match("^Grants (.+)$") or ""]
@@ -110,7 +107,7 @@ local function findKeywords(lines)
 				seen[whole.name] = true
 				t_insert(granted, whole)
 			end
-		else
+		elseif main.showKeywordTooltips then
 			local taken = { }
 			for _, popup in ipairs(list) do
 				local init = 1
@@ -2030,6 +2027,13 @@ function PassiveTreeViewClass:AddNodeTooltip(tooltip, node, build, incSmallPassi
 		end
 		tooltip.underlineWords = nil
 
+		-- A node whose stat line is nothing but a keyword is explained inline: there is only
+		-- ever one, and it is the whole point of the node
+		for _, popup in ipairs(granted) do
+			tooltip:AddSeparator(10)
+			tooltip:AddLine(14, colorCodes.MAGIC .. popup.name)
+			tooltip:AddLine(14, keywordBodyColor .. colorKeywordText(popup.description:gsub("\r", "")))
+		end
 		if mentioned[1] and not IsKeyDown("ALT") then
 			tooltip:AddSeparator(10)
 			tooltip:AddLine(14, colorCodes.TIP .. "Tip: Hold Alt to explain the keywords in this node")
@@ -2053,21 +2057,15 @@ function PassiveTreeViewClass:AddNodeTooltip(tooltip, node, build, incSmallPassi
 			end
 		end
 
-		-- Keyword explanations go in the side tooltip so a long one, like Stun, cannot push
-		-- the stat and allocation numbers around in the main tooltip
-		local function addKeywordPopup(popup)
-			if #self.skillTooltip.lines > 0 then
-				self.skillTooltip:AddSeparator(10)
-			end
-			self.skillTooltip:AddLine(14, colorCodes.MAGIC .. popup.name)
-			self.skillTooltip:AddLine(14, keywordBodyColor .. colorKeywordText(popup.description:gsub("\r", "")))
-		end
-		for _, popup in ipairs(granted) do
-			addKeywordPopup(popup)
-		end
+		-- Keywords the node merely mentions go in the side tooltip, since there can be
+		-- several long ones and they would otherwise move the stat and allocation numbers
 		if IsKeyDown("ALT") then
 			for _, popup in ipairs(mentioned) do
-				addKeywordPopup(popup)
+				if #self.skillTooltip.lines > 0 then
+					self.skillTooltip:AddSeparator(10)
+				end
+				self.skillTooltip:AddLine(14, colorCodes.MAGIC .. popup.name)
+				self.skillTooltip:AddLine(14, keywordBodyColor .. colorKeywordText(popup.description:gsub("\r", "")))
 			end
 		end
 	end
