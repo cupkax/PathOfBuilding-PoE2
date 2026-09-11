@@ -1115,7 +1115,7 @@ function main:OpenOptionsPopup(savedState)
 	controls.showFlavourText.tooltipText = "If updating while inside a build, please re-load the build after saving."
 
 	nextRow()
-	controls.showKeywordTooltips = new("CheckBoxControl"):CheckBoxControl({ "TOPLEFT", controls.sectionAnchor, "TOPLEFT" }, { currentX + defaultLabelPlacementX, currentY, 20 }, "^7Explain mentioned keywords in tree tooltips:", function(state)
+	controls.showKeywordTooltips = new("CheckBoxControl"):CheckBoxControl({ "TOPLEFT", controls.sectionAnchor, "TOPLEFT" }, { currentX + defaultLabelPlacementX, currentY, 20 }, "^7Explain keywords in tree tooltips:", function(state)
 		self.showKeywordTooltips = state
 	end)
 	controls.showKeywordTooltips.tooltipText = "Underlines game keywords a node mentions, and explains them in a side panel while Alt is held.\nNodes whose stat line is only a keyword, such as Grants Unravelling, are always explained."

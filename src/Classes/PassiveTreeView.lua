@@ -92,6 +92,27 @@ local function getKeywords()
 	return keywordList, keywordByName
 end
 
+-- Keywords not worth explaining on a passive node. They sometimes conflict 
+-- with in-game content rather than passive tree nodes.
+local deniedKeywords = { }
+for _, name in ipairs({
+	"Power",        -- Trial of Chaos rooms, matches "Power Charge" nodes
+	"Empowerment",  -- map modifier text
+	"Recently",     -- past 4 seconds
+	"Maximum",      -- explains modifier ranges, not a tree mechanic
+	"Equipment",    -- "Equipment are items that can be Equipped"
+	"Equipped",     -- restates that weapons and armour are worn, on 45 nodes
+	"Possessed",    -- Azmeri spirit possession, matches "Tame Beast" nodes
+	-- Monster modifiers. These are map mods and describe the enemy, not your character
+	"Extra Fire Damage", "Extra Cold Damage", "Extra Lightning Damage", "Extra Chaos Damage",
+	-- Weapon and off-hand types. The popup just restates what the base item is
+	"Quarterstaves", "Crossbows", "Spears", "Bows", "Maces", "Wands", "Staves", "Sceptres",
+	"Daggers", "Claws", "Swords", "Axes", "Flails", "Bucklers", "Shields", "Foci",
+	"Two-Handed",
+}) do
+	deniedKeywords[name] = true
+end
+
 -- Splits the keywords a node mentions into two tiers.
 -- "granted" is for stat lines that are nothing but a keyword ("Inevitable Critical Hits",
 -- "Grants Unravelling"). The node exists to give you that mechanic, so it is always explained.
@@ -107,7 +128,10 @@ local function findKeywords(lines)
 				seen[whole.name] = true
 				t_insert(granted, whole)
 			end
-		elseif main.showKeywordTooltips then
+		elseif main.showKeywordTooltips and not text:find("^Grants Skill: ") then
+			-- everything after that colon is a skill's proper name, so a keyword found in it
+			-- is a coincidence ("Time Freeze", "Into the Breach"). The granted skill already
+			-- gets its own tooltip in the side panel.
 			local taken = { }
 			for _, popup in ipairs(list) do
 				local init = 1
@@ -126,7 +150,9 @@ local function findKeywords(lines)
 						end
 						if not seen[popup.name] then
 							seen[popup.name] = true
-							t_insert(mentioned, popup)
+							if not deniedKeywords[popup.name] then
+								t_insert(mentioned, popup)
+							end
 						end
 						break
 					end
