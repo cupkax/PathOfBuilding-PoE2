@@ -104,7 +104,7 @@ for _, name in ipairs({
 	"Equipped",     -- restates that weapons and armour are worn, on 45 nodes
 	"Possessed",    -- Azmeri spirit possession, matches "Tame Beast" nodes
 	-- Self-explanatory
-	"Rage", "Spells", "Rune", "Attacks", "Minions", "Resistances", "Totems", "Cold Damage", "Fire Damage", "Lightning Damage", "Chaos Damage", "Physical Damage", "Offering Skills",
+	"Item Armour", "Melee", "Projectile", "Rage", "Spells", "Rune", "Attacks", "Minions", "Resistances", "Totems", "Cold Damage", "Fire Damage", "Lightning Damage", "Chaos Damage", "Physical Damage", "Offering Skills",
 	-- Monster modifiers. These are map mods and describe the enemy, not your character
 	"Extra Fire Damage", "Extra Cold Damage", "Extra Lightning Damage", "Extra Chaos Damage",
 	-- Weapon and off-hand types. The popup just restates what the base item is
