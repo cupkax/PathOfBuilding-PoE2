@@ -3436,9 +3436,9 @@ local specialModList = {
 	["demonflame has no maximum"] = { mod("Multiplier:DemonFlameMaximum", "BASE", 999) },
 	-- Druid -- Shaman
 	["enemies in your presence have exposure"] = {
-		mod("EnemyModifier", "LIST", { mod = mod("FireExposure", "BASE", 20) }, { type = "ActorCondition", actor = "enemy", var = "EnemyInPresence" }),
-		mod("EnemyModifier", "LIST", { mod = mod("ColdExposure", "BASE", 20) }, { type = "ActorCondition", actor = "enemy", var = "EnemyInPresence" }),
-		mod("EnemyModifier", "LIST", { mod = mod("LightningExposure", "BASE", 20) }, { type = "ActorCondition", actor = "enemy", var = "EnemyInPresence" }),
+		mod("EnemyModifier", "LIST", { mod = mod("FireExposure", "BASE", 20, { type = "ActorCondition", actor = "enemy", var = "EnemyInPresence" }) }),
+		mod("EnemyModifier", "LIST", { mod = mod("ColdExposure", "BASE", 20, { type = "ActorCondition", actor = "enemy", var = "EnemyInPresence" }) }),
+		mod("EnemyModifier", "LIST", { mod = mod("LightningExposure", "BASE", 20, { type = "ActorCondition", actor = "enemy", var = "EnemyInPresence" }) }),
 	},
 	-- Druid -- Oracle
 	["inevitable critical hits"] = { flag("InevitableCriticalHits") },
@@ -3586,6 +3586,7 @@ local specialModList = {
 		mod("ScoldsBridleSelfDamage", "LIST", {dmgMult = dmgMult, damageType = dmgType})
 	} end,
 	-- Extra skill/support
+	["grants skill: spear throw"] = { }, -- Display-only; granted by CharacterMeleeSkills.
 	["grants skill: (%D+)"] = function(_, skill) return grantedExtraSkill(skill, 1) end,
 	["grants skill: level (%d+) (.+)"] = function(num, _, skill) return grantedExtraSkill(skill, num) end,
 	["[ct][ar][si][tg]g?e?r?s? level (%d+) (.+) when equipped"] = function(num, _, skill) return triggerExtraSkill(skill, num) end,
@@ -4437,6 +4438,7 @@ local specialModList = {
 		mod("ExtraAura", "LIST", { mod = flag("Condition:ArcaneSurge")}, { type = "MultiplierThreshold", var = "LifeSpentRecently", threshold = num }),
 	} end,
 	["arcane surge grants more life regeneration rate instead of mana regeneration rate"] = { flag("ArcaneSurgeLifeRegen") },
+	["(%d+)%% chance to gain onslaught on killing hits with this weapon"] = { flag("Onslaught", { type = "Condition", var = "KilledRecently" }) },
 	["gain onslaught for (%d+) seconds on hit while at maximum frenzy charges"] = { flag("Onslaught", { type = "StatThreshold", stat = "FrenzyCharges", thresholdStat = "FrenzyChargesMax" }, { type = "Condition", var = "HitRecently" }) },
 	["enemies in your chilling areas take (%d+)%% increased lightning damage"] = function(num) return { mod("EnemyModifier", "LIST", { mod = mod("LightningDamageTaken", "INC", num) }, { type = "ActorCondition", actor = "enemy", var = "InChillingArea" }) } end,
 	["warcries count as having (%d+) additional nearby enemies"] = function(num) return {

@@ -349,15 +349,6 @@ function ItemsTabClass:ItemsTab(build)
 			self.activeItemSet.useSecondWeaponSet = false
 			self:AddUndoState()
 			self.build.buildFlag = true
-			local mainSocketGroup = self.build.skillsTab.socketGroupList[self.build.mainSocketGroup]
-			if mainSocketGroup and mainSocketGroup.slot and self.slots[mainSocketGroup.slot].weaponSet == 2 then
-				for index, socketGroup in ipairs(self.build.skillsTab.socketGroupList) do
-					if socketGroup.slot and self.slots[socketGroup.slot].weaponSet == 1 then
-						self.build.mainSocketGroup = index
-						break
-					end
-				end
-			end
 		end
 	end)
 	self.controls.weaponSwap1.overSizeText = 3
@@ -369,15 +360,6 @@ function ItemsTabClass:ItemsTab(build)
 			self.activeItemSet.useSecondWeaponSet = true
 			self:AddUndoState()
 			self.build.buildFlag = true
-			local mainSocketGroup = self.build.skillsTab.socketGroupList[self.build.mainSocketGroup]
-			if mainSocketGroup and mainSocketGroup.slot and self.slots[mainSocketGroup.slot].weaponSet == 1 then
-				for index, socketGroup in ipairs(self.build.skillsTab.socketGroupList) do
-					if socketGroup.slot and self.slots[socketGroup.slot].weaponSet == 2 then
-						self.build.mainSocketGroup = index
-						break
-					end
-				end
-			end
 		end
 	end)
 	self.controls.weaponSwap2.overSizeText = 3
@@ -491,6 +473,9 @@ holding Shift will put it in the second.]])
 		end
 		if self.displayItem:UsesVersionedOrGroupedVariants() then
 			local rows = self.displayItem.versionList and #self.displayItem.versionList > 1 and 1 or 0
+			if self.displayItem.baseList and #self.displayItem.baseList then
+				rows += 1
+			end
 			if self.displayItem:HasIndependentVariants() then
 				rows = rows + (#self.displayItem.variantList > 1 and 1 or 0)
 			else
@@ -504,15 +489,16 @@ holding Shift will put it in the second.]])
 			end
 			return rows > 0 and rows * 24 + 4 or 0
 		end
-		if not self.controls.displayItemVariant:IsShown() then
+		if not self.controls.displayItemVariant:IsShown() and not self.controls.displayItemBaseVariant:IsShown() then
 			return 0
 		end
 		return (28 +
-		(self.displayItem.hasAltVariant and 24 or 0) +
-		(self.displayItem.hasAltVariant2 and 24 or 0) +
-		(self.displayItem.hasAltVariant3 and 24 or 0) +
-		(self.displayItem.hasAltVariant4 and 24 or 0) +
-		(self.displayItem.hasAltVariant5 and 24 or 0))
+			(self.displayItem.baseList and 24 or 0) +
+			(self.displayItem.hasAltVariant and 24 or 0) +
+			(self.displayItem.hasAltVariant2 and 24 or 0) +
+			(self.displayItem.hasAltVariant3 and 24 or 0) +
+			(self.displayItem.hasAltVariant4 and 24 or 0) +
+			(self.displayItem.hasAltVariant5 and 24 or 0))
 	end})
 	self.controls.displayItemVersion = new("DropDownControl"):DropDownControl({ "TOPLEFT", self.controls.displayItemSectionVariant, "TOPLEFT" }, { 0, 0, 300, 20 }, nil, function(index, value)
 		self.displayItem.selectedVersion = index
@@ -528,11 +514,30 @@ holding Shift will put it in the second.]])
 		return self.displayItem and self.displayItem:UsesVersionedOrGroupedVariants()
 			and self.displayItem.versionList and #self.displayItem.versionList > 1
 	end
+	self.controls.displayItemBaseVariant = new("DropDownControl"):DropDownControl({ "TOPLEFT", self.controls.displayItemSectionVariant, "TOPLEFT" }, { 0, 0, 300, 20 }, nil, function(index, value)
+		self.displayItem.selectedBase = index
+		self.displayItem:NormaliseVariantSelections()
+		self.displayItem:BuildAndParseRaw()
+		self:UpdateDisplayItemVariantControls()
+		self:UpdateRuneControls()
+		self:UpdateDisplayItemTooltip()
+		self:UpdateDisplayItemRangeLines()
+	end)
+	self.controls.displayItemBaseVariant.y = function()
+		return self.controls.displayItemVersion:IsShown() and 24 or 0
+	end
+	self.controls.displayItemBaseVariant.maxDroppedWidth = 1000
+	self.controls.displayItemBaseVariant.shown = function()
+		return self.displayItem.baseList and #self.displayItem.baseList > 1
+	end
 	self.controls.displayItemVariant = new("DropDownControl"):DropDownControl({ "TOPLEFT", self.controls.displayItemSectionVariant, "TOPLEFT" }, { 0, 0, 300, 20 }, nil, function(index, value)
 		self:SelectDisplayItemVariant(index, value, "variant", self.controls.displayItemVariant)
 	end)
 	self.controls.displayItemVariant.y = function()
-		return self.controls.displayItemVersion:IsShown() and 24 or 0
+		local y = 0
+		y += self.controls.displayItemBaseVariant:IsShown() and 24 or 0
+		y += self.controls.displayItemVersion:IsShown() and 24 or 0
+		return y
 	end
 	self.controls.displayItemVariant.maxDroppedWidth = 1000
 	self.controls.displayItemVariant.shown = function()
@@ -1371,7 +1376,8 @@ function ItemsTabClass:Save(xml)
 	for _, itemSetId in ipairs(self.itemSetOrderList) do
 		local itemSet = self.itemSets[itemSetId]
 		local child = { elem = "ItemSet", attrib = { id = tostring(itemSetId), title = itemSet.title, useSecondWeaponSet = tostring(itemSet.useSecondWeaponSet) } }
-		for slotName, slot in pairs(self.slots) do
+		for _, slot in ipairs(self.orderedSlots) do
+			local slotName = slot.slotName
 			if not slot.parentSlot or itemSet[slotName].selItemId ~= 0 then
 				if not slot.nodeId then
 					t_insert(child, { elem = "Slot", attrib = { name = slotName, itemId = tostring(itemSet[slotName].selItemId), itemPbURL = itemSet[slotName].pbURL or "", active = itemSet[slotName].active and "true", note = itemSet[slotName].note }})
@@ -1382,7 +1388,7 @@ function ItemsTabClass:Save(xml)
 				end
 			end
 		end
-		for slotName, _ in pairs(self.runeSlots) do
+		for _, slotName in ipairs(self.runeSlotOrder) do
 			local runeName = (itemSet[slotName] and itemSet[slotName].runeName) or "None"
 			local node = { elem = "RuneSlot", attrib = { slotName = slotName, runeName = runeName } }
 			t_insert(child, node)
@@ -2064,6 +2070,7 @@ function ItemsTabClass:UpdateDisplayItemVariantControls()
 end
 
 -- Sets the display item to the given item
+---@param item Item
 function ItemsTabClass:SetDisplayItem(item)
 	self.displayItem = item
 	if item then
@@ -2079,6 +2086,9 @@ function ItemsTabClass:SetDisplayItem(item)
 			self.controls.displayItemVariant.selIndex = item.variant
 			self.controls.displayItemVariant:CheckDroppedWidth(true)
 		end
+		self.controls.displayItemBaseVariant.list = item.baseList or {}
+		self.controls.displayItemBaseVariant.selIndex = item.selectedBase or 1
+		self.controls.displayItemBaseVariant:CheckDroppedWidth(true)
 		if not usesVersionedOrGroupedVariants and item.hasAltVariant then
 			self.controls.displayItemAltVariant.list = item.variantList
 			self.controls.displayItemAltVariant.selIndex = item.variantAlt
@@ -3356,6 +3366,39 @@ function ItemsTabClass:AddCustomModifierToDisplayItem()
 			controls.modSelect:SetSel(1, true)
 		end
 	end
+	local function modHasSpawnTag(mod, tag)
+		local idx = 1
+		while mod.weightKey[idx] do
+			if (mod.weightKey[idx] == tag) and (mod.weightVal[idx] > 0) then
+				return true
+			end
+			idx = idx + 1
+		end
+		return false
+	end
+	local function desecratedSortFunc(a, b)
+		local modA = a.mod
+		local modB = b.mod
+
+		-- Desecrated specific mods always come first
+		if a.desecratedSpecific ~= b.desecratedSpecific then
+			return a.desecratedSpecific == true
+		end
+
+		for i = 1, m_max(#modA.statOrder or 0, #modB.statOrder or 0) do
+			local statA = modA.statOrder and modA.statOrder[i]
+			local statB = modB.statOrder and modB.statOrder[i]
+
+			if not statA then
+				return true
+			elseif not statB then
+				return false
+			elseif statA ~= statB then
+				return statA < statB
+			end
+		end
+		return (modA.level or 0) > (modB.level or 0)
+	end
 	---Mutates modList to contain mods from the specified source
 	---@param sourceId string @The crafting source id to build the list of mods for
 	local function buildMods(sourceId)
@@ -3441,6 +3484,21 @@ function ItemsTabClass:AddCustomModifierToDisplayItem()
 					end
 				end)
 			end
+		elseif sourceId == "RUNEINFLUENCED" then
+			local baseType, specificType = self.displayItem:GetSocketedAugmentTypes()
+			local tags = data.runeInfluences[specificType] or data.runeInfluences[baseType] or {}
+			for _, tag in ipairs(tags) do
+				for _, mod in pairsSortByKey(self.displayItem.affixes) do
+					if modHasSpawnTag(mod, tag) and self.displayItem:GetModSpawnWeight(mod, { [tag] = true }) > 0 then
+						t_insert(modList, {
+							label = mod.affix .. "   ^8[" .. table.concat(mod, "/") .. "]",
+							mod = mod,
+							type = "custom",
+						})
+					end
+				end
+			end
+			table.sort(modList, desecratedSortFunc)
 		elseif sourceId == "DESECRATED" then
 			local function isDesecratedMod(mod)
 				for _, tag in ipairs(mod.modTags or { }) do
@@ -3468,29 +3526,7 @@ function ItemsTabClass:AddCustomModifierToDisplayItem()
 					})
 				end
 			end
-			table.sort(modList, function(a, b)
-				local modA = a.mod
-				local modB = b.mod
-
-				-- Desecrated specific mods always come first
-				if a.desecratedSpecific ~= b.desecratedSpecific then
-					return a.desecratedSpecific == true
-				end
-
-				for i = 1, m_max(#modA.statOrder or 0, #modB.statOrder or 0) do
-					local statA = modA.statOrder and modA.statOrder[i]
-					local statB = modB.statOrder and modB.statOrder[i]
-
-					if not statA then
-						return true
-					elseif not statB then
-						return false
-					elseif statA ~= statB then
-						return statA < statB
-					end
-				end
-				return (modA.level or 0) > (modB.level or 0)
-			end)
+			table.sort(modList, desecratedSortFunc)
 		end
 		setDefaultSortOrder(modList)
 	end
@@ -3500,6 +3536,8 @@ function ItemsTabClass:AddCustomModifierToDisplayItem()
 	end
 	buildMods("DESECRATED")
 	local hasDesecratedMods = #modList > 0
+	buildMods("RUNEINFLUENCED")
+	local hasRuneInfluencedMods = #modList > 0
 	buildMods("ESSENCE") 	-- This is technically a waste if there aren't any essence mods,
 									-- but it makes it so we don't have to maintain a list of applicable essence-able base types
 	if #modList > 0 then
@@ -3507,6 +3545,9 @@ function ItemsTabClass:AddCustomModifierToDisplayItem()
 	end
 	if hasDesecratedMods then
 		t_insert(sourceList, { label = "Desecrated", sourceId = "DESECRATED" })
+	end
+	if hasRuneInfluencedMods then
+		t_insert(sourceList, { label = "Rune-Influenced", sourceId = "RUNEINFLUENCED" })
 	end
 	if self.displayItem.base.type == "Jewel" then
 		buildMods("EMOTION")
@@ -4358,8 +4399,9 @@ function ItemsTabClass:AddItemTooltip(tooltip, item, slot, dbMode, maxWidth)
 		self:UpdateSockets()
 		-- Build sorted list of slots to compare with
 		local compareSlots = { }
+		local weaponSet = self.build.calcsTab.mainEnv and self.build.calcsTab.mainEnv.weaponSet or (self.activeItemSet.useSecondWeaponSet and 2 or 1)
 		for slotName, slot in pairs(self.slots) do
-			if self:IsItemValidForSlot(item, slotName) and not slot.inactive and (not slot.weaponSet or slot.weaponSet == (self.activeItemSet.useSecondWeaponSet and 2 or 1)) and slot.shown() then
+			if self:IsItemValidForSlot(item, slotName) and not slot.inactive and (not slot.weaponSet or slot.weaponSet == weaponSet) and (slot.weaponSet or slot.shown()) then
 				t_insert(compareSlots, slot)
 			end
 		end
@@ -4391,6 +4433,9 @@ function ItemsTabClass:AddItemTooltip(tooltip, item, slot, dbMode, maxWidth)
 		-- one slot
 		if main.slotOnlyTooltips and slot then
 			slot = type(slot) ~= "string" and slot or self.slots[slot]
+			if slot and slot.weaponSet then
+				slot = self.slots[(slot.slotName:gsub(" Swap", ""):gsub("^Weapon %d", weaponSet == 2 and "%0 Swap" or "%0"))]
+			end
 			if slot then addCompareForSlot(slot) end
 			return
 		end

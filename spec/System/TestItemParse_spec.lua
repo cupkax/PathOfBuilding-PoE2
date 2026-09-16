@@ -15,6 +15,18 @@ describe("TestItemParse", function()
 		assert.are.equals("UNIQUE", item.rarity)
 	end)
 
+	it("ignores display-only Spear Throw grants without affecting levelled item skills", function()
+		for _, line in ipairs({ "Grants Skill: Spear Throw", "grants skill: spear throw" }) do
+			local mods, extra = modLib.parseMod(line)
+			assert.are.same({ }, mods)
+			assert.is_nil(extra)
+		end
+		local item = new("Item"):Item(raw("Grants Skill: Spear Throw\nGrants Skill: Level 5 Fireball", "Hardwood Spear"))
+		assert.are.equals(1, #item.grantedSkills)
+		assert.are.equals("FireballPlayer", item.grantedSkills[1].skillId)
+		assert.are.equals(5, item.grantedSkills[1].level)
+	end)
+
 	--it("Defence", function()
 	--	local item = new("Item"):Item(raw("Armour: 25"))
 	--	assert.are.equals(25, item.armourData.Armour)
@@ -220,8 +232,7 @@ describe("TestItemParse", function()
 		assert.are.equals(2, #item.implicitModLines)
 		assert.are.equals("Bleeding you inflict deals Damage 11% faster", item.implicitModLines[1].line)
 		assert.are.equals("Grants Skill: Spear Throw", item.implicitModLines[2].line)
-		assert.are.equals(1, #item.grantedSkills)
-		assert.are.equals("SpearThrowPlayer", item.grantedSkills[1].skillId)
+		assert.are.equals(0, #item.grantedSkills)
 		assert.are.equals("Adds 39 to 62 Fire Damage", item.explicitModLines[1].line)
 
 		assert.are.equals("Grants Skill: Level (1-20) Volatile Dead", data.itemBases["Volatile Wand"].implicit)
@@ -623,16 +634,16 @@ describe("TestItemParse", function()
 			Rune: Soul Core of Atmohua
 			LevelReq: 79
 			Implicits: 4
-			{enchant}{rune}Convert 20% of Requirements to Dexterity
-			{enchant}{rune}Convert 20% of Requirements to Intelligence
-			{enchant}{rune}Convert 20% of Requirements to Strength
+			{enchant}{rune}Convert 40% of Requirements to Dexterity
+			{enchant}{rune}Convert 40% of Requirements to Intelligence
+			{enchant}{rune}Convert 40% of Requirements to Strength
 			{tags:block}{range:1}+(10-15)% to Block chance
 			Corrupted
 			]])
 		item:BuildAndParseRaw()
-		assert.are.equals(35, item.requirements.strMod)
-		assert.are.equals(86, item.requirements.dexMod)
-		assert.are.equals(55, item.requirements.intMod)	
+		assert.are.equals(70, item.requirements.strMod)
+		assert.are.equals(45, item.requirements.dexMod)
+		assert.are.equals(60, item.requirements.intMod)
 		
 	end)
 
@@ -1003,7 +1014,7 @@ describe("TestItemParse", function()
 
 	it("parses Atziri's Splendour soul core socket types", function()
 		local item = new("Item"):Item(data.uniques.body[1])
-		item.variant = 1 -- Helmet
+		item.variantGroupSelections[1] = 1 -- Helmet
 		item:BuildModList()
 
 		assert.is_true(item.socketedSoulCoreTypes["helmet"])
@@ -1043,7 +1054,7 @@ describe("TestItemParse", function()
 			--------
 			Item Level: 86
 			--------
-			Hits against you have 40% reduced Critical Damage Bonus (rune)
+			Hits against you have 100% reduced Critical Damage Bonus (rune)
 			--------
 			Only Soul Cores can be Socketed in this item
 			This item gains bonuses from Socketed Soul Cores as though it was also a Shield
@@ -1052,7 +1063,7 @@ describe("TestItemParse", function()
 		assert.are.same({ "Soul Core of Ticaba" }, item.runes)
 		item:BuildAndParseRaw()
 		assert.are.same({ "Soul Core of Ticaba", "None", "None", "None", "None", "None" }, item.runes)
-		assert.are.equals("Hits against you have 40% reduced Critical Damage Bonus", item.runeModLines[1].line)
+		assert.are.equals("Hits against you have 100% reduced Critical Damage Bonus", item.runeModLines[1].line)
 	end)
 
 	it("infers pasted Soul Core lines with socketed Soul Core effect", function()
@@ -1064,7 +1075,7 @@ describe("TestItemParse", function()
 			--------
 			Sockets: S
 			--------
-			Hits against you have 40% reduced Critical Damage Bonus (rune)
+			Hits against you have 100% reduced Critical Damage Bonus (rune)
 			--------
 			100% increased effect of Socketed Soul Cores
 		]])
@@ -1072,7 +1083,7 @@ describe("TestItemParse", function()
 		assert.are.same({ "Soul Core of Ticaba" }, item.runes)
 		item:BuildAndParseRaw()
 		assert.are.same({ "Soul Core of Ticaba" }, item.runes)
-		assert.is_not_nil(item:BuildRaw():match("Hits against you have 40%% reduced Critical Damage Bonus"))
+		assert.is_not_nil(item:BuildRaw():match("Hits against you have 100%% reduced Critical Damage Bonus"))
 	end)
 
 	it("jewel sockets", function()

@@ -1163,28 +1163,21 @@ function ImportTabClass:ImportItemsAndSkills(charData)
 		if typeLine:match("Mace Strike") then
 			local weaponRequirement = skillData.weaponRequirements and skillData.weaponRequirements[1]
 			local requiredWeaponType = weaponRequirement and escapeGGGString(weaponRequirement.values[1][1])
-			local weapon1Sel = self.build.itemsTab.activeItemSet["Weapon 1"] and self.build.itemsTab.activeItemSet["Weapon 1"].selItemId or 0
-			local weapon2Sel = self.build.itemsTab.activeItemSet["Weapon 2"] and self.build.itemsTab.activeItemSet["Weapon 2"].selItemId or 0
-			if requiredWeaponType == "Two Hand Mace" then
-				gemId = "Metadata/Items/Gems/SkillGemPlayerDefault2HMace"
-			elseif weapon2Sel == 0 then
-				if weapon1Sel == 0 or self.build.itemsTab.items[weapon1Sel].base.type == "One Hand Mace" then -- Facebreaker uses single handed mace strike
-					gemId = "Metadata/Items/Gems/SkillGemPlayerDefault1HMace"
-				elseif self.build.itemsTab.items[weapon1Sel].base.type == "Two Hand Mace" then
-					gemId = "Metadata/Items/Gems/SkillGemPlayerDefault2HMace"
-				end
-			else
-				if self.build.itemsTab.items[weapon2Sel].base.type == "One Hand Mace" or self.build.itemsTab.items[weapon2Sel].base.type == "Two Hand Mace" then
-					gemId = "Metadata/Items/Gems/SkillGemPlayerDefaultMaceMace" -- Dual wielding maces
-				elseif self.build.itemsTab.items[weapon1Sel].base.type == "One Hand Mace" then
-					gemId = "Metadata/Items/Gems/SkillGemPlayerDefault1HMace"
-				elseif self.build.itemsTab.items[weapon1Sel].base.type == "Two Hand Mace" then
-					gemId = "Metadata/Items/Gems/SkillGemPlayerDefault2HMace"
-				end
-			end
-		end
-		if typeLine:match("Spear Stab") and (self.build.itemsTab.activeItemSet["Weapon 2"].selItemId or 0) ~= 0 then
-			gemId = "Metadata/Items/Gems/SkillGemPlayerDefaultSpearOffHand"
+			local mainItem = self.build.itemsTab.items[self.build.itemsTab.activeItemSet["Weapon 1"].selItemId]
+			local offItem = self.build.itemsTab.items[self.build.itemsTab.activeItemSet["Weapon 2"].selItemId]
+			-- Facebreaker uses the one-handed variant when no mace is equipped.
+			local mainType = requiredWeaponType == "Two Hand Mace" and requiredWeaponType
+				or mainItem and mainItem.base.type == "Two Hand Mace" and mainItem.base.type or "One Hand Mace"
+			local offType = requiredWeaponType ~= "Two Hand Mace" and offItem and offItem.base.type or "Unarmed"
+			local maceSkills = self.build.data.characterMeleeSkills[mainType]
+			gemId = (maceSkills[offType] or maceSkills.Unarmed)[1].id
+		elseif typeLine:match("Spear Stab") then
+			local mainItem = self.build.itemsTab.items[self.build.itemsTab.activeItemSet["Weapon 1"].selItemId]
+			local swapItem = self.build.itemsTab.items[self.build.itemsTab.activeItemSet["Weapon 1 Swap"].selItemId]
+			local slot = (not mainItem or mainItem.base.type ~= "Spear") and swapItem and swapItem.base.type == "Spear" and "Weapon 2 Swap" or "Weapon 2"
+			local offItem = self.build.itemsTab.items[self.build.itemsTab.activeItemSet[slot].selItemId]
+			local offType = offItem and offItem.base.tags.buckler and "Buckler" or "Unarmed"
+			gemId = self.build.data.characterMeleeSkills.Spear[offType][1].id
 		end
 
 		if gemId then
@@ -1337,7 +1330,7 @@ function ImportTabClass:ImportItemsAndSkills(charData)
 	if mainSkillEmpty then
 		self.build.mainSocketGroup = self:GuessMainSocketGroup()
 	end
-	self.build.calcsTab:BuildOutput()
+	self.build.calcsTab:BuildOutput(true)
 	self.build.itemsTab:PopulateSlots()
 	self.build.itemsTab:AddUndoState()
 	self.build.skillsTab:AddUndoState()
@@ -1551,15 +1544,6 @@ function ImportTabClass:ImportItem(itemData, slotName)
 			end
 		end
 	end
-	-- TODO: Remove once 3.29 releases https://www.pathofexile.com/developer/docs/changelog#3-29-0
-	if itemData.fracturedMods then
-		for _, line in ipairs(itemData.fracturedMods) do
-			for line in line:gmatch("[^\n]+") do
-				local modList, extra = modLib.parseMod(line)
-				t_insert(item.explicitModLines, { line = line, extra = extra, mods = modList or { }, fractured = true })
-			end
-		end
-	end
 	if itemData.explicitMods then
 		for _, itemMod in ipairs(itemData.explicitMods) do
 			local modLine = itemMod.description or itemMod
@@ -1569,33 +1553,9 @@ function ImportTabClass:ImportItem(itemData, slotName)
 				t_insert(item.explicitModLines, { line = line, extra = extra, mods = modList or { },
 					fractured = flags.fractured,
 					crafted = flags.crafted,
-					mutated = flags.mutated })
-			end
-		end
-	end
-	if itemData.desecratedMods then
-		for _, line in ipairs(itemData.desecratedMods) do
-			for line in line:gmatch("[^\n]+") do
-				local modList, extra = modLib.parseMod(line)
-				t_insert(item.explicitModLines, { line = line, extra = extra, mods = modList or { }, desecrated = true })
-			end
-		end
-	end
-	-- TODO: Remove once 3.29 releases https://www.pathofexile.com/developer/docs/changelog#3-29-0
-	if itemData.mutatedMods then
-		for _, line in ipairs(itemData.mutatedMods) do
-			for line in line:gmatch("[^\n]+") do
-				local modList, extra = modLib.parseMod(line)
-				t_insert(item.explicitModLines, { line = line, extra = extra, mods = modList or { }, mutated = true })
-			end
-		end
-	end
-	-- TODO: Remove once 3.29 releases https://www.pathofexile.com/developer/docs/changelog#3-29-0
-	if itemData.craftedMods then
-		for _, line in ipairs(itemData.craftedMods) do
-			for line in line:gmatch("[^\n]+") do
-				local modList, extra = modLib.parseMod(line)
-				t_insert(item.explicitModLines, { line = line, extra = extra, mods = modList or { }, crafted = true })
+					mutated = flags.mutated,
+					desecrated = flags.desecrated,
+				})
 			end
 		end
 	end

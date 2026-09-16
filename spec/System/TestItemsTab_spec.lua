@@ -16,6 +16,48 @@ describe("TestItemsTab", function()
 		runCallback("OnFrame")
 	end)
 
+	it("compares weapons in the skill's assigned set, with Both following the Items tab", function()
+		build.skillsTab:PasteSocketGroup("Spark 20/0  1")
+		local group = build.skillsTab.displayGroup
+		build.mainSocketGroup = isValueInArray(build.skillsTab.socketGroupList, group)
+		local staff = new("Item"):Item("New Item\nWrapped Quarterstaff")
+		local slots
+		build.calcsTab.GetMiscCalculator = function()
+			return function(override)
+				slots[override.repSlotName] = true
+				return { }
+			end, { }
+		end
+		build.AddStatComparesToTooltip = function() end
+		local slotOnlyTooltips = main.slotOnlyTooltips
+		for _, case in ipairs({
+			{ true, true, false, "Weapon 1" },
+			{ true, true, true, "Weapon 1 Swap" },
+			{ true, false, true, "Weapon 1" },
+			{ false, true, false, "Weapon 1 Swap" },
+		}) do
+			group.set1, group.set2 = case[1], case[2]
+			build.itemsTab.activeItemSet.useSecondWeaponSet = case[3]
+			build.buildFlag = true
+			runCallback("OnFrame")
+			for _, slotOnly in ipairs({ false, true }) do
+				main.slotOnlyTooltips = slotOnly
+				slots = { }
+				local shownSlot = case[3] and "Weapon 1 Swap" or "Weapon 1"
+				build.itemsTab:AddItemTooltip(new("Tooltip"):Tooltip(), staff, slotOnly and shownSlot or nil, true)
+				main.slotOnlyTooltips = slotOnlyTooltips
+				assert.are.same({ [case[4]] = true }, slots)
+				if slotOnly then
+					main.slotOnlyTooltips = true
+					slots = { }
+					build.itemsTab:AddItemTooltip(new("Tooltip"):Tooltip(), new("Item"):Item("New Item\nRuby"), shownSlot .. " Jewel Socket 1", true)
+					main.slotOnlyTooltips = slotOnlyTooltips
+					assert.are.same({ [case[4] .. " Jewel Socket 1"] = true }, slots)
+				end
+			end
+		end
+	end)
+
 	it("keeps item tooltips for socket slots without note buttons", function()
 		local item = new("Item"):Item([[Rarity: RARE
 Test Jewel
@@ -662,8 +704,9 @@ Ruby]])
 			it("uses variant socket types for valid augments", function ()
 				for _, itemRaw in ipairs({ data.uniques.belt[6], data.uniques.body[1] }) do
 					local item = new("Item"):Item(itemRaw)
-					item.variant = 1 -- Helmet
-					item:BuildModList()
+					build.itemsTab:SetDisplayItem(item)
+					build.itemsTab.controls.displayItemVariant:SetSel(1) -- Helmet
+					item = build.itemsTab.displayItem
 
 					local foundHelmetSoulCore = false
 					for _, rune in ipairs(build.itemsTab:GetValidRunesForItem(item)) do
@@ -710,11 +753,15 @@ Ruby]])
 
 			it("refreshes valid augments when the item variant changes", function ()
 				local item = new("Item"):Item(data.uniques.body[1])
-				item.variant = 3 -- Boots
+				item.variantGroupSelections[1] = 3 -- Boots
 				item:BuildModList()
 				build.itemsTab:SetDisplayItem(item)
+				assert.is_true(build.itemsTab.displayItem.socketedSoulCoreTypes["boots"])
+				assert.is_nil(build.itemsTab.displayItem.socketedSoulCoreTypes["helmet"])
 
 				build.itemsTab.controls.displayItemVariant:SetSel(1) -- Helmet
+				assert.is_true(build.itemsTab.displayItem.socketedSoulCoreTypes["helmet"])
+				assert.is_nil(build.itemsTab.displayItem.socketedSoulCoreTypes["boots"])
 
 				local foundMaximumRage = false
 				for _, rune in ipairs(build.itemsTab.controls.displayItemRune1.list) do
@@ -809,7 +856,7 @@ Ruby]])
 
 			it("deduplicates valid augments by socketed item name", function ()
 				local item = new("Item"):Item(data.uniques.body[1])
-				item.variant = 4 -- Shield
+				item.variantGroupSelections[1] = 4 -- Shield
 				item:BuildModList()
 
 				local ticabaCount = 0
@@ -822,8 +869,8 @@ Ruby]])
 				end
 				assert.are.equals(1, ticabaCount)
 				assert.are.equals(2, #ticabaRune.lines)
-				assert.are.equals("Hits against you have 20% reduced Critical Damage Bonus", ticabaRune.lines[1])
-				assert.are.equals("Hits against you have 20% reduced Critical Damage Bonus", ticabaRune.lines[2])
+				assert.are.equals("Hits against you have 50% reduced Critical Damage Bonus", ticabaRune.lines[1])
+				assert.are.equals("Hits against you have 50% reduced Critical Damage Bonus", ticabaRune.lines[2])
 			end)
 
 			it("keeps pure Bonded slot entries and uses the regular rune mod as the dropdown label", function ()
