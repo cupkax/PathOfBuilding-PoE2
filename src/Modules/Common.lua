@@ -814,7 +814,7 @@ local function formatNumSepInner(m)
 	local x, y, minus, integer, fraction = str:find("(-?)(%d+)(%.?%d*)")
 	if main.showThousandsSeparators then
 		rev1kSep = utf8.reverse(main.thousandsSeparator)
-		integer = utf8.reverse(utf8.gsub(utf8.reverse(integer), "(%d%d%d)", "%1" .. rev1kSep))
+		integer = utf8.reverse((utf8.gsub(utf8.reverse(integer), "(%d%d%d)", "%1" .. rev1kSep)))
 		-- There will be leading separators if the number of digits are divisible by 3
 		-- This checks for their presence and removes them
 		-- Don't use patterns here because thousandsSeparator can be a pattern control character, and will crash if used
@@ -825,7 +825,7 @@ local function formatNumSepInner(m)
 			end
 		end
 	else
-		integer = utf8.reverse(utf8.gsub(utf8.reverse(integer), "(%d%d%d)", "%1"))
+		integer = utf8.reverse((utf8.gsub(utf8.reverse(integer), "(%d%d%d)", "%1")))
 	end
 	return colour .. minus .. integer .. utf8.gsub(fraction, "%.", main.decimalSeparator)
 end
@@ -1115,4 +1115,34 @@ function HashStats(stats, extraStat)
 		statHashes = statHashes .. newHash
 	end
 	return murmurHash2(statHashes, GGG_TRADE_SEED)
+end
+
+---@class DDSPosition
+---@field [1] number x
+---@field [2] number y
+---@field [3] number width
+---@field [4] number height
+---@field [5] number stack index
+local x -- avoids binding annotation to below function
+
+-- Calculates DDS asset position information for input into DrawImage
+---@param asset any
+---@param coords number|DDSPosition
+---@param sheetWidth number
+---@param sheetHeight number
+---@return any asset The asset, with either stack idx, or x, y, w, h, stackIdx added into it
+function applyDDSCoords(asset, coords, sheetWidth, sheetHeight)
+	asset.width, asset.height = sheetWidth, sheetHeight
+	if type(coords) == "number" then
+		asset[1] = coords
+	elseif sheetWidth > 0 and sheetHeight > 0 then
+		asset.width, asset.height = coords[3], coords[4]
+		-- Scale from pixel values to [0, 1]
+		asset[1] = coords[1] / sheetWidth
+		asset[2] = coords[2] / sheetHeight
+		asset[3] = (coords[1] + coords[3]) / sheetWidth
+		asset[4] = (coords[2] + coords[4]) / sheetHeight
+		asset[5] = coords[5]
+	end
+	return asset
 end

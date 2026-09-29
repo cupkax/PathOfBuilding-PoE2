@@ -788,6 +788,7 @@ local function calcRecoup(output, breakdown, modDB, recoup, recoupType, damageTy
 end
 -- Performs all ingame and related defensive calculations
 function calcs.defence(env, actor)
+	---@type ModDB
 	local modDB = actor.modDB
 	local enemyDB = actor.enemy.modDB
 	---@class Output
@@ -1112,7 +1113,13 @@ function calcs.defence(env, actor)
 			modDB:NewMod("EnergyShieldRecharge", "INC", m_floor(mod.value * multiplier), mod.source, mod.flags, mod.keywordFlags, unpack(modifiers))
 		end
 	end
-
+	if modDB:Flag(nil, "MovementSpeedAppliesToEnergyShieldRecharge") then
+		-- Jiquani's Thesis boots conversion
+		for i, value in ipairs(modDB:Tabulate("INC", {}, "MovementSpeed")) do
+			local mod = value.mod
+			modDB:NewMod("EnergyShieldRecharge", "INC", mod.value, mod.source, mod.flags, mod.keywordFlags, unpack(mod))
+		end
+	end
 	if modDB:Flag(nil, "ManaRegenAppliesToEnergyShieldRecharge") then
 		-- Mana Regen conversion from Waveshaper
 		for i, value in ipairs(modDB:Tabulate("INC",  { }, "ManaRegen")) do
@@ -1120,7 +1127,13 @@ function calcs.defence(env, actor)
 			modDB:NewMod("EnergyShieldRecharge", "INC", mod.value, mod.source, mod.flags, mod.keywordFlags, unpack(mod))
 		end
 	end
-
+	if modDB:Flag(nil, "LifeRegenAppliesToManaRegen") then
+		-- Life Regen conversion from Kurgal's Gaze
+		for i, value in ipairs(modDB:Tabulate("INC", {}, "LifeRegen")) do
+			local mod = value.mod
+			modDB:NewMod("ManaRegen", "INC", mod.value, mod.source, mod.flags, mod.keywordFlags, unpack(mod))
+		end
+	end
 	if modDB:Flag(nil, "EnergyShieldIncreasedByOvercappedColdRes") then
 		for i, value in ipairs(modDB:Tabulate("FLAG", nil, "EnergyShieldIncreasedByOvercappedColdRes")) do
 			local mod = value.mod
@@ -1352,7 +1365,8 @@ function calcs.defence(env, actor)
 			output[source.name] = (output[source.name] or 0)
 			local totalConversion = 0
 			for _, target in ipairs(resourceList) do
-				source.conversionRate[target.name] = m_min(modDB:Sum("BASE", nil, source.name.."ConvertTo"..target.name), 100)
+				local conversionRate = modDB:Flag(nil, source.name .. "CannotBeConverted") and 0 or modDB:Sum("BASE", nil, source.name .. "ConvertTo" .. target.name)
+				source.conversionRate[target.name] = m_min(conversionRate, 100)
 				totalConversion = totalConversion + source.conversionRate[target.name]
 			end
 			if totalConversion > 100 then

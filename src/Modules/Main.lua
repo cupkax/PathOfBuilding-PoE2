@@ -157,34 +157,7 @@ function main:Init()
 			for _, raw in pairs(typeList) do
 				local newItem = new("Item"):Item(raw, "UNIQUE", true)
 				if newItem.base then
-					local baseBase = newItem.baseName
-					-- uniques with base variants are skipped as they can be handled manually
-					local hasBaseVariants = newItem.baseLines and not not next(newItem.baseLines)
-					if newItem.rarity == "UNIQUE" and not hasBaseVariants then
-						-- look for alternate runeforging bases
-						local bases = { { variantName = "Regular Base", baseName = baseBase } }
-						if data.itemBases["Runeforged " .. baseBase] then
-							table.insert(bases, { variantName = "Runeforged", baseName = "Runeforged " .. baseBase })
-						end
-						if data.itemBases["Runemastered " .. baseBase] then
-							table.insert(bases, { variantName = "Runemastered", baseName = "Runemastered " .. baseBase })
-						end
-						if #bases > 1 then
-						newItem.baseList = newItem.baseList ?? {}
-							local baseLines = {}
-							-- Add variants for each base
-							for _, base in ipairs(bases) do
-								local baseVariantList = { [#newItem.baseList + 1] = true, }
-								baseLines[base.baseName] = { line = base.baseName, baseVariantList = baseVariantList }
-								table.insert(newItem.baseList, base.variantName)
-							end
-							newItem.baseLines = baseLines
-							-- default to the original base
-							newItem.selectedBase = 1
-
-							newItem:BuildAndParseRaw()
-						end
-					end
+					itemLib.addRuneforgingBaseVariants(newItem)
 					self.uniqueDB.list[newItem.name] = newItem
 				elseif launch.devMode then
 					ConPrintf("Unique DB unrecognised item of type '%s':\n%s", type, raw)
@@ -1534,12 +1507,9 @@ end
 
 function main:DrawBackground(viewPort)
 	SetDrawLayer(nil, -100)
-	SetDrawColor(0.5, 0.5, 0.5)
-
-	local bd = self.tree[latestTreeVersion]:GetAssetByName("Background2")
-
-	DrawImage(bd.handle, viewPort.x, viewPort.y, viewPort.width, viewPort.height, 0, 0, viewPort.width / 100, viewPort.height / 100)
-
+	SetDrawColor(8 / 255, 12 / 255, 17 / 255)
+	DrawImage(nil, viewPort.x, viewPort.y, viewPort.width, viewPort.height)
+	SetDrawColor(1, 1, 1, 1)
 	SetDrawLayer(nil, 0)
 end
 
